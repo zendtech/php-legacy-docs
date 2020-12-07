@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Get current line number for an XML parser</title>
+
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.xml-get-current-column-number.html">« xml_get_current_column_number</a></li>
+      <li style="float: right;"><a href="function.xml-get-error-code.html">xml_get_error_code »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.xml.html">XML Parser Functions</a></li>
+    <li>Get current line number for an XML parser</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.xml-get-current-line-number" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">xml_get_current_line_number</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">xml_get_current_line_number</span> &mdash; <span class="dc-title">Get current line number for an XML parser</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.xml-get-current-line-number-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">int</span> <span class="methodname"><strong>xml_get_current_line_number</strong></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$parser</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Gets the current line number for the given XML parser.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.xml-get-current-line-number-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">parser</code></dt>
+
+     <dd>
+
+      <p class="para">
+       A reference to the XML parser to get line number from.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.xml-get-current-line-number-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   This function returns <strong><code>FALSE</code></strong> if <code class="parameter">parser</code> does
+   not refer to a valid parser, or else it returns which line the
+   parser is currently at in its data buffer.
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.xml-get-current-line-number-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.xml-get-current-column-number.html" class="function" rel="rdfs-seeAlso">xml_get_current_column_number()</a> - Get current column number for an XML parser</span></li>
+    <li class="member"><span class="function"><a href="function.xml-get-current-byte-index.html" class="function" rel="rdfs-seeAlso">xml_get_current_byte_index()</a> - Get current byte index for an XML parser</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

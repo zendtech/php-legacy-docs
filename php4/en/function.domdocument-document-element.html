@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Returns root element node</title>
+
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.domdocument-doctype.html">« DomDocument::doctype</a></li>
+      <li style="float: right;"><a href="function.domdocument-dump-file.html">DomDocument::dump_file »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.domxml.html">DOM XML (PHP 4) Functions</a></li>
+    <li>Returns root element node</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.domdocument-document-element" class="refentry">
+   <div class="refnamediv">
+    <h1 class="refname">DomDocument::document_element</h1>
+    <p class="verinfo">(PHP 4 &gt;= 4.1.0)</p><p class="refpurpose"><span class="refname">DomDocument::document_element</span> &mdash; <span class="dc-title">
+     Returns root element node
+    </span></p>
+
+   </div>
+   <div class="refsect1 unknown-unknown-unknown-unknown-unknown-unknown-unknown-unknown-unknown-unknown-unknown-seealsz" id="refsect1-function.domdocument-document-element-unknown-unknown-unknown-unknown-unknown-unknown-unknown-unknown-unknown-unknown-unknown-seealsz">
+    <h3 class="title">Description</h3>
+    <div class="methodsynopsis dc-description">
+     <span class="type"><a href="class.domelement.html" class="type domelement">domelement</a></span> <span class="methodname"><strong>DomDocument::document_element</strong></span>
+      ( <span class="methodparam">void</span>
+     )</div>
+
+    <p class="para rdfs-comment">
+     This function returns the root element node of a document. 
+    </p>
+    <p class="para">
+     The following example returns just the element with name <em>CHAPTER</em> and
+     prints it. The other node -- the comment -- is not returned.
+     <div class="example" id="example-5038">
+      <p><strong>Example #1 Retrieving root element</strong></p>
+      <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">include(</span><span style="color: #DD0000">"example.inc"</span><span style="color: #007700">);<br /><br />if&nbsp;(!</span><span style="color: #0000BB">$dom&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">domxml_open_mem</span><span style="color: #007700">(</span><span style="color: #0000BB">$xmlstr</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Error&nbsp;while&nbsp;parsing&nbsp;the&nbsp;document\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;exit;<br />}<br /><br /></span><span style="color: #0000BB">$root&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dom</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">document_element</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$root</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+      </div>
+
+      <div class="example-contents"><p>The above example will output:</p></div>
+      <div class="example-contents screen">
+<div class="cdata"><pre>
+domelement Object
+(
+    [type] =&gt; 1
+    [tagname] =&gt; chapter
+    [0] =&gt; 6
+    [1] =&gt; 137960648
+)
+</pre></div>
+      </div>
+     </div>
+    </p>
+   </div>
+
+  </div></div></div></body></html>

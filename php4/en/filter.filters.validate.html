@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Validate filters</title>
+
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="filter.filters.html">« Types of filters</a></li>
+      <li style="float: right;"><a href="filter.filters.sanitize.html">Sanitize filters »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="filter.filters.html">Types of filters</a></li>
+    <li>Validate filters</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="filter.filters.validate" class="section">
+  <h2 class="title">Validate filters</h2>
+   <p class="para">
+    <table class="doctable table">
+     <caption><strong>Listing of filters for validation</strong></caption>
+     
+      <thead>
+       <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Options</th>
+        <th>Flags</th>
+        <th>Description</th>
+       </tr>
+
+      </thead>
+
+      <tbody class="tbody">
+       <tr>
+        <td><strong><code>FILTER_VALIDATE_BOOLEAN</code></strong></td>
+        <td>&quot;boolean&quot;</td>
+        <td class="empty">&nbsp;</td>
+        <td>
+          <strong><code>FILTER_NULL_ON_FAILURE</code></strong>
+        </td>
+        <td>
+         <p class="para">
+          Returns <strong><code>TRUE</code></strong> for &quot;1&quot;, &quot;true&quot;, &quot;on&quot; and &quot;yes&quot;.
+          Returns <strong><code>FALSE</code></strong> otherwise.
+         </p>
+         <p class="para">
+          If <strong><code>FILTER_NULL_ON_FAILURE</code></strong> is set, <strong><code>FALSE</code></strong> is
+          returned only for &quot;0&quot;, &quot;false&quot;, &quot;off&quot;, &quot;no&quot;, and &quot;&quot;, and
+          <strong><code>NULL</code></strong> is returned for all non-boolean values.
+         </p>
+        </td>
+       </tr>
+
+       <tr>
+        <td><strong><code>FILTER_VALIDATE_EMAIL</code></strong></td>
+        <td>&quot;validate_email&quot;</td>
+        <td class="empty">&nbsp;</td>
+        <td class="empty">&nbsp;</td>
+        <td>Validates value as e-mail.</td>
+       </tr>
+
+       <tr>
+        <td><strong><code>FILTER_VALIDATE_FLOAT</code></strong></td>
+        <td>&quot;float&quot;</td>
+        <td>
+         <code class="parameter">decimal</code>
+        </td>
+        <td>
+         <strong><code>FILTER_FLAG_ALLOW_THOUSAND</code></strong>
+        </td>
+        <td>Validates value as float.</td>
+       </tr>
+
+       <tr>
+        <td><strong><code>FILTER_VALIDATE_INT</code></strong></td>
+        <td>&quot;int&quot;</td>
+        <td>
+         <code class="parameter">min_range</code>,
+         <code class="parameter">max_range</code>
+        </td>
+        <td>
+         <strong><code>FILTER_FLAG_ALLOW_OCTAL</code></strong>,
+         <strong><code>FILTER_FLAG_ALLOW_HEX</code></strong>
+        </td>
+        <td>Validates value as integer, optionally from the specified range.</td>
+       </tr>
+
+       <tr>
+        <td><strong><code>FILTER_VALIDATE_IP</code></strong></td>
+        <td>&quot;validate_ip&quot;</td>
+        <td class="empty">&nbsp;</td>
+        <td>
+         <strong><code>FILTER_FLAG_IPV4</code></strong>,
+         <strong><code>FILTER_FLAG_IPV6</code></strong>,
+         <strong><code>FILTER_FLAG_NO_PRIV_RANGE</code></strong>,
+         <strong><code>FILTER_FLAG_NO_RES_RANGE</code></strong>
+        </td>
+        <td>
+         Validates value as IP address, optionally only IPv4 or IPv6 or not
+         from private or reserved ranges.
+        </td>
+       </tr>
+
+       <tr>
+        <td><strong><code>FILTER_VALIDATE_REGEXP</code></strong></td>
+        <td>&quot;validate_regexp&quot;</td>
+        <td>
+         <code class="parameter">regexp</code>
+        </td>
+        <td class="empty">&nbsp;</td>
+        <td>
+         Validates value against <code class="parameter">regexp</code>, a
+         <a href="book.pcre.html" class="link">Perl-compatible</a> regular expression.
+        </td>
+       </tr>
+
+       <tr>
+        <td><strong><code>FILTER_VALIDATE_URL</code></strong></td>
+        <td>&quot;validate_url&quot;</td>
+        <td class="empty">&nbsp;</td>
+        <td>
+         <strong><code>FILTER_FLAG_PATH_REQUIRED</code></strong>,
+         <strong><code>FILTER_FLAG_QUERY_REQUIRED</code></strong>
+        </td>
+        <td>Validates value as URL (according to <a href="http://www.faqs.org/rfcs/rfc2396" class="link external">&raquo;&nbsp;http://www.faqs.org/rfcs/rfc2396</a>), optionally with required components. Note that the function will only find ASCII URLs to be valid; internationalized domain names (containing non-ASCII characters) will fail.</td>
+       </tr>
+
+      </tbody>
+     
+    </table>
+
+   </p>
+   <blockquote class="note"><p><strong class="note">Note</strong>: 
+    <p class="para">
+     Numbers +0 and -0 are not valid integers but validate as floats.
+    </p>
+   </p></blockquote>
+ </div></div></div></body></html>

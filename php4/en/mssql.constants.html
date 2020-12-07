@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="mssql.resources.html">« Resource Types</a></li>
+      <li style="float: right;"><a href="ref.mssql.html">Mssql Functions »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.mssql.html">Mssql</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="mssql.constants" class="appendix">
+ <h1>Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are defined by this extension, and
+will only be available when the extension has either
+been compiled into PHP or dynamically loaded at runtime.
+</p>
+ <dl>
+
+  
+   <dt id="constant.mssql-assoc">
+    <strong><code>MSSQL_ASSOC</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Return an associative array. Used on 
+     <span class="function"><a href="function.mssql-fetch-array.html" class="function">mssql_fetch_array()</a></span>&#039;s 
+     <em>result_type</em> parameter.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.mssql-num">
+    <strong><code>MSSQL_NUM</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Return an array with numeric keys. Used on 
+     <span class="function"><a href="function.mssql-fetch-array.html" class="function">mssql_fetch_array()</a></span>&#039;s 
+     <em>result_type</em> parameter.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.mssql-both">
+    <strong><code>MSSQL_BOTH</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Return an array with both numeric keys and 
+     keys with their field name. This is the 
+     default value for  <span class="function"><a href="function.mssql-fetch-array.html" class="function">mssql_fetch_array()</a></span>&#039;s 
+     <em>result_type</em> parameter.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqltext">
+    <strong><code>SQLTEXT</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Indicates the &#039;<em>TEXT</em>&#039; type in MSSQL, used by 
+     <span class="function"><a href="function.mssql-bind.html" class="function">mssql_bind()</a></span>&#039;s <em>type</em> 
+     parameter.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlvarchar">
+    <strong><code>SQLVARCHAR</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Indicates the &#039;<em>VARCHAR</em>&#039; type in MSSQL, used by 
+     <span class="function"><a href="function.mssql-bind.html" class="function">mssql_bind()</a></span>&#039;s <em>type</em> 
+     parameter.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlchar">
+    <strong><code>SQLCHAR</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Indicates the &#039;<em>CHAR</em>&#039; type in MSSQL, used by 
+     <span class="function"><a href="function.mssql-bind.html" class="function">mssql_bind()</a></span>&#039;s <em>type</em> 
+     parameter.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlint1">
+    <strong><code>SQLINT1</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Represents one byte, with a range of -128 to 127.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlint2">
+    <strong><code>SQLINT2</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Represents two bytes, with a range of -32768 
+     to 32767.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlint4">
+    <strong><code>SQLINT4</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Represents four bytes, with a range of -2147483648 
+     to 2147483647.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlbit">
+    <strong><code>SQLBIT</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Indicates the &#039;<em>BIT</em>&#039; type in MSSQL, used by 
+     <span class="function"><a href="function.mssql-bind.html" class="function">mssql_bind()</a></span>&#039;s <em>type</em> 
+     parameter.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlflt4">
+    <strong><code>SQLFLT4</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Represents an four byte float.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlflt8">
+    <strong><code>SQLFLT8</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Represents an eight byte float.
+    </span>
+   </dd>
+
+  
+ </dl>
+
+</div>
+</div></div></body></html>

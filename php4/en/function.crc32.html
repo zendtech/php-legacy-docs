@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Calculates the crc32 polynomial of a string</title>
+
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.count-chars.html">« count_chars</a></li>
+      <li style="float: right;"><a href="function.crypt.html">crypt »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.strings.html">String Functions</a></li>
+    <li>Calculates the crc32 polynomial of a string</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.crc32" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">crc32</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.1, PHP 5)</p><p class="refpurpose"><span class="refname">crc32</span> &mdash; <span class="dc-title">Calculates the crc32 polynomial of a string</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.crc32-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">int</span> <span class="methodname"><strong>crc32</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Generates the cyclic redundancy checksum polynomial of 32-bit
+   lengths of the <code class="parameter">str</code>. This is usually used
+   to validate the integrity of data being transmitted.
+  </p>
+  <p class="para">
+   Because PHP&#039;s integer type is signed, and many crc32 checksums will
+   result in negative integers, you need to use the &quot;%u&quot; formatter of
+   <span class="function"><a href="function.sprintf.html" class="function">sprintf()</a></span> or <span class="function"><a href="function.printf.html" class="function">printf()</a></span> to get
+   the string representation of the unsigned crc32 checksum.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.crc32-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">str</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The data.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.crc32-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns the crc32 checksum of <code class="parameter">str</code> as an integer.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.crc32-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-4440">
+    <p><strong>Example #1 Displaying a crc32 checksum</strong></p>
+    <div class="example-contents"><p>
+     This example shows how to print a converted checksum with the
+     <span class="function"><a href="function.printf.html" class="function">printf()</a></span> function:
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$checksum&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">crc32</span><span style="color: #007700">(</span><span style="color: #DD0000">"The&nbsp;quick&nbsp;brown&nbsp;fox&nbsp;jumped&nbsp;over&nbsp;the&nbsp;lazy&nbsp;dog."</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%u\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$checksum</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.crc32-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.md5.html" class="function" rel="rdfs-seeAlso">md5()</a> - Calculate the md5 hash of a string</span></li>
+    <li class="member"><span class="function"><a href="function.sha1.html" class="function" rel="rdfs-seeAlso">sha1()</a> - Calculate the sha1 hash of a string</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

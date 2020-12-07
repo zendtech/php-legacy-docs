@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Adds a namespace declaration to a node</title>
+
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.domelement-tagname.html">« DomElement::tagname</a></li>
+      <li style="float: right;"><a href="function.domnode-append-child.html">DomNode::append_child »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.domxml.html">DOM XML (PHP 4) Functions</a></li>
+    <li>Adds a namespace declaration to a node</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.domnode-add-namespace" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">DomNode::add_namespace</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0)</p><p class="refpurpose"><span class="refname">DomNode::add_namespace</span> &mdash; <span class="dc-title">
+   Adds a namespace declaration to a node
+  </span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.domnode-add-namespace-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>DOMNode::add_namespace</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$uri</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$prefix</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   This method adds a namespace declaration to a node.
+  </p>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    This method is not part of the DOM specification.
+   </p>
+  </p></blockquote>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.domnode-add-namespace-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">uri</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The namespace URI of the node.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">prefix</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The namespace prefix of the node.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.domnode-add-namespace-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+  </p>
+ </div>
+
+ <div class="refsect1 migration" id="refsect1-function.domnode-add-namespace-migration">
+  <h3 class="title">Migrating to PHP 5</h3>
+  <p class="para">
+   You can set the namespace URI and prefix of a <a href="class.domelement.html" class="classname">DOMElement</a>
+   or a <a href="class.domattr.html" class="classname">DOMAttr</a> at creation time by using 
+   <a href="domdocument.createelementns.html" class="xref">DOMDocument::createElementNS</a> or 
+   <a href="domdocument.createattributens.html" class="xref">DOMDocument::createAttributeNS</a>.
+  </p>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    Remember the an attribute does not inherit its namespace from the element
+    it is attached to.
+   </p>
+  </p></blockquote>
+ </div>
+
+ <div class="refsect1 seealso" id="refsect1-function.domnode-add-namespace-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><a href="function.domdocument-create-element-ns.html" class="xref">DomDocument::create_element_ns</a></li>
+    <li class="member"><a href="function.domnode-set-namespace.html" class="xref">DomNode::set_namespace</a></li>
+   </ul>
+  </p>
+ </div>
+
+</div></div></div></body></html>

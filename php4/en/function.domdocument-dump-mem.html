@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Dumps the internal XML tree back into a string</title>
+
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.domdocument-dump-file.html">« DomDocument::dump_file</a></li>
+      <li style="float: right;"><a href="function.domdocument-get-element-by-id.html">DomDocument::get_element_by_id »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.domxml.html">DOM XML (PHP 4) Functions</a></li>
+    <li>Dumps the internal XML tree back into a string</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.domdocument-dump-mem" class="refentry">
+   <div class="refnamediv">
+    <h1 class="refname">DomDocument::dump_mem</h1>
+    <p class="verinfo">(PHP 4 &gt;= 4.1.0)</p><p class="refpurpose"><span class="refname">DomDocument::dump_mem</span> &mdash; <span class="dc-title">
+     Dumps the internal XML tree back into a string
+    </span></p>
+
+   </div>
+   <div class="refsect1 unknown-unknown-unknown-unknown-unknown-unknown-unknown-unknown-unknown-unknown-unknown-unknown-unknown-seealtb" id="refsect1-function.domdocument-dump-mem-unknown-unknown-unknown-unknown-unknown-unknown-unknown-unknown-unknown-unknown-unknown-unknown-unknown-seealtb">
+    <h3 class="title">Description</h3>
+    <div class="methodsynopsis dc-description">
+     <span class="type">string</span> <span class="methodname"><strong>DomDocument::dump_mem</strong></span>
+      ([ <span class="methodparam"><span class="type">bool</span> <code class="parameter">$format</code></span>
+     [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code></span> 
+    ]] )</div>
+
+    <p class="para rdfs-comment">
+     Creates an XML document from the dom representation. This function
+     usually is called after building a new dom document from scratch
+     as in the example below. The
+     <code class="parameter">format</code> specifies whether the output should be
+     neatly formatted, or not.
+    </p>
+    <p class="para">
+     <div class="example" id="example-5040">
+      <p><strong>Example #1 Creating a simple HTML document header</strong></p>
+      <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$doc&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">domxml_new_doc</span><span style="color: #007700">(</span><span style="color: #DD0000">"1.0"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$root&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$doc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">create_element</span><span style="color: #007700">(</span><span style="color: #DD0000">"HTML"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$root&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$doc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">append_child</span><span style="color: #007700">(</span><span style="color: #0000BB">$root</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$head&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$doc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">create_element</span><span style="color: #007700">(</span><span style="color: #DD0000">"HEAD"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$head&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$root</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">append_child</span><span style="color: #007700">(</span><span style="color: #0000BB">$head</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$title&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$doc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">create_element</span><span style="color: #007700">(</span><span style="color: #DD0000">"TITLE"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$title&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$head</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">append_child</span><span style="color: #007700">(</span><span style="color: #0000BB">$title</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$text&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$doc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">create_text_node</span><span style="color: #007700">(</span><span style="color: #DD0000">"This&nbsp;is&nbsp;the&nbsp;title"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$text&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$title</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">append_child</span><span style="color: #007700">(</span><span style="color: #0000BB">$text</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"&lt;PRE&gt;"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">htmlentities</span><span style="color: #007700">(</span><span style="color: #0000BB">$doc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">dump_mem</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">));<br />echo&nbsp;</span><span style="color: #DD0000">"&lt;/PRE&gt;"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+      </div>
+
+     </div>
+    </p>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="para">
+      The first parameter was added in PHP 4.3.0.
+     </p>
+    </p></blockquote>
+    <p class="para">
+     See also <span class="function"><a href="function.domdocument-dump-file.html" class="function">domdocument_dump_file()</a></span>, and
+     <span class="function"><a href="function.domdocument-html-dump-mem.html" class="function">domdocument_html_dump_mem()</a></span>.
+    </p>
+   </div>
+
+  </div></div></div></body></html>

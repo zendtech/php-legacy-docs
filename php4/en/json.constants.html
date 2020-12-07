@@ -1,0 +1,294 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="json.resources.html">« Resource Types</a></li>
+      <li style="float: right;"><a href="class.jsonserializable.html">JsonSerializable »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.json.html">JSON</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="json.constants" class="appendix">
+ <h1>Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are defined by this extension, and
+will only be available when the extension has either
+been compiled into PHP or dynamically loaded at runtime.
+</p>
+ <p class="para">
+  The following constants indicate the type of error returned by
+  <span class="function"><a href="function.json-last-error.html" class="function">json_last_error()</a></span>.
+ </p>
+ <dl>
+
+  
+   <dt id="constant.json-error-none">
+    <strong><code>JSON_ERROR_NONE</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     No error has occurred.
+     Available since PHP 5.3.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-error-depth">
+    <strong><code>JSON_ERROR_DEPTH</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     The maximum stack depth has been exceeded.
+     Available since PHP 5.3.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-error-state-mismatch">
+    <strong><code>JSON_ERROR_STATE_MISMATCH</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Occurs with underflow or with the modes mismatch.
+     Available since PHP 5.3.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-error-ctrl-char">
+    <strong><code>JSON_ERROR_CTRL_CHAR</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Control character error, possibly incorrectly encoded.
+     Available since PHP 5.3.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-error-syntax">
+    <strong><code>JSON_ERROR_SYNTAX</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Syntax error.
+     Available since PHP 5.3.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-error-utf8">
+    <strong><code>JSON_ERROR_UTF8</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Malformed UTF-8 characters, possibly incorrectly encoded. This 
+     constant is available as of PHP 5.3.1.
+    </span>
+   </dd>
+
+  
+ </dl>
+
+
+ <p class="para">
+  The following constants can be combined to form options for
+  <span class="function"><a href="function.json-encode.html" class="function">json_encode()</a></span>.
+ </p>
+ <dl>
+
+  
+   <dt id="constant.json-hex-tag">
+    <strong><code>JSON_HEX_TAG</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     All &lt; and &gt; are converted to \u003C and \u003E.
+     Available since PHP 5.3.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-hex-amp">
+    <strong><code>JSON_HEX_AMP</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     All &amp;s are converted to \u0026.
+     Available since PHP 5.3.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-hex-apos">
+    <strong><code>JSON_HEX_APOS</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     All &#039; are converted to \u0027.
+     Available since PHP 5.3.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-hex-quot">
+    <strong><code>JSON_HEX_QUOT</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     All &quot; are converted to \u0022.
+     Available since PHP 5.3.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-force-object">
+    <strong><code>JSON_FORCE_OBJECT</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Outputs an object rather than an array when a non-associative array is
+     used. Especially useful when the recipient of the output is expecting
+     an object and the array is empty.
+     Available since PHP 5.3.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-numeric-check">
+    <strong><code>JSON_NUMERIC_CHECK</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Encodes numeric strings as numbers.
+     Available since PHP 5.3.3.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-bigint-as-string">
+    <strong><code>JSON_BIGINT_AS_STRING</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Encodes large integers as their original string value.
+     Available since PHP 5.4.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-pretty-print">
+    <strong><code>JSON_PRETTY_PRINT</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Use whitespace in returned data to format it.
+     Available since PHP 5.4.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-unescaped-slashes">
+    <strong><code>JSON_UNESCAPED_SLASHES</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Don&#039;t escape <em>/</em>.
+     Available since PHP 5.4.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-unescaped-unicode">
+    <strong><code>JSON_UNESCAPED_UNICODE</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Encode multibyte Unicode characters literally (default is to escape as \uXXXX).
+     Available since PHP 5.4.0.
+    </span>
+   </dd>
+
+  
+ </dl>
+
+</div>
+</div></div></body></html>

@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Set the Quality Of Service settings for the given channel</title>
+
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="amqpchannel.isconnected.html">« AMQPChannel::isConnected</a></li>
+      <li style="float: right;"><a href="amqpchannel.rollbacktransaction.html">AMQPChannel::rollbackTransaction »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.amqpchannel.html">AMQPChannel</a></li>
+    <li>Set the Quality Of Service settings for the given channel</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="amqpchannel.qos" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">AMQPChannel::qos</h1>
+  <p class="verinfo">(PECL amqp &gt;= Unknown)</p><p class="refpurpose"><span class="refname">AMQPChannel::qos</span> &mdash; <span class="dc-title">Set the Quality Of Service settings for the given channel</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-amqpchannel.qos-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type"><span class="type void">void</span></span> <span class="methodname"><strong>AMQPChannel::qos</strong></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$size</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$count</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Specify the amount of data to prefetch in terms of window size (octets) or number of messages from a queue during a <span class="methodname"><a href="amqpqueue.consume.html" class="methodname">AMQPQueue::consume()</a></span> or <span class="methodname"><a href="amqpqueue.get.html" class="methodname">AMQPQueue::get()</a></span> method call. The client will prefetch data up to <code class="parameter">size</code> octets or <code class="parameter">count</code> messages from the server, whichever limit is hit first.
+  </p>
+  <p class="para">
+    Setting either value to 0 will instruct the client to ignore that particular setting.
+  </p>
+  <p class="para">
+    A call to <span class="methodname"><strong>AMQPChannel::qos()</strong></span> will overwrite any values set by calling <span class="methodname"><a href="amqpchannel.setprefetchsize.html" class="methodname">AMQPChannel::setPrefetchSize()</a></span> and <span class="methodname"><a href="amqpchannel.setprefetchcount.html" class="methodname">AMQPChannel::setPrefetchCount()</a></span>.
+  </p>
+  <p class="para">If the call to either <span class="methodname"><a href="amqpqueue.consume.html" class="methodname">AMQPQueue::consume()</a></span> or <span class="methodname"><a href="amqpqueue.get.html" class="methodname">AMQPQueue::get()</a></span> is done with the <strong><code>AMQP_AUTOACK</code></strong> flag set, the client will not do any prefetching of data, regardless of the QOS settings.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-amqpchannel.qos-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+
+   
+    <dt>
+<code class="parameter">size</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The window size, in octets, to prefetch.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">count</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The number of messages to prefetch.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-amqpchannel.qos-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   Throws <strong class="classname">AMQPConnectionException</strong> if the connection to the broker was lost.
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-amqpchannel.qos-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+    Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+  </p>
+ </div>
+
+</div></div></div></body></html>

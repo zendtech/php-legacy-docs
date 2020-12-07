@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Resource Types</title>
+
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="cubrid.configuration.html">« Runtime Configuration</a></li>
+      <li style="float: right;"><a href="cubrid.constants.html">Predefined Constants »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="cubrid.setup.html">Installing/Configuring</a></li>
+    <li>Resource Types</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="cubrid.resources" class="section">
+  <h2 class="title">Resource Types</h2>
+  <p class="para">
+   There are three resource types used in CUBRID. The first one is the link identifier for a database connection, the second is the a resource which holds the result of a query, and the third a resource which holds the query results of BLOB/CLOB data types.
+  </p>
+  <div class="section" id="cubrid.resources.connection-identifier">
+  <h2 class="title">connection identifier</h2>
+   <p class="para">
+    A connection identifier returned by <span class="function"><a href="function.cubrid-connect.html" class="function">cubrid_connect()</a></span>,
+    <span class="function"><a href="function.cubrid-connect-with-url.html" class="function">cubrid_connect_with_url()</a></span>,
+    <span class="function"><a href="function.cubrid-pconnect.html" class="function">cubrid_pconnect()</a></span> and
+    <span class="function"><a href="function.cubrid-pconnect-with-url.html" class="function">cubrid_pconnect_with_url()</a></span>.
+   </p>
+  </div>
+  <div class="section" id="cubrid.resources.request-identifier">
+  <h2 class="title">request identifier</h2>
+   <p class="para">
+    A request identifier returned by <span class="function"><a href="function.cubrid-prepare.html" class="function">cubrid_prepare()</a></span> and <span class="function"><a href="function.cubrid-execute.html" class="function">cubrid_execute()</a></span>.
+   </p>
+  </div>
+  <div class="section" id="cubrid.resources.lob-identifier">
+  <h2 class="title">LOB identifier</h2>
+   <p class="para">
+    A LOB identifier returned by <span class="function"><a href="function.cubrid-lob-get.html" class="function">cubrid_lob_get()</a></span>.
+   </p>
+  </div>
+
+ </div></div></div></body></html>

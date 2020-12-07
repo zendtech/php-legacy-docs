@@ -1,0 +1,1005 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="radius.resources.html">« Resource Types</a></li>
+      <li style="float: right;"><a href="radius.examples.html">Examples »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.radius.html">Radius</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="radius.constants" class="appendix">
+ <h1>Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are defined by this extension, and
+will only be available when the extension has either
+been compiled into PHP or dynamically loaded at runtime.
+</p>
+ <p class="para">
+  <dl>
+
+   
+    <dt id="constant.radius-access-request">
+     <strong><code>RADIUS_ACCESS_REQUEST</code></strong> 
+     (<span class="type"/>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Authentication Request
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-access-accept">
+     <strong><code>RADIUS_ACCESS_ACCEPT</code></strong> 
+     (<span class="type"/>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Access accepted
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-access-reject">
+     <strong><code>RADIUS_ACCESS_REJECT</code></strong> 
+     (<span class="type"/>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     Access rejected
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-accounting-request">
+     <strong><code>RADIUS_ACCOUNTING_REQUEST</code></strong> 
+     (<span class="type"/>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Accounting request
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-accounting-response">
+     <strong><code>RADIUS_ACCOUNTING_RESPONSE</code></strong> 
+     (<span class="type"/>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Accounting response
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-access-challenge">
+     <strong><code>RADIUS_ACCESS_CHALLENGE</code></strong> 
+     (<span class="type"/>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Accsess challenge
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-user-name">
+     <strong><code>RADIUS_USER_NAME</code></strong> 
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Username
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-user-password">
+     <strong><code>RADIUS_USER_PASSWORD</code></strong> 
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     Password
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-chap-password">
+     <strong><code>RADIUS_CHAP_PASSWORD</code></strong> 
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Chap Password: chappass = md5(ident + plaintextpass + challenge)
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-nas-ip-address">
+     <strong><code>RADIUS_NAS_IP_ADDRESS</code></strong> 
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      NAS IP-Adress
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-nas-port">
+     <strong><code>RADIUS_NAS_PORT</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      NAS Port
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-service-type">
+     <strong><code>RADIUS_SERVICE_TYPE</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Type of Service, one of:
+      <ul class="simplelist">
+       <li class="member"><strong><code>RADIUS_LOGIN</code></strong></li>
+       <li class="member"><strong><code>RADIUS_FRAMED</code></strong></li>
+       <li class="member"><strong><code>RADIUS_CALLBACK_LOGIN</code></strong></li>
+       <li class="member"><strong><code>RADIUS_CALLBACK_FRAMED</code></strong></li>
+       <li class="member"><strong><code>RADIUS_OUTBOUND</code></strong></li>
+       <li class="member"><strong><code>RADIUS_ADMINISTRATIVE</code></strong></li>
+       <li class="member"><strong><code>RADIUS_NAS_PROMPT</code></strong></li>
+       <li class="member"><strong><code>RADIUS_AUTHENTICATE_ONLY</code></strong></li>
+       <li class="member"><strong><code>RADIUS_CALLBACK_NAS_PROMPT</code></strong></li>
+      </ul>
+     </p>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-framed-protocol">
+     <strong><code>RADIUS_FRAMED_PROTOCOL</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Framed Protocol, one of:
+      <ul class="simplelist">
+       <li class="member"><strong><code>RADIUS_PPP</code></strong></li>
+       <li class="member"><strong><code>RADIUS_SLIP</code></strong></li>
+       <li class="member"><strong><code>RADIUS_ARAP</code></strong></li>
+       <li class="member"><strong><code>RADIUS_GANDALF</code></strong></li>
+       <li class="member"><strong><code>RADIUS_XYLOGICS</code></strong></li>
+      </ul>
+     </p>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-framed-ip-address">
+     <strong><code>RADIUS_FRAMED_IP_ADDRESS</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      IPv4 Internet network address
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-framed-ip-netmask">
+     <strong><code>RADIUS_FRAMED_IP_NETMASK</code></strong> 
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Netmask
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-framed-routing">
+     <strong><code>RADIUS_FRAMED_ROUTING</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Routing
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-filter-id">
+     <strong><code>RADIUS_FILTER_ID</code></strong> 
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Filter ID
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-framed-mtu">
+     <strong><code>RADIUS_FRAMED_MTU</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      MTU
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-framed-compression">
+     <strong><code>RADIUS_FRAMED_COMPRESSION</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Compression, one of:
+      <ul class="simplelist">
+       <li class="member"><strong><code>RADIUS_COMP_NONE</code></strong></li>
+       <li class="member"><strong><code>RADIUS_COMP_VJ</code></strong></li>
+       <li class="member"><strong><code>RADIUS_COMP_IPXHDR</code></strong></li>
+      </ul>
+     </p>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-login-ip-host">
+     <strong><code>RADIUS_LOGIN_IP_HOST</code></strong> 
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Login IP Host
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-login-service">
+     <strong><code>RADIUS_LOGIN_SERVICE</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Login Service
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-login-tcp-port">
+     <strong><code>RADIUS_LOGIN_TCP_PORT</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Login TCP Port
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-reply-message">
+     <strong><code>RADIUS_REPLY_MESSAGE</code></strong> 
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Reply Message
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-callback-number">
+     <strong><code>RADIUS_CALLBACK_NUMBER</code></strong> 
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Callback Number
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-callback-id">
+     <strong><code>RADIUS_CALLBACK_ID</code></strong> 
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Callback ID
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-framed-route">
+     <strong><code>RADIUS_FRAMED_ROUTE</code></strong> 
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Framed Route
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-framed-ipx-network">
+     <strong><code>RADIUS_FRAMED_IPX_NETWORK</code></strong> 
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Framed IPX Network
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-state">
+     <strong><code>RADIUS_STATE</code></strong> 
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      State
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-class">
+     <strong><code>RADIUS_CLASS</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Class
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-vendor-specific">
+     <strong><code>RADIUS_VENDOR_SPECIFIC</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Vendor specific attribute
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-session-timeout">
+     <strong><code>RADIUS_SESSION_TIMEOUT</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Session timeout
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-idle-timeout">
+     <strong><code>RADIUS_IDLE_TIMEOUT</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Idle timeout
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-termination-action">
+     <strong><code>RADIUS_TERMINATION_ACTION</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Termination action
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-called-station-id">
+     <strong><code>RADIUS_CALLED_STATION_ID</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Called Station Id
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-calling-station-id">
+     <strong><code>RADIUS_CALLING_STATION_ID</code></strong> 
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Calling Station Id
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-nas-identifier">
+     <strong><code>RADIUS_NAS_IDENTIFIER</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      NAS ID
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-proxy-state">
+     <strong><code>RADIUS_PROXY_STATE</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Proxy State
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-login-lat-service">
+     <strong><code>RADIUS_LOGIN_LAT_SERVICE</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Login LAT Service
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-login-lat-node">
+     <strong><code>RADIUS_LOGIN_LAT_NODE</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Login LAT Node
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-login-lat-group">
+     <strong><code>RADIUS_LOGIN_LAT_GROUP</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Login LAT Group
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-framed-appletalk-link">
+     <strong><code>RADIUS_FRAMED_APPLETALK_LINK</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Framed Appletalk Link
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-framed-appletalk-network">
+     <strong><code>RADIUS_FRAMED_APPLETALK_NETWORK</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Framed Appletalk Network
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-framed-appletalk-zone">
+     <strong><code>RADIUS_FRAMED_APPLETALK_ZONE</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Framed Appletalk Zone
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-chap-challenge">
+     <strong><code>RADIUS_CHAP_CHALLENGE</code></strong> 
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Challenge
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-nas-port-type">
+     <strong><code>RADIUS_NAS_PORT_TYPE</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      NAS port type, one of:
+      <ul class="simplelist">
+       <li class="member"><strong><code>RADIUS_ASYNC</code></strong></li>
+       <li class="member"><strong><code>RADIUS_SYNC</code></strong></li>
+       <li class="member"><strong><code>RADIUS_ISDN_SYNC</code></strong></li>
+       <li class="member"><strong><code>RADIUS_ISDN_ASYNC_V120</code></strong></li>
+       <li class="member"><strong><code>RADIUS_ISDN_ASYNC_V110</code></strong></li>
+       <li class="member"><strong><code>RADIUS_VIRTUAL</code></strong></li>
+       <li class="member"><strong><code>RADIUS_PIAFS</code></strong></li>
+       <li class="member"><strong><code>RADIUS_HDLC_CLEAR_CHANNEL</code></strong></li>
+       <li class="member"><strong><code>RADIUS_X_25</code></strong></li>
+       <li class="member"><strong><code>RADIUS_X_75</code></strong></li>
+       <li class="member"><strong><code>RADIUS_G_3_FAX</code></strong></li>
+       <li class="member"><strong><code>RADIUS_SDSL</code></strong></li>
+       <li class="member"><strong><code>RADIUS_ADSL_CAP</code></strong></li>
+       <li class="member"><strong><code>RADIUS_ADSL_DMT</code></strong></li>
+       <li class="member"><strong><code>RADIUS_IDSL</code></strong></li>
+       <li class="member"><strong><code>RADIUS_ETHERNET</code></strong></li>
+       <li class="member"><strong><code>RADIUS_XDSL</code></strong></li>
+       <li class="member"><strong><code>RADIUS_CABLE</code></strong></li>
+       <li class="member"><strong><code>RADIUS_WIRELESS_OTHER</code></strong></li>
+       <li class="member"><strong><code>RADIUS_WIRELESS_IEEE_802_11</code></strong></li>
+      </ul>
+     </p>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-port-limit">
+     <strong><code>RADIUS_PORT_LIMIT</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Port Limit
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-login-lat-port">
+     <strong><code>RADIUS_LOGIN_LAT_PORT</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Login LAT Port
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-connect-info">
+     <strong><code>RADIUS_CONNECT_INFO</code></strong> 
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Connect info
+     </span>
+    </dd>
+
+   
+    
+    <dt id="constant.radius-acct-status-type">
+     <strong><code>RADIUS_ACCT_STATUS_TYPE</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Accounting status type, one of:
+      <ul class="simplelist">
+       <li class="member"><strong><code>RADIUS_START</code></strong></li>
+       <li class="member"><strong><code>RADIUS_STOP</code></strong></li>
+       <li class="member"><strong><code>RADIUS_ACCOUNTING_ON</code></strong></li>
+       <li class="member"><strong><code>RADIUS_ACCOUNTING_OFF</code></strong></li>
+      </ul>
+     </p>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-acct-delay-time">
+     <strong><code>RADIUS_ACCT_DELAY_TIME</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Accounting delay time
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-acct-input-octets">
+     <strong><code>RADIUS_ACCT_INPUT_OCTETS</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Accounting input bytes
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-acct-output-octets">
+     <strong><code>RADIUS_ACCT_OUTPUT_OCTETS</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Accounting output bytes
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-acct-session-id">
+     <strong><code>RADIUS_ACCT_SESSION_ID</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Accounting session ID
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-acct-authentic">
+     <strong><code>RADIUS_ACCT_AUTHENTIC</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Accounting authentic, one of:
+      <ul class="simplelist">
+       <li class="member"><strong><code>RADIUS_AUTH_RADIUS</code></strong></li>
+       <li class="member"><strong><code>RADIUS_AUTH_LOCAL</code></strong></li>
+       <li class="member"><strong><code>RADIUS_AUTH_REMOTE</code></strong></li>
+      </ul>
+     </p>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-acct-session-time">
+     <strong><code>RADIUS_ACCT_SESSION_TIME</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Accounting session time
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-acct-input-packets">
+     <strong><code>RADIUS_ACCT_INPUT_PACKETS</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Accounting input packets
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-acct-output-packets">
+     <strong><code>RADIUS_ACCT_OUTPUT_PACKETS</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Accounting output packets
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-acct-terminate-cause">
+     <strong><code>RADIUS_ACCT_TERMINATE_CAUSE</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Accounting terminate cause, one of:
+      <ul class="simplelist">
+       <li class="member"><strong><code>RADIUS_TERM_USER_REQUEST</code></strong></li>
+       <li class="member"><strong><code>RADIUS_TERM_LOST_CARRIER</code></strong></li>
+       <li class="member"><strong><code>RADIUS_TERM_LOST_SERVICE</code></strong></li>
+       <li class="member"><strong><code>RADIUS_TERM_IDLE_TIMEOUT</code></strong></li>
+       <li class="member"><strong><code>RADIUS_TERM_SESSION_TIMEOUT</code></strong></li>
+       <li class="member"><strong><code>RADIUS_TERM_ADMIN_RESET</code></strong></li>
+       <li class="member"><strong><code>RADIUS_TERM_ADMIN_REBOOT</code></strong></li>
+       <li class="member"><strong><code>RADIUS_TERM_PORT_ERROR</code></strong></li>
+       <li class="member"><strong><code>RADIUS_TERM_NAS_ERROR</code></strong></li>
+       <li class="member"><strong><code>RADIUS_TERM_NAS_REQUEST</code></strong></li>
+       <li class="member"><strong><code>RADIUS_TERM_NAS_REBOOT</code></strong></li>
+       <li class="member"><strong><code>RADIUS_TERM_PORT_UNNEEDED</code></strong></li>
+       <li class="member"><strong><code>RADIUS_TERM_PORT_PREEMPTED</code></strong></li>
+       <li class="member"><strong><code>RADIUS_TERM_PORT_SUSPENDED</code></strong></li>
+       <li class="member"><strong><code>RADIUS_TERM_SERVICE_UNAVAILABLE</code></strong></li>
+       <li class="member"><strong><code>RADIUS_TERM_CALLBACK</code></strong></li>
+       <li class="member"><strong><code>RADIUS_TERM_USER_ERROR</code></strong></li>
+       <li class="member"><strong><code>RADIUS_TERM_HOST_REQUEST</code></strong></li>
+      </ul>
+     </p>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-acct-multi-session-id">
+     <strong><code>RADIUS_ACCT_MULTI_SESSION_ID</code></strong> 
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Accounting multi session ID
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-acct-link-count">
+     <strong><code>RADIUS_ACCT_LINK_COUNT</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Accounting link count
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.radius-vendor-microsoft">
+     <strong><code>RADIUS_VENDOR_MICROSOFT</code></strong> 
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Microsoft specific vendor attributes (<a href="http://www.faqs.org/rfcs/rfc2548" class="link external">&raquo;&nbsp;RFC 2548</a>), one of:
+       <ul class="simplelist">
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_CHAP_RESPONSE</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_CHAP_ERROR</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_CHAP_PW_1</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_CHAP_PW_2</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_CHAP_LM_ENC_PW</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_CHAP_NT_ENC_PW</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_MPPE_ENCRYPTION_POLICY</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_MPPE_ENCRYPTION_TYPES</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_RAS_VENDOR</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_CHAP_DOMAIN</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_CHAP_CHALLENGE</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_CHAP_MPPE_KEYS</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_BAP_USAGE</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_LINK_UTILIZATION_THRESHOLD</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_LINK_DROP_TIME_LIMIT</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_MPPE_SEND_KEY</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_MPPE_RECV_KEY</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_RAS_VERSION</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_OLD_ARAP_PASSWORD</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_NEW_ARAP_PASSWORD</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_ARAP_PASSWORD_CHANGE_REASON</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_FILTER</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_ACCT_AUTH_TYPE</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_ACCT_EAP_TYPE</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_CHAP2_RESPONSE</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_CHAP2_SUCCESS</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_CHAP2_PW</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_PRIMARY_DNS_SERVER</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_SECONDARY_DNS_SERVER</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_PRIMARY_NBNS_SERVER</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_SECONDARY_NBNS_SERVER</code></strong></li>
+       <li class="member"><strong><code>RADIUS_MICROSOFT_MS_ARAP_CHALLENGE</code></strong></li>
+      </ul>
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </p>
+</div>
+</div></div></body></html>
