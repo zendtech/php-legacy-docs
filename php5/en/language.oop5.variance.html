@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Covariance and Contravariance</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="language.oop5.serialization.html">« Object Serialization</a></li>
+      <li style="float: right;"><a href="language.oop5.changelog.html">OOP Changelog »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="language.oop5.html">Classes and Objects</a></li>
+    <li>Covariance and Contravariance</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="language.oop5.variance" class="sect1">
+ <h2 class="title">Covariance and Contravariance</h2>
+
+ <p class="para">
+  In PHP 7.2.0, partial contravariance was introduced by removing type restrictions
+  on parameters in a child method. As of PHP 7.4.0, full covariance and contravariance
+  support was added.
+ </p>
+ <p class="para">
+  Covariance allows a child&#039;s method to return a more specific type than the return type
+  of its parent&#039;s method. Whereas, contravariance allows a parameter type to be less 
+  specific in a child method, than that of its parent.
+ </p>
+
+ <div class="sect2" id="language.oop5.variance.covariance">
+  <h3 class="title">Covariance</h3>
+
+  <p class="para">
+   To illustrate how covariance works, a simple abstract parent class, <var class="varname">Animal</var>
+   is created. <var class="varname">Animal</var> will be extended by children classes, 
+   <var class="varname">Cat</var>, and <var class="varname">Dog</var>.
+  </p>
+
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">abstract&nbsp;class&nbsp;</span><span style="color: #0000BB">Animal<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;</span><span style="color: #0000BB">string&nbsp;$name</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">__construct</span><span style="color: #007700">(</span><span style="color: #0000BB">string&nbsp;$name</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;abstract&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">speak</span><span style="color: #007700">();<br />}<br /><br />class&nbsp;</span><span style="color: #0000BB">Dog&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">Animal<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">speak</span><span style="color: #007700">()<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"&nbsp;barks"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br />class&nbsp;</span><span style="color: #0000BB">Cat&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">Animal&nbsp;<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">speak</span><span style="color: #007700">()<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"&nbsp;meows"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+
+  <p class="para">
+   Note that there aren&#039;t any methods which return values in this example. A few factories 
+   will be added which return a new object of class type <var class="varname">Animal</var>, 
+   <var class="varname">Cat</var>, or <var class="varname">Dog</var>.
+  </p>
+
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">interface&nbsp;</span><span style="color: #0000BB">AnimalShelter<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">adopt</span><span style="color: #007700">(</span><span style="color: #0000BB">string&nbsp;$name</span><span style="color: #007700">):&nbsp;</span><span style="color: #0000BB">Animal</span><span style="color: #007700">;<br />}<br /><br />class&nbsp;</span><span style="color: #0000BB">CatShelter&nbsp;</span><span style="color: #007700">implements&nbsp;</span><span style="color: #0000BB">AnimalShelter<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">adopt</span><span style="color: #007700">(</span><span style="color: #0000BB">string&nbsp;$name</span><span style="color: #007700">):&nbsp;</span><span style="color: #0000BB">Cat&nbsp;</span><span style="color: #FF8000">//&nbsp;instead&nbsp;of&nbsp;returning&nbsp;class&nbsp;type&nbsp;Animal,&nbsp;it&nbsp;can&nbsp;return&nbsp;class&nbsp;type&nbsp;Cat<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;new&nbsp;</span><span style="color: #0000BB">Cat</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br />class&nbsp;</span><span style="color: #0000BB">DogShelter&nbsp;</span><span style="color: #007700">implements&nbsp;</span><span style="color: #0000BB">AnimalShelter<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">adopt</span><span style="color: #007700">(</span><span style="color: #0000BB">string&nbsp;$name</span><span style="color: #007700">):&nbsp;</span><span style="color: #0000BB">Dog&nbsp;</span><span style="color: #FF8000">//&nbsp;instead&nbsp;of&nbsp;returning&nbsp;class&nbsp;type&nbsp;Animal,&nbsp;it&nbsp;can&nbsp;return&nbsp;class&nbsp;type&nbsp;Dog<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;new&nbsp;</span><span style="color: #0000BB">Dog</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">$kitty&nbsp;</span><span style="color: #007700">=&nbsp;(new&nbsp;</span><span style="color: #0000BB">CatShelter</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">adopt</span><span style="color: #007700">(</span><span style="color: #DD0000">"Ricky"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$kitty</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">speak</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$doggy&nbsp;</span><span style="color: #007700">=&nbsp;(new&nbsp;</span><span style="color: #0000BB">DogShelter</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">adopt</span><span style="color: #007700">(</span><span style="color: #DD0000">"Mavrick"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$doggy</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">speak</span><span style="color: #007700">();</span>
+</span>
+</code></div>
+   </div>
+
+   <p class="para">The above example will output:</p>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+Ricky meows
+Mavrick barks
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+ <div class="sect2" id="language.oop5.variance.contravariance">
+  <h3 class="title">Contravariance</h3>
+
+  <p class="para">
+   Continuing with the previous example with the classes <var class="varname">Animal</var>, 
+   <var class="varname">Cat</var>, and <var class="varname">Dog</var>, a class called 
+   <var class="varname">Food</var> and <var class="varname">AnimalFood</var> will be included, and 
+   a method <var class="varname">eat(AnimalFood $food)</var> is added to the <var class="varname">Animal</var> 
+   abstract class.
+  </p>
+
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Food&nbsp;</span><span style="color: #007700">{}<br /><br />class&nbsp;</span><span style="color: #0000BB">AnimalFood&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">Food&nbsp;</span><span style="color: #007700">{}<br /><br />abstract&nbsp;class&nbsp;</span><span style="color: #0000BB">Animal<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;</span><span style="color: #0000BB">string&nbsp;$name</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">__construct</span><span style="color: #007700">(</span><span style="color: #0000BB">string&nbsp;$name</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">eat</span><span style="color: #007700">(</span><span style="color: #0000BB">AnimalFood&nbsp;$food</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"&nbsp;eats&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">get_class</span><span style="color: #007700">(</span><span style="color: #0000BB">$food</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+
+  <p class="para">
+   In order to see the behavior of contravariance, the
+   <var class="varname">eat</var> method is overridden in the <var class="varname">Dog</var> class to allow 
+   any <var class="varname">Food</var> type object. The <var class="varname">Cat</var> class remains unchanged.
+  </p>
+
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Dog&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">Animal<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">eat</span><span style="color: #007700">(</span><span style="color: #0000BB">Food&nbsp;$food</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"&nbsp;eats&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">get_class</span><span style="color: #007700">(</span><span style="color: #0000BB">$food</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+
+  <p class="para">
+   The next example will show the behavior of contravariance.
+  </p>
+
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$kitty&nbsp;</span><span style="color: #007700">=&nbsp;(new&nbsp;</span><span style="color: #0000BB">CatShelter</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">adopt</span><span style="color: #007700">(</span><span style="color: #DD0000">"Ricky"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$catFood&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">AnimalFood</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$kitty</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">eat</span><span style="color: #007700">(</span><span style="color: #0000BB">$catFood</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$doggy&nbsp;</span><span style="color: #007700">=&nbsp;(new&nbsp;</span><span style="color: #0000BB">DogShelter</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">adopt</span><span style="color: #007700">(</span><span style="color: #DD0000">"Mavrick"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$banana&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Food</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$doggy</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">eat</span><span style="color: #007700">(</span><span style="color: #0000BB">$banana</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+   </div>
+
+   <p class="para">The above example will output:</p>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+Ricky eats AnimalFood
+Mavrick eats Food
+</pre></div>
+   </div>
+
+   <p class="para">
+    But what happens if <var class="varname">$kitty</var> tries to <var class="varname">eat</var> the
+    <var class="varname">$banana</var>?
+   </p>
+
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+$kitty-&gt;eat($banana);</span>
+</code></div>
+   </div>
+
+   <p class="para">The above example will output:</p>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+Fatal error: Uncaught TypeError: Argument 1 passed to Animal::eat() must be an instance of AnimalFood, instance of Food given
+</pre></div>
+   </div>
+  </div>
+ </div>
+</div></div></div></body></html>

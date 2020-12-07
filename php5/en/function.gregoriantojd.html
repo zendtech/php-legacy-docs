@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Converts a Gregorian date to Julian Day Count</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.frenchtojd.html">« frenchtojd</a></li>
+      <li style="float: right;"><a href="function.jddayofweek.html">jddayofweek »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.calendar.html">Calendar Functions</a></li>
+    <li>Converts a Gregorian date to Julian Day Count</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.gregoriantojd" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">gregoriantojd</h1> 
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">gregoriantojd</span> &mdash; <span class="dc-title">Converts a Gregorian date to Julian Day Count</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.gregoriantojd-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>gregoriantojd</strong></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$month</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$day</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$year</code></span>
+   ) : <span class="type">int</span></div>
+
+  <p class="para rdfs-comment">
+   The valid range for the Gregorian calendar is from November 25, 4714 B.C. to at least December 31, 9999 A.D.</p>
+  <p class="para">
+   Although this function can handle dates all the way back to 4714
+   B.C., such use may not be meaningful. The Gregorian calendar was
+   not instituted until October 15, 1582 (or October 5, 1582 in the
+   Julian calendar). Some countries did not accept it until much
+   later. For example, Britain converted in 1752, The USSR in 1918
+   and Greece in 1923. Most European countries used the Julian
+   calendar prior to the Gregorian.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.gregoriantojd-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">month</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The month as a number from 1 (for January) to 12 (for December)
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">day</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The day as a number from 1 to 31.
+       If the month has less days then given, overflow occurs; see the example
+       below.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">year</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The year as a number between -4714 and 9999.
+       Negative numbers mean years B.C., positive numbers mean years A.D.
+       Note that there is no year <code class="literal">0</code>; December 31, 1 B.C. is
+       immediately followed by January 1, 1 A.D.
+      </p>
+     </dd>
+
+      
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.gregoriantojd-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   The julian day for the given gregorian date as an integer.
+   Dates outside the valid range return <code class="literal">0</code>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.gregoriantojd-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-2785">
+    <p><strong>Example #1 Calendar functions</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$jd&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">gregoriantojd</span><span style="color: #007700">(</span><span style="color: #0000BB">10</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">11</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1970</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$jd</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$gregorian&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">jdtogregorian</span><span style="color: #007700">(</span><span style="color: #0000BB">$jd</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$gregorian</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+2440871
+10/11/1970
+</pre></div>
+    </div>
+   </div>
+   <div class="example" id="example-2786">
+    <p><strong>Example #2 Overflow behavior</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">gregoriantojd</span><span style="color: #007700">(</span><span style="color: #0000BB">2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">31</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2018</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">gregoriantojd</span><span style="color: #007700">(</span><span style="color: #0000BB">3</span><span style="color: #007700">,&nbsp;&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2018</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+2458181
+2458181
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.gregoriantojd-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.jdtogregorian.html" class="function" rel="rdfs-seeAlso">jdtogregorian()</a> - Converts Julian Day Count to Gregorian date</span></li> 
+    <li class="member"><span class="function"><a href="function.cal-to-jd.html" class="function" rel="rdfs-seeAlso">cal_to_jd()</a> - Converts from a supported calendar to Julian Day Count</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div></div></div></body></html>

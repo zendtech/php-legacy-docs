@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Opens a Secure SSL-FTP connection</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.ftp-size.html">« ftp_size</a></li>
+      <li style="float: right;"><a href="function.ftp-systype.html">ftp_systype »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.ftp.html">FTP Functions</a></li>
+    <li>Opens a Secure SSL-FTP connection</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.ftp-ssl-connect" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">ftp_ssl_connect</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ftp_ssl_connect</span> &mdash; <span class="dc-title">Opens a Secure SSL-FTP connection</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.ftp-ssl-connect-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>ftp_ssl_connect</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$host</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code><span class="initializer"> = 21</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$timeout</code><span class="initializer"> = 90</span></span>
+  ]] ) : <span class="type">resource</span></div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>ftp_ssl_connect()</strong></span> opens an <em class="emphasis">explicit</em> SSL-FTP connection to the
+   specified <code class="parameter">host</code>. That implies that
+   <span class="function"><strong>ftp_ssl_connect()</strong></span> will succeed even if the server is not
+   configured for SSL-FTP, or its certificate is invalid. Only when
+   <span class="function"><a href="function.ftp-login.html" class="function">ftp_login()</a></span> is called, the client will send the
+   appropriate AUTH FTP command, so <span class="function"><a href="function.ftp-login.html" class="function">ftp_login()</a></span> will fail in
+   the mentioned cases.
+  </p>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <strong>Why this function may not exist</strong><br />
+   <p class="para">
+    Before PHP 7.0.0, <span class="function"><strong>ftp_ssl_connect()</strong></span> was only available if both
+    the ftp module and the <a href="ref.openssl.html" class="link">OpenSSL</a>
+    support have been built statically into php; this means that on Windows this
+    function had been undefined in the official PHP builds. To have this
+    function available on Windows, it had been necessary to compile own PHP binaries.
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    <span class="function"><strong>ftp_ssl_connect()</strong></span> is not intended for use with sFTP.
+    To use sFTP with PHP, please see <span class="function"><a href="function.ssh2-sftp.html" class="function">ssh2_sftp()</a></span>.
+   </p>
+  </p></blockquote>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.ftp-ssl-connect-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">host</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The FTP server address. This parameter shouldn&#039;t have any trailing 
+       slashes and shouldn&#039;t be prefixed with <code class="literal">ftp://</code>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">port</code></dt>
+
+     <dd>
+
+      <p class="para">
+       This parameter specifies an alternate port to connect to. If it is
+       omitted or set to zero, then the default FTP port, 21, will be used.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">timeout</code></dt>
+
+     <dd>
+
+      <p class="para">
+       This parameter specifies the timeout for all subsequent network operations.
+       If omitted, the default value is 90 seconds. The timeout can be changed and
+       queried at any time with <span class="function"><a href="function.ftp-set-option.html" class="function">ftp_set_option()</a></span> and
+       <span class="function"><a href="function.ftp-get-option.html" class="function">ftp_get_option()</a></span>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.ftp-ssl-connect-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns a SSL-FTP stream on success or <strong><code>FALSE</code></strong> on error.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.ftp-ssl-connect-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.2.2</td>
+       <td>
+        The function was changed to return <strong><code>FALSE</code></strong> when it can&#039;t use an SSL
+        connection, instead of falling back to a non-SSL one as previously.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.ftp-ssl-connect-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-5553">
+    <p><strong>Example #1 <span class="function"><strong>ftp_ssl_connect()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;set&nbsp;up&nbsp;basic&nbsp;ssl&nbsp;connection<br /></span><span style="color: #0000BB">$conn_id&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ftp_ssl_connect</span><span style="color: #007700">(</span><span style="color: #0000BB">$ftp_server</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;login&nbsp;with&nbsp;username&nbsp;and&nbsp;password<br /></span><span style="color: #0000BB">$login_result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ftp_login</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn_id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$ftp_user_name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$ftp_user_pass</span><span style="color: #007700">);<br /><br />if&nbsp;(!</span><span style="color: #0000BB">$login_result</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;PHP&nbsp;will&nbsp;already&nbsp;have&nbsp;raised&nbsp;an&nbsp;E_WARNING&nbsp;level&nbsp;message&nbsp;in&nbsp;this&nbsp;case<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">die(</span><span style="color: #DD0000">"can't&nbsp;login"</span><span style="color: #007700">);<br />}<br /><br />echo&nbsp;</span><span style="color: #0000BB">ftp_pwd</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn_id</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;/<br /><br />//&nbsp;close&nbsp;the&nbsp;ssl&nbsp;connection<br /></span><span style="color: #0000BB">ftp_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn_id</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+ <div class="refsect1 seealso" id="refsect1-function.ftp-ssl-connect-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.ftp-connect.html" class="function" rel="rdfs-seeAlso">ftp_connect()</a> - Opens an FTP connection</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div></div></div></body></html>

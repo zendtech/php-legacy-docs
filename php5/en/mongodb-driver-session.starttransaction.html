@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Starts a transaction</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="mongodb-driver-session.isintransaction.html">« MongoDB\Driver\Session::isInTransaction</a></li>
+      <li style="float: right;"><a href="class.mongodb-driver-clientencryption.html">MongoDB\Driver\ClientEncryption »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.mongodb-driver-session.html">MongoDB\Driver\Session</a></li>
+    <li>Starts a transaction</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="mongodb-driver-session.starttransaction" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">MongoDB\Driver\Session::startTransaction</h1>
+  <p class="verinfo">(mongodb &gt;=1.5.0)</p><p class="refpurpose"><span class="refname">MongoDB\Driver\Session::startTransaction</span> &mdash; <span class="dc-title">Starts a transaction</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-mongodb-driver-session.starttransaction-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\Session::startTransaction</strong></span>
+    ([ <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>
+  ] ) : <span class="type"><span class="type void">void</span></span></div>
+
+  <p class="para rdfs-comment">
+   Starts a multi-document transaction associated with the session. At any given
+   time, you can have at most one open transaction for a session. After starting
+   a transaction, the session object must be passed to each operation via
+   the <code class="literal">&quot;session&quot;</code> option (e.g.
+   <span class="methodname"><a href="mongodb-driver-manager.executebulkwrite.html" class="methodname">MongoDB\Driver\Manager::executeBulkWrite()</a></span>) in order
+   to associate that operation with the transaction.
+  </p>
+  <p class="para">
+   Transactions can be committed through
+   <span class="methodname"><a href="mongodb-driver-session.committransaction.html" class="methodname">MongoDB\Driver\Session::commitTransaction()</a></span>, and
+   aborted with
+   <span class="methodname"><a href="mongodb-driver-session.aborttransaction.html" class="methodname">MongoDB\Driver\Session::abortTransaction()</a></span>.
+   Transactions are also automatically aborted when the session is closed from
+   garbage collection or by explicitly calling
+   <span class="methodname"><a href="mongodb-driver-session.endsession.html" class="methodname">MongoDB\Driver\Session::endSession()</a></span>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-mongodb-driver-session.starttransaction-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+
+   
+    <dt>
+<code class="parameter">options</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Options can be passed as argument to this method. Each element in this
+      options array overrides the corresponding option from the
+      <code class="literal">&quot;defaultTransactionOptions&quot;</code> option, if set when
+      starting the session with
+      <span class="methodname"><a href="mongodb-driver-manager.startsession.html" class="methodname">MongoDB\Driver\Manager::startSession()</a></span>.
+     </p>
+     <p class="para">
+      <table class="doctable table">
+       <caption><strong>options</strong></caption>
+       
+        <thead>
+         <tr>
+          <th>Option</th>
+          <th>Type</th>
+          <th>Description</th>
+         </tr>
+
+        </thead>
+
+        <tbody class="tbody">
+         
+         <tr>
+          <td>maxCommitTimeMS</td>
+          <td>integer</td>
+          <td>
+           <p class="para">
+            The maximum amount of time in milliseconds to allow a single
+            <code class="literal">commitTransaction</code> command to run.
+           </p>
+           <p class="para">
+            If specified, <code class="literal">maxCommitTimeMS</code> must be a signed
+            32-bit integer greater than or equal to zero.
+           </p>
+          </td>
+         </tr>
+
+
+         
+         <tr>
+          <td>readConcern</td>
+          <td><a href="class.mongodb-driver-readconcern.html" class="classname">MongoDB\Driver\ReadConcern</a></td>
+          <td>
+           <p class="para">
+            A read concern to apply to the operation.
+           </p>
+           <p class="para">
+            This option is available in MongoDB 3.2+ and will result in an
+            exception at execution time if specified for an older server
+            version.
+           </p>
+          </td>
+         </tr>
+
+
+         
+         <tr>
+          <td>readPreference</td>
+          <td><a href="class.mongodb-driver-readpreference.html" class="classname">MongoDB\Driver\ReadPreference</a></td>
+          <td>
+           <p class="para">
+            A read preference to use for selecting a server for the operation.
+           </p>
+          </td>
+         </tr>
+
+
+         
+         <tr>
+          <td>writeConcern</td>
+          <td><a href="class.mongodb-driver-writeconcern.html" class="classname">MongoDB\Driver\WriteConcern</a></td>
+          <td>
+           <p class="para">
+            A write concern to apply to the operation.
+           </p>
+          </td>
+         </tr>
+
+
+        </tbody>
+       
+      </table>
+
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-mongodb-driver-session.starttransaction-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   No value is returned.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-mongodb-driver-session.starttransaction-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <ul class="simplelist">
+   <li class="member">Throws <a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a> on argument parsing errors.</li>
+   <li class="member">Throws <a href="class.mongodb-driver-exception-commandexception.html" class="classname">MongoDB\Driver\Exception\CommandException</a> if the transaction could not be started because of a server-side problem (e.g. a lock could not be obtained).</li>
+   <li class="member">Throws <a href="class.mongodb-driver-exception-runtimeexception.html" class="classname">MongoDB\Driver\Exception\RuntimeException</a> if the transaction could not be started (e.g. a transaction was already started).</li>
+  </ul>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-mongodb-driver-session.starttransaction-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>1.6.0</td>
+       <td>
+        <p class="para">
+         The <code class="literal">&quot;maxCommitTimeMS&quot;</code> option was added.
+        </p>
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-mongodb-driver-session.starttransaction-seealso">
+  <h3 class="title">See Also</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="methodname"><a href="mongodb-driver-manager.startsession.html" class="methodname" rel="rdfs-seeAlso">MongoDB\Driver\Manager::startSession()</a> - Start a new client session for use with this client</span></li>
+   <li class="member"><span class="methodname"><a href="mongodb-driver-session.committransaction.html" class="methodname" rel="rdfs-seeAlso">MongoDB\Driver\Session::commitTransaction()</a> - Commits a transaction</span></li>
+   <li class="member"><span class="methodname"><a href="mongodb-driver-session.aborttransaction.html" class="methodname" rel="rdfs-seeAlso">MongoDB\Driver\Session::abortTransaction()</a> - Aborts a transaction</span></li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

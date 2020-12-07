@@ -1,0 +1,271 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>LiteSpeed Web Server/OpenLiteSpeed Web Server on Unix systems</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="install.unix.sun.html">« Sun, iPlanet and Netscape servers on Sun Solaris</a></li>
+      <li style="float: right;"><a href="install.unix.commandline.html">CGI and command line setups »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="install.unix.html">Installation on Unix systems</a></li>
+    <li>LiteSpeed Web Server/OpenLiteSpeed Web Server on Unix systems</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="install.unix.litespeed" class="sect1">
+ <h2 class="title">LiteSpeed Web Server/OpenLiteSpeed Web Server on Unix systems</h2>
+
+ <p class="para">
+  LiteSpeed PHP is an optimized compilation of PHP built to work with LiteSpeed
+  products through the LiteSpeed SAPI. LSPHP runs as its own process and has 
+  its own standalone binary, which can be used as a simple command line binary to execute 
+  PHP scripts from the command line.
+ </p>
+
+ <p class="para">
+  The LSAPI is a highly optimized API that allows communication between 
+  LiteSpeed and third party web engines. Its protocol is similar to FCGI, but is 
+  more efficient.
+ </p>
+
+ <p class="para">
+  This documentation will cover installing and configuring PHP with LSAPI 
+  for a LiteSpeed Web Server and OpenLiteSpeed Web Server.
+ </p>
+
+ <p class="para">
+  This guide will assume that either LSWS or OLS is installed with their 
+  default paths and flags. The default installation directory for both web 
+  servers is /usr/local/lsws and both can be run from the bin subdirectory.
+ </p>
+
+ <p class="para">
+  Please note that throughout this documentation, version numbers have been 
+  replaced with an <code class="literal">x</code> to ensure this documentation stays correct in the future, 
+  please replace these, as necessary, with the corresponding version numbers.
+ </p>
+
+ <ol type="1">
+  <li class="listitem">
+   <p class="para">
+    To obtain and install either LiteSpeed Web Server or OpenLiteSpeed Web Server, visit the
+    LiteSpeed Web Server wiki
+    <a href="https://www.litespeedtech.com/support/wiki/doku.php/litespeed_wiki:installation" class="link external">&raquo;&nbsp;install page</a>
+    or OpenLiteSpeed wiki 
+    <a href="http://open.litespeedtech.com/mediawiki/index.php/Help:Install" class="link external">&raquo;&nbsp;install page</a>.
+   </p>
+  </li>
+
+  <li class="listitem">
+   <p class="para">
+    Obtain and unpack the php source:
+   </p>
+
+   <div class="informalexample">
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+mkdir /home/php
+cd /home/php
+wget http://us1.php.net/get/php-x.x.x.tar.gz/from/this/mirror
+tar -zxvf php-x.x.x.tar.gz
+cd php-x.x.x
+</pre></div>
+    </div>
+   </div>
+  </li>
+
+  <li class="listitem">
+   <p class="para">
+    Configure and build PHP. This is where PHP can be customized with various options,
+    such as which extensions will be enabled. Run ./configure --help for a list of available 
+    options. In the example, we&#039;ll use the default recommended configuration options for 
+    LiteSpeed Web Server:
+   </p>
+
+   <div class="informalexample">
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+./configure ... &#039;--with-litespeed&#039;
+make
+sudo make install
+</pre></div>
+    </div>
+   </div>
+  </li>
+
+  <li class="listitem">
+   <p class="para">
+    Checking The LSPHP Installation
+   </p>
+
+   <p class="para">
+    One of the simplest ways to check whether the installation of PHP was successful
+    is to run the following code:
+   </p>
+
+   <div class="informalexample">
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+cd /usr/local/lsws/fcgi-bin/
+./lsphp5 -v
+</pre></div>
+    </div>
+   </div>
+
+   <p class="para">
+    This should return information about the new PHP build:
+   </p>
+
+   <div class="informalexample">
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+PHP 5.6.17 (litespeed) (built: Mar 22 2016 11:34:19)
+Copyright (c) 1997-2014 The PHP Group
+Zend Engine v2.6.0, Copyright (c) 1998-2015 Zend Technologies
+</pre></div>
+    </div>
+   </div>
+
+   <p class="para">
+    Notice the <code class="literal">litespeed</code> in parenthesis. This means that the PHP binary has been 
+    built with LSAPI support.
+   </p>
+  </li>
+ </ol>
+
+ <p class="para">
+  Following the steps above, LiteSpeed / OpenLiteSpeed Web Server should 
+  now be running with support for PHP as an SAPI extension. There are many more
+  configuration options available for LSWS / OLS and PHP. For more information,
+  check out the LiteSpeed wiki about 
+  <a href="https://www.litespeedtech.com/support/wiki/doku.php/litespeed_wiki:php" class="link external">&raquo;&nbsp;PHP</a>.
+ </p>
+
+ <p class="para">
+  Using LSPHP from the command line:
+ </p>
+
+ <p class="para">
+  LSPHP(LSAPI + PHP) command line mode is used to process PHP scripts running 
+  on a remote server that does not necessarily have a web server running. It is used 
+  to process PHP scripts residing on a local web server (separate). This setup is 
+  suitable for service scalability as PHP processing is offloaded to a remote server.
+ </p>
+
+ <p class="para">
+  Start lsphp from the command line on a remote server:
+  LSPHP is an executable and can be started manually and bound to IPv4, IPv6, or 
+  Unix domain socket addresses with the command line option -b socket_address
+ </p>
+
+ <p class="para">
+  Examples:
+ </p>
+
+ <p class="para">
+  Have LSPHP bind to port 3000 on all IPv4 and IPv6 addresses:
+ </p>
+
+ <div class="informalexample">
+  <div class="example-contents screen">
+<div class="cdata"><pre>
+/path/to/lsphp -b [::]:3000
+</pre></div>
+  </div>
+ </div>
+
+ <p class="para">
+  Have LSPHP bind to port 3000 on all IPv4 addresses:
+ </p>
+
+ <div class="informalexample">
+  <div class="example-contents screen">
+<div class="cdata"><pre>
+/path/to/lsphp -b *:3000
+</pre></div>
+  </div>
+ </div>
+
+ <p class="para">
+  Have LSPHP bind to address 192.168.0.2:3000:
+ </p>
+
+ <div class="informalexample">
+  <div class="example-contents screen">
+<div class="cdata"><pre>
+/path/to/lsphp -b 192.168.0.2:3000
+</pre></div>
+  </div>
+ </div>
+
+ <p class="para">
+  Have LSPHP accept requests on Unix domain socket <code class="literal">/tmp/lsphp_manual.sock</code>:
+ </p>
+
+ <div class="informalexample">
+  <div class="example-contents screen">
+<div class="cdata"><pre>
+/path/to/lsphp -b /tmp/lsphp_manual.sock
+</pre></div>
+  </div>
+ </div>
+
+ <p class="para">
+  Environment variables can be added before the LSPHP executable:
+ </p>
+
+ <div class="informalexample">
+  <div class="example-contents screen">
+<div class="cdata"><pre>
+PHP_LSAPI_MAX_REQUESTS=500 PHP_LSAPI_CHILDREN=35 /path/to/lsphp -b IP_address:port
+</pre></div>
+  </div>
+ </div>
+
+ <p class="para">
+  Currently LiteSpeed PHP can be used with LiteSpeed Web Server, 
+  OpenLiteSpeed Web Server, and Apache mod_lsapi. For steps on 
+  server-side configuration, visit the wiki pages for 
+  <a href="https://www.litespeedtech.com/support/wiki/doku.php/litespeed_wiki:php:configuring-lsws-for-php" class="link external">&raquo;&nbsp;LiteSpeed Web Server</a> 
+  and <a href="http://open.litespeedtech.com/mediawiki/index.php/Help:Default_PHP_Settings" class="link external">&raquo;&nbsp;OpenLiteSpeed</a>.
+ </p>
+
+ <p class="para">
+  LSPHP can be installed in several other ways as well.
+ </p>
+
+ <p class="para">
+  CentOS:
+  On CentOS, LSPHP can be installed from the LiteSpeed Repository or the Remi 
+  Repository  using <a href="https://www.litespeedtech.com/support/wiki/doku.php/litespeed_wiki:php:rpm" class="link external">&raquo;&nbsp;RPM</a>.
+ </p>
+
+ <p class="para">
+  Debian:
+  On Debian, LSPHP can be installed from the LiteSpeed Repository using 
+  <a href="https://www.litespeedtech.com/support/wiki/doku.php/litespeed_wiki:php:apt" class="link external">&raquo;&nbsp;apt</a>.
+ </p>
+
+ <p class="para">
+  cPanel:
+  Visit the respective <a href="https://www.litespeedtech.com/support/wiki/doku.php/litespeed_wiki:cpanel:easyapache4-config" class="link external">&raquo;&nbsp;wiki page</a> 
+  about how to install LSPHP with cPanel and LSWS/OLS using EasyApache 4.
+ </p>
+
+ <p class="para">
+  Plesk:
+  Plesk can be used with LSPHP on CentOS, CloudLinux, Debian, and Ubuntu, 
+  for more details on this, visit the respective <a href="https://www.litespeedtech.com/support/wiki/doku.php/litespeed_wiki:plesk:php_guide" class="link external">&raquo;&nbsp;wiki page</a>
+ </p>
+</div></div></div></body></html>

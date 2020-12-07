@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Detect MIME Content-type for a file</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.finfo-set-flags.html">« finfo_set_flags</a></li>
+      <li style="float: right;"><a href="class.finfo.html">finfo »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.fileinfo.html">Fileinfo Functions</a></li>
+    <li>Detect MIME Content-type for a file</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.mime-content-type" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">mime_content_type</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mime_content_type</span> &mdash; <span class="dc-title">Detect MIME Content-type for a file</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.mime-content-type-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>mime_content_type</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
+   ) : <span class="type">string</span></div>
+
+  <p class="para rdfs-comment">
+   Returns the MIME content type for a file as determined by using
+   information from the <var class="filename">magic.mime</var> file. 
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.mime-content-type-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">filename</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Path to the tested file.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.mime-content-type-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns the content type in MIME format, like 
+   <code class="literal">text/plain</code> or <code class="literal">application/octet-stream</code>,
+    or <strong><code>FALSE</code></strong> on failure.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-function.mime-content-type-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+Upon failure, an <strong><code>E_WARNING</code></strong> is emitted.
+</p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.mime-content-type-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-2900">
+    <p><strong>Example #1 <span class="function"><strong>mime_content_type()</strong></span> Example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">mime_content_type</span><span style="color: #007700">(</span><span style="color: #DD0000">'php.gif'</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">mime_content_type</span><span style="color: #007700">(</span><span style="color: #DD0000">'test.php'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+image/gif
+text/plain
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 seealso" id="refsect1-function.mime-content-type-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="finfo.file.html" class="function" rel="rdfs-seeAlso">finfo_file()</a> - Alias of finfo_file()</span></li>
+    <li class="member"><span class="function"><a href="finfo.buffer.html" class="function" rel="rdfs-seeAlso">finfo_buffer()</a> - Alias of finfo_buffer()</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div></div></div></body></html>

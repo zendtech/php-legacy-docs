@@ -1,0 +1,261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Database issues</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="faq.obtaining.html">« Obtaining PHP</a></li>
+      <li style="float: right;"><a href="faq.installation.html">Installation »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li>Database issues</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="faq.databases" class="chapter">
+  <h1>Database issues</h1>
+
+  
+
+  <p class="para">
+   This section holds common questions about relation between
+   PHP and databases. Yes, PHP can access virtually any
+   database available today.
+  </p>
+
+  <div class="qandaset"><ol class="qandaset_questions"><li><a href="#faq.databases.mssql">
+     
+      I heard it&#039;s possible to access Microsoft SQL Server from PHP. How?
+     
+    </a></li><li><a href="#faq.databases.access">
+     Can I access Microsoft Access databases?
+    </a></li><li><a href="#faq.databases.mysql.deprecated">
+     
+      Why is the MySQL extension (ext/mysql) that I&#039;ve been using for over
+      10 years discouraged from use? Is it deprecated? What do I use instead?
+      How can I migrate?
+     
+    </a></li><li><a href="#faq.databases.mysqlresource">
+     
+      Why do I get an error that looks something like this:
+      &quot;Warning: 0 is not a MySQL result index in &lt;file&gt;
+      on line &lt;x&gt;&quot; or &quot;Warning: Supplied argument is not
+      a valid MySQL result resource in &lt;file&gt; on line &lt;x&gt;&quot;?
+     
+    </a></li></ol></div>
+   <dl class="qandaentry" id="faq.databases.mssql">
+    <dt><strong>
+     
+      I heard it&#039;s possible to access Microsoft SQL Server from PHP. How?
+     
+    </strong></dt>
+    <dd class="answer">
+     <p class="para">
+      On Unix machines you can use <a href="ref.pdo-odbc.html" class="link">PDO_ODBC</a>
+      or the <a href="book.uodbc.html" class="link">Unified ODBC API</a>.
+     </p>
+     <p class="para">
+      On Windows machines you can also use <a href="ref.pdo-sqlsrv.html" class="link">PDO_SQLSRV</a>
+      or <a href="book.sqlsrv.html" class="link">SQLSRV</a>.
+     </p>
+     <p class="para">
+      Also see the answer to the next question.
+     </p>
+    </dd>
+   </dl>
+
+   <dl class="qandaentry" id="faq.databases.access">
+    <dt><strong>
+     Can I access Microsoft Access databases?
+    </strong></dt>
+    <dd class="answer">
+     <p class="para">
+      Yes. You already have all the tools you need if you are running
+      entirely under Windows 9x/Me, or NT/2000, where you can use
+      ODBC and Microsoft&#039;s ODBC drivers for Microsoft Access databases.
+     </p>
+     <p class="para">
+      If you are running PHP on a Unix box and want to talk to MS Access
+      on a Windows box you will need Unix ODBC drivers.
+      <a href="http://www.openlinksw.com/" class="link external">&raquo;&nbsp;OpenLink Software</a> has Unix-based
+      ODBC drivers that can do this.
+     </p>
+     <p class="para">
+      Another alternative is to use an SQL server that has
+      Windows ODBC drivers and use that to store the data, which you can
+      then access from Microsoft Access (using ODBC) and PHP (using the
+      built in drivers), or to use an intermediary file format that Access
+      and PHP both understand, such as flat files or dBase databases.
+      On this point Tim Hayes from OpenLink software writes:
+      <blockquote class="blockquote">
+       <p class="para">
+        Using another database as an intermediary is not a good idea, when you can
+        use ODBC from PHP straight to your database - i.e. with OpenLink&#039;s drivers. If
+        you do need to use an intermediary file format, OpenLink have now released
+        Virtuoso (a virtual database engine) for NT, Linux and other Unix platforms.
+        Please visit our <a href="http://www.openlinksw.com/" class="link external">&raquo;&nbsp;website</a> for a free download.
+       </p>
+      </blockquote>
+     </p>
+     <p class="para">
+      One option that has proved successful is to use MySQL and its
+      MyODBC drivers on Windows and synchronizing the databases. Steve Lawrence
+      writes:
+     </p>
+     <p class="para">
+      <ul class="itemizedlist">
+       <li class="listitem">
+        <span class="simpara">
+         Install MySQL on your platform according to instructions with MySQL.
+         Latest available from <a href="http://www.mysql.com/" class="link external">&raquo;&nbsp;http://www.mysql.com/</a>
+         No special configuration required except when you set up a database, and configure the
+         user account, you should put % in the host field, or the host name of the
+         Windows computer you wish to access MySQL with. Make a note of your server
+         name, username, and password.
+        </span>
+       </li>
+       <li class="listitem">
+        <span class="simpara">
+         Download the MyODBC for Windows driver from the MySQL site.
+         Install it on your Windows machine. You can test the operation with
+         the utilities included with this program.
+        </span>
+       </li>
+       <li class="listitem">
+        <span class="simpara">
+         Create a user or system dsn in your ODBC administrator, located in the
+         control panel. Make up a dsn name, enter your hostname, user name, password,
+         port, etc for you MySQL database configured in step 1.
+        </span>
+       </li>
+       <li class="listitem">
+        <span class="simpara">
+         Install Access with a full install, this makes sure you get the proper
+         add-ins... at the least you will need ODBC support and the linked table
+         manager.
+        </span>
+       </li>
+       <li class="listitem">
+        <span class="simpara">
+         Now the fun part! Create a new access database. In the table
+         window right click and select Link Tables, or under the file
+         menu option, select Get External Data and then Link Tables.
+         When the file browser box comes up, select files of type: ODBC.
+         Select System dsn and the name of your dsn created in step 3.
+         Select the table to link, press OK, and presto! You can now
+         open the table and add/delete/edit data on your MySQL server!
+         You can also build queries, import/export tables to MySQL,
+         build forms and reports, etc.
+        </span>
+       </li>
+      </ul>
+     </p>
+     <p class="para">
+      Tips and Tricks:
+      <ul class="itemizedlist">
+       <li class="listitem">
+        <span class="simpara">
+         You can construct your tables in Access and export them
+         to MySQL, then link them back in. That makes table
+         creation quick.
+        </span>
+       </li>
+       <li class="listitem">
+        <span class="simpara">
+         When creating tables in Access, you must have a primary
+         key defined in order to have write access to the table in
+         access. Make sure you create a primary key in MySQL before
+         linking in access
+        </span>
+       </li>
+       <li class="listitem">
+        <span class="simpara">
+         If you change a table in MySQL, you have to re-link it
+         in Access. Go to tools&gt;add-ins&gt;linked table manager,
+         cruise to your ODBC DSN, and select the table to re-link
+         from there. you can also move your dsn source around there,
+         just hit the always prompt for new location checkbox before
+         pressing OK.
+        </span>
+       </li>
+      </ul>
+     </p>
+    </dd>
+   </dl>
+
+   <dl class="qandaentry" id="faq.databases.mysql.deprecated">
+    <dt><strong>
+     
+      Why is the MySQL extension (ext/mysql) that I&#039;ve been using for over
+      10 years discouraged from use? Is it deprecated? What do I use instead?
+      How can I migrate?
+     
+    </strong></dt>
+    <dd class="answer">
+     <p class="para">
+      There are three MySQL extensions, as described under the
+      <a href="mysqlinfo.api.choosing.html" class="link">Choosing a MySQL API</a> section. The old API
+      should not be used, it is deprecated as of PHP 5.5.0 and has been moved to PECL as of PHP 7.0.0.
+      You are strongly encouraged
+      to write all new code with either <a href="book.mysqli.html" class="link">mysqli</a> or
+      <a href="ref.pdo-mysql.html" class="link">PDO_MySQL</a>. 
+     </p>
+     <p class="para">
+      Migration scripts are not available at this time, although the mysqli API contains both
+      a procedural and OOP API, with the procedural version being similar to ext/mysql.
+     </p>
+     <p class="para">
+      It is not possible to mix the extensions. So, for example, passing a mysqli connection to
+      PDO_MySQL or ext/mysql will not work.
+     </p>
+    </dd>
+   </dl>
+
+   <dl class="qandaentry" id="faq.databases.mysqlresource">
+    <dt><strong>
+     
+      Why do I get an error that looks something like this:
+      &quot;Warning: 0 is not a MySQL result index in &lt;file&gt;
+      on line &lt;x&gt;&quot; or &quot;Warning: Supplied argument is not
+      a valid MySQL result resource in &lt;file&gt; on line &lt;x&gt;&quot;?
+     
+    </strong></dt>
+    <dd class="answer">
+     <p class="para">
+      You are trying to use a result identifier that is 0. The 0 indicates
+      that your query failed for some reason. You need to check for errors
+      after submitting a query and before you attempt to use the returned
+      result identifier.  The proper way to do this is with code similar
+      to the following:
+      <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_query</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;tables_priv"</span><span style="color: #007700">);<br />if&nbsp;(!</span><span style="color: #0000BB">$result</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">mysql_error</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;exit;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+      </div>
+
+      or
+      <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_query</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;tables_priv"</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;die(</span><span style="color: #DD0000">"Bad&nbsp;query:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysql_error</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+      </div>
+
+     </p>
+    </dd>
+   </dl>
+  
+ </div>
+</div></div></body></html>

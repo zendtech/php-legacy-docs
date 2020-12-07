@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Calculate the similarity between two strings</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.sha1.html">« sha1</a></li>
+      <li style="float: right;"><a href="function.soundex.html">soundex »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.strings.html">String Functions</a></li>
+    <li>Calculate the similarity between two strings</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.similar-text" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">similar_text</h1>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">similar_text</span> &mdash; <span class="dc-title">Calculate the similarity between two strings</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.similar-text-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>similar_text</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$first</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$second</code></span>
+   [, <span class="methodparam"><span class="type">float</span> <code class="parameter reference">&$percent</code></span>
+  ] ) : <span class="type">int</span></div>
+
+  <p class="para rdfs-comment">
+   This calculates the similarity between two strings as described in
+   Programming Classics: Implementing the World&#039;s Best Algorithms by Oliver (ISBN 0-131-00413-1). Note that this implementation does not use a
+   stack as in Oliver&#039;s pseudo code, but recursive calls which may or may not
+   speed up the whole process. Note also that the complexity of this algorithm
+   is O(N**3) where N is the length of the longest string.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.similar-text-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">first</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The first string.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">second</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The second string.
+      </p>
+      <blockquote class="note"><p><strong class="note">Note</strong>: 
+       <p class="para">
+        Swapping the <code class="parameter">first</code> and
+        <code class="parameter">second</code> may yield a different result; see the
+        example below.
+       </p>
+      </p></blockquote> 
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">percent</code></dt>
+
+     <dd>
+
+      <p class="para">
+       By passing a reference as third argument,
+       <span class="function"><strong>similar_text()</strong></span> will calculate the similarity in
+       percent, by dividing the result of <span class="function"><strong>similar_text()</strong></span> by
+       the average of the lengths of the given strings times
+       <code class="literal">100</code>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.similar-text-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns the number of matching chars in both strings.
+  </p>
+  <p class="para">
+   The number of matching characters is calculated by finding the longest first
+   common substring, and then doing this for the prefixes and the suffixes,
+   recursively. The lengths of all found common substrings are added.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.similar-text-examples">
+  <h3 class="title">Examples</h3>
+  <div class="example" id="example-6169">
+   <p><strong>Example #1 <span class="function"><strong>similar_text()</strong></span> argument swapping example</strong></p>
+   <div class="example-contents"><p>
+    This example shows that swapping the <code class="parameter">first</code> and
+    <code class="parameter">second</code> argument may yield different results.
+   </p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$sim&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">similar_text</span><span style="color: #007700">(</span><span style="color: #DD0000">'bafoobar'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'barfoo'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$perc</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"similarity:&nbsp;</span><span style="color: #0000BB">$sim</span><span style="color: #DD0000">&nbsp;(</span><span style="color: #0000BB">$perc</span><span style="color: #DD0000">&nbsp;%)\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$sim&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">similar_text</span><span style="color: #007700">(</span><span style="color: #DD0000">'barfoo'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'bafoobar'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$perc</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"similarity:&nbsp;</span><span style="color: #0000BB">$sim</span><span style="color: #DD0000">&nbsp;(</span><span style="color: #0000BB">$perc</span><span style="color: #DD0000">&nbsp;%)\n"</span><span style="color: #007700">;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output
+something similar to:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+similarity: 5 (71.428571428571 %)
+similarity: 3 (42.857142857143 %)
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.similar-text-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.levenshtein.html" class="function" rel="rdfs-seeAlso">levenshtein()</a> - Calculate Levenshtein distance between two strings</span></li>
+    <li class="member"><span class="function"><a href="function.soundex.html" class="function" rel="rdfs-seeAlso">soundex()</a> - Calculate the soundex key of a string</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

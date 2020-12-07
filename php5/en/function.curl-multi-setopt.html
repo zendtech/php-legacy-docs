@@ -1,0 +1,293 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Set an option for the cURL multi handle</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.curl-multi-select.html">« curl_multi_select</a></li>
+      <li style="float: right;"><a href="function.curl-multi-strerror.html">curl_multi_strerror »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.curl.html">cURL Functions</a></li>
+    <li>Set an option for the cURL multi handle</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.curl-multi-setopt" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">curl_multi_setopt</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7)</p><p class="refpurpose"><span class="refname">curl_multi_setopt</span> &mdash; <span class="dc-title">Set an option for the cURL multi handle</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.curl-multi-setopt-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>curl_multi_setopt</strong></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$mh</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
+   ) : <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+
+  </p>
+
+  <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function is
+currently not documented; only its argument list is available.
+</p></div>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.curl-multi-setopt-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+
+   
+    <dt>
+<code class="parameter">mh</code></dt>
+
+    <dd>
+
+     <p class="para">
+      
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">option</code></dt>
+
+    <dd>
+
+     <p class="para">
+      One of the <strong><code>CURLMOPT_*</code></strong> constants.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">value</code></dt>
+
+    <dd>
+
+      <p class="para">
+       The value to be set on <code class="parameter">option</code>.
+      </p>
+      <p class="para">
+       <code class="parameter">value</code> should be an <span class="type"><a href="language.types.integer.html" class="type int">int</a></span> for the
+       following values of the <code class="parameter">option</code> parameter:
+       <table class="doctable informaltable">
+        
+         <thead>
+          <tr>
+           <th>Option</th>
+           <th>Set <code class="parameter">value</code> to</th>
+          </tr>
+
+         </thead>
+
+         <tbody class="tbody">
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLMOPT_PIPELINING</code></strong></td>
+           <td style="vertical-align: top;">
+            Pass 1 to enable or 0 to disable. Enabling pipelining on a multi
+            handle will make it attempt to perform HTTP Pipelining as far as
+            possible for transfers using this handle. This means that if you add
+            a second request that can use an already existing connection, the
+            second request will be &quot;piped&quot; on the same connection.
+            As of cURL 7.43.0, the value is a bitmask, and you can also pass 2 to try to multiplex the new
+            transfer over an existing HTTP/2 connection if possible.
+            Passing 3 instructs cURL to ask for pipelining and multiplexing
+            independently of each other.
+            As of cURL 7.62.0, setting the pipelining bit has no effect.
+            Instead of integer literals, you can also use the CURLPIPE_*
+            constants if available.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLMOPT_MAXCONNECTS</code></strong></td>
+           <td style="vertical-align: top;">
+            Pass a number that will be used as the maximum amount of
+            simultaneously open connections that libcurl may cache.
+            By default the size will be enlarged to fit four times the number
+            of handles added via <span class="function"><a href="function.curl-multi-add-handle.html" class="function">curl_multi_add_handle()</a></span>.
+            When the cache is full, curl closes the oldest one in the cache
+            to prevent the number of open connections from increasing.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE</code></strong></td>
+           <td style="vertical-align: top;">
+            Pass a number that specifies the chunk length threshold for pipelining
+            in bytes.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE</code></strong></td>
+           <td style="vertical-align: top;">
+            Pass a number that specifies the size threshold for pipelining
+            penalty in bytes.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLMOPT_MAX_HOST_CONNECTIONS</code></strong></td>
+           <td style="vertical-align: top;">
+            Pass a number that specifies the maximum number of connections to a
+            single host.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLMOPT_MAX_PIPELINE_LENGTH</code></strong></td>
+           <td style="vertical-align: top;">
+            Pass a number that specifies the maximum number of requests in a
+            pipeline.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLMOPT_MAX_TOTAL_CONNECTIONS</code></strong></td>
+           <td style="vertical-align: top;">
+            Pass a number that specifies the maximum number of simultaneously
+            open connections.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLMOPT_PUSHFUNCTION</code></strong></td>
+           <td style="vertical-align: top;">
+            Pass a <span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> that will be registered to handle server
+            pushes and should have the following signature:
+            <div class="methodsynopsis dc-description">
+             <span class="methodname"><span class="replaceable">pushfunction</span></span>
+              ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$parent_ch</code></span>
+             , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$pushed_ch</code></span>
+             , <span class="methodparam"><span class="type">array</span> <code class="parameter">$headers</code></span>
+             ) : <span class="type">int</span></div>
+
+            <dl>
+
+             
+              <dt>
+<code class="parameter">parent_ch</code></dt>
+
+              <dd>
+
+               <p class="para">
+                The parent cURL handle (the request the client made).
+               </p>
+              </dd>
+
+             
+             
+              <dt>
+<code class="parameter">pushed_ch</code></dt>
+
+              <dd>
+
+               <p class="para">
+                A new cURL handle for the pushed request.
+               </p>
+              </dd>
+
+             
+             
+              <dt>
+<code class="parameter">headers</code></dt>
+
+              <dd>
+
+               <p class="para">
+                The push promise headers.
+               </p>
+              </dd>
+
+             
+            </dl>
+
+            The push function is supposed to return either
+            <strong><code>CURL_PUSH_OK</code></strong> if it can handle the push, or
+            <strong><code>CURL_PUSH_DENY</code></strong> to reject it.
+           </td>
+          </tr>
+
+         </tbody>
+        
+       </table>
+
+      </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.curl-multi-setopt-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.curl-multi-setopt-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.1.0</td>
+       <td>
+        Introduced <strong><code>CURLMOPT_PUSHFUNCTION</code></strong>.
+       </td>
+      </tr>
+
+      <tr>
+       <td>7.0.7</td>
+       <td>
+        Introduced <strong><code>CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE</code></strong>,
+        <strong><code>CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE</code></strong>,
+        <strong><code>CURLMOPT_MAX_HOST_CONNECTIONS</code></strong>,
+        <strong><code>CURLMOPT_MAX_PIPELINE_LENGTH</code></strong> and
+        <strong><code>CURLMOPT_MAX_TOTAL_CONNECTIONS</code></strong>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

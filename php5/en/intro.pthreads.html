@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Introduction</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="book.pthreads.html">« pthreads</a></li>
+      <li style="float: right;"><a href="pthreads.setup.html">Installing/Configuring »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.pthreads.html">pthreads</a></li>
+    <li>Introduction</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="intro.pthreads" class="preface">
+  <h1 class="title">Introduction</h1>
+  <p class="para">
+   pthreads is an object-orientated API that provides all of the tools needed
+   for multi-threading in PHP. PHP applications can create, read, write,
+   execute and synchronize with Threads, Workers and Threaded objects.
+  </p>
+  <div class="tip"><strong class="tip">Tip</strong>
+   <p class="simpara">
+    Consider using <a href="book.parallel.html" class="link">parallel</a> instead.
+   </p>
+  </div>
+  <div class="warning"><strong class="warning">Warning</strong>
+   <p class="para">
+    The pthreads extension cannot be used in a web server environment.
+    Threading in PHP is therefore restricted to CLI-based applications only.
+   </p>
+  </div>
+  <div class="warning"><strong class="warning">Warning</strong>
+   <p class="para">
+    pthreads (v3) can only be used with PHP 7.2+: This is due to ZTS
+    mode being unsafe in 7.0 and 7.1.
+   </p>
+  </div>
+  <p class="para">
+   The <a href="class.threaded.html" class="classname">Threaded</a> class forms the basis of the
+   functionality that allows pthreads to operate. It exposes synchronization
+   methods and some useful interfaces for the programmer.
+  </p>
+  <p class="para">
+   The <a href="class.thread.html" class="classname">Thread</a> class enables for threads to be created by
+   simply extending it and implementing a <code class="literal">run</code> method. Any
+   members can be written to and read by any context with a reference to the
+   thread. Any context can also execute any public and protected methods. 
+   The body of the run method will be executed in a separate thread when the
+   <span class="methodname"><a href="thread.start.html" class="methodname">Thread::start()</a></span> method of the implementation is
+   called from the context that created it. Only the context that creates a
+   thread can start and join it.
+  </p>
+  <p class="para">
+   The <a href="class.worker.html" class="classname">Worker</a> class has a persistent state, and will be
+   available from the call to <span class="methodname"><a href="thread.start.html" class="methodname">Thread::start()</a></span> (an
+   inherited method) until the object goes out of scope, or is explicitly
+   shutdown (via <span class="methodname"><a href="worker.shutdown.html" class="methodname">Worker::shutdown()</a></span>). Any context with a
+   reference to the worker object can stack tasks onto the Worker (via 
+   <span class="methodname"><a href="worker.stack.html" class="methodname">Worker::stack()</a></span>), where these tasks will be executed
+   by the worker in a separate thread. The <code class="literal">run</code> method of a
+   worker object will be executed before any objects on the worker&#039;s stack,
+   enabling for resources to be initialized that the objects to be executed may
+   need.
+  </p>
+  <p class="para">
+   The <a href="class.pool.html" class="classname">Pool</a> class is used to create a group of workers
+   to distribute <a href="class.threaded.html" class="classname">Threaded</a> objects amongst them. It is
+   the easiest and most efficient way of using multiple threads in PHP
+   applications.
+  </p>
+  <div class="caution"><strong class="caution">Caution</strong>
+   <p class="para">
+    The <a href="class.pool.html" class="classname">Pool</a> class does not extend the
+    <a href="class.threaded.html" class="classname">Threaded</a> class, and so pool-based objects are
+    considered a normal PHP objects. As such, its instances of it should not be
+    shared amongst different contexts.
+   </p>
+  </div>
+  <p class="para">
+   The <a href="class.volatile.html" class="classname">Volatile</a> class is new to pthreads v3. It is used
+   to denote mutable <a href="class.threaded.html" class="classname">Threaded</a> properties of
+   <a href="class.threaded.html" class="classname">Threaded</a> classes (since these are now immutable by
+   default). It is also used to store PHP arrays in
+   <a href="class.threaded.html" class="classname">Threaded</a> contexts.
+  </p>
+  <p class="para">
+   Synchronization is an important ability when threading. All of the objects
+   that pthreads creates have built in synchronization in the (which will be
+   familiar to java programmers) form of
+   <span class="methodname"><a href="threaded.wait.html" class="methodname">Threaded::wait()</a></span> and
+   <span class="methodname"><a href="threaded.notify.html" class="methodname">Threaded::notify()</a></span>. Calling
+   <span class="methodname"><a href="threaded.wait.html" class="methodname">Threaded::wait()</a></span> on an object will cause the context
+   to wait for another context to call
+   <span class="methodname"><a href="threaded.notify.html" class="methodname">Threaded::notify()</a></span> on the same object. This mechanism
+   allows for powerful synchronization between <a href="class.threaded.html" class="classname">Threaded</a>
+   objects in PHP.
+  </p>
+  <div class="caution"><strong class="caution">Caution</strong>
+  <p class="para">
+   Any objects that are intended for use in the multi-threaded parts of your
+   application should extend <a href="class.threaded.html" class="classname">Threaded</a>.
+  </p>
+  </div>
+  <p class="para">
+ Data Storage:
+ As a rule of thumb, any data type that can be serialized can be used as a member of a Threaded object, it can be read and written from any context with a reference to the Threaded Object. 
+ Not every type of data is stored serially, basic types are stored in their true form. 
+ Complex types, Arrays, and Objects that are not Threaded are stored serially; they can be read and written to the Threaded Object from any context with a reference.
+ With the exception of Threaded Objects any reference used to set a member of a Threaded Object is separated from the reference in the Threaded Object; 
+ the same data can be read directly from the Threaded Object at any time by any context with a reference to the Threaded Object.
+  </p>
+  <p class="para">
+ Static Members:
+ When a new context is created ( Thread or Worker ), they are generally copied, but resources and objects with internal state are nullified (for safety reasons). This allows them to function as a kind of thread local storage. For example, upon starting the context, a class whose static members include connection information for a database server, and the connection itself, will only have the simple connection information copied, not the connection. Allowing the new context to initiate a connection in the same way as the context that created it, storing the connection in the same place without affecting the original context.
+  </p>
+  <div class="caution"><strong class="caution">Caution</strong>
+  <p class="para">
+ When print_r, var_dump and other object debug functions are executed, they do not include recursion protection.
+  </p>
+  </div>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+ Resources:
+ The extensions and functionality that define resources in PHP are completely unprepared for this kind of environment; pthreads makes provisions for Resources to be shared among contexts, however, for most types of resource it should be considered unsafe. Extreme caution and care should be used when sharing resources among contexts.
+   </p>
+  </p></blockquote>
+  <div class="caution"><strong class="caution">Caution</strong>
+   <p class="para">
+ In the environment which pthreads executes, some restrictions and limitations are necessary in order to provide a stable environment.
+   </p>
+  </div>
+ </div></div></div></body></html>

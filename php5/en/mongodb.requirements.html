@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Requirements</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="mongodb.setup.html">« Installing/Configuring</a></li>
+      <li style="float: right;"><a href="mongodb.installation.html">Installation »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="mongodb.setup.html">Installing/Configuring</a></li>
+    <li>Requirements</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="mongodb.requirements" class="article">
+  <h1>Requirements</h1>
+
+  <p class="para">
+   As of version 1.8.0, the driver requires PHP 7.0 or higher. Previous versions
+   of the driver allow compatibility with older PHP versions.
+  </p>
+  <p class="para">
+   The driver requires <a href="https://github.com/mongodb/libbson" class="link external">&raquo;&nbsp;libbson</a>
+   and <a href="https://github.com/mongodb/mongo-c-driver" class="link external">&raquo;&nbsp;libmongoc</a>, and will use
+   bundled versions of both libraries by default. System libraries may also be
+   used, as discussed in the
+   <a href="mongodb.installation.manual.html" class="link">manual installation</a>
+   documentation.
+  </p>
+  <p class="para">
+   The driver, via libmongoc, optionally depends on a TLS library (e.g. OpenSSL)
+   and will use it if available. If the build process fails to find a TLS
+   library, users should check that the appropriate development package (e.g.
+   <code class="literal">libssl-dev</code>) and
+   <a href="https://en.wikipedia.org/wiki/Pkg-config" class="link external">&raquo;&nbsp;pkg-config</a> are both
+   installed. The process for detecting and configuring TLS libraries is
+   discussed in more detail in the
+   <a href="mongodb.installation.manual.html" class="link">manual installation</a>
+   documentation.
+  </p>
+  <p class="para">
+   <a href="http://cyrusimap.org/" class="link external">&raquo;&nbsp;Cyrus SASL</a> is an optional dependency to
+   support Kerberos authentication and will be used if available.
+  </p>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <span class="simpara">
+    Due to potential problems representing 64-bit integers on 32-bit platforms,
+    users are advised to use 64-bit environments. When using a 32-bit platform,
+    be aware that any 64-bit integer read from the database will be returned as
+    a <a href="class.mongodb-bson-int64.html" class="classname">MongoDB\BSON\Int64</a> instance instead of a PHP
+    integer type.
+   </span>
+  </p></blockquote>
+ </div>
+</div></div></body></html>

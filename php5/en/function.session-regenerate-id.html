@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Update the current session id with a newly generated one</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.session-name.html">« session_name</a></li>
+      <li style="float: right;"><a href="function.session-register-shutdown.html">session_register_shutdown »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.session.html">Session Functions</a></li>
+    <li>Update the current session id with a newly generated one</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.session-regenerate-id" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">session_regenerate_id</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.2, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">session_regenerate_id</span> &mdash; <span class="dc-title">
+   Update the current session id with a newly generated one
+  </span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.session-regenerate-id-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>session_regenerate_id</strong></span>
+    ([ <span class="methodparam"><span class="type">bool</span> <code class="parameter">$delete_old_session</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
+  ] ) : <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>session_regenerate_id()</strong></span> will replace the current
+   session id with a new one, and keep the current session information.
+  </p>
+  <p class="para">
+   When <a href="session.configuration.html#ini.session.use-trans-sid" class="link">session.use_trans_sid</a>
+   is enabled, output must be started after <span class="function"><strong>session_regenerate_id()</strong></span>
+   call. Otherwise, old session ID is used.
+  </p>
+  <div class="warning"><strong class="warning">Warning</strong>
+   <p class="para">
+    Currently, session_regenerate_id does not handle an unstable network well,
+    e.g. Mobile and WiFi network. Therefore, you may experience a lost
+    session by calling session_regenerate_id.
+   </p>
+   <p class="para">
+    You should not destroy old session data immediately, but should use
+    destroy time-stamp and control access to old session ID. Otherwise,
+    concurrent access to page may result in inconsistent state, or you
+    may have lost session, or it may cause client(browser) side race
+    condition and may create many session ID needlessly. Immediate
+    session data deletion disables session hijack attack detection
+    and prevention also.
+   </p>
+  </div>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.session-regenerate-id-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">delete_old_session</code></dt>
+
+      <dd>
+
+       <p class="para">
+        Whether to delete the old associated session file or not.
+        You should not delete old session if you need to avoid
+        races caused by deletion or detect/avoid session hijack
+        attacks.
+       </p>
+      </dd>
+
+     
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.session-regenerate-id-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.session-regenerate-id-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.0.0</td>
+       <td>
+        <span class="function"><strong>session_regenerate_id()</strong></span> saves old session data
+        before closing.
+       </td>
+      </tr>
+
+      <tr>
+       <td>5.1.0</td>
+       <td>
+        Added the <code class="parameter">delete_old_session</code> parameter.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.session-regenerate-id-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-6062">
+    <p><strong>Example #1 A <span class="function"><strong>session_regenerate_id()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;NOTE:&nbsp;This&nbsp;code&nbsp;is&nbsp;not&nbsp;fully&nbsp;working&nbsp;code,&nbsp;but&nbsp;an&nbsp;example!<br /><br /></span><span style="color: #0000BB">session_start</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;Check&nbsp;destroyed&nbsp;time-stamp<br /></span><span style="color: #007700">if&nbsp;(isset(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'destroyed'</span><span style="color: #007700">])<br />&nbsp;&nbsp;&nbsp;&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'destroyed'</span><span style="color: #007700">]&nbsp;&lt;&nbsp;</span><span style="color: #0000BB">time</span><span style="color: #007700">()&nbsp;-&nbsp;</span><span style="color: #0000BB">300</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Should&nbsp;not&nbsp;happen&nbsp;usually.&nbsp;This&nbsp;could&nbsp;be&nbsp;attack&nbsp;or&nbsp;due&nbsp;to&nbsp;unstable&nbsp;network.<br />&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Remove&nbsp;all&nbsp;authentication&nbsp;status&nbsp;of&nbsp;this&nbsp;users&nbsp;session.<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">remove_all_authentication_flag_from_active_sessions</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'userid'</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;throw(new&nbsp;</span><span style="color: #0000BB">DestroyedSessionAccessException</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">$old_sessionid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">session_id</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;Set&nbsp;destroyed&nbsp;timestamp<br /></span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'destroyed'</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">time</span><span style="color: #007700">();&nbsp;</span><span style="color: #FF8000">//&nbsp;Since&nbsp;PHP&nbsp;7.0.0&nbsp;and&nbsp;up,&nbsp;session_regenerate_id()&nbsp;saves&nbsp;old&nbsp;session&nbsp;data<br /><br />//&nbsp;Simply&nbsp;calling&nbsp;session_regenerate_id()&nbsp;may&nbsp;result&nbsp;in&nbsp;lost&nbsp;session,&nbsp;etc.<br />//&nbsp;See&nbsp;next&nbsp;example.<br /></span><span style="color: #0000BB">session_regenerate_id</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;New&nbsp;session&nbsp;does&nbsp;not&nbsp;need&nbsp;destroyed&nbsp;timestamp<br /></span><span style="color: #007700">unset(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'destroyed'</span><span style="color: #007700">]);<br /><br /></span><span style="color: #0000BB">$new_sessionid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">session_id</span><span style="color: #007700">();<br /><br />echo&nbsp;</span><span style="color: #DD0000">"Old&nbsp;Session:&nbsp;</span><span style="color: #0000BB">$old_sessionid</span><span style="color: #DD0000">&lt;br&nbsp;/&gt;"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #DD0000">"New&nbsp;Session:&nbsp;</span><span style="color: #0000BB">$new_sessionid</span><span style="color: #DD0000">&lt;br&nbsp;/&gt;"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+
+  <p class="para">
+   Current session module does not handle unstable network well. You should
+   manage session ID to avoid lost session by session_regenerate_id.
+  </p>
+
+  <p class="para">
+   <div class="example" id="example-6063">
+    <p><strong>Example #2 Avoiding lost session by <span class="function"><strong>session_regenerate_id()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;NOTE:&nbsp;This&nbsp;code&nbsp;is&nbsp;not&nbsp;fully&nbsp;working&nbsp;code,&nbsp;but&nbsp;an&nbsp;example!<br />//&nbsp;my_session_start()&nbsp;and&nbsp;my_session_regenerate_id()&nbsp;avoid&nbsp;lost&nbsp;sessions&nbsp;by<br />//&nbsp;unstable&nbsp;network.&nbsp;In&nbsp;addition,&nbsp;this&nbsp;code&nbsp;may&nbsp;prevent&nbsp;exploiting&nbsp;stolen<br />//&nbsp;session&nbsp;by&nbsp;attackers.<br /><br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">my_session_start</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">session_start</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(isset(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'destroyed'</span><span style="color: #007700">]))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'destroyed'</span><span style="color: #007700">]&nbsp;&lt;&nbsp;</span><span style="color: #0000BB">time</span><span style="color: #007700">()-</span><span style="color: #0000BB">300</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Should&nbsp;not&nbsp;happen&nbsp;usually.&nbsp;This&nbsp;could&nbsp;be&nbsp;attack&nbsp;or&nbsp;due&nbsp;to&nbsp;unstable&nbsp;network.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Remove&nbsp;all&nbsp;authentication&nbsp;status&nbsp;of&nbsp;this&nbsp;users&nbsp;session.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">remove_all_authentication_flag_from_active_sessions</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'userid'</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw(new&nbsp;</span><span style="color: #0000BB">DestroyedSessionAccessException</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(isset(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'new_session_id'</span><span style="color: #007700">]))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Not&nbsp;fully&nbsp;expired&nbsp;yet.&nbsp;Could&nbsp;be&nbsp;lost&nbsp;cookie&nbsp;by&nbsp;unstable&nbsp;network.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Try&nbsp;again&nbsp;to&nbsp;set&nbsp;proper&nbsp;session&nbsp;ID&nbsp;cookie.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;NOTE:&nbsp;Do&nbsp;not&nbsp;try&nbsp;to&nbsp;set&nbsp;session&nbsp;ID&nbsp;again&nbsp;if&nbsp;you&nbsp;would&nbsp;like&nbsp;to&nbsp;remove<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;authentication&nbsp;flag.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">session_commit</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">session_id</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'new_session_id'</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;New&nbsp;session&nbsp;ID&nbsp;should&nbsp;exist<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">session_start</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;}<br />}<br /><br />function&nbsp;</span><span style="color: #0000BB">my_session_regenerate_id</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;New&nbsp;session&nbsp;ID&nbsp;is&nbsp;required&nbsp;to&nbsp;set&nbsp;proper&nbsp;session&nbsp;ID<br />&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;when&nbsp;session&nbsp;ID&nbsp;is&nbsp;not&nbsp;set&nbsp;due&nbsp;to&nbsp;unstable&nbsp;network.<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$new_session_id&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">session_create_id</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'new_session_id'</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">$new_session_id</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Set&nbsp;destroy&nbsp;timestamp<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'destroyed'</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">time</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Write&nbsp;and&nbsp;close&nbsp;current&nbsp;session;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">session_commit</span><span style="color: #007700">();<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Start&nbsp;session&nbsp;with&nbsp;new&nbsp;session&nbsp;ID<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">session_id</span><span style="color: #007700">(</span><span style="color: #0000BB">$new_session_id</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ini_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'session.use_strict_mode'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">session_start</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ini_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'session.use_strict_mode'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;New&nbsp;session&nbsp;does&nbsp;not&nbsp;need&nbsp;them<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">unset(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'destroyed'</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;unset(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'new_session_id'</span><span style="color: #007700">]);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.session-regenerate-id-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.session-id.html" class="function" rel="rdfs-seeAlso">session_id()</a> - Get and/or set the current session id</span></li>
+    <li class="member"><span class="function"><a href="function.session-create-id.html" class="function" rel="rdfs-seeAlso">session_create_id()</a> - Create new session id</span></li>
+    <li class="member"><span class="function"><a href="function.session-start.html" class="function" rel="rdfs-seeAlso">session_start()</a> - Start new or resume existing session</span></li>
+    <li class="member"><span class="function"><a href="function.session-destroy.html" class="function" rel="rdfs-seeAlso">session_destroy()</a> - Destroys all data registered to a session</span></li>
+    <li class="member"><span class="function"><a href="function.session-reset.html" class="function" rel="rdfs-seeAlso">session_reset()</a> - Re-initialize session array with original values</span></li>
+    <li class="member"><span class="function"><a href="function.session-name.html" class="function" rel="rdfs-seeAlso">session_name()</a> - Get and/or set the current session name</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

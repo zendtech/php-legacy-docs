@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The CURLFile class</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.curl-version.html">« curl_version</a></li>
+      <li style="float: right;"><a href="curlfile.construct.html">CURLFile::__construct »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.curl.html">cURL</a></li>
+    <li>The CURLFile class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="class.curlfile" class="reference">
+
+ <h1 class="title">The CURLFile class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7)</p>
+
+
+  <div class="section" id="curlfile.intro">
+   <h2 class="title">Introduction</h2>
+   <p class="para">
+    <strong class="classname">CURLFile</strong> should be used to upload a file with
+    <strong><code>CURLOPT_POSTFIELDS</code></strong>.
+   </p>
+  </div>
+
+
+  <div class="section" id="curlfile.synopsis">
+   <h2 class="title">Class synopsis</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <strong class="classname">CURLFile</strong>
+     </span>
+     {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Properties */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+     <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span>
+     <var class="varname">name</var>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+     <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span>
+     <var class="varname">mime</var>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+     <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span>
+     <var class="varname">postname</var>
+    ;</div>
+
+
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a href="curlfile.construct.html" class="methodname">__construct</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$mimetype</code><span class="initializer"> = &quot;&quot;</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$postname</code><span class="initializer"> = &quot;&quot;</span></span>
+  ]] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a href="curlfile.getfilename.html" class="methodname">getFilename</a></span>
+    ( <span class="methodparam">void</span>
+   ) : <span class="type">string</span></div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a href="curlfile.getmimetype.html" class="methodname">getMimeType</a></span>
+    ( <span class="methodparam">void</span>
+   ) : <span class="type">string</span></div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a href="curlfile.getpostfilename.html" class="methodname">getPostFilename</a></span>
+    ( <span class="methodparam">void</span>
+   ) : <span class="type">string</span></div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a href="curlfile.setmimetype.html" class="methodname">setMimeType</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$mime</code></span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a href="curlfile.setpostfilename.html" class="methodname">setPostFilename</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$postname</code></span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a href="curlfile.wakeup.html" class="methodname">__wakeup</a></span>
+    ( <span class="methodparam">void</span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
+
+   }</div>
+
+
+  </div>
+
+  
+
+  <div class="section" id="curlfile.props">
+   <h2 class="title">Properties</h2>
+   <dl>
+
+    
+     <dt id="curlfile.props.name"><var class="varname">name</var></dt>
+
+     <dd>
+
+      <p class="para">Name of the file to be uploaded.</p>
+     </dd>
+
+    
+    
+     <dt id="curlfile.props.mime"><var class="varname">mime</var></dt>
+
+     <dd>
+
+      <p class="para">MIME type of the file (default is <code class="literal">application/octet-stream</code>).</p>
+     </dd>
+
+    
+    
+     <dt id="curlfile.props.postname"><var class="varname">postname</var></dt>
+
+     <dd>
+
+      <p class="para">The name of the file in the upload data (defaults to the <var class="varname">name</var> property).</p>
+     </dd>
+
+    
+   </dl>
+
+  </div>
+
+
+  <div class="section" id="curlfile.seealso">
+   <h2 class="title">See Also</h2>
+   <p class="para">
+    <ul class="simplelist">
+     <li class="member">
+      <span class="function"><a href="function.curl-setopt.html" class="function">curl_setopt()</a></span>
+     </li>
+    </ul>
+   </p>
+  </div>
+
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="curlfile.construct.html">CURLFile::__construct</a> — Create a CURLFile object</li><li><a href="curlfile.getfilename.html">CURLFile::getFilename</a> — Get file name</li><li><a href="curlfile.getmimetype.html">CURLFile::getMimeType</a> — Get MIME type</li><li><a href="curlfile.getpostfilename.html">CURLFile::getPostFilename</a> — Get file name for POST</li><li><a href="curlfile.setmimetype.html">CURLFile::setMimeType</a> — Set MIME type</li><li><a href="curlfile.setpostfilename.html">CURLFile::setPostFilename</a> — Set file name for POST</li><li><a href="curlfile.wakeup.html">CURLFile::__wakeup</a> — Unserialization handler</li></ul>
+</div>
+</div></div></body></html>

@@ -1,0 +1,217 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Installation</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="pcre.requirements.html">« Requirements</a></li>
+      <li style="float: right;"><a href="pcre.configuration.html">Runtime Configuration »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="pcre.setup.html">Installing/Configuring</a></li>
+    <li>Installation</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="pcre.installation" class="section">
+ <h2 class="title">Installation</h2>
+ <p class="para">
+  The PCRE extension is a core PHP extension, so it is always enabled.
+  By default, this extension is compiled using the bundled PCRE
+  library. Alternatively, an external PCRE library can be used by
+  passing in the <strong class="option configure">--with-pcre-regex=DIR</strong>
+  configuration option where <code class="literal">DIR</code> is the location of
+  PCRE&#039;s include and library files. It is recommended to use PCRE 8.10 or newer
+  for PHP 5.6 and 7.0.
+ </p>
+ <p class="para">
+  As of PHP 7.0.0 PCRE&#039;s just-in-time compilation is supported by default, which
+  can be disabled with the <strong class="option configure">--without-pcre-jit</strong>
+  configuration option as of PHP 7.0.12.
+ </p>
+ <p class="simpara">The Windows version of PHP has built-in
+support for this extension. You do not need to load any additional
+extensions in order to use these functions.</p>
+ <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <p class="para">
+   Before PHP 5.3.0, this extension could be disabled by passing in
+   the <strong class="option configure">--without-pcre-regex</strong>
+   configuration option.
+  </p>
+ </p></blockquote>
+ <p class="para">
+  PCRE is an active project and as it changes so does the PHP
+  functionality that relies upon it. It is possible that certain parts
+  of the PHP documentation is outdated, in that it may not cover the
+  newest features that PCRE provides. For a list of changes, see the
+  <a href="http://www.pcre.org/original/changelog.txt" class="link external">&raquo;&nbsp;PCRE library changelog</a>
+  and also the following bundled PCRE history:
+ </p>
+ <p class="para">
+  <table class="doctable table">
+   <caption><strong>Upgrade history of the bundled PCRE library</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>PHP Version</th>
+      <th>Updated PCRE Version</th>
+      <th>Notes</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>7.3.0</td>
+      <td>10.32</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td>7.2.0</td>
+      <td>8.41</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td>7.0.3 / 5.6.18 / 5.5.32</td>
+      <td>8.38</td>
+      <td>See CVE-2015-8383, CVE-2015-8386, CVE-2015-8387, CVE-2015-8389, CVE-2015-8390, CVE-2015-8391, CVE-2015-8393, CVE-2015-8394</td>
+     </tr>
+
+     <tr>
+      <td>7.0.0 / 5.6.9 / 5.5.26 / 5.4.41</td>
+      <td>8.37</td>
+      <td>See CVE-2015-2325, CVE-2015-2326</td>
+     </tr>
+
+     <tr>
+      <td>5.6.0 / 5.5.10</td>
+      <td>8.34</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td>5.5.0 / 5.4.14 / 5.3.24</td>
+      <td>8.32</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td>5.4.9 / 5.3.19</td>
+      <td>8.31</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td>5.3.7</td>
+      <td>8.12</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td>5.3.6</td>
+      <td>8.11</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td>5.3.4</td>
+      <td>8.10</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td>5.3.3 / 5.2.14</td>
+      <td>8.02</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td>5.3.2</td>
+      <td>8.00</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td>5.3.0 / 5.2.13</td>
+      <td>7.9</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td>5.2.7</td>
+      <td>7.8</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td>5.2.6</td>
+      <td>7.6</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td>5.2.5</td>
+      <td>7.3</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td>5.2.4</td>
+      <td>7.2</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td>5.2.2</td>
+      <td>7.0</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td>5.2.0</td>
+      <td>6.7</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td>5.1.3</td>
+      <td>6.6</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td>5.1.0</td>
+      <td>6.2</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td>5.0.5</td>
+      <td>5.0</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td>5.0.0</td>
+      <td>4.5</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </p>
+</div></div></div></body></html>

@@ -1,0 +1,243 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Retrieve information about the currently installed GD library</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="ref.image.html">« GD and Image Functions</a></li>
+      <li style="float: right;"><a href="function.getimagesize.html">getimagesize »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.image.html">GD and Image Functions</a></li>
+    <li>Retrieve information about the currently installed GD library</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.gd-info" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">gd_info</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">gd_info</span> &mdash; <span class="dc-title">Retrieve information about the currently installed GD library</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.gd-info-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>gd_info</strong></span>
+    ( <span class="methodparam">void</span>
+   ) : <span class="type">array</span></div>
+
+  <p class="para rdfs-comment">
+   Gets information about the version and capabilities of the installed GD
+   library.
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.gd-info-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns an associative array.
+  </p>
+  <p class="para">
+   <table class="doctable table">
+    <caption><strong>Elements of array returned by <span class="function"><strong>gd_info()</strong></span></strong></caption>
+    
+     <thead>
+      <tr>
+       <th>Attribute</th>
+       <th>Meaning</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>GD Version</td>
+       <td><span class="type"><a href="language.types.string.html" class="type string">string</a></span> value describing the installed
+        <code class="literal">libgd</code> version.</td>
+      </tr>
+
+      <tr>
+       <td>FreeType Support</td>
+       <td><span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span> value.  <strong><code>TRUE</code></strong>
+        if FreeType Support is installed.</td>
+      </tr>
+
+      <tr>
+       <td>FreeType Linkage</td>
+       <td><span class="type"><a href="language.types.string.html" class="type string">string</a></span> value describing the way in which
+        FreeType was linked. Expected values are: &#039;with freetype&#039;,
+        &#039;with TTF library&#039;, and &#039;with unknown library&#039;.  This element will
+        only be defined if <code class="literal">FreeType Support</code> evaluated to
+        <strong><code>TRUE</code></strong>.</td>
+      </tr>
+
+      <tr>
+       <td>T1Lib Support</td>
+       <td><span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span> value.  <strong><code>TRUE</code></strong>
+        if <code class="literal">T1Lib</code> support is included.</td>
+      </tr>
+
+      <tr>
+       <td>GIF Read Support</td>
+       <td><span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span> value.  <strong><code>TRUE</code></strong>
+        if support for <em class="emphasis">reading</em> <code class="literal">GIF</code>
+        images is included.</td>
+      </tr>
+
+      <tr>
+       <td>GIF Create Support</td>
+       <td><span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span> value.  <strong><code>TRUE</code></strong>
+        if support for <em class="emphasis">creating</em> <code class="literal">GIF</code>
+        images is included.</td>
+      </tr>
+
+      <tr>
+       <td>JPEG Support</td>
+       <td><span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span> value.  <strong><code>TRUE</code></strong>
+        if <code class="literal">JPEG</code> support is included.</td>
+      </tr>
+
+      <tr>
+       <td>PNG Support</td>
+       <td><span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span> value.  <strong><code>TRUE</code></strong>
+        if <code class="literal">PNG</code> support is included.</td>
+      </tr>
+
+      <tr>
+       <td>WBMP Support</td>
+       <td><span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span> value.  <strong><code>TRUE</code></strong>
+        if <code class="literal">WBMP</code> support is included.</td>
+      </tr>
+
+      <tr>
+       <td>XBM Support</td>
+       <td><span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span> value.  <strong><code>TRUE</code></strong>
+        if <code class="literal">XBM</code> support is included.</td>
+      </tr>
+
+      <tr>
+       <td>WebP Support</td>
+       <td><span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span> value.  <strong><code>TRUE</code></strong>
+        if <code class="literal">WebP</code> support is included.</td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    Previous to PHP 5.3.0, the <code class="literal">JPEG Support</code> attribute was named
+    <code class="literal">JPG Support</code>.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+<div class="refsect1 changelog" id="refsect1-function.gd-info-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.6.12</td>
+       <td>
+        <code class="literal">WebP Support</code> added.
+       </td>
+      </tr>
+
+      <tr>
+       <td>5.3.0</td>
+       <td>
+        <code class="literal">JPG Support</code> attribute renamed to <code class="literal">JPEG Support</code>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.gd-info-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-3783">
+    <p><strong>Example #1 Using <span class="function"><strong>gd_info()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">gd_info</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output
+something similar to:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+array(10) {
+  [&quot;GD Version&quot;]=&gt;
+  string(24) &quot;bundled (2.1.0 compatible)&quot;
+  [&quot;FreeType Support&quot;]=&gt;
+  bool(false)
+  [&quot;T1Lib Support&quot;]=&gt;
+  bool(false)
+  [&quot;GIF Read Support&quot;]=&gt;
+  bool(true)
+  [&quot;GIF Create Support&quot;]=&gt;
+  bool(false)
+  [&quot;JPEG Support&quot;]=&gt;
+  bool(false)
+  [&quot;PNG Support&quot;]=&gt;
+  bool(true)
+  [&quot;WBMP Support&quot;]=&gt;
+  bool(true)
+  [&quot;XBM Support&quot;]=&gt;
+  bool(false)
+  [&quot;WebP Support&quot;]=&gt;
+  bool(false)
+}
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.gd-info-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.imagepng.html" class="function" rel="rdfs-seeAlso">imagepng()</a> - Output a PNG image to either the browser or a file</span></li>
+    <li class="member"><span class="function"><a href="function.imagejpeg.html" class="function" rel="rdfs-seeAlso">imagejpeg()</a> - Output image to browser or file</span></li>
+    <li class="member"><span class="function"><a href="function.imagegif.html" class="function" rel="rdfs-seeAlso">imagegif()</a> - Output image to browser or file</span></li>
+    <li class="member"><span class="function"><a href="function.imagewbmp.html" class="function" rel="rdfs-seeAlso">imagewbmp()</a> - Output image to browser or file</span></li>
+    <li class="member"><span class="function"><a href="function.imagewebp.html" class="function" rel="rdfs-seeAlso">imagewebp()</a> - Output a WebP image to browser or file</span></li>
+    <li class="member"><span class="function"><a href="function.imagetypes.html" class="function" rel="rdfs-seeAlso">imagetypes()</a> - Return the image types supported by this PHP build</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div></div></div></body></html>

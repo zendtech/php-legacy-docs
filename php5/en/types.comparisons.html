@@ -1,0 +1,701 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>PHP type comparison tables</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="transports.unix.html">« Unix Domain: Unix and UDG</a></li>
+      <li style="float: right;"><a href="tokens.html">List of Parser Tokens »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="appendices.html">Appendices</a></li>
+    <li>PHP type comparison tables</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="types.comparisons" class="appendix">
+ <h1>PHP type comparison tables</h1>
+
+ <p class="para">
+  The following tables demonstrate behaviors of PHP 
+  <a href="language.types.html" class="link">types</a> and 
+  <a href="language.operators.comparison.html" class="link">comparison 
+  operators</a>, for both loose and strict comparisons.  This 
+  supplemental is also related to the manual section on 
+  <a href="language.types.type-juggling.html" class="link">type juggling</a>.
+  Inspiration was provided by various user comments and by the work over at
+  <a href="http://www.blueshoes.org/en/developer/php_cheat_sheet/" class="link external">&raquo;&nbsp;BlueShoes</a>.
+ </p>
+ <p class="para">
+  Before utilizing these tables, it&#039;s important to understand types and their
+  meanings.  For example, <code class="literal">&quot;42&quot;</code> is a <span class="type"><a href="language.types.string.html" class="type string">string</a></span> 
+  while <code class="literal">42</code> is an <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>.  <strong><code>FALSE</code></strong> is a
+  <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span> while <code class="literal">&quot;false&quot;</code> is a
+  <span class="type"><a href="language.types.string.html" class="type string">string</a></span>.
+ </p>
+ <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <p class="para">
+   HTML Forms do not pass integers, floats, or booleans; they pass strings.
+   To find out if a string is numeric, you may use
+   <span class="function"><a href="function.is-numeric.html" class="function">is_numeric()</a></span>.
+  </p>
+ </p></blockquote>
+ <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <p class="para">
+   Simply doing <code class="literal">if ($x)</code> while <var class="varname">$x</var> is
+   undefined will generate an error of level <strong><code>E_NOTICE</code></strong>.
+   Instead, consider using <span class="function"><a href="function.empty.html" class="function">empty()</a></span> or
+   <span class="function"><a href="function.isset.html" class="function">isset()</a></span> and/or initialize your variables.
+  </p>
+ </p></blockquote>
+ <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <p class="para">
+   Some numeric operations can result in a value represented by the constant 
+   <strong><code>NAN</code></strong>. Any loose or strict comparisons of this value 
+   against any other value, including itself, but except <strong><code>TRUE</code></strong>, will have a result of <strong><code>FALSE</code></strong>. 
+   (i.e. <code class="literal">NAN != NAN</code> and <code class="literal">NAN !== NAN</code>)
+   Examples of operations that produce <strong><code>NAN</code></strong> include 
+   <code class="literal">sqrt(-1)</code>, <code class="literal">asin(2)</code>, and 
+   <code class="literal">acosh(0)</code>.
+  </p>
+ </p></blockquote>
+ <p class="para">
+  <table class="doctable table">
+   <caption><strong>Comparisons of <var class="varname">$x</var> with PHP functions</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Expression</th>
+      <th><span class="function"><a href="function.gettype.html" class="function">gettype()</a></span></th>
+      <th><span class="function"><a href="function.empty.html" class="function">empty()</a></span></th>
+      <th><span class="function"><a href="function.is-null.html" class="function">is_null()</a></span></th>
+      <th><span class="function"><a href="function.isset.html" class="function">isset()</a></span></th>
+      <th><span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span> : <code class="literal">if($x)</code></th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td><code class="literal">$x = &quot;&quot;;</code></td>
+      <td><span class="type"><a href="language.types.string.html" class="type string">string</a></span></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">$x = null;</code></td>
+      <td><span class="type"><a href="language.types.null.html" class="type NULL">NULL</a></span></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">var $x;</code></td>
+      <td><span class="type"><a href="language.types.null.html" class="type NULL">NULL</a></span></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><var class="varname">$x</var> is undefined</td>
+      <td><span class="type"><a href="language.types.null.html" class="type NULL">NULL</a></span></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">$x = array();</code></td>
+      <td><span class="type"><a href="language.types.array.html" class="type array">array</a></span></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">$x = array(&#039;a&#039;, &#039;b&#039;);</code></td>
+      <td><span class="type"><a href="language.types.array.html" class="type array">array</a></span></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">$x = false;</code></td>
+      <td><span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">$x = true;</code></td>
+      <td><span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">$x = 1;</code></td>
+      <td><span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">$x = 42;</code></td>
+      <td><span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">$x = 0;</code></td>
+      <td><span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">$x = -1;</code></td>
+      <td><span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">$x = &quot;1&quot;;</code></td>
+      <td><span class="type"><a href="language.types.string.html" class="type string">string</a></span></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">$x = &quot;0&quot;;</code></td>
+      <td><span class="type"><a href="language.types.string.html" class="type string">string</a></span></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">$x = &quot;-1&quot;;</code></td>
+      <td><span class="type"><a href="language.types.string.html" class="type string">string</a></span></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">$x = &quot;php&quot;;</code></td>
+      <td><span class="type"><a href="language.types.string.html" class="type string">string</a></span></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">$x = &quot;true&quot;;</code></td>
+      <td><span class="type"><a href="language.types.string.html" class="type string">string</a></span></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">$x = &quot;false&quot;;</code></td>
+      <td><span class="type"><a href="language.types.string.html" class="type string">string</a></span></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </p>
+
+ <p class="para">
+  <table id="types.comparisions-loose" class="doctable table">
+   <caption><strong>Loose comparisons with <code class="literal">==</code></strong></caption>
+   
+    <thead>
+     <tr>
+      <th> </th>
+      <th><strong><code>TRUE</code></strong></th>
+      <th><strong><code>FALSE</code></strong></th>
+      <th><code class="literal">1</code></th>
+      <th><code class="literal">0</code></th>
+      <th><code class="literal">-1</code></th>
+      <th><code class="literal">&quot;1&quot;</code></th>
+      <th><code class="literal">&quot;0&quot;</code></th>
+      <th><code class="literal">&quot;-1&quot;</code></th>
+      <th><strong><code>NULL</code></strong></th>
+      <th><code class="literal">array()</code></th>
+      <th><code class="literal">&quot;php&quot;</code></th>
+      <th><code class="literal">&quot;&quot;</code></th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">1</code></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">0</code></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">-1</code></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;1&quot;</code></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;0&quot;</code></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;-1&quot;</code></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><strong><code>NULL</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">array()</code></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;php&quot;</code></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;&quot;</code></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </p>
+
+ <p class="para">
+  <table id="type.comparisons-strict" class="doctable table">
+   <caption><strong>Strict comparisons with <code class="literal">===</code></strong></caption>
+   
+    <thead>
+     <tr>
+      <th> </th>
+      <th><strong><code>TRUE</code></strong></th>
+      <th><strong><code>FALSE</code></strong></th>
+      <th><code class="literal">1</code></th>
+      <th><code class="literal">0</code></th>
+      <th><code class="literal">-1</code></th>
+      <th><code class="literal">&quot;1&quot;</code></th>
+      <th><code class="literal">&quot;0&quot;</code></th>
+      <th><code class="literal">&quot;-1&quot;</code></th>
+      <th><strong><code>NULL</code></strong></th>
+      <th><code class="literal">array()</code></th>
+      <th><code class="literal">&quot;php&quot;</code></th>
+      <th><code class="literal">&quot;&quot;</code></th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">1</code></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">0</code></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">-1</code></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;1&quot;</code></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;0&quot;</code></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;-1&quot;</code></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><strong><code>NULL</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">array()</code></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;php&quot;</code></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">&quot;&quot;</code></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </p>
+</div>
+</div></div></body></html>

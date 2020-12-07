@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Changed functions</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="migration71.deprecated.html">« Deprecated features in PHP 7.1.x</a></li>
+      <li style="float: right;"><a href="migration71.other-changes.html">Other changes »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="migration71.html">Migrating from PHP 7.0.x to PHP 7.1.x</a></li>
+    <li>Changed functions</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="migration71.changed-functions" class="sect1">
+ <h2 class="title">Changed functions</h2>
+
+ <div class="sect2" id="migration71.changed-functions.core">
+  <h3 class="title">PHP Core</h3>
+  
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a href="function.getopt.html" class="function">getopt()</a></span> has an optional third parameter that exposes
+     the index of the next element in the argument vector list to be processed.
+     This is done via a by-ref parameter.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a href="function.getenv.html" class="function">getenv()</a></span> no longer requires its parameter. If the
+     parameter is omitted, then the current environment variables will be
+     returned as an associative array.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a href="function.get-headers.html" class="function">get_headers()</a></span> now has an additional parameter to enable
+     for the passing of custom stream contexts.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a href="function.output-reset-rewrite-vars.html" class="function">output_reset_rewrite_vars()</a></span> no longer resets session
+     URL rewrite variables.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a href="function.parse-url.html" class="function">parse_url()</a></span> is now more restrictive and supports
+     RFC3986.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a href="function.unpack.html" class="function">unpack()</a></span> now accepts an optional third parameter to
+     specify the offset to begin unpacking from.
+    </span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration71.changed-functions.filesystem">
+  <h3 class="title">File System</h3>
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a href="function.file-get-contents.html" class="function">file_get_contents()</a></span> now accepts a negative seek offset
+     if the stream is seekable.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a href="function.tempnam.html" class="function">tempnam()</a></span> now emits a notice when falling back to the
+     system&#039;s temp directory.
+    </span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration71.changed-functions.json">
+  <h3 class="title">JSON</h3>
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a href="function.json-encode.html" class="function">json_encode()</a></span> now accepts a new option,
+     <strong><code>JSON_UNESCAPED_LINE_TERMINATORS</code></strong>, to disable the
+     escaping of U+2028 and U+2029 characters when
+     <strong><code>JSON_UNESCAPED_UNICODE</code></strong> is supplied.
+    </span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration71.changed-functions.mbstring">
+  <h3 class="title">Multibyte String</h3>
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a href="function.mb-ereg.html" class="function">mb_ereg()</a></span> now rejects illegal byte sequences.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a href="function.mb-ereg-replace.html" class="function">mb_ereg_replace()</a></span> now rejects illegal byte sequences.
+    </span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration71.changed-functions.pdo">
+  <h3 class="title">PDO</h3>
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     <span class="methodname"><a href="pdo.lastinsertid.html" class="methodname">PDO::lastInsertId()</a></span> for PostgreSQL will now trigger an error
+     when <code class="literal">nextval</code> has not been called for the current
+     session (the postgres connection).
+    </span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration71.changed-functions.pgsql">
+  <h3 class="title">PostgreSQL</h3>
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a href="function.pg-last-notice.html" class="function">pg_last_notice()</a></span> now accepts an optional parameter to
+     specify an operation. This can be done with one of the following new
+     constants: <strong><code>PGSQL_NOTICE_LAST</code></strong>,
+     <strong><code>PGSQL_NOTICE_ALL</code></strong>, or
+     <strong><code>PGSQL_NOTICE_CLEAR</code></strong>.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a href="function.pg-fetch-all.html" class="function">pg_fetch_all()</a></span> now accepts an optional second parameter
+     to specify the result type (similar to the third parameter of
+     <span class="function"><a href="function.pg-fetch-array.html" class="function">pg_fetch_array()</a></span>).
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a href="function.pg-select.html" class="function">pg_select()</a></span> now accepts an optional fourth parameter to
+     specify the result type (similar to the third parameter of
+     <span class="function"><a href="function.pg-fetch-array.html" class="function">pg_fetch_array()</a></span>).
+    </span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration71.changed-functions.session">
+  <h3 class="title">Session</h3>
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a href="function.session-start.html" class="function">session_start()</a></span> now returns <strong><code>FALSE</code></strong> and no longer
+     initializes <var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var> when it failed to start the
+     session.
+    </span>
+   </li>
+  </ul>
+ </div>
+</div></div></div></body></html>

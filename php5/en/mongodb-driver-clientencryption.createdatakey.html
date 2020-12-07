@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Create a new encryption data key</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="class.mongodb-driver-clientencryption.html">« MongoDB\Driver\ClientEncryption</a></li>
+      <li style="float: right;"><a href="mongodb-driver-clientencryption.decrypt.html">MongoDB\Driver\ClientEncryption::decrypt »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.mongodb-driver-clientencryption.html">MongoDB\Driver\ClientEncryption</a></li>
+    <li>Create a new encryption data key</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="mongodb-driver-clientencryption.createdatakey" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">MongoDB\Driver\ClientEncryption::createDataKey</h1>
+  <p class="verinfo">(mongodb &gt;=1.7.0)</p><p class="refpurpose"><span class="refname">MongoDB\Driver\ClientEncryption::createDataKey</span> &mdash; <span class="dc-title">Create a new encryption data key</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-mongodb-driver-clientencryption.createdatakey-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\ClientEncryption::createDataKey</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$kmsProvider</code></span>
+   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>
+  ] ) : <span class="type"><a href="class.mongodb-bson-binary.html" class="type MongoDB\BSON\Binary">MongoDB\BSON\Binary</a></span></div>
+
+  <p class="para rdfs-comment">
+   Creates a new key document and inserts it into the key vault collection.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 parameters" id="refsect1-mongodb-driver-clientencryption.createdatakey-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+
+   
+    <dt>
+<code class="parameter">kmsProvider</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The KMS provider (<code class="literal">&quot;local&quot;</code> or <code class="literal">&quot;aws&quot;</code>) that
+      will be used to encrypt the new encryption key.
+     </p>
+    </dd>
+
+   
+   
+   
+    <dt>
+<code class="parameter">options</code></dt>
+
+    <dd>
+
+     <p class="para">
+      <table class="doctable table">
+       <caption><strong>Data key options</strong></caption>
+       
+        <thead>
+         <tr>
+          <th>Option</th>
+          <th>Type</th>
+          <th>Description</th>
+         </tr>
+
+        </thead>
+
+        <tbody class="tbody">
+         <tr>
+          <td>masterKey</td>
+          <td><span class="type"><a href="language.types.array.html" class="type array">array</a></span></td>
+          <td>
+           <p class="para">
+            The masterKey identifies a KMS-specific key used to encrypt the new
+            data key. If the kmsProvider is <code class="literal">aws</code> it is
+            required and has the following fields:
+            <table class="doctable table">
+             <caption><strong>AWS masterKey options</strong></caption>
+             
+              <thead>
+               <tr>
+                <th>Option</th>
+                <th>Type</th>
+                <th>Description</th>
+               </tr>
+
+              </thead>
+
+              <tbody class="tbody">
+               <tr>
+                <td>region</td>
+                <td>string</td>
+                <td>Required.</td>
+               </tr>
+
+               <tr>
+                <td>key</td>
+                <td>string</td>
+                <td>Required. The Amazon Resource Name (ARN) to the AWS customer master key (CMK).</td>
+               </tr>
+
+               <tr>
+                <td>endpoint</td>
+                <td>string</td>
+                <td>Optional. An alternate host identifier to send KMS requests to. May include port number.</td>
+               </tr>
+
+              </tbody>
+             
+            </table>
+
+           </p>
+          </td>
+         </tr>
+
+         <tr>
+          <td>keyAltNames</td>
+          <td><span class="type"><a href="language.types.array.html" class="type array">array</a></span></td>
+          <td>
+           <p class="para">
+            An optional list of string alternate names used to reference a key.
+            If a key is created with alternate names, then encryption may refer
+            to the key by the unique alternate name instead of by
+            <code class="literal">_id</code>.
+           </p>
+          </td>
+         </tr>
+
+        </tbody>
+       
+      </table>
+
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-mongodb-driver-clientencryption.createdatakey-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns the identifier of the new key as a
+   <a href="class.mongodb-bson-binary.html" class="classname">MongoDB\BSON\Binary</a> object with subtype 4 (UUID).
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-mongodb-driver-clientencryption.createdatakey-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <ul class="simplelist">
+   <li class="member">Throws <a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a> on argument parsing errors.</li>
+   <li class="member">Throws <a href="class.mongodb-driver-exception-encryptionexception.html" class="classname">MongoDB\Driver\Exception\EncryptionException</a> if an error occurs while creating the data key</li>
+  </ul>
+ </div>
+
+ 
+</div></div></div></body></html>

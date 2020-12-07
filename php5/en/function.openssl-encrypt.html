@@ -1,0 +1,264 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Encrypts data</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.openssl-digest.html">« openssl_digest</a></li>
+      <li style="float: right;"><a href="function.openssl-error-string.html">openssl_error_string »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.openssl.html">OpenSSL Functions</a></li>
+    <li>Encrypts data</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.openssl-encrypt" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">openssl_encrypt</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p><p class="refpurpose"><span class="refname">openssl_encrypt</span> &mdash; <span class="dc-title">Encrypts data</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.openssl-encrypt-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>openssl_encrypt</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$method</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$key</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = 0</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$iv</code><span class="initializer"> = &quot;&quot;</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$tag</code><span class="initializer"> = NULL</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$aad</code><span class="initializer"> = &quot;&quot;</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$tag_length</code><span class="initializer"> = 16</span></span>
+  ]]]]] ) : <span class="type">string</span></div>
+
+  <p class="para rdfs-comment">
+   Encrypts given data with given method and key, returns a raw
+   or base64 encoded string
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.openssl-encrypt-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">data</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The plaintext message data to be encrypted.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">method</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The cipher method. For a list of available cipher methods, use <span class="function"><a href="function.openssl-get-cipher-methods.html" class="function">openssl_get_cipher_methods()</a></span>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">key</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The key.
+      </p>
+     </dd>
+
+    
+    
+      <dt>
+<code class="parameter">options</code></dt>
+
+      <dd>
+
+        <p class="para">
+          <code class="parameter">options</code> is a bitwise disjunction of the flags
+          <strong><code>OPENSSL_RAW_DATA</code></strong> and
+          <strong><code>OPENSSL_ZERO_PADDING</code></strong>.
+        </p>
+      </dd>
+
+    
+    
+     <dt>
+<code class="parameter">iv</code></dt>
+
+     <dd>
+
+      <p class="para">
+       A non-NULL Initialization Vector.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">tag</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The authentication tag passed by reference when using AEAD cipher mode (GCM or CCM).
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">aad</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Additional authentication data.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">tag_length</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The length of the authentication <code class="parameter">tag</code>. Its value can be between 4 and 16 for GCM mode.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.openssl-encrypt-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns the encrypted string on success or <strong><code>FALSE</code></strong> on failure.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-function.openssl-encrypt-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   Emits an <strong><code>E_WARNING</code></strong> level error if an unknown cipher
+   algorithm is passed in via the <code class="parameter">method</code> parameter.
+  </p>
+  <p class="para">
+   Emits an <strong><code>E_WARNING</code></strong> level error if an empty value is passed
+   in via the <code class="parameter">iv</code> parameter.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.openssl-encrypt-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>7.1.0</td>
+      <td>The <code class="parameter">tag</code>, <code class="parameter">aad</code> and <code class="parameter">tag_length</code> parameters were added.</td>
+     </tr>
+
+     <tr>
+      <td>5.4.0</td>
+      <td>
+       The <code class="parameter">raw_output</code> was changed to <code class="parameter">options</code>.
+      </td>
+     </tr>
+
+     <tr>
+      <td>5.3.3</td>
+      <td>
+       The <code class="parameter">iv</code> parameter was added.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
+
+ <div class="refsect1 examples" id="refsect1-function.openssl-encrypt-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-1002">
+    <p><strong>Example #1 AES Authenticated Encryption in GCM mode example for PHP 7.1+</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//$key&nbsp;should&nbsp;have&nbsp;been&nbsp;previously&nbsp;generated&nbsp;in&nbsp;a&nbsp;cryptographically&nbsp;safe&nbsp;way,&nbsp;like&nbsp;openssl_random_pseudo_bytes<br /></span><span style="color: #0000BB">$plaintext&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"message&nbsp;to&nbsp;be&nbsp;encrypted"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$cipher&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"aes-128-gcm"</span><span style="color: #007700">;<br />if&nbsp;(</span><span style="color: #0000BB">in_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$cipher</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">openssl_get_cipher_methods</span><span style="color: #007700">()))<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$ivlen&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">openssl_cipher_iv_length</span><span style="color: #007700">(</span><span style="color: #0000BB">$cipher</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$iv&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">openssl_random_pseudo_bytes</span><span style="color: #007700">(</span><span style="color: #0000BB">$ivlen</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$ciphertext&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">openssl_encrypt</span><span style="color: #007700">(</span><span style="color: #0000BB">$plaintext</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$cipher</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">=</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$iv</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$tag</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//store&nbsp;$cipher,&nbsp;$iv,&nbsp;and&nbsp;$tag&nbsp;for&nbsp;decryption&nbsp;later<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$original_plaintext&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">openssl_decrypt</span><span style="color: #007700">(</span><span style="color: #0000BB">$ciphertext</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$cipher</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">=</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$iv</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$tag</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$original_plaintext</span><span style="color: #007700">.</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+
+   <div class="example" id="example-1003">
+    <p><strong>Example #2 AES Authenticated Encryption example for PHP 5.6+</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//$key&nbsp;previously&nbsp;generated&nbsp;safely,&nbsp;ie:&nbsp;openssl_random_pseudo_bytes<br /></span><span style="color: #0000BB">$plaintext&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"message&nbsp;to&nbsp;be&nbsp;encrypted"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$ivlen&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">openssl_cipher_iv_length</span><span style="color: #007700">(</span><span style="color: #0000BB">$cipher</span><span style="color: #007700">=</span><span style="color: #DD0000">"AES-128-CBC"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$iv&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">openssl_random_pseudo_bytes</span><span style="color: #007700">(</span><span style="color: #0000BB">$ivlen</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$ciphertext_raw&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">openssl_encrypt</span><span style="color: #007700">(</span><span style="color: #0000BB">$plaintext</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$cipher</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">=</span><span style="color: #0000BB">OPENSSL_RAW_DATA</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$iv</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$hmac&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">hash_hmac</span><span style="color: #007700">(</span><span style="color: #DD0000">'sha256'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$ciphertext_raw</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$as_binary</span><span style="color: #007700">=</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$ciphertext&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">base64_encode</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$iv</span><span style="color: #007700">.</span><span style="color: #0000BB">$hmac</span><span style="color: #007700">.</span><span style="color: #0000BB">$ciphertext_raw&nbsp;</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//decrypt&nbsp;later....<br /></span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">base64_decode</span><span style="color: #007700">(</span><span style="color: #0000BB">$ciphertext</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$ivlen&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">openssl_cipher_iv_length</span><span style="color: #007700">(</span><span style="color: #0000BB">$cipher</span><span style="color: #007700">=</span><span style="color: #DD0000">"AES-128-CBC"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$iv&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$c</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$ivlen</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$hmac&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$c</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$ivlen</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$sha2len</span><span style="color: #007700">=</span><span style="color: #0000BB">32</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$ciphertext_raw&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$c</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$ivlen</span><span style="color: #007700">+</span><span style="color: #0000BB">$sha2len</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$original_plaintext&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">openssl_decrypt</span><span style="color: #007700">(</span><span style="color: #0000BB">$ciphertext_raw</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$cipher</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">=</span><span style="color: #0000BB">OPENSSL_RAW_DATA</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$iv</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$calcmac&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">hash_hmac</span><span style="color: #007700">(</span><span style="color: #DD0000">'sha256'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$ciphertext_raw</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$as_binary</span><span style="color: #007700">=</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">hash_equals</span><span style="color: #007700">(</span><span style="color: #0000BB">$hmac</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$calcmac</span><span style="color: #007700">))</span><span style="color: #FF8000">//PHP&nbsp;5.6+&nbsp;timing&nbsp;attack&nbsp;safe&nbsp;comparison<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$original_plaintext</span><span style="color: #007700">.</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+
+  </p>
+ </div>
+
+
+
+ <div class="refsect1 seealso" id="refsect1-function.openssl-encrypt-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.openssl-decrypt.html" class="function" rel="rdfs-seeAlso">openssl_decrypt()</a> - Decrypts data</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Create session ID</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="class.sessionidinterface.html">« SessionIdInterface</a></li>
+      <li style="float: right;"><a href="class.sessionupdatetimestamphandlerinterface.html">SessionUpdateTimestampHandlerInterface »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.sessionidinterface.html">SessionIdInterface</a></li>
+    <li>Create session ID</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="sessionidinterface.create-sid" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">SessionIdInterface::create_sid</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.5.1, PHP 7)</p><p class="refpurpose"><span class="refname">SessionIdInterface::create_sid</span> &mdash; <span class="dc-title">Create session ID</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-sessionidinterface.create-sid-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">abstract</span> <span class="modifier">public</span> <span class="methodname"><strong>SessionIdInterface::create_sid</strong></span>
+    ( <span class="methodparam">void</span>
+   ) : <span class="type">string</span></div>
+
+  <p class="para rdfs-comment">
+   Creates a new session ID.This function is automatically executed when a new session ID
+   needs to be created.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-sessionidinterface.create-sid-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-sessionidinterface.create-sid-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   The new session ID.
+   Note that this value is returned internally to PHP for processing.
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-sessionidinterface.create-sid-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a href="sessionhandler.create-sid.html" class="methodname" rel="rdfs-seeAlso">SessionHandler::create_sid()</a> - Return a new session ID</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

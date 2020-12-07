@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Databases</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="migration5.newconf.html">« New Directives</a></li>
+      <li style="float: right;"><a href="migration5.oop.html">New Object Model »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="migration5.html">Migrating from PHP 4 to PHP 5.0.x</a></li>
+    <li>Databases</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="migration5.databases" class="section">
+   <h2 class="title">Databases</h2>
+   <p class="para">
+    There were some changes in PHP 5 regarding databases (MySQL and SQLite).
+   </p>
+   <p class="para">
+    In PHP 5 the MySQL client libraries are not bundled, because of license
+    and maintenance problems. MySQL is supported with the only
+    change being that MySQL support is no longer enabled by 
+    <em class="emphasis">default</em> in PHP 5.  This essentially means that
+    PHP doesn&#039;t include the <strong class="option configure">--with-mysql</strong>
+    option in the <a href="configuration.html" class="link">configure</a> line so 
+    that you must now manually do this when compiling PHP. Windows users will 
+    need to edit <var class="filename">php.ini</var> and enable the <var class="filename">php_mysql.dll</var>
+    DLL as in PHP 4 no such DLL existed, it was simply built into your Windows
+    PHP binaries.
+   </p>
+   <p class="para">
+    There is also a new extension, <a href="ref.mysqli.html" class="link">MySQLi (Improved
+     MySQL)</a>, which is designed to work with MySQL 4.1 and above.
+   </p>
+   <p class="para">
+    Since PHP 5, the <a href="ref.sqlite.html" class="link">SQLite</a> extension is
+    built-in PHP. SQLite is an embeddable SQL database engine and is not a
+    client library used to connect to a big database server (like MySQL or
+    PostgreSQL). The SQLite library reads and writes directly to and from the
+    database files on disk.
+   </p>
+  </div></div></div></body></html>

@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Compares two &quot;PHP-standardized&quot; version number strings</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.sys-get-temp-dir.html">« sys_get_temp_dir</a></li>
+      <li style="float: right;"><a href="function.zend-logo-guid.html">zend_logo_guid »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.info.html">PHP Options/Info Functions</a></li>
+    <li>Compares two &quot;PHP-standardized&quot; version number strings</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.version-compare" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">version_compare</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">version_compare</span> &mdash; <span class="dc-title">Compares two &quot;PHP-standardized&quot; version number strings</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.version-compare-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>version_compare</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$version1</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$version2</code></span>
+   ) : <span class="type">int</span></div>
+
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>version_compare</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$version1</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$version2</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$operator</code></span>
+   ) : <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>version_compare()</strong></span> compares two &quot;PHP-standardized&quot;
+   version number strings.
+  </p>
+  <p class="para">
+   The function first replaces <code class="literal">_</code>, <code class="literal">-</code> and
+   <code class="literal">+</code> with a dot <code class="literal">.</code> in the version
+   strings and also inserts dots <code class="literal">.</code> before and after any
+   non number so that for example &#039;4.3.2RC1&#039; becomes &#039;4.3.2.RC.1&#039;. Then it
+   compares the parts starting from left to right. If a part contains
+   special version strings these are handled in the following order:
+   <code class="literal">any string not found in this list</code> &lt; 
+   <code class="literal">dev</code> &lt; <code class="literal">alpha</code> =
+   <code class="literal">a</code> &lt; <code class="literal">beta</code> =
+   <code class="literal">b</code> &lt; <code class="literal">RC</code> =  
+   <code class="literal">rc</code> &lt; <code class="literal">#</code> &lt;
+   <code class="literal">pl</code> = <code class="literal">p</code>. This way not only versions
+   with different levels like &#039;4.1&#039; and &#039;4.1.2&#039; can be compared but also any
+   PHP specific version containing development state.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.version-compare-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">version1</code></dt>
+
+     <dd>
+
+      <p class="para">
+       First version number.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">version2</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Second version number.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">operator</code></dt>
+
+     <dd>
+
+      <p class="para">
+       If the third optional <code class="parameter">operator</code> argument is
+       specified, test for a particular relationship. The possible operators
+       are: <code class="literal">&lt;</code>, <code class="literal">lt</code>,
+       <code class="literal">&lt;=</code>, <code class="literal">le</code>, <code class="literal">&gt;</code>,
+       <code class="literal">gt</code>, <code class="literal">&gt;=</code>, <code class="literal">ge</code>,
+       <code class="literal">==</code>, <code class="literal">=</code>, <code class="literal">eq</code>,
+       <code class="literal">!=</code>, <code class="literal">&lt;&gt;</code>, <code class="literal">ne</code>
+       respectively. 
+      </p>
+      <p class="para">
+       This parameter is case-sensitive, values should be lowercase.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.version-compare-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   By default, <span class="function"><strong>version_compare()</strong></span> returns
+   <code class="literal">-1</code> if the first version is lower than the second, 
+   <code class="literal">0</code> if they are equal, and
+   <code class="literal">1</code> if the second is lower. 
+  </p>
+  <p class="para">
+   When using the optional <code class="parameter">operator</code> argument, the
+   function will return <strong><code>TRUE</code></strong> if the relationship is the one specified
+   by the operator, <strong><code>FALSE</code></strong> otherwise.
+   If an unsupported <code class="parameter">operator</code> is given, <strong><code>NULL</code></strong> is returned.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.version-compare-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   The examples below use the <strong><code>PHP_VERSION</code></strong> constant,
+   because it contains the value of the PHP version that is executing
+   the code.
+  </p>
+  <p class="para">
+   <div class="example" id="example-589">
+    <p><strong>Example #1 <span class="function"><strong>version_compare()</strong></span> examples</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">version_compare</span><span style="color: #007700">(</span><span style="color: #0000BB">PHP_VERSION</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'7.0.0'</span><span style="color: #007700">)&nbsp;&gt;=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'I&nbsp;am&nbsp;at&nbsp;least&nbsp;PHP&nbsp;version&nbsp;7.0.0,&nbsp;my&nbsp;version:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">PHP_VERSION&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /><br />if&nbsp;(</span><span style="color: #0000BB">version_compare</span><span style="color: #007700">(</span><span style="color: #0000BB">PHP_VERSION</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'5.3.0'</span><span style="color: #007700">)&nbsp;&gt;=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'I&nbsp;am&nbsp;at&nbsp;least&nbsp;PHP&nbsp;version&nbsp;5.3.0,&nbsp;my&nbsp;version:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">PHP_VERSION&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /><br />if&nbsp;(</span><span style="color: #0000BB">version_compare</span><span style="color: #007700">(</span><span style="color: #0000BB">PHP_VERSION</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'5.0.0'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'&gt;='</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'I&nbsp;am&nbsp;at&nbsp;least&nbsp;PHP&nbsp;version&nbsp;5.0.0,&nbsp;my&nbsp;version:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">PHP_VERSION&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /><br />if&nbsp;(</span><span style="color: #0000BB">version_compare</span><span style="color: #007700">(</span><span style="color: #0000BB">PHP_VERSION</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'5.0.0'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'&lt;'</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'I&nbsp;am&nbsp;still&nbsp;PHP&nbsp;4,&nbsp;my&nbsp;version:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">PHP_VERSION&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.version-compare-notes">
+  <h3 class="title">Notes</h3>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    The <strong><code>PHP_VERSION</code></strong> constant holds current PHP version.
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    Note that pre-release versions, such as 5.3.0-dev, are considered
+    lower than their final release counterparts (like 5.3.0).
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    Special version strings such as <code class="literal">alpha</code> and
+    <code class="literal">beta</code> are case sensitive. Version strings from arbitrary
+    sources that do not adhere to the PHP standard may need to be lowercased
+    via <span class="function"><a href="function.strtolower.html" class="function">strtolower()</a></span> before calling
+    <span class="function"><strong>version_compare()</strong></span>.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.version-compare-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.phpversion.html" class="function" rel="rdfs-seeAlso">phpversion()</a> - Gets the current PHP version</span></li>
+    <li class="member"><span class="function"><a href="function.php-uname.html" class="function" rel="rdfs-seeAlso">php_uname()</a> - Returns information about the operating system PHP is running on</span></li>
+    <li class="member"><span class="function"><a href="function.function-exists.html" class="function" rel="rdfs-seeAlso">function_exists()</a> - Return TRUE if the given function has been defined</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

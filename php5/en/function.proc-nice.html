@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Change the priority of the current process</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.proc-get-status.html">« proc_get_status</a></li>
+      <li style="float: right;"><a href="function.proc-open.html">proc_open »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.exec.html">Program execution Functions</a></li>
+    <li>Change the priority of the current process</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.proc-nice" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">proc_nice</h1>
+  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">proc_nice</span> &mdash; <span class="dc-title">Change the priority of the current process</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.proc-nice-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>proc_nice</strong></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$increment</code></span>
+   ) : <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>proc_nice()</strong></span> changes the priority of the current
+   process by the amount specified in <code class="parameter">increment</code>. A
+   positive <code class="parameter">increment</code> will lower the priority of the
+   current process, whereas a negative <code class="parameter">increment</code>
+   will raise the priority.
+  </p>
+  <p class="para">
+   <span class="function"><strong>proc_nice()</strong></span> is not related to
+   <span class="function"><a href="function.proc-open.html" class="function">proc_open()</a></span> and its associated functions in any way.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.proc-nice-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">increment</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The new priority value, the value of this may differ on platforms.
+      </p>
+      <p class="para">
+       On Unix, a low value, such as <code class="literal">-20</code> means high priority 
+       wheras a positive value have a lower priority.
+      </p>
+      <p class="para">
+       For Windows the <code class="parameter">increment</code> parameter have the 
+       following meanings:
+      </p>
+      <table class="doctable informaltable">
+       
+        <thead>
+         <tr>
+          <th>Priority class</th>
+          <th>Possible values</th>
+         </tr>
+
+        </thead>
+
+        <tbody class="tbody">
+         <tr>
+          <td style="vertical-align: top;">High priority</td>
+          <td style="vertical-align: top;">
+           <code class="parameter">increment</code> <code class="literal">&lt; -9</code>
+          </td>
+         </tr>
+
+         <tr>
+          <td style="vertical-align: top;">Above normal priority</td>
+          <td style="vertical-align: top;">
+           <code class="parameter">increment</code> <code class="literal">&lt; -4</code>
+          </td>
+         </tr>
+
+         <tr>
+          <td style="vertical-align: top;">Normal priority</td>
+          <td style="vertical-align: top;">
+           <code class="parameter">increment</code> <code class="literal">&lt; 5</code> &amp; 
+           <code class="parameter">increment</code> <code class="literal">&gt; -5</code>
+          </td>
+         </tr>
+
+         <tr>
+          <td style="vertical-align: top;">Below normal priority</td>
+          <td style="vertical-align: top;">
+           <code class="parameter">increment</code> <code class="literal">&gt; 5</code>
+          </td>
+         </tr>
+
+         <tr>
+          <td style="vertical-align: top;">Idle priority</td>
+          <td style="vertical-align: top;">
+           <code class="parameter">increment</code> <code class="literal">&gt; 9</code>
+          </td>
+         </tr>
+
+        </tbody>
+       
+      </table>
+
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.proc-nice-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   If an error occurs, like the user lacks permission to change the priority, 
+   an error of level <strong><code>E_WARNING</code></strong> is also generated.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.proc-nice-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-4549">
+    <p><strong>Example #1 Using <span class="function"><strong>proc_nice()</strong></span> to set the process priority to high</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Highest&nbsp;priority<br /></span><span style="color: #0000BB">proc_nice</span><span style="color: #007700">(-</span><span style="color: #0000BB">20</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.proc-nice-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.2.0</td>
+       <td>
+        This function is now available on Windows.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.proc-nice-notes">
+  <h3 class="title">Notes</h3>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <strong>Availability</strong><br />
+   <p class="para">
+    <span class="function"><strong>proc_nice()</strong></span> will only exist if your system has &#039;nice&#039;
+    capabilities. &#039;nice&#039; conforms to: SVr4, SVID EXT, AT&amp;T, X/OPEN, BSD
+    4.3.
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <strong>Windows only</strong><br />
+   <p class="para">
+    <span class="function"><strong>proc_nice()</strong></span> will change the <em class="emphasis">current</em> process 
+    priority, even if PHP was compiled using thread safety.
+   </p>
+  </p></blockquote>
+ </div>
+
+</div></div></div></body></html>

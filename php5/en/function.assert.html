@@ -1,0 +1,463 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Checks if assertion is FALSE</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.assert-options.html">« assert_options</a></li>
+      <li style="float: right;"><a href="function.cli-get-process-title.html">cli_get_process_title »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.info.html">PHP Options/Info Functions</a></li>
+    <li>Checks if assertion is FALSE</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.assert" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">assert</h1>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">assert</span> &mdash; <span class="dc-title">Checks if assertion is <strong><code>FALSE</code></strong></span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.assert-description">
+  <h3 class="title">Description</h3>
+  <p class="para">PHP 5 and 7</p>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>assert</strong></span>
+    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$assertion</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$description</code></span>
+  ] ) : <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">PHP 7</p>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>assert</strong></span>
+    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$assertion</code></span>
+   [, <span class="methodparam"><span class="type"><a href="class.throwable.html" class="type Throwable">Throwable</a></span> <code class="parameter">$exception</code></span>
+  ] ) : <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>assert()</strong></span> will check the given
+   <code class="parameter">assertion</code> and take appropriate action if
+   its result is <strong><code>FALSE</code></strong>.
+  </p>
+  <div class="refsect2 unknown-descriptioo" id="refsect2-function.assert-unknown-descriptioo">
+   <h4 class="title">Traditional assertions (PHP 5 and 7)</h4>
+   <p class="para">
+    If the <code class="parameter">assertion</code> is given as a string it
+    will be evaluated as PHP code by <span class="function"><strong>assert()</strong></span>.
+    If you pass a boolean condition as <code class="parameter">assertion</code>,
+    this condition will not show up as parameter to the assertion function
+    which you may have defined with <span class="function"><a href="function.assert-options.html" class="function">assert_options()</a></span>.
+    The condition is converted to a string before calling that handler
+    function, and the boolean <strong><code>FALSE</code></strong> is converted as the empty string.
+   </p>
+   <p class="para">
+    Assertions should be used as a debugging feature only. You may
+    use them for sanity-checks that test for conditions that should
+    always be <strong><code>TRUE</code></strong> and that indicate some programming errors if not
+    or to check for the presence of certain features like extension
+    functions or certain system limits and features.
+   </p>
+   <p class="para">
+    Assertions should not be used for normal runtime operations like
+    input parameter checks. As a rule of thumb your code should
+    always be able to work correctly if assertion checking is not
+    activated.
+   </p>
+   <p class="para">
+    The behavior of <span class="function"><strong>assert()</strong></span> may be configured by
+    <span class="function"><a href="function.assert-options.html" class="function">assert_options()</a></span> or by .ini-settings described
+    in that functions manual page.
+   </p>
+   <p class="para">
+    The <span class="function"><a href="function.assert-options.html" class="function">assert_options()</a></span> function and/or
+    <strong><code>ASSERT_CALLBACK</code></strong> configuration directive allow a
+    callback function to be set to handle failed assertions.
+   </p>
+   <p class="para">
+    <span class="function"><strong>assert()</strong></span> callbacks are particularly useful for
+    building automated test suites because they allow you to easily
+    capture the code passed to the assertion, along with information
+    on where the assertion was made. While this information can be
+    captured via other methods, using assertions makes it much faster
+    and easier!
+   </p>
+   <p class="para">
+    The callback function should accept three arguments. The first
+    argument will contain the file the assertion failed in. The
+    second argument will contain the line the assertion failed on and
+    the third argument will contain the expression that failed (if
+    any — literal values such as 1 or &quot;two&quot; will not be passed via
+    this argument). Users of PHP 5.4.8 and later may also provide a fourth
+    optional argument, which will contain the
+    <code class="parameter">description</code> given to <span class="function"><strong>assert()</strong></span>, if
+    it was set.
+   </p>
+  </div>
+
+  <div class="refsect2 unknown-unknown-descriptiop" id="function.assert.expectations">
+   <h4 class="title">Expectations (PHP 7 only)</h4>
+   <p class="para">
+    <span class="function"><strong>assert()</strong></span> is a language construct in PHP 7, allowing for
+    the definition of expectations: assertions that take effect in development
+    and testing environments, but are optimised away to have zero cost in
+    production.
+   </p>
+   <p class="para">
+    While <span class="function"><a href="function.assert-options.html" class="function">assert_options()</a></span> can still be used to control
+    behaviour as described above for backward compatibility reasons, PHP 7
+    only code should use the two new configuration directives to control
+    the behaviour of <span class="function"><strong>assert()</strong></span> and not call
+    <span class="function"><a href="function.assert-options.html" class="function">assert_options()</a></span>.
+   </p>
+   <table class="doctable table">
+    <caption><strong>
+     PHP 7 configuration directives for <span class="function"><strong>assert()</strong></span>
+    </strong></caption>
+    
+     <thead>
+      <tr>
+       <th>Directive</th>
+       <th>Default value</th>
+       <th>Possible values</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>
+        <a href="ini.core.html#ini.zend.assertions" class="link">zend.assertions</a>
+       </td>
+       <td><code class="literal">1</code></td>
+       <td>
+        <ul class="simplelist">
+         <li class="member">
+          <code class="literal">1</code>: generate and execute code (development mode)
+         </li>
+         <li class="member">
+          
+          <code class="literal">0</code>: generate code but jump around it at runtime
+         </li>
+         <li class="member">
+          <code class="literal">-1</code>: do not generate code (production mode)
+         </li>
+        </ul>
+       </td>
+      </tr>
+
+      <tr>
+       <td>
+        <a href="info.configuration.html#ini.assert.exception" class="link">assert.exception</a>
+       </td>
+       <td><code class="literal">0</code></td>
+       <td>
+        <ul class="simplelist">
+         <li class="member">
+          <code class="literal">1</code>: throw when the assertion fails, either by
+          throwing the object provided as the <code class="parameter">exception</code>
+          or by throwing a new <a href="class.assertionerror.html" class="classname">AssertionError</a> object if
+          <code class="parameter">exception</code> wasn&#039;t provided
+         </li>
+         <li class="member">
+          <code class="literal">0</code>: use or generate a
+          <a href="class.throwable.html" class="classname">Throwable</a> as described above, but only
+          generate a warning based on that object rather than throwing it
+          (compatible with PHP 5 behaviour)
+         </li>
+        </ul>
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </div>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.assert-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">assertion</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The assertion. In PHP 5, this must be either a <span class="type"><a href="language.types.string.html" class="type string">string</a></span> to
+       be evaluated or a <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span> to be tested. In PHP 7, this may
+       also be any expression that returns a value, which will be executed and
+       the result used to indicate whether the assertion succeeded or failed.
+      </p>
+
+      <div class="warning"><strong class="warning">Warning</strong>
+       <p class="para">
+        Using <span class="type"><a href="language.types.string.html" class="type string">string</a></span> as the <code class="parameter">assertion</code> is
+        <em class="emphasis">DEPRECATED</em> as of PHP 7.2.
+       </p>
+      </div>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">description</code></dt>
+
+     <dd>
+
+      <p class="para">
+       An optional description that will be included in the failure message if
+       the <code class="parameter">assertion</code> fails. From PHP 7, if no
+       description is provided, a default description equal to the source code
+       for the invocation of <span class="function"><strong>assert()</strong></span> is provided.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">exception</code></dt>
+
+     <dd>
+
+      <p class="para">
+       In PHP 7, the second parameter can be a
+       <a href="class.throwable.html" class="classname">Throwable</a> object instead of a descriptive
+       <span class="type"><a href="language.types.string.html" class="type string">string</a></span>, in which case this is the object that will be
+       thrown if the assertion fails and the
+       <a href="info.configuration.html#ini.assert.exception" class="link">assert.exception</a>
+       configuration directive is enabled.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.assert-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   <strong><code>FALSE</code></strong> if the assertion is false, <strong><code>TRUE</code></strong> otherwise.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.assert-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.2.0</td>
+       <td>
+        Usage of a <span class="type"><a href="language.types.string.html" class="type string">string</a></span> as the <code class="parameter">assertion</code>
+        became deprecated. It now emits an <strong><code>E_DEPRECATED</code></strong>
+        notice when both <a href="info.configuration.html#ini.assert.active" class="link">assert.active</a>
+        and <a href="ini.core.html#ini.zend.assertions" class="link">zend.assertions</a> are set
+        to <code class="literal">1</code>.
+       </td>
+      </tr>
+
+      <tr>
+       <td>7.0.0</td>
+       <td>
+        <span class="function"><strong>assert()</strong></span> is now a language construct and not a
+        function. <code class="parameter">assertion</code> can now be an expression.
+        The second parameter is now interpreted either as an
+        <code class="parameter">exception</code> (if a
+        <a href="class.throwable.html" class="classname">Throwable</a> object is given), or as the
+        <code class="parameter">description</code> supported from PHP 5.4.8 onwards.
+       </td>
+      </tr>
+
+      <tr>
+       <td>5.4.8</td>
+       <td>
+        The <code class="parameter">description</code> parameter was added. The
+        <code class="parameter">description</code> is also now provided to a callback
+        function in <strong><code>ASSERT_CALLBACK</code></strong> mode as the fourth
+        argument.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.assert-examples">
+  <h3 class="title">Examples</h3>
+  <div class="refsect2 unknown-examplet" id="refsect2-function.assert-unknown-examplet">
+   <h4 class="title">Traditional assertions (PHP 5 and 7)</h4>
+   <p class="para">
+    <div class="example" id="example-538">
+     <p><strong>Example #1 Handle a failed assertion with a custom handler</strong></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Active&nbsp;assert&nbsp;and&nbsp;make&nbsp;it&nbsp;quiet<br /></span><span style="color: #0000BB">assert_options</span><span style="color: #007700">(</span><span style="color: #0000BB">ASSERT_ACTIVE</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">assert_options</span><span style="color: #007700">(</span><span style="color: #0000BB">ASSERT_WARNING</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">assert_options</span><span style="color: #007700">(</span><span style="color: #0000BB">ASSERT_QUIET_EVAL</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Create&nbsp;a&nbsp;handler&nbsp;function<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">my_assert_handler</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$line</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$code</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&lt;hr&gt;Assertion&nbsp;Failed:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File&nbsp;'</span><span style="color: #0000BB">$file</span><span style="color: #DD0000">'&lt;br&nbsp;/&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Line&nbsp;'</span><span style="color: #0000BB">$line</span><span style="color: #DD0000">'&lt;br&nbsp;/&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Code&nbsp;'</span><span style="color: #0000BB">$code</span><span style="color: #DD0000">'&lt;br&nbsp;/&gt;&lt;hr&nbsp;/&gt;"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;Set&nbsp;up&nbsp;the&nbsp;callback<br /></span><span style="color: #0000BB">assert_options</span><span style="color: #007700">(</span><span style="color: #0000BB">ASSERT_CALLBACK</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_assert_handler'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Make&nbsp;an&nbsp;assertion&nbsp;that&nbsp;should&nbsp;fail<br /></span><span style="color: #0000BB">assert</span><span style="color: #007700">(</span><span style="color: #DD0000">'mysql_query("")'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+   </p>
+   <p class="para">
+    <div class="example" id="example-539">
+     <p><strong>Example #2 Using a custom handler to print a description</strong></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Active&nbsp;assert&nbsp;and&nbsp;make&nbsp;it&nbsp;quiet<br /></span><span style="color: #0000BB">assert_options</span><span style="color: #007700">(</span><span style="color: #0000BB">ASSERT_ACTIVE</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">assert_options</span><span style="color: #007700">(</span><span style="color: #0000BB">ASSERT_WARNING</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">assert_options</span><span style="color: #007700">(</span><span style="color: #0000BB">ASSERT_QUIET_EVAL</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Create&nbsp;a&nbsp;handler&nbsp;function<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">my_assert_handler</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$line</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$code</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$desc&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Assertion&nbsp;failed&nbsp;at&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #DD0000">:</span><span style="color: #0000BB">$line</span><span style="color: #DD0000">:&nbsp;</span><span style="color: #0000BB">$code</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$desc</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">":&nbsp;</span><span style="color: #0000BB">$desc</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;Set&nbsp;up&nbsp;the&nbsp;callback<br /></span><span style="color: #0000BB">assert_options</span><span style="color: #007700">(</span><span style="color: #0000BB">ASSERT_CALLBACK</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_assert_handler'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Make&nbsp;an&nbsp;assertion&nbsp;that&nbsp;should&nbsp;fail<br /></span><span style="color: #0000BB">assert</span><span style="color: #007700">(</span><span style="color: #DD0000">'2&nbsp;&lt;&nbsp;1'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">assert</span><span style="color: #007700">(</span><span style="color: #DD0000">'2&nbsp;&lt;&nbsp;1'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Two&nbsp;is&nbsp;less&nbsp;than&nbsp;one'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+     <div class="example-contents"><p>The above example will output:</p></div>
+     <div class="example-contents screen">
+ <div class="cdata"><pre>
+ Assertion failed at test.php:21: 2 &lt; 1
+ Assertion failed at test.php:22: 2 &lt; 1: Two is less than one
+ </pre></div>
+     </div>
+    </div>
+   </p>
+  </div>
+
+  <div class="refsect2 unknown-unknown-exampleu" id="refsect2-function.assert-unknown-unknown-exampleu">
+   <h4 class="title">Expectations (PHP 7 only)</h4>
+   <div class="example" id="example-540">
+    <p><strong>Example #3 Expectations without a custom exception</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />assert</span><span style="color: #007700">(</span><span style="color: #0000BB">true&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">'Hi!'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>
+     With <a href="ini.core.html#ini.zend.assertions" class="link">zend.assertions</a> set to 0,
+     the above example will output:
+    </p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Hi!
+</pre></div>
+    </div>
+    <div class="example-contents"><p>
+     With <a href="ini.core.html#ini.zend.assertions" class="link">zend.assertions</a> set to 1
+     and <a href="info.configuration.html#ini.assert.exception" class="link">assert.exception</a> set to 0,
+     the above example will output:
+    </p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Warning: assert(): assert(true == false) failed in - on line 2
+Hi!
+</pre></div>
+    </div>
+    <div class="example-contents"><p>
+     With <a href="ini.core.html#ini.zend.assertions" class="link">zend.assertions</a> set to 1
+     and <a href="info.configuration.html#ini.assert.exception" class="link">assert.exception</a> set to 1,
+     the above example will output:
+    </p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Fatal error: Uncaught AssertionError: assert(true == false) in -:2
+Stack trace:
+#0 -(2): assert(false, &#039;assert(true == ...&#039;)
+#1 {main}
+  thrown in - on line 2
+</pre></div>
+    </div>
+   </div>
+   <div class="example" id="example-541">
+    <p><strong>Example #4 Expectations with a custom exception</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">CustomError&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">AssertionError&nbsp;</span><span style="color: #007700">{}<br /><br /></span><span style="color: #0000BB">assert</span><span style="color: #007700">(</span><span style="color: #0000BB">true&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">,&nbsp;new&nbsp;</span><span style="color: #0000BB">CustomError</span><span style="color: #007700">(</span><span style="color: #DD0000">'True&nbsp;is&nbsp;not&nbsp;false!'</span><span style="color: #007700">));<br />echo&nbsp;</span><span style="color: #DD0000">'Hi!'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>
+     With <a href="ini.core.html#ini.zend.assertions" class="link">zend.assertions</a> set to 0,
+     the above example will output:
+    </p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Hi!
+</pre></div>
+    </div>
+    <div class="example-contents"><p>
+     With <a href="ini.core.html#ini.zend.assertions" class="link">zend.assertions</a> set to 1
+     and <a href="info.configuration.html#ini.assert.exception" class="link">assert.exception</a> set to 0,
+     the above example will output:
+    </p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Warning: assert(): CustomError: True is not false! in -:4
+Stack trace:
+#0 {main} failed in - on line 4
+Hi!
+</pre></div>
+    </div>
+    <div class="example-contents"><p>
+     With <a href="ini.core.html#ini.zend.assertions" class="link">zend.assertions</a> set to 1
+     and <a href="info.configuration.html#ini.assert.exception" class="link">assert.exception</a> set to 1,
+     the above example will output:
+    </p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Fatal error: Uncaught CustomError: True is not false! in -:4
+Stack trace:
+#0 {main}
+  thrown in - on line 4
+</pre></div>
+    </div>
+   </div>
+  </div>
+
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.assert-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.assert-options.html" class="function" rel="rdfs-seeAlso">assert_options()</a> - Set/get the various assert flags</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

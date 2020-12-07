@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Installation</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="image.requirements.html">« Requirements</a></li>
+      <li style="float: right;"><a href="image.configuration.html">Runtime Configuration »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="image.setup.html">Installing/Configuring</a></li>
+    <li>Installation</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="image.installation" class="section">
+ <h2 class="title">Installation</h2>
+ <p class="para">
+  To enable GD-support configure PHP
+  <strong class="option configure">--with-gd[=DIR]</strong>, where DIR is the GD base
+  install directory. To use the recommended bundled version of the GD library,
+  use the configure option
+  <strong class="option configure">--with-gd</strong>.
+  GD library requires <span class="productname">libpng</span> and
+  <span class="productname">libjpeg</span> to compile.
+  As of PHP 7.4.0, <strong class="option configure">--with-gd</strong> becomes
+  <strong class="option configure">--enable-gd</strong> (whether to enable the
+  extension at all) and <strong class="option configure">--with-external-gd</strong>
+  (to opt into using an external <span class="productname">libgd</span>, rather than
+  the bundled one).
+ </p>
+ <p class="para">
+  In Windows, you&#039;ll include the GD2 DLL <var class="filename">php_gd2.dll</var> as
+  an extension in <var class="filename">php.ini</var>.
+ </p>
+
+ <p class="para">
+  Enhance the capabilities of GD to handle more image formats by specifying
+  the <code class="literal">--with-XXXX</code> configure switch to your PHP configure
+  line.
+  <table class="doctable table">
+   <caption><strong>Supported image formats</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Image Format</th>
+      <th>Configure Switch</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td><code class="literal">jpeg</code></td>
+      <td>
+       To enable support for jpeg add
+       <strong class="option configure">--with-jpeg-dir=DIR</strong>. Jpeg 6b, 7 or 8
+       are supported.
+       As of PHP 7.4.0, use <strong class="option configure">--with-jpeg</strong>
+       instead.
+      </td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">png</code></td>
+      <td>
+       To enable support for png add
+       <strong class="option configure">--with-png-dir=DIR</strong>. Note, libpng
+       requires the <a href="zlib.requirements.html" class="link">zlib library</a>,
+       therefore add <strong class="option configure">--with-zlib-dir[=DIR]</strong>
+       to your configure line.
+       As of PHP 7.4.0, <strong class="option configure">--with-png-dir</strong> and
+       <strong class="option configure">--with-zlib-dir</strong> have been removed.
+       <span class="productname">libpng</span> and <span class="productname">zlib</span>
+       are required.
+      </td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">xpm</code></td>
+      <td>
+       To enable support for xpm add
+       <strong class="option configure">--with-xpm-dir=DIR</strong>. If configure
+       is not able to find the required libraries, you may add the path to
+       your X11 libraries.
+       As of PHP 7.4.0, use <strong class="option configure">--with-xpm</strong>
+       instead.
+      </td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">webp</code></td>
+      <td>
+       To enable support for webp add
+       <strong class="option configure">--with-vpx-dir=DIR</strong>. Available as of PHP
+       5.4.0.
+       As of PHP 7.0.0 <strong class="option configure">--with-webp-dir=DIR</strong> has
+       to be added, i.e. support for libvpx has been removed in favor of libwebp.
+       As of PHP 7.4.0, use <strong class="option configure">--with-webp</strong>
+       instead.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <span class="simpara">
+    When compiling PHP with libpng, you must use the same version that was
+    linked with the GD library.
+   </span>
+  </p></blockquote>
+ </p>
+ <p class="para">
+  Enhance the capabilities of GD to deal with different fonts by specifying
+  the <code class="literal">--with-XXXX</code> configure switch to your PHP configure
+  line.
+  <table class="doctable table">
+   <caption><strong>Supported font libraries</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Font library</th>
+      <th>Configure Switch</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td><code class="literal">FreeType 2</code></td>
+      <td>
+       To enable support for FreeType 2 add
+       <strong class="option configure">--with-freetype-dir=DIR</strong>.
+       As of PHP 7.4.0 use <strong class="option configure">--with-freetype</strong>
+       instead, which relies on <span class="productname">pkg-config</span>.
+      </td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">T1lib</code></td>
+      <td>
+       To enable support for T1lib (Postscript Type 1 fonts) add
+       <strong class="option configure">--with-t1lib[=DIR]</strong> (Removed
+       as of PHP 7.0.0).
+      </td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Native TrueType string function</code></td>
+      <td>
+       To enable support for native TrueType string function add
+       <strong class="option configure">--enable-gd-native-ttf</strong>.
+       (Effectless as of PHP 5.5.0; removed as of PHP 7.2.0.)
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </p>
+</div></div></div></body></html>

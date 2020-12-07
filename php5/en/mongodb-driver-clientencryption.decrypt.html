@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Decrypt a value</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="mongodb-driver-clientencryption.createdatakey.html">« MongoDB\Driver\ClientEncryption::createDataKey</a></li>
+      <li style="float: right;"><a href="mongodb-driver-clientencryption.encrypt.html">MongoDB\Driver\ClientEncryption::encrypt »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.mongodb-driver-clientencryption.html">MongoDB\Driver\ClientEncryption</a></li>
+    <li>Decrypt a value</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="mongodb-driver-clientencryption.decrypt" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">MongoDB\Driver\ClientEncryption::decrypt</h1>
+  <p class="verinfo">(mongodb &gt;=1.7.0)</p><p class="refpurpose"><span class="refname">MongoDB\Driver\ClientEncryption::decrypt</span> &mdash; <span class="dc-title">Decrypt a value</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-mongodb-driver-clientencryption.decrypt-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\ClientEncryption::decrypt</strong></span>
+    ( <span class="methodparam"><span class="type"><a href="class.mongodb-bson-binary.html" class="type MongoDB\BSON\Binary">MongoDB\BSON\Binary</a></span> <code class="parameter">$value</code></span>
+   ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+
+  <p class="para rdfs-comment">
+   Decrypts the value.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 parameters" id="refsect1-mongodb-driver-clientencryption.decrypt-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+
+   
+    <dt>
+<code class="parameter">value</code></dt>
+
+    <dd>
+
+     <p class="para">
+      A <a href="class.mongodb-bson-binary.html" class="classname">MongoDB\BSON\Binary</a> instance with subtype 6
+      containing the encrypted value.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-mongodb-driver-clientencryption.decrypt-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns the decrypted value as it was passed to
+   <span class="function"><a href="mongodb-driver-clientencryption.encrypt.html" class="function">MongoDB\Driver\ClientEncryption::encrypt()</a></span>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-mongodb-driver-clientencryption.decrypt-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <ul class="simplelist">
+   <li class="member">Throws <a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a> on argument parsing errors.</li>
+   <li class="member">Throws <a href="class.mongodb-driver-exception-encryptionexception.html" class="classname">MongoDB\Driver\Exception\EncryptionException</a> if an error occurs while decrypting the value</li>
+  </ul>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-mongodb-driver-clientencryption.decrypt-seealso">
+  <h3 class="title">See Also</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="function"><a href="mongodb-driver-clientencryption.encrypt.html" class="function" rel="rdfs-seeAlso">MongoDB\Driver\ClientEncryption::encrypt()</a> - Encrypt a value</span></li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

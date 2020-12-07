@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Arrow Functions</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="functions.anonymous.html">« Anonymous functions</a></li>
+      <li style="float: right;"><a href="language.oop5.html">Classes and Objects »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="language.functions.html">Functions</a></li>
+    <li>Arrow Functions</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="functions.arrow" class="sect1">
+   <h2 class="title">Arrow Functions</h2>
+
+   <p class="simpara">
+    Arrow functions were introduced in PHP 7.4 as a more concise syntax for 
+    <a href="functions.anonymous.html" class="link">anonymous functions</a>.
+   </p>
+   <p class="simpara">
+    Both anonymous functions and arrow functions are implemented using the 
+    <a href="class.closure.html" class="link"><a href="class.closure.html" class="classname">Closure</a></a> class.
+   </p>
+
+   <p class="simpara">
+    Arrow functions have the basic form 
+    <code class="code">fn (argument_list) =&gt; expr</code>.
+   </p>
+
+   <p class="simpara">
+    Arrow functions support the same features as 
+    <a href="functions.anonymous.html" class="link">anonymous functions</a>, 
+    except that using variables from the parent scope is always automatic.
+   </p>
+
+   <p class="simpara">
+    When a variable used in the expression is defined in the parent scope 
+    it will be implicitly captured by-value.
+    In the following example, the functions <var class="varname">$fn1</var> and 
+    <var class="varname">$fn2</var> behave the same way. 
+   </p>
+
+   <p class="para">
+    <div class="example" id="example-173">
+     <p><strong>Example #1 Arrow functions capture variables by value automatically</strong></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$y&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />&nbsp;<br /></span><span style="color: #0000BB">$fn1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fn</span><span style="color: #007700">(</span><span style="color: #0000BB">$x</span><span style="color: #007700">)&nbsp;=&gt;&nbsp;</span><span style="color: #0000BB">$x&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">$y</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;equivalent&nbsp;to&nbsp;using&nbsp;$y&nbsp;by&nbsp;value:<br /></span><span style="color: #0000BB">$fn2&nbsp;</span><span style="color: #007700">=&nbsp;function&nbsp;(</span><span style="color: #0000BB">$x</span><span style="color: #007700">)&nbsp;use&nbsp;(</span><span style="color: #0000BB">$y</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$x&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">$y</span><span style="color: #007700">;<br />};<br /><br /></span><span style="color: #0000BB">var_export</span><span style="color: #007700">(</span><span style="color: #0000BB">$fn1</span><span style="color: #007700">(</span><span style="color: #0000BB">3</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+     <div class="example-contents"><p>The above example will output:</p></div>
+     <div class="example-contents screen">
+<div class="cdata"><pre>
+4
+</pre></div>
+      </div>
+    </div>
+   </p>
+   <p class="simpara">
+    This also works if the arrow functions are nested: 
+   </p>
+   <p class="para">
+    <div class="example" id="example-174">
+     <p><strong>Example #2 Arrow functions capture variables by value automatically, even when nested</strong></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$z&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$fn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fn</span><span style="color: #007700">(</span><span style="color: #0000BB">$x</span><span style="color: #007700">)&nbsp;=&gt;&nbsp;</span><span style="color: #0000BB">fn</span><span style="color: #007700">(</span><span style="color: #0000BB">$y</span><span style="color: #007700">)&nbsp;=&gt;&nbsp;</span><span style="color: #0000BB">$x&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">$y&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">$z</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;Outputs&nbsp;51<br /></span><span style="color: #0000BB">var_export</span><span style="color: #007700">(</span><span style="color: #0000BB">$fn</span><span style="color: #007700">(</span><span style="color: #0000BB">5</span><span style="color: #007700">)(</span><span style="color: #0000BB">10</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+   </p>
+   <p class="simpara">
+    Similarly to anonymous functions, 
+    the arrow function syntax allows arbitrary function signatures,
+    including parameter and return types, default values, variadics,
+    as well as by-reference passing and returning.
+    All of the following are valid examples of arrow functions: 
+   </p>
+   <p class="para">
+    <div class="example" id="example-175">
+     <p><strong>Example #3 Examples of arrow functions</strong></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />fn</span><span style="color: #007700">(array&nbsp;</span><span style="color: #0000BB">$x</span><span style="color: #007700">)&nbsp;=&gt;&nbsp;</span><span style="color: #0000BB">$x</span><span style="color: #007700">;<br />static&nbsp;</span><span style="color: #0000BB">fn</span><span style="color: #007700">():&nbsp;</span><span style="color: #0000BB">int&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$x</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">fn</span><span style="color: #007700">(</span><span style="color: #0000BB">$x&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">42</span><span style="color: #007700">)&nbsp;=&gt;&nbsp;</span><span style="color: #0000BB">$x</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">fn</span><span style="color: #007700">(&amp;</span><span style="color: #0000BB">$x</span><span style="color: #007700">)&nbsp;=&gt;&nbsp;</span><span style="color: #0000BB">$x</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">fn</span><span style="color: #007700">&amp;(</span><span style="color: #0000BB">$x</span><span style="color: #007700">)&nbsp;=&gt;&nbsp;</span><span style="color: #0000BB">$x</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">fn</span><span style="color: #007700">(</span><span style="color: #0000BB">$x</span><span style="color: #007700">,&nbsp;...</span><span style="color: #0000BB">$rest</span><span style="color: #007700">)&nbsp;=&gt;&nbsp;</span><span style="color: #0000BB">$rest</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+   </p>
+   <p class="simpara">
+    Arrow functions use by-value variable binding.
+    This is roughly equivalent to performing a <code class="code">use($x)</code> for every 
+    variable <var class="varname">$x</var> used inside the arrow function.
+    A by-value binding means that it is not possible to modify any values 
+    from the outer scope. 
+    <a href="functions.anonymous.html" class="link">Anonymous functions</a> 
+    can be used instead for by-ref bindings.
+   </p>
+   <p class="para">
+    <div class="example" id="example-176">
+     <p><strong>Example #4 Values from the outer scope cannot be modified by arrow functions</strong></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$x&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$fn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fn</span><span style="color: #007700">()&nbsp;=&gt;&nbsp;</span><span style="color: #0000BB">$x</span><span style="color: #007700">++;&nbsp;</span><span style="color: #FF8000">//&nbsp;Has&nbsp;no&nbsp;effect<br /></span><span style="color: #0000BB">$fn</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">var_export</span><span style="color: #007700">(</span><span style="color: #0000BB">$x</span><span style="color: #007700">);&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Outputs&nbsp;1<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+   </p>
+   
+   <div class="sect2">
+    <h3 class="title">Changelog</h3>
+    <p class="para">
+     <table class="doctable informaltable">
+      
+       <thead>
+        <tr>
+         <th>Version</th>
+         <th>Description</th>
+        </tr>
+
+       </thead>
+
+       <tbody class="tbody">
+        <tr>
+         <td>7.4.0</td>
+         <td>
+          Arrow functions became available.
+         </td>
+        </tr>
+
+       </tbody>
+      
+     </table>
+
+    </p>
+   </div>
+
+   <div class="sect2">
+    <h3 class="title">Notes</h3>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <span class="simpara">
+      It is possible to use <span class="function"><a href="function.func-num-args.html" class="function">func_num_args()</a></span>,
+      <span class="function"><a href="function.func-get-arg.html" class="function">func_get_arg()</a></span>, and <span class="function"><a href="function.func-get-args.html" class="function">func_get_args()</a></span>
+      from within an arrow function.
+     </span>
+    </p></blockquote>
+   </div>
+  </div></div></div></body></html>

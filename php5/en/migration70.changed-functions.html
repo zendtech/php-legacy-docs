@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Changed functions</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="migration70.deprecated.html">« Deprecated features in PHP 7.0.x</a></li>
+      <li style="float: right;"><a href="migration70.new-functions.html">New functions »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="migration70.html">Migrating from PHP 5.6.x to PHP 7.0.x</a></li>
+    <li>Changed functions</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="migration70.changed-functions" class="sect1">
+ <h2 class="title">Changed functions</h2>
+
+ <div class="sect2" id="migration70.changed-functions.core">
+  <h3 class="title">PHP Core</h3>
+  
+
+  <ul class="itemizedlist">
+  <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a href="function.debug-zval-dump.html" class="function">debug_zval_dump()</a></span> now prints &quot;int&quot; instead of &quot;long&quot;,
+     and &quot;float&quot; instead of &quot;double&quot;
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a href="function.dirname.html" class="function">dirname()</a></span> now optionally takes a second parameter,
+     <code class="parameter">depth</code>, to get the name of the directory
+     <code class="parameter">depth</code> levels up from the current directory.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a href="function.getrusage.html" class="function">getrusage()</a></span> is now supported on Windows.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a href="function.mktime.html" class="function">mktime()</a></span> and <span class="function"><a href="function.gmmktime.html" class="function">gmmktime()</a></span> functions
+     no longer accept <code class="parameter">is_dst</code> parameter.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a href="function.preg-replace.html" class="function">preg_replace()</a></span> function no longer supports
+     &quot;\e&quot; (<strong><code>PREG_REPLACE_EVAL</code></strong>). <span class="function"><a href="function.preg-replace-callback.html" class="function">preg_replace_callback()</a></span>
+     should be used instead.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a href="function.setlocale.html" class="function">setlocale()</a></span> function no longer accepts <code class="parameter">category</code>
+     passed as string. <strong><code>LC_*</code></strong> constants must be used instead.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a href="function.exec.html" class="function">exec()</a></span>, <span class="function"><a href="function.system.html" class="function">system()</a></span> and <span class="function"><a href="function.passthru.html" class="function">passthru()</a></span>
+     functions have NULL byte protection now.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a href="function.shmop-open.html" class="function">shmop_open()</a></span> now returns a resource instead of an int,
+     which has to be passed to <span class="function"><a href="function.shmop-size.html" class="function">shmop_size()</a></span>,
+     <span class="function"><a href="function.shmop-write.html" class="function">shmop_write()</a></span>, <span class="function"><a href="function.shmop-read.html" class="function">shmop_read()</a></span>,
+     <span class="function"><a href="function.shmop-close.html" class="function">shmop_close()</a></span> and <span class="function"><a href="function.shmop-delete.html" class="function">shmop_delete()</a></span>.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a href="function.substr.html" class="function">substr()</a></span> and <span class="function"><a href="function.iconv-substr.html" class="function">iconv_substr()</a></span> now return an empty string,
+     if string is equal to start characters long.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a href="function.xml-parser-free.html" class="function">xml_parser_free()</a></span> is no longer sufficient to free the
+     parser resource, if it references an object and this object references that
+     parser resource. In this case it is necessary to additionally unset the $parser.
+    </span>
+   </li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

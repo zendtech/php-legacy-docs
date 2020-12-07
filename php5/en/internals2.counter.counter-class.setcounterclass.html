@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Set the class returned by Counter::getNamed</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="internals2.counter.counter-class.getnamed.html">« Counter::getNamed</a></li>
+      <li style="float: right;"><a href="internals2.counter.basic-interface.html">Basic »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="internals2.counter.counter-class.html">Counter</a></li>
+    <li>Set the class returned by Counter::getNamed</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="internals2.counter.counter-class.setcounterclass" class="refentry">
+    <div class="refnamediv">
+     <h1 class="refname">Counter::setCounterClass</h1>
+     <p class="refpurpose"><span class="refname">Counter::setCounterClass</span> &mdash; <span class="dc-title">
+      Set the class returned by <span class="methodname"><a href="internals2.counter.counter-class.getnamed.html" class="methodname">Counter::getNamed()</a></span>
+     </span></p>
+
+    </div>
+    <div class="refsect1 description" id="refsect1-internals2.counter.counter-class.setcounterclass-description">
+     <h3 class="title">Description</h3>
+     <div class="methodsynopsis dc-description">
+      <span class="modifier">static</span>
+      <span class="methodname"><strong>Counter::setCounterClass</strong></span>
+       ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
+      ) : <span class="type"><span class="type void">void</span></span></div>
+
+     <p class="simpara">
+      <span class="function"><strong>Counter::setCounterClass()</strong></span> changes the class of objects
+      returned by <span class="function"><a href="internals2.counter.counter-class.getnamed.html" class="function">Counter::getNamed()</a></span>. The class being set
+      must not have a public constructor and must be a subclass of
+      <strong class="classname">Counter</strong>. If these conditions are not met, a fatal
+      error is raised. This is a static function.
+     </p>
+    </div>
+
+    <div class="refsect1 parameters" id="refsect1-internals2.counter.counter-class.setcounterclass-parameters">
+     <h3 class="title">Parameters</h3>
+     <dl>
+
+      
+       <dt>
+<code class="parameter">name</code></dt>
+
+       <dd>
+
+        <span class="simpara">
+         The name of the class to use.
+        </span>
+       </dd>
+
+      
+     </dl>
+
+    </div>
+
+   </div></div></div></body></html>

@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Requirements</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="mysqli.setup.html">« Installing/Configuring</a></li>
+      <li style="float: right;"><a href="mysqli.installation.html">Installation »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="mysqli.setup.html">Installing/Configuring</a></li>
+    <li>Requirements</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="mysqli.requirements" class="section">
+  <h2 class="title">Requirements</h2>
+  <p class="para">
+   In order to have these functions available, you must compile PHP with
+   support for the mysqli extension.
+  </p>
+  
+  <p class="para">
+    <em class="emphasis">MySQL 8</em>
+  </p>
+
+  <p class="para">
+   When running a PHP version before 7.1.16, or PHP 7.2 before 7.2.4, set 
+   MySQL 8 Server&#039;s default password plugin to <em class="emphasis">mysql_native_password</em>
+   or else you will see errors similar to
+   <em class="emphasis">The server requested authentication method unknown to the client [caching_sha2_password]</em>
+   even when <em class="emphasis">caching_sha2_password</em> is not used.
+  </p>
+  <p class="para">
+   This is because MySQL 8 defaults to caching_sha2_password, a plugin that is
+   not recognized by the older PHP (mysqlnd) releases. Instead, change it by
+   setting <code class="literal">default_authentication_plugin=mysql_native_password</code>
+   in <var class="filename">my.cnf</var>. The <em class="emphasis">caching_sha2_password</em>
+   plugin will be supported in a future PHP release. In the meantime, the
+   <a href="book.mysql-xdevapi.html" class="link">mysql_xdevapi</a> extension does
+   support it.
+  </p>
+
+ </div></div></div></body></html>

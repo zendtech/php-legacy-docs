@@ -1,0 +1,336 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The MongoDB\Driver\Session class</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="mongodb-driver-bulkwrite.update.html">« MongoDB\Driver\BulkWrite::update</a></li>
+      <li style="float: right;"><a href="mongodb-driver-session.aborttransaction.html">MongoDB\Driver\Session::abortTransaction »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.mongodb.html">MongoDB\Driver</a></li>
+    <li>The MongoDB\Driver\Session class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="class.mongodb-driver-session" class="reference">
+
+ <h1 class="title">The MongoDB\Driver\Session class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(mongodb &gt;=1.4.0)</p>
+
+
+  <div class="section" id="mongodb-driver-session.intro">
+   <h2 class="title">Introduction</h2>
+   <p class="para">
+    The <strong class="classname">MongoDB\Driver\Session</strong> class represents a
+    client session and is returned by
+    <span class="methodname"><a href="mongodb-driver-manager.startsession.html" class="methodname">MongoDB\Driver\Manager::startSession()</a></span>. Commands,
+    queries, and write operations may then be associated the session.
+   </p>
+  </div>
+
+
+  <div class="section" id="mongodb-driver-session.synopsis">
+   <h2 class="title">Class synopsis</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+
+    <div class="classsynopsisinfo">
+     <span class="modifier">final</span>
+     <span class="ooclass">
+      <strong class="classname">MongoDB\Driver\Session</strong>
+     </span>
+     {</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constants */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">string</span>
+     <var class="varname">TRANSACTION_NONE</var>
+     <span class="initializer"> = none</span>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">string</span>
+     <var class="varname">TRANSACTION_STARTING</var>
+     <span class="initializer"> = starting</span>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">string</span>
+     <var class="varname">TRANSACTION_IN_PROGRESS</var>
+     <span class="initializer"> = in_progress</span>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">string</span>
+     <var class="varname">TRANSACTION_COMMITTED</var>
+     <span class="initializer"> = committed</span>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">string</span>
+     <var class="varname">TRANSACTION_ABORTED</var>
+     <span class="initializer"> = aborted</span>
+    ;</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.aborttransaction.html" class="methodname">abortTransaction</a></span>
+    ( <span class="methodparam">void</span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.advanceclustertime.html" class="methodname">advanceClusterTime</a></span>
+    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.array-object" class="type array|object">array|object</a></span> <code class="parameter">$clusterTime</code></span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.advanceoperationtime.html" class="methodname">advanceOperationTime</a></span>
+    ( <span class="methodparam"><span class="type"><a href="class.mongodb-bson-timestampinterface.html" class="type MongoDB\BSON\TimestampInterface">MongoDB\BSON\TimestampInterface</a></span> <code class="parameter">$operationTime</code></span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.committransaction.html" class="methodname">commitTransaction</a></span>
+    ( <span class="methodparam">void</span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">private</span> <span class="methodname"><a href="mongodb-driver-session.construct.html" class="methodname">__construct</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.endsession.html" class="methodname">endSession</a></span>
+    ( <span class="methodparam">void</span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.getclustertime.html" class="methodname">getClusterTime</a></span>
+    ( <span class="methodparam">void</span>
+   ) : <span class="type"><span class="type object|null">object|null</span></span></div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.getlogicalsessionid.html" class="methodname">getLogicalSessionId</a></span>
+    ( <span class="methodparam">void</span>
+   ) : <span class="type">object</span></div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.getoperationtime.html" class="methodname">getOperationTime</a></span>
+    ( <span class="methodparam">void</span>
+   ) : <span class="type"><span class="type MongoDB\BSON\Timestamp|null">MongoDB\BSON\Timestamp|null</span></span></div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.getserver.html" class="methodname">getServer</a></span>
+    ( <span class="methodparam">void</span>
+   ) : <span class="type"><span class="type MongoDB\Driver\Server|null">MongoDB\Driver\Server|null</span></span></div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.gettransactionoptions.html" class="methodname">getTransactionOptions</a></span>
+    ( <span class="methodparam">void</span>
+   ) : <span class="type"><span class="type array|null">array|null</span></span></div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.gettransactionstate.html" class="methodname">getTransactionState</a></span>
+    ( <span class="methodparam">void</span>
+   ) : <span class="type">string</span></div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.isintransaction.html" class="methodname">isInTransaction</a></span>
+    ( <span class="methodparam">void</span>
+   ) : <span class="type">boolean</span></div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.starttransaction.html" class="methodname">startTransaction</a></span>
+    ([ <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>
+  ] ) : <span class="type"><span class="type void">void</span></span></div>
+
+   }</div>
+
+
+  </div>
+
+  
+  <div class="section" id="mongodb-driver-session.constants">
+   <h2 class="title">Predefined Constants</h2>
+   <dl>
+
+
+    
+     <dt id="mongodb-driver-session.constants.transaction-none"><strong><code>MongoDB\Driver\Session::TRANSACTION_NONE</code></strong></dt>
+
+     <dd>
+
+      <p class="para">
+       There is no transaction in progress.
+      </p>
+     </dd>
+
+    
+
+    
+     <dt id="mongodb-driver-session.constants.transaction-starting"><strong><code>MongoDB\Driver\Session::TRANSACTION_STARTING</code></strong></dt>
+
+     <dd>
+
+      <p class="para">
+       A transaction has been started, but no operation has been sent to the server.
+      </p>
+     </dd>
+
+    
+
+    
+     <dt id="mongodb-driver-session.constants.transaction-in-progress"><strong><code>MongoDB\Driver\Session::TRANSACTION_IN_PROGRESS</code></strong></dt>
+
+     <dd>
+
+      <p class="para">
+       A transaction is in progress.
+      </p>
+     </dd>
+
+    
+
+    
+     <dt id="mongodb-driver-session.constants.transaction-committed"><strong><code>MongoDB\Driver\Session::TRANSACTION_COMMITTED</code></strong></dt>
+
+     <dd>
+
+      <p class="para">
+       The transaction was committed.
+      </p>
+     </dd>
+
+    
+
+    
+     <dt id="mongodb-driver-session.constants.transaction-aborted"><strong><code>MongoDB\Driver\Session::TRANSACTION_ABORTED</code></strong></dt>
+
+     <dd>
+
+      <p class="para">
+       The transaction was aborted.
+      </p>
+     </dd>
+
+    
+
+   </dl>
+
+  </div>
+  
+
+ </div>
+
+ 
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="mongodb-driver-session.aborttransaction.html">MongoDB\Driver\Session::abortTransaction</a> — Aborts a transaction</li><li><a href="mongodb-driver-session.advanceclustertime.html">MongoDB\Driver\Session::advanceClusterTime</a> — Advances the cluster time for this session</li><li><a href="mongodb-driver-session.advanceoperationtime.html">MongoDB\Driver\Session::advanceOperationTime</a> — Advances the operation time for this session</li><li><a href="mongodb-driver-session.committransaction.html">MongoDB\Driver\Session::commitTransaction</a> — Commits a transaction</li><li><a href="mongodb-driver-session.construct.html">MongoDB\Driver\Session::__construct</a> — Create a new Session (not used)</li><li><a href="mongodb-driver-session.endsession.html">MongoDB\Driver\Session::endSession</a> — Terminates a session</li><li><a href="mongodb-driver-session.getclustertime.html">MongoDB\Driver\Session::getClusterTime</a> — Returns the cluster time for this session</li><li><a href="mongodb-driver-session.getlogicalsessionid.html">MongoDB\Driver\Session::getLogicalSessionId</a> — Returns the logical session ID for this session</li><li><a href="mongodb-driver-session.getoperationtime.html">MongoDB\Driver\Session::getOperationTime</a> — Returns the operation time for this session</li><li><a href="mongodb-driver-session.getserver.html">MongoDB\Driver\Session::getServer</a> — Returns the server to which this session is pinned</li><li><a href="mongodb-driver-session.gettransactionoptions.html">MongoDB\Driver\Session::getTransactionOptions</a> — Returns options for the currently running transaction</li><li><a href="mongodb-driver-session.gettransactionstate.html">MongoDB\Driver\Session::getTransactionState</a> — Returns the current transaction state for this session</li><li><a href="mongodb-driver-session.isintransaction.html">MongoDB\Driver\Session::isInTransaction</a> — Returns whether a multi-document transaction is in progress</li><li><a href="mongodb-driver-session.starttransaction.html">MongoDB\Driver\Session::startTransaction</a> — Starts a transaction</li></ul>
+</div>
+</div></div></body></html>

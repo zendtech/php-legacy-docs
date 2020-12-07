@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Unix Domain: Unix and UDG</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="transports.inet.html">« Internet Domain: TCP, UDP, SSL, and TLS</a></li>
+      <li style="float: right;"><a href="types.comparisons.html">PHP type comparison tables »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="transports.html">List of Supported Socket Transports</a></li>
+    <li>Unix Domain: Unix and UDG</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="transports.unix" class="section">
+  <h2 class="title">Unix Domain: Unix and UDG</h2>
+  <p class="simpara">
+   <code class="literal">unix://</code> and
+   <code class="literal">udg://</code> (udg:// since PHP 5).
+  </p>
+
+  <ul class="itemizedlist">
+   <li class="listitem"><span class="simpara"><code class="literal">unix:///tmp/mysock</code></span></li>
+   <li class="listitem"><span class="simpara"><code class="literal">udg:///tmp/mysock</code></span></li>
+  </ul>
+
+  <p class="simpara">
+   <code class="literal">unix://</code> provides access to a socket stream
+   connection in the Unix domain. <code class="literal">udg://</code> provides
+   an alternate transport to a Unix domain socket using the user datagram
+   protocol.
+  </p>
+
+  <p class="simpara">
+   Unix domain sockets, unlike Internet domain sockets, do not expect
+   a port number.  In the case of <span class="function"><a href="function.fsockopen.html" class="function">fsockopen()</a></span> the
+   <code class="parameter">portno</code> parameter should be set to 0.
+  </p>
+
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <span class="simpara">
+    Unix domain sockets are not supported on Windows.
+   </span>
+  </p></blockquote>
+ </div></div></div></body></html>

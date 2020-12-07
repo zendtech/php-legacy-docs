@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Other changes to extensions</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="migration56.openssl.html">« OpenSSL changes in PHP 5.6.x</a></li>
+      <li style="float: right;"><a href="migration56.constants.html">New global constants »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="migration56.html">Migrating from PHP 5.5.x to PHP 5.6.x</a></li>
+    <li>Other changes to extensions</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="migration56.extensions" class="sect1">
+ <h2 class="title">Other changes to extensions</h2>
+
+ <div class="sect2" id="migration56.extensions.curl">
+  <h3 class="title"><a href="book.curl.html" class="link">cURL</a></h3>
+
+  <p class="para">
+   A number of constants marked obsolete in the cURL library have now been
+   removed:
+  </p>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code>CURLOPT_CLOSEPOLICY</code></strong>
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code>CURLCLOSEPOLICY_CALLBACK</code></strong>
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code>CURLCLOSEPOLICY_LEAST_RECENTLY_USED</code></strong>
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code>CURLCLOSEPOLICY_LEAST_TRAFFIC</code></strong>
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code>CURLCLOSEPOLICY_OLDEST</code></strong>
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code>CURLCLOSEPOLICY_SLOWEST</code></strong>
+    </span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration56.extensions.oci8">
+  <h3 class="title"><a href="book.oci8.html" class="link">OCI8</a></h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     Support for implicit result sets for Oracle Database 12c has been added
+     via the new <span class="function"><a href="function.oci-get-implicit-resultset.html" class="function">oci_get_implicit_resultset()</a></span> function.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Using <code class="literal">oci_execute($s, OCI_NO_AUTO_COMMIT)</code> for a
+     SELECT no longer unnecessarily initiates an internal ROLLBACK during
+     connection close.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Added DTrace probes controlled by the <code class="literal">--enable-dtrace</code>
+     configure option.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a href="function.oci-internal-debug.html" class="function">oci_internal_debug()</a></span> is now a no-op.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     The <span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span> output format for OCI8 has changed.
+    </span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration56.extensions.zip">
+  <h3 class="title"><a href="book.zip.html" class="link">Zip</a></h3>
+
+  <p class="para">
+   A <code class="literal">--with-libzip</code> configure option has been added to use
+   a system libzip installation. libzip version 0.11 is required, with 0.11.2
+   or later recommended.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration56.extensions.mysqli">
+  <h3 class="title"><a href="book.mysqli.html" class="link">MySQLi</a></h3>
+  <p class="para">
+   A new <a href="mysqli.configuration.html#ini.mysqli.rollback-on-cached-plink" class="link">mysqli.rollback_on_cached_plink</a>
+   option was added, which controls the rollback behavior of persistent connections.
+  </p>
+ </div>
+
+ 
+</div></div></div></body></html>

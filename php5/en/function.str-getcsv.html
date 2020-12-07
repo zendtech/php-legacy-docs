@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Parse a CSV string into an array</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.sscanf.html">« sscanf</a></li>
+      <li style="float: right;"><a href="function.str-ireplace.html">str_ireplace »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.strings.html">String Functions</a></li>
+    <li>Parse a CSV string into an array</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.str-getcsv" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">str_getcsv</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p><p class="refpurpose"><span class="refname">str_getcsv</span> &mdash; <span class="dc-title">
+   Parse a CSV string into an array
+  </span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.str-getcsv-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>str_getcsv</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$input</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$delimiter</code><span class="initializer"> = &quot;,&quot;</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$enclosure</code><span class="initializer"> = &#039;&quot;&#039;</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$escape</code><span class="initializer"> = &quot;\\&quot;</span></span>
+  ]]] ) : <span class="type">array</span></div>
+
+  <p class="para rdfs-comment">
+   Parses a string input for fields in <acronym title="Comma Separated Value">CSV</acronym> format
+   and returns an array containing the fields read.
+  </p>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    The locale settings are taken into account by this function. If
+    <code class="literal">LC_CTYPE</code> is e.g. <code class="literal">en_US.UTF-8</code>, strings in
+    one-byte encodings may be read wrongly by this function.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.str-getcsv-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">input</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The string to parse.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">delimiter</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Set the field delimiter (one character only).
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">enclosure</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Set the field enclosure character (one character only).
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">escape</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Set the escape character (at most one character). Defaults as a backslash
+       (<code class="literal">\</code>)
+       An empty string (<code class="literal">&quot;&quot;</code>) disables the proprietary escape mechanism.
+      </p>
+      <blockquote class="note"><p><strong class="note">Note</strong>: 
+       <span class="simpara">
+        Usually an <code class="parameter">enclosure</code> character is escaped inside
+        a field by doubling it; however, the <code class="parameter">escape</code>
+        character can be used as an alternative. So for the default parameter
+        values <code class="literal">&quot;&quot;</code> and <code class="literal">\&quot;</code> have the same
+        meaning. Other than allowing to escape the
+        <code class="parameter">enclosure</code> character the
+        <code class="parameter">escape</code> character has no special meaning; it isn&#039;t
+        even meant to escape itself.
+       </span>
+      </p></blockquote>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.str-getcsv-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns an indexed array containing the fields read.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.str-getcsv-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.4.0</td>
+       <td>
+        The <code class="parameter">escape</code> parameter now interprets an empty
+        string as signal to disable the proprietary escape mechanism. Formerly,
+        an empty string was treated like the default parameter value.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.str-getcsv-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.fgetcsv.html" class="function" rel="rdfs-seeAlso">fgetcsv()</a> - Gets line from file pointer and parse for CSV fields</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div></div></div></body></html>

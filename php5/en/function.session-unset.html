@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Free all session variables</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.session-unregister.html">« session_unregister</a></li>
+      <li style="float: right;"><a href="function.session-write-close.html">session_write_close »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.session.html">Session Functions</a></li>
+    <li>Free all session variables</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.session-unset" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">session_unset</h1>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">session_unset</span> &mdash; <span class="dc-title">Free all session variables</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.session-unset-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>session_unset</strong></span>
+    ( <span class="methodparam">void</span>
+   ) : <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   The <span class="function"><strong>session_unset()</strong></span> function frees all session variables
+   currently registered.
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.session-unset-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.session-unset-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>7.2.0</td>
+      <td>
+       The return type of this function is <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span> now.
+       Formerly, it has been <span class="type"><span class="type void">void</span></span>.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.session-unset-notes">
+  <h3 class="title">Notes</h3>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    If <var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var> is used, use <span class="function"><a href="function.unset.html" class="function">unset()</a></span> to
+    unregister a session variable, i.e.
+    <code class="literal">unset ($_SESSION[&#039;varname&#039;]);</code>.
+   </p>
+  </p></blockquote>
+  <div class="caution"><strong class="caution">Caution</strong>
+   <p class="para">
+    Do NOT unset the whole <var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var> with
+    <code class="literal">unset($_SESSION)</code> as this will disable the registering
+    of session variables through the <var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var> superglobal.
+   </p>
+  </div>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    Only use <span class="function"><strong>session_unset()</strong></span> for older deprecated code
+    that does not use <var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var>.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+</div></div></div></body></html>

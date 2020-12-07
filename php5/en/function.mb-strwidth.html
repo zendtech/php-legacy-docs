@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Return width of string</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.mb-strtoupper.html">« mb_strtoupper</a></li>
+      <li style="float: right;"><a href="function.mb-substitute-character.html">mb_substitute_character »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.mbstring.html">Multibyte String Functions</a></li>
+    <li>Return width of string</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.mb-strwidth" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">mb_strwidth</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mb_strwidth</span> &mdash; <span class="dc-title">Return width of string</span></p>
+
+ </div>
+   
+ <div class="refsect1 description" id="refsect1-function.mb-strwidth-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>mb_strwidth</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code><span class="initializer"> = mb_internal_encoding()</span></span>
+  ] ) : <span class="type">int</span></div>
+
+  <p class="para rdfs-comment">
+   Returns the width of <span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">str</code>,
+   where halfwidth characters count as <code class="literal">1</code>, and fullwidth
+   characters count as <code class="literal">2</code>.
+  </p>
+  <p class="para">
+   The fullwidth characters are:
+   <code class="literal">U+1100</code>-<code class="literal">U+115F</code>,
+   <code class="literal">U+11A3</code>-<code class="literal">U+11A7</code>,
+   <code class="literal">U+11FA</code>-<code class="literal">U+11FF</code>,
+   <code class="literal">U+2329</code>-<code class="literal">U+232A</code>,
+   <code class="literal">U+2E80</code>-<code class="literal">U+2E99</code>,
+   <code class="literal">U+2E9B</code>-<code class="literal">U+2EF3</code>,
+   <code class="literal">U+2F00</code>-<code class="literal">U+2FD5</code>,
+   <code class="literal">U+2FF0</code>-<code class="literal">U+2FFB</code>,
+   <code class="literal">U+3000</code>-<code class="literal">U+303E</code>,
+   <code class="literal">U+3041</code>-<code class="literal">U+3096</code>,
+   <code class="literal">U+3099</code>-<code class="literal">U+30FF</code>,
+   <code class="literal">U+3105</code>-<code class="literal">U+312D</code>,
+   <code class="literal">U+3131</code>-<code class="literal">U+318E</code>,
+   <code class="literal">U+3190</code>-<code class="literal">U+31BA</code>,
+   <code class="literal">U+31C0</code>-<code class="literal">U+31E3</code>,
+   <code class="literal">U+31F0</code>-<code class="literal">U+321E</code>,
+   <code class="literal">U+3220</code>-<code class="literal">U+3247</code>,
+   <code class="literal">U+3250</code>-<code class="literal">U+32FE</code>,
+   <code class="literal">U+3300</code>-<code class="literal">U+4DBF</code>,
+   <code class="literal">U+4E00</code>-<code class="literal">U+A48C</code>,
+   <code class="literal">U+A490</code>-<code class="literal">U+A4C6</code>,
+   <code class="literal">U+A960</code>-<code class="literal">U+A97C</code>,
+   <code class="literal">U+AC00</code>-<code class="literal">U+D7A3</code>,
+   <code class="literal">U+D7B0</code>-<code class="literal">U+D7C6</code>,
+   <code class="literal">U+D7CB</code>-<code class="literal">U+D7FB</code>,
+   <code class="literal">U+F900</code>-<code class="literal">U+FAFF</code>,
+   <code class="literal">U+FE10</code>-<code class="literal">U+FE19</code>,
+   <code class="literal">U+FE30</code>-<code class="literal">U+FE52</code>,
+   <code class="literal">U+FE54</code>-<code class="literal">U+FE66</code>,
+   <code class="literal">U+FE68</code>-<code class="literal">U+FE6B</code>,
+   <code class="literal">U+FF01</code>-<code class="literal">U+FF60</code>,
+   <code class="literal">U+FFE0</code>-<code class="literal">U+FFE6</code>,
+   <code class="literal">U+1B000</code>-<code class="literal">U+1B001</code>,
+   <code class="literal">U+1F200</code>-<code class="literal">U+1F202</code>,
+   <code class="literal">U+1F210</code>-<code class="literal">U+1F23A</code>,
+   <code class="literal">U+1F240</code>-<code class="literal">U+1F248</code>,
+   <code class="literal">U+1F250</code>-<code class="literal">U+1F251</code>,
+   <code class="literal">U+20000</code>-<code class="literal">U+2FFFD</code>,
+   <code class="literal">U+30000</code>-<code class="literal">U+3FFFD</code>.
+   All other characters are halfwidth characters.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.mb-strwidth-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">str</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The <span class="type"><a href="language.types.string.html" class="type string">string</a></span> being decoded.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">encoding</code></dt>
+
+     <dd>
+
+      <p class="para">The <code class="parameter">encoding</code>
+parameter is the character encoding. If it is omitted, the internal character
+encoding value will be used.</p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.mb-strwidth-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   The width of <span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">str</code>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.mb-strwidth-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.mb-strimwidth.html" class="function" rel="rdfs-seeAlso">mb_strimwidth()</a> - Get truncated string with specified width</span></li>
+    <li class="member"><span class="function"><a href="function.mb-internal-encoding.html" class="function" rel="rdfs-seeAlso">mb_internal_encoding()</a> - Set/Get internal character encoding</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

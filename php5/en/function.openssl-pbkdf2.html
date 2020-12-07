@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Generates a PKCS5 v2 PBKDF2 string</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.openssl-open.html">« openssl_open</a></li>
+      <li style="float: right;"><a href="function.openssl-pkcs12-export-to-file.html">openssl_pkcs12_export_to_file »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.openssl.html">OpenSSL Functions</a></li>
+    <li>Generates a PKCS5 v2 PBKDF2 string</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.openssl-pbkdf2" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">openssl_pbkdf2</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7)</p><p class="refpurpose"><span class="refname">openssl_pbkdf2</span> &mdash; <span class="dc-title">Generates a PKCS5 v2 PBKDF2 string</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.openssl-pbkdf2-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>openssl_pbkdf2</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$salt</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$key_length</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$iterations</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$digest_algorithm</code><span class="initializer"> = &quot;sha1&quot;</span></span>
+  ] ) : <span class="type">string</span></div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>openssl_pbkdf2()</strong></span> computes PBKDF2 (Password-Based Key Derivation Function 2),
+   a key derivation function defined in PKCS5 v2.
+  </p>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.openssl-pbkdf2-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+
+   
+    <dt>
+<code class="parameter">password</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Password from which the derived key is generated.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">salt</code></dt>
+
+    <dd>
+
+     <p class="para">
+      PBKDF2 recommends a crytographic salt of at least 64 bits (8 bytes).
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">key_length</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Length of desired output key.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">iterations</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The number of iterations desired. <a href="https://pages.nist.gov/800-63-3/sp800-63b.html#sec5" class="link external">&raquo;&nbsp;NIST 
+      recommends at least 10,000</a>.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">digest_algorithm</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Optional hash or digest algorithm from <span class="function"><a href="function.openssl-get-md-methods.html" class="function">openssl_get_md_methods()</a></span>.  Defaults to SHA-1.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.openssl-pbkdf2-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns raw binary string or <strong><code>FALSE</code></strong> on failure.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.openssl-pbkdf2-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-1010">
+    <p><strong>Example #1 openssl_pbkdf2() example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$password&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'yOuR-pAs5w0rd-hERe'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$salt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">openssl_random_pseudo_bytes</span><span style="color: #007700">(</span><span style="color: #0000BB">12</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$keyLength&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">40</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$iterations&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">10000</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$generated_key&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">openssl_pbkdf2</span><span style="color: #007700">(</span><span style="color: #0000BB">$password</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$salt</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$keyLength</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$iterations</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'sha256'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">bin2hex</span><span style="color: #007700">(</span><span style="color: #0000BB">$generated_key</span><span style="color: #007700">).</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">base64_encode</span><span style="color: #007700">(</span><span style="color: #0000BB">$generated_key</span><span style="color: #007700">).</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.openssl-pbkdf2-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.hash-pbkdf2.html" class="function" rel="rdfs-seeAlso">hash_pbkdf2()</a> - Generate a PBKDF2 key derivation of a supplied password</span></li>
+    <li class="member"><span class="function"><a href="function.openssl-get-md-methods.html" class="function" rel="rdfs-seeAlso">openssl_get_md_methods()</a> - Gets available digest methods</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

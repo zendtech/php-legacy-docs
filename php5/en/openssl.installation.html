@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Installation</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="openssl.requirements.html">« Requirements</a></li>
+      <li style="float: right;"><a href="openssl.configuration.html">Runtime Configuration »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="openssl.setup.html">Installing/Configuring</a></li>
+    <li>Installation</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="openssl.installation" class="section">
+ <h2 class="title">Installation</h2>
+ <p class="para">
+  To use PHP&#039;s OpenSSL support you must also compile PHP <strong class="option configure">--with-openssl[=DIR]</strong>.
+ </p>
+ <p class="para">
+  The OpenSSL library also has additional requirements for normal operation at
+  run-time. Most notably, OpenSSL requires access to a random or pseudo-random
+  number generator; on most Unix and Unix-like platforms (including Linux),
+  this means that it must have access to a <code class="literal">/dev/urandom</code> or
+  <code class="literal">/dev/random</code> device.
+ </p>
+ <p class="para">
+  As of PHP 5.6.3, the configure option <strong class="option configure">--with-system-ciphers</strong>
+  is available which causes PHP to use the system cipher list instead of a hard-coded default.
+ </p>
+ <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <strong>Note to Win32 Users</strong><br />
+  <p class="para">
+   In order for this extension to work, there are
+<acronym title="Dynamic Link Library">DLL</acronym> files that must be available to the Windows
+system <var class="envar">PATH</var>. For information on how to do this, see the
+<acronym title="Frequently Asked Questions">FAQ</acronym> entitled &quot;<a href="faq.installation.html#faq.installation.addtopath" class="link">How do I add my PHP directory to the PATH
+on Windows</a>&quot;. Although copying DLL
+files from the PHP folder into the Windows system directory also works
+(because the system directory is by default in the system&#039;s
+<var class="envar">PATH</var>), this is not recommended.
+<em class="emphasis">This extension requires the following files to be in the
+<var class="envar">PATH</var>:</em> 
+   <var class="filename">libeay32.dll</var>,
+   or, as of OpenSSL 1.1, <var class="filename">libcrypto-*.dll</var>
+  </p>
+  <p class="para">
+   Additionally, if you are planning to use the key generation and certificate
+   signing functions, you will need to install a valid
+   <var class="filename">openssl.cnf</var> file on your system.
+   We include a sample configuration file
+   in our win32 binary distributions, in the
+   <var class="filename">extras/openssl</var> directory.
+  </p>
+  <p class="para">
+   PHP will search for the <var class="filename">openssl.cnf</var> using the
+   following logic:
+   <ul class="itemizedlist">
+    <li class="listitem">
+     <span class="simpara">the <code class="literal">OPENSSL_CONF</code> environmental variable, if
+      set, will be used as the path (including filename) of the configuration
+      file.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">the <code class="literal">SSLEAY_CONF</code> environmental variable, if
+      set, will be used as the path (including filename) of the configuration
+      file.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">The file <var class="filename">openssl.cnf</var> will be assumed to be
+      found in the default certificate area, as configured at the time that
+      the openssl DLL was compiled.  This is usually means that the default
+      filename is <var class="filename">C:\Program Files\Common Files\SSL\openssl.cnf</var> (x64)
+      or <var class="filename">C:\Program Files (x86)\Common Files\SSL\openssl.cnf</var> (x86), or,
+      prior to PHP 7.4.0, <var class="filename">C:\usr\local\ssl\openssl.cnf</var>.
+     </span>
+    </li>
+   </ul>
+  </p>
+  <span class="simpara">
+   In your installation, you need to decide whether to install the
+   configuration file in the default path or
+   whether to install it someplace else and use environmental variables
+   (possibly on a per-virtual-host basis) to locate the configuration file.
+   Note that it is possible to override the default path from the script using
+   the <code class="parameter">configargs</code> of the functions that require a
+   configuration file.
+  </span>
+  <div class="caution"><strong class="caution">Caution</strong>
+   <p class="simpara">
+    Ensure that non-privileged users are not allowed to modify <var class="filename">openssl.cnf</var>.
+   </p>
+  </div>
+ </p></blockquote>
+
+ <div class="simplesect">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.4.0</td>
+       <td>
+        The OpenSSL default config path has been changed from <var class="filename">C:\usr\local\ssl</var>
+        to <var class="filename">C:\Program Files\Common Files\SSL</var> and
+        <var class="filename">C:\Program Files (x86)\Common Files\SSL</var>, respectively.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+</div></div></div></body></html>

@@ -1,0 +1,292 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Properties</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="language.oop5.basic.html">« The Basics</a></li>
+      <li style="float: right;"><a href="language.oop5.constants.html">Class Constants »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="language.oop5.html">Classes and Objects</a></li>
+    <li>Properties</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="language.oop5.properties" class="sect1">
+  <h2 class="title">Properties</h2>
+
+  <p class="para">
+   Class member variables are called <em class="emphasis">properties</em>. You may also see
+   them referred to using other terms such as <em class="emphasis">attributes</em> or
+   <em class="emphasis">fields</em>, but for the purposes of this reference we will use
+   <em class="emphasis">properties</em>. They are defined by using one of the
+   keywords <code class="literal">public</code>, <code class="literal">protected</code>,
+   or <code class="literal">private</code>, optionally followed by a type declaration,
+   followed by a normal variable declaration. This declaration may
+   include an initialization, but this initialization must be a constant
+   value--that is, it must be able to be evaluated at compile time and
+   must not depend on run-time information in order to be evaluated.
+  </p>
+  <p class="para">
+   See <a href="language.oop5.visibility.html" class="xref">Visibility</a> for more
+   information on the meanings
+   of <code class="literal">public</code>, <code class="literal">protected</code>,
+   and <code class="literal">private</code>.
+  </p>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    In order to maintain backward compatibility with PHP 4, PHP 5 will
+    still accept the use of the keyword <code class="literal">var</code> in
+    property declarations instead of (or in addition
+    to) <code class="literal">public</code>, <code class="literal">protected</code>,
+    or <code class="literal">private</code>. However, <code class="literal">var</code> is
+    no longer required. In versions of PHP from 5.0 to 5.1.3, the use
+    of <code class="literal">var</code> was considered deprecated and would
+    issue an <strong><code>E_STRICT</code></strong> warning, but since PHP
+    5.1.3 it is no longer deprecated and does not issue the warning.
+   </p>
+   <p class="para">
+    If you declare a property using <code class="literal">var</code> instead of
+    one of <code class="literal">public</code>, <code class="literal">protected</code>,
+    or <code class="literal">private</code>, then PHP 5 will treat the property
+    as if it had been declared as <code class="literal">public</code>.
+   </p>
+  </p></blockquote>
+  <p class="para">
+   Within class methods non-static properties may be accessed by using 
+   <code class="literal">-&gt;</code> (Object Operator): <var class="varname">$this->property</var> 
+   (where <code class="literal">property</code> is the name of the property). 
+   Static properties are accessed by using the <code class="literal">::</code> (Double Colon):
+   <var class="varname">self::$property</var>. See <a href="language.oop5.static.html" class="link">Static Keyword</a> 
+   for more information on the difference between static and non-static properties.
+  </p>
+  <p class="para">
+   The pseudo-variable <var class="varname">$this</var> is available inside
+   any class method when that method is called from within an object
+   context. <var class="varname">$this</var> is a reference to the calling
+   object (usually the object to which the method belongs, but
+   possibly another object, if the method is called
+   <a href="language.oop5.static.html" class="link">statically</a> from the context
+   of a secondary object).
+  </p>
+
+  <p class="para">
+   <div class="example" id="example-187">
+    <p><strong>Example #1 property declarations</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">SimpleClass<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;valid&nbsp;as&nbsp;of&nbsp;PHP&nbsp;5.6.0:<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">$var1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'hello&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'world'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;valid&nbsp;as&nbsp;of&nbsp;PHP&nbsp;5.3.0:<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">$var2&nbsp;</span><span style="color: #007700">=&nbsp;&lt;&lt;&lt;EOD<br /></span><span style="color: #DD0000">hello&nbsp;world<br /></span><span style="color: #007700">EOD;<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;valid&nbsp;as&nbsp;of&nbsp;PHP&nbsp;5.6.0:<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">$var3&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">+</span><span style="color: #0000BB">2</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;invalid&nbsp;property&nbsp;declarations:<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">$var4&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">myStaticMethod</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$var5&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$myVar</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;valid&nbsp;property&nbsp;declarations:<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">$var6&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">myConstant</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$var7&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">true</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;valid&nbsp;as&nbsp;of&nbsp;PHP&nbsp;5.3.0:<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">$var8&nbsp;</span><span style="color: #007700">=&nbsp;&lt;&lt;&lt;'EOD'<br /></span><span style="color: #DD0000">hello&nbsp;world<br /></span><span style="color: #007700">EOD;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+   
+   </div>
+  </p>
+
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    There are some nice functions to handle classes and objects. You
+    might want to take a look at
+    the <a href="ref.classobj.html" class="link">Class/Object Functions</a>.
+   </p>
+  </p></blockquote>
+
+  <div class="sect2" id="language.oop5.properties.heredoc-nowdoc">
+   <h3 class="title">Heredoc and Nowdoc</h3>
+   <p class="para">
+    As of PHP 5.3.0
+    <a href="language.types.string.html#language.types.string.syntax.heredoc" class="link">heredocs</a> and
+    <a href="language.types.string.html#language.types.string.syntax.nowdoc" class="link">nowdocs</a>
+    can be used in any static data context, including property
+    declarations.
+    <div class="example" id="example-188">
+     <p><strong>Example #2 Example of using a nowdoc to initialize a property</strong></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">foo&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;As&nbsp;of&nbsp;PHP&nbsp;5.3.0<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">$bar&nbsp;</span><span style="color: #007700">=&nbsp;&lt;&lt;&lt;'EOT'<br /></span><span style="color: #DD0000">bar<br /></span><span style="color: #007700">EOT;<br />&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$baz&nbsp;</span><span style="color: #007700">=&nbsp;&lt;&lt;&lt;EOT<br /></span><span style="color: #DD0000">baz<br /></span><span style="color: #007700">EOT;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+   </p>
+   <blockquote class="note"><p><strong class="note">Note</strong>: 
+    <p class="para">
+     Nowdoc and Heredoc support was added in PHP 5.3.0.
+    </p>
+   </p></blockquote>
+  </div>
+  
+  <div class="sect2" id="language.oop5.properties.typed-properties">
+   <h3 class="title">Type declarations</h3>
+   <p class="para">
+    As of PHP 7.4.0, property definitions can include a type declaration.
+    <div class="example" id="example-189">
+     <p><strong>Example #3 Example of typed properties</strong></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">User<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">int&nbsp;$id</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;?</span><span style="color: #0000BB">string&nbsp;$name</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">__construct</span><span style="color: #007700">(</span><span style="color: #0000BB">int&nbsp;$id</span><span style="color: #007700">,&nbsp;?</span><span style="color: #0000BB">string&nbsp;$name</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$id</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">$user&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">User</span><span style="color: #007700">(</span><span style="color: #0000BB">1234</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+     <div class="example-contents"><p>The above example will output:</p></div>
+     <div class="example-contents screen">
+<div class="cdata"><pre>
+int(1234)
+NULL
+</pre></div>
+     </div>
+    </div>
+   </p>
+
+   <p class="para">
+    Typed properties must be initialized before accessing, otherwise an
+    <a href="class.error.html" class="classname">Error</a> is thrown.
+    <div class="example" id="example-190">
+     <p><strong>Example #4 Accessing properties</strong></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Shape<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">int&nbsp;$numberOfSides</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">string&nbsp;$name</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">setNumberOfSides</span><span style="color: #007700">(</span><span style="color: #0000BB">int&nbsp;$numberOfSides</span><span style="color: #007700">):&nbsp;</span><span style="color: #0000BB">void<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">numberOfSides&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$numberOfSides</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">setName</span><span style="color: #007700">(</span><span style="color: #0000BB">string&nbsp;$name</span><span style="color: #007700">):&nbsp;</span><span style="color: #0000BB">void<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">getNumberOfSides</span><span style="color: #007700">():&nbsp;</span><span style="color: #0000BB">int<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">numberOfSides</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">getName</span><span style="color: #007700">():&nbsp;</span><span style="color: #0000BB">string<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">$triangle&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Shape</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$triangle</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setName</span><span style="color: #007700">(</span><span style="color: #DD0000">"triangle"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$triangle</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setNumberofSides</span><span style="color: #007700">(</span><span style="color: #0000BB">3</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$triangle</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getName</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$triangle</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getNumberOfSides</span><span style="color: #007700">());<br /><br /></span><span style="color: #0000BB">$circle&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Shape</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$circle</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setName</span><span style="color: #007700">(</span><span style="color: #DD0000">"circle"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$circle</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getName</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$circle</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getNumberOfSides</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+     <div class="example-contents"><p>The above example will output:</p></div>
+     <div class="example-contents screen">
+<div class="cdata"><pre>
+string(8) &quot;triangle&quot;
+int(3)
+string(6) &quot;circle&quot;
+
+Fatal error: Uncaught Error: Typed property Shape::$numberOfSides must not be accessed before initialization
+</pre></div>
+     </div>
+    </div>
+   </p>
+
+   <div class="sect3" id="language.oop5.properties.typed-properties.valid-types">
+    <h4 class="title">Valid property types</h4>
+    <table class="doctable informaltable">
+     
+      <thead>
+       <tr>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Minimum PHP version</th>
+       </tr>
+
+      </thead>
+
+      <tbody class="tbody">
+       <tr>
+        <td><span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span></td>
+        <td>
+         The property must be <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span> value.
+        </td>
+        <td>PHP 7.4.0</td>
+       </tr>
+
+       <tr>
+        <td><span class="type"><a href="language.types.integer.html" class="type int">int</a></span></td>
+        <td>
+         The property must be an <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>.
+        </td>
+        <td>PHP 7.4.0</td>
+       </tr>
+
+       <tr>
+        <td><span class="type"><a href="language.types.float.html" class="type float">float</a></span></td>
+        <td>
+         The property must be a <span class="type"><a href="language.types.float.html" class="type float">float</a></span>ing point number.
+        </td>
+        <td>PHP 7.4.0</td>
+       </tr>
+
+       <tr>
+        <td><span class="type"><a href="language.types.string.html" class="type string">string</a></span></td>
+        <td>
+         The property must be a <span class="type"><a href="language.types.string.html" class="type string">string</a></span>.
+        </td>
+        <td>PHP 7.4.0</td>
+       </tr>
+
+       <tr>
+        <td><span class="type"><a href="language.types.array.html" class="type array">array</a></span></td>
+        <td>
+         The property must be an <span class="type"><a href="language.types.array.html" class="type array">array</a></span>.
+        </td>
+        <td>PHP 7.4.0</td>
+       </tr>
+
+       <tr>
+        <td><code class="literal">object</code></td>
+        <td>
+         The property must be an <span class="type"><a href="language.types.object.html" class="type object">object</a></span>.
+        </td>
+        <td>PHP 7.4.0</td>
+       </tr>
+
+       <tr>
+        <td><code class="literal">iterable</code></td>
+        <td>
+         The property must be either an <span class="type"><a href="language.types.array.html" class="type array">array</a></span> or an <a href="language.operators.type.html" class="link"><code class="literal">instanceof</code></a>
+         <span class="interfacename"><a href="class.traversable.html" class="interfacename">Traversable</a></span>.
+        </td>
+        <td>PHP 7.4.0</td>
+       </tr>
+
+       <tr>
+        <td><code class="literal">self</code></td>
+        <td>
+         The property must be an <a href="language.operators.type.html" class="link"><code class="literal">instanceof</code></a> the same class in which the
+         property is defined.
+        </td>
+        <td>PHP 7.4.0</td>
+       </tr>
+
+       <tr>
+        <td><code class="literal">parent</code></td>
+        <td>
+         The property must be an <a href="language.operators.type.html" class="link"><code class="literal">instanceof</code></a> the parent class of the class
+         in which the property is defined.
+        </td>
+        <td>PHP 7.4.0</td>
+       </tr>
+
+       <tr>
+        <td>Class/interface name</td>
+        <td>
+         The property must be an <a href="language.operators.type.html" class="link"><code class="literal">instanceof</code></a> the given class or interface
+         name.
+        </td>
+        <td>PHP 7.4.0</td>
+       </tr>
+
+       <tr>
+        <td>?type</td>
+        <td>
+         The property must be the specified type, or <strong><code>NULL</code></strong>.
+        </td>
+        <td>PHP 7.4.0</td>
+       </tr>
+
+      </tbody>
+     
+    </table>
+
+   </div>
+  </div>
+
+ </div></div></div></body></html>

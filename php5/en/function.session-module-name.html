@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Get and/or set the current session module</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.session-is-registered.html">« session_is_registered</a></li>
+      <li style="float: right;"><a href="function.session-name.html">session_name »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.session.html">Session Functions</a></li>
+    <li>Get and/or set the current session module</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.session-module-name" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">session_module_name</h1>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">session_module_name</span> &mdash; <span class="dc-title">Get and/or set the current session module</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.session-module-name-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>session_module_name</strong></span>
+    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$module</code></span>
+  ] ) : <span class="type">string</span></div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>session_module_name()</strong></span> gets the name of the current
+   session module, which is also known as
+   <a href="session.configuration.html#ini.session.save-handler" class="link">session.save_handler</a>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.session-module-name-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">module</code></dt>
+
+     <dd>
+
+      <p class="para">
+       If <code class="parameter">module</code> is specified, that module will be
+       used instead.
+       Passing <code class="literal">&quot;user&quot;</code> to this parameter is forbidden. Instead
+       <span class="function"><a href="function.session-set-save-handler.html" class="function">session_set_save_handler()</a></span> has to be called to set a user
+       defined session handler.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.session-module-name-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns the name of the current session module.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.session-module-name-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>7.2.0</td>
+      <td>
+       It is now explicitly forbidden to set the module name to
+       <code class="literal">&quot;user&quot;</code>. Formerly, this has been silently ignored.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
+</div></div></div></body></html>

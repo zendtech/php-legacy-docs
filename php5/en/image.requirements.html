@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Requirements</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="image.setup.html">« Installing/Configuring</a></li>
+      <li style="float: right;"><a href="image.installation.html">Installation »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="image.setup.html">Installing/Configuring</a></li>
+    <li>Requirements</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="image.requirements" class="section">
+  <h2 class="title">Requirements</h2>
+  <p class="para">
+   If you have the <acronym title="Graphics Draw">GD</acronym> library (available at <a href="http://www.libgd.org/" class="link external">&raquo;&nbsp;http://www.libgd.org/</a>) you will also be able to create
+   and manipulate images.
+  </p>
+  <p class="para">
+   The format of images you are able to manipulate depend on the
+   version of <acronym title="Graphics Draw">GD</acronym> you install, and any other libraries
+   <acronym title="Graphics Draw">GD</acronym> might need to access those image formats.
+   <acronym title="Graphic Interchange Format">GIF</acronym> support is available as of gd-2.0.28.
+   <blockquote class="note"><p><strong class="note">Note</strong>: 
+    <span class="simpara">
+     libgd-2.0.4 or higher is required.
+     As of PHP 5.5 libgd-2.1.0 or higher is required. Alternatively, use
+     the bundled <acronym title="Graphics Draw">GD</acronym> library that ships with PHP.
+    </span>
+   </p></blockquote>
+  </p>
+  <p class="para">
+   You may wish to enhance <acronym title="Graphics Draw">GD</acronym> to handle more image formats.
+   <table class="doctable table">
+   <caption><strong>Supported image formats</strong></caption>
+    
+     <thead>
+      <tr>
+       <th>Image format</th>
+       <th>Library to download</th>
+       <th>Notes</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td><code class="literal">gif</code></td>
+       <td class="empty">&nbsp;</td>
+       <td>
+        Only supported in <acronym title="Graphics Draw">GD</acronym> versions newer than
+        gd-2.0.28. <em class="emphasis">Write</em> support is available as of
+        PHP 5.0.1.
+       </td>
+      </tr>
+
+      <tr>
+       <td><code class="literal">jpeg</code></td>
+       <td><a href="http://www.ijg.org/" class="link external">&raquo;&nbsp;http://www.ijg.org/</a></td>
+       <td>
+        When building the jpeg library (prior to building PHP) you
+        must use the <strong class="option configure">--enable-shared</strong>
+        option in the configure step.  If you do not, you will receive
+        an error saying <code class="literal">libjpeg.(a|so) not found</code>
+        when you get to the configure step of building PHP.
+       </td>
+      </tr>
+
+      <tr>
+       <td><code class="literal">png</code></td>
+       <td><a href="http://www.libpng.org/pub/png/libpng.html" class="link external">&raquo;&nbsp;http://www.libpng.org/pub/png/libpng.html</a></td>
+       <td>
+       </td>
+      </tr>
+
+      <tr>
+       <td><code class="literal">xpm</code></td>
+       <td><a href="ftp://metalab.unc.edu/pub/Linux/libs/X/!INDEX.html" class="link external">&raquo;&nbsp;ftp://metalab.unc.edu/pub/Linux/libs/X/!INDEX.html</a></td>
+       <td>
+        It&#039;s likely you have this library already available, if your system
+        has an installed X-Environment.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+
+  <p class="para">
+   You may wish to enhance <acronym title="Graphics Draw">GD</acronym> to deal with different fonts. The following
+   font libraries are supported:
+   <table class="doctable table">
+   <caption><strong>Supported font libraries</strong></caption>
+    
+     <thead>
+      <tr>
+       <th>Font library</th>
+       <th>Download</th>
+       <th>Notes</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td><code class="literal">FreeType 1.x</code></td>
+       <td><a href="http://www.freetype.org/" class="link external">&raquo;&nbsp;http://www.freetype.org/</a></td>
+       <td>Support for FreeType 1.x has been removed as of PHP 5.3.0.</td>
+      </tr>
+
+      <tr>
+       <td><code class="literal">FreeType 2</code></td>
+       <td><a href="http://www.freetype.org/" class="link external">&raquo;&nbsp;http://www.freetype.org/</a></td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><code class="literal">T1lib</code></td>
+       <td><a href="ftp://sunsite.unc.edu/pub/Linux/libs/graphics/" class="link external">&raquo;&nbsp;ftp://sunsite.unc.edu/pub/Linux/libs/graphics/</a>)</td>
+       <td>
+        Support for Postscript Type 1 fonts (Removed as of PHP 7.0.0).
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div></div></div></body></html>

@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The MongoDB\Driver\CursorInterface interface</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="mongodb-driver-cursorid.unserialize.html">« MongoDB\Driver\CursorId::unserialize</a></li>
+      <li style="float: right;"><a href="mongodb-driver-cursorinterface.getid.html">MongoDB\Driver\CursorInterface::getId »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.mongodb.html">MongoDB\Driver</a></li>
+    <li>The MongoDB\Driver\CursorInterface interface</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="class.mongodb-driver-cursorinterface" class="reference">
+
+ <h1 class="title">The MongoDB\Driver\CursorInterface interface</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(mongodb &gt;=1.6.0)</p>
+
+  
+  <div class="section" id="mongodb-driver-cursorinterface.intro">
+   <h2 class="title">Introduction</h2>
+   <p class="para">
+    This interface is implemented by
+    <a href="class.mongodb-driver-cursor.html" class="classname">MongoDB\Driver\Cursor</a> but may also be used for
+    type-hinting and userland classes.
+   </p>
+  </div>
+
+
+  <div class="section" id="mongodb-driver-cursorinterface.synopsis">
+   <h2 class="title">Class synopsis</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <strong class="classname">MongoDB\Driver\CursorInterface</strong>
+     </span>
+
+     <span class="oointerface">implements 
+      <span class="interfacename"><a href="class.traversable.html" class="interfacename">Traversable</a></span>
+     </span>
+     {</div>
+
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">abstract</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-cursorinterface.getid.html" class="methodname">getId</a></span>
+    ( <span class="methodparam">void</span>
+   ) : <span class="type"><a href="class.mongodb-driver-cursorid.html" class="type MongoDB\Driver\CursorId">MongoDB\Driver\CursorId</a></span></div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">abstract</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-cursorinterface.getserver.html" class="methodname">getServer</a></span>
+    ( <span class="methodparam">void</span>
+   ) : <span class="type"><a href="class.mongodb-driver-server.html" class="type MongoDB\Driver\Server">MongoDB\Driver\Server</a></span></div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">abstract</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-cursorinterface.isdead.html" class="methodname">isDead</a></span>
+    ( <span class="methodparam">void</span>
+   ) : <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">abstract</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-cursorinterface.settypemap.html" class="methodname">setTypeMap</a></span>
+    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$typemap</code></span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">abstract</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-cursorinterface.toarray.html" class="methodname">toArray</a></span>
+    ( <span class="methodparam">void</span>
+   ) : <span class="type">array</span></div>
+
+   }</div>
+
+
+  </div>
+
+ </div>
+
+ 
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="mongodb-driver-cursorinterface.getid.html">MongoDB\Driver\CursorInterface::getId</a> — Returns the ID for this cursor</li><li><a href="mongodb-driver-cursorinterface.getserver.html">MongoDB\Driver\CursorInterface::getServer</a> — Returns the server associated with this cursor</li><li><a href="mongodb-driver-cursorinterface.isdead.html">MongoDB\Driver\CursorInterface::isDead</a> — Checks if the cursor may have additional results</li><li><a href="mongodb-driver-cursorinterface.settypemap.html">MongoDB\Driver\CursorInterface::setTypeMap</a> — Sets a type map to use for BSON unserialization</li><li><a href="mongodb-driver-cursorinterface.toarray.html">MongoDB\Driver\CursorInterface::toArray</a> — Returns an array containing all results for this cursor</li></ul>
+</div>
+</div></div></body></html>

@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Create a ReflectionReference from an array element</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="class.reflectionreference.html">« ReflectionReference</a></li>
+      <li style="float: right;"><a href="reflectionreference.getid.html">ReflectionReference::getId »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.reflectionreference.html">ReflectionReference</a></li>
+    <li>Create a ReflectionReference from an array element</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="reflectionreference.fromarrayelement" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">ReflectionReference::fromArrayElement</h1>
+  <p class="verinfo">(PHP 7 &gt;= 7.4.0)</p><p class="refpurpose"><span class="refname">ReflectionReference::fromArrayElement</span> &mdash; <span class="dc-title">Create a ReflectionReference from an array element</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-reflectionreference.fromarrayelement-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>ReflectionReference::fromArrayElement</strong></span>
+    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$key</code></span>
+   ) : <span class="type"><a href="class.reflectionreference.html" class="type ReflectionReference">ReflectionReference</a></span></div>
+
+  <p class="para rdfs-comment">
+   Creates a <a href="class.reflectionreference.html" class="classname">ReflectionReference</a> from an array element.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-reflectionreference.fromarrayelement-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+
+   
+    <dt>
+<code class="parameter">array</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The <span class="type"><a href="language.types.array.html" class="type array">array</a></span> which contains the potential reference.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">key</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The key; either an <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span> or a <span class="type"><a href="language.types.string.html" class="type string">string</a></span>.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-reflectionreference.fromarrayelement-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns a <strong class="classname">ReflectionReference </strong> instance if
+   <code class="literal">$array[$key]</code> is a reference, or <strong><code>NULL</code></strong> otherwise.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-reflectionreference.fromarrayelement-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   If <code class="parameter">array</code> is not an <span class="type"><a href="language.types.array.html" class="type array">array</a></span>, or <code class="parameter">key</code>
+   is not an <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span> or <span class="type"><a href="language.types.string.html" class="type string">string</a></span>, a <a href="class.typeerror.html" class="classname">TypeError</a> is thrown. 
+   If <code class="literal">$array[$key]</code> does not exist,
+   a <a href="class.reflectionexception.html" class="classname">ReflectionException</a> is thrown.
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

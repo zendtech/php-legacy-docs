@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Return the image types supported by this PHP build</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.imagettftext.html">« imagettftext</a></li>
+      <li style="float: right;"><a href="function.imagewbmp.html">imagewbmp »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.image.html">GD and Image Functions</a></li>
+    <li>Return the image types supported by this PHP build</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.imagetypes" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">imagetypes</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.2, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagetypes</span> &mdash; <span class="dc-title">Return the image types supported by this PHP build</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.imagetypes-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>imagetypes</strong></span>
+    ( <span class="methodparam">void</span>
+   ) : <span class="type">int</span></div>
+
+  <p class="para rdfs-comment">
+   Returns the image types supported by the current PHP installation.
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.imagetypes-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns a bit-field corresponding to the image formats supported by the
+   version of GD linked into PHP.  The following bits are returned,
+   <strong><code>IMG_BMP</code></strong> |
+   <strong><code>IMG_GIF</code></strong> | <strong><code>IMG_JPG</code></strong> |
+   <strong><code>IMG_PNG</code></strong> | <strong><code>IMG_WBMP</code></strong> | 
+   <strong><code>IMG_XPM</code></strong> | <strong><code>IMG_WEBP</code></strong>.
+  </p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-function.imagetypes-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-3912">
+    <p><strong>Example #1 Checking for PNG support</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">imagetypes</span><span style="color: #007700">()&nbsp;&amp;&nbsp;</span><span style="color: #0000BB">IMG_PNG</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"PNG&nbsp;Support&nbsp;is&nbsp;enabled"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+<div class="refsect1 changelog" id="refsect1-function.imagetypes-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.2.0</td>
+       <td>
+        <strong><code>IMG_BMP</code></strong> added.
+       </td>
+      </tr>
+
+      <tr>
+       <td>5.6.25, 7.0.10</td>
+       <td>
+        <strong><code>IMG_WEBP</code></strong> added.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.imagetypes-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.gd-info.html" class="function" rel="rdfs-seeAlso">gd_info()</a> - Retrieve information about the currently installed GD library</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div></div></div></body></html>

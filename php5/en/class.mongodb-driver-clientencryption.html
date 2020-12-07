@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The MongoDB\Driver\ClientEncryption class</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="mongodb-driver-session.starttransaction.html">« MongoDB\Driver\Session::startTransaction</a></li>
+      <li style="float: right;"><a href="mongodb-driver-clientencryption.createdatakey.html">MongoDB\Driver\ClientEncryption::createDataKey »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.mongodb.html">MongoDB\Driver</a></li>
+    <li>The MongoDB\Driver\ClientEncryption class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="class.mongodb-driver-clientencryption" class="reference">
+
+ <h1 class="title">The MongoDB\Driver\ClientEncryption class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(mongodb &gt;=1.7.0)</p>
+
+  
+  <div class="section" id="mongodb-driver-clientencryption.intro">
+   <h2 class="title">Introduction</h2>
+   <p class="para">
+    The <strong class="classname">MongoDB\Driver\ClientEncryption</strong> class handles
+    creation of data keys for client-side encryption, as well as manually
+    encrypting and decrypting values.
+   </p>
+  </div>
+  
+
+  <div class="section" id="mongodb-driver-clientencryption.synopsis">
+   <h2 class="title">Class synopsis</h2>
+
+   
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+    
+    <div class="classsynopsisinfo">
+     <span class="modifier">final</span>
+     <span class="ooclass">
+      <strong class="classname">MongoDB\Driver\ClientEncryption</strong>
+     </span>
+     {</div>
+    
+
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constants */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">string</span>
+     <var class="varname">AEAD_AES_256_CBC_HMAC_SHA_512_DETERMINISTIC</var>
+     <span class="initializer"> = AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic</span>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">string</span>
+     <var class="varname">AEAD_AES_256_CBC_HMAC_SHA_512_RANDOM</var>
+     <span class="initializer"> = AEAD_AES_256_CBC_HMAC_SHA_512-Random</span>
+    ;</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-clientencryption.createdatakey.html" class="methodname">createDataKey</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$kmsProvider</code></span>
+   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>
+  ] ) : <span class="type"><a href="class.mongodb-bson-binary.html" class="type MongoDB\BSON\Binary">MongoDB\BSON\Binary</a></span></div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-clientencryption.decrypt.html" class="methodname">decrypt</a></span>
+    ( <span class="methodparam"><span class="type"><a href="class.mongodb-bson-binary.html" class="type MongoDB\BSON\Binary">MongoDB\BSON\Binary</a></span> <code class="parameter">$value</code></span>
+   ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-clientencryption.encrypt.html" class="methodname">encrypt</a></span>
+    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
+   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>
+  ] ) : <span class="type"><a href="class.mongodb-bson-binary.html" class="type MongoDB\BSON\Binary">MongoDB\BSON\Binary</a></span></div>
+
+   }</div>
+   
+
+  </div>
+
+  
+  <div class="section" id="mongodb-driver-clientencryption.constants">
+   <h2 class="title">Predefined Constants</h2>
+   <dl>
+
+
+    
+     <dt id="mongodb-driver-clientencryption.constants.deterministic"><strong><code>MongoDB\Driver\ClientEncryption::AEAD_AES_256_CBC_HMAC_SHA_512_DETERMINISTIC</code></strong></dt>
+
+     <dd>
+
+      <p class="para">Uses randomized encryption.</p>
+     </dd>
+
+    
+
+    
+     <dt id="mongodb-driver-clientencryption.constants.random"><strong><code>MongoDB\Driver\ClientEncryption::AEAD_AES_256_CBC_HMAC_SHA_512_RANDOM</code></strong></dt>
+
+     <dd>
+
+      <p class="para">Uses deterministic (queryable) encryption.</p>
+     </dd>
+
+    
+
+   </dl>
+
+  </div>
+  
+
+  <div class="section" id="mongodb-driver-clientencryption.seealso">
+   <h2 class="title">See Also</h2>
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="mongodb-driver-manager.createclientencryption.html" class="function">MongoDB\Driver\Manager::createClientEncryption()</a></span></li>
+   </ul>
+  </div>
+
+ </div>
+
+ 
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="mongodb-driver-clientencryption.createdatakey.html">MongoDB\Driver\ClientEncryption::createDataKey</a> — Create a new encryption data key</li><li><a href="mongodb-driver-clientencryption.decrypt.html">MongoDB\Driver\ClientEncryption::decrypt</a> — Decrypt a value</li><li><a href="mongodb-driver-clientencryption.encrypt.html">MongoDB\Driver\ClientEncryption::encrypt</a> — Encrypt a value</li></ul>
+</div>
+</div></div></body></html>

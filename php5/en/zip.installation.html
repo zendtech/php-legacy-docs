@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Installation</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="zip.requirements.html">« Requirements</a></li>
+      <li style="float: right;"><a href="zip.configuration.html">Runtime Configuration »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="zip.setup.html">Installing/Configuring</a></li>
+    <li>Installation</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="zip.installation" class="section">
+ <h2 class="title">Installation</h2>
+
+ <div class="section" id="zip.installation.new">
+  
+  <div class="section" id="zip.installation.new.linux">
+   <h2 class="title">Linux systems</h2>
+   <p class="para">
+    As of PHP 7.4.0, in order to use these functions you must compile PHP with zip support
+    by using the <strong class="option configure">--with-zip</strong>
+    configure option.
+    Previously, zip support had to be enabled by using the <strong class="option configure">--enable-zip</strong>
+    configure option.
+   </p>
+   <p class="para">
+    As of PHP 5.6.0 a <strong class="option configure">--with-libzip=DIR</strong>
+    configure option has been added to use a system libzip installation. libzip
+    version 0.11 is required, with 0.11.2 or later recommended.
+   </p>
+   <p class="para">
+    As of PHP 7.3.0, building against the bundled libzip is discouraged, but
+    still possible by adding <strong class="option configure">--without-libzip</strong>
+    to the configuration.
+    As of PHP 7.4.0, the bundled libzip is removed.
+   </p>
+  </div>
+  
+  <div class="section" id="zip.installation.new.windows">
+   <h2 class="title">Windows</h2>
+   <p class="para">
+    As of PHP 5.3 this extension is built-in. Before,
+    Windows users need to enable <var class="filename">php_zip.dll</var> inside
+    of <var class="filename">php.ini</var> in order to use these functions.
+   </p>
+  </div>
+ </div>
+
+ <div class="section" id="zip.pecl.installation">
+  <h2 class="title">Installation via PECL</h2>
+  <p class="para">
+   Information for installing this PECL extension may be
+found in the manual chapter titled <a href="install.pecl.html" class="link">Installation
+of PECL extensions</a>. Additional information such as new releases,
+downloads, source files, maintainer information, and a CHANGELOG, can be
+located here: 
+   <a href="https://pecl.php.net/package/zip" class="link external">&raquo;&nbsp;https://pecl.php.net/package/zip</a>.
+  </p>
+ </div>
+
+</div></div></div></body></html>

@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Checks if closure</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="reflectionfunctionabstract.innamespace.html">« ReflectionFunctionAbstract::inNamespace</a></li>
+      <li style="float: right;"><a href="reflectionfunctionabstract.isdeprecated.html">ReflectionFunctionAbstract::isDeprecated »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.reflectionfunctionabstract.html">ReflectionFunctionAbstract</a></li>
+    <li>Checks if closure</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="reflectionfunctionabstract.isclosure" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">ReflectionFunctionAbstract::isClosure</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p><p class="refpurpose"><span class="refname">ReflectionFunctionAbstract::isClosure</span> &mdash; <span class="dc-title">Checks if closure</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-reflectionfunctionabstract.isclosure-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionFunctionAbstract::isClosure</strong></span>
+    ( <span class="methodparam">void</span>
+   ) : <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   Checks whether the reflected function is a <a href="class.closure.html" class="classname">Closure</a>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-reflectionfunctionabstract.isclosure-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-reflectionfunctionabstract.isclosure-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns <strong><code>TRUE</code></strong> if the function is a <a href="class.closure.html" class="classname">Closure</a>, otherwise <strong><code>FALSE</code></strong>.
+  </p>
+ </div>
+
+
+<div class="refsect1 examples" id="refsect1-reflectionfunctionabstract.isclosure-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-6550">
+    <p><strong>Example #1 <span class="methodname"><strong>ReflectionFunctionAbstract::isClosure()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Non-closure<br /></span><span style="color: #0000BB">$function1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'str_replace'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$reflection1&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">ReflectionFunction</span><span style="color: #007700">(</span><span style="color: #0000BB">$function1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$reflection1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isClosure</span><span style="color: #007700">());<br /><br /></span><span style="color: #FF8000">//&nbsp;Closure<br /></span><span style="color: #0000BB">$function2&nbsp;</span><span style="color: #007700">=&nbsp;function&nbsp;()&nbsp;{};<br /></span><span style="color: #0000BB">$reflection2&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">ReflectionFunction</span><span style="color: #007700">(</span><span style="color: #0000BB">$function2</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$reflection2</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isClosure</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+bool(false)
+bool(true)
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-reflectionfunctionabstract.isclosure-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a href="reflectionfunctionabstract.isgenerator.html" class="methodname" rel="rdfs-seeAlso">ReflectionFunctionAbstract::isGenerator()</a> - Returns whether this function is a generator</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

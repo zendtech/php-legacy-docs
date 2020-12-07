@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Encodes an ISO-8859-1 string to UTF-8</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.utf8-decode.html">« utf8_decode</a></li>
+      <li style="float: right;"><a href="function.xml-error-string.html">xml_error_string »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.xml.html">XML Parser Functions</a></li>
+    <li>Encodes an ISO-8859-1 string to UTF-8</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.utf8-encode" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">utf8_encode</h1>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">utf8_encode</span> &mdash; <span class="dc-title">Encodes an ISO-8859-1 string to UTF-8</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.utf8-encode-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>utf8_encode</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>
+   ) : <span class="type">string</span></div>
+
+  <p class="para rdfs-comment">
+   This function converts the string <code class="parameter">data</code> from the
+   <code class="literal">ISO-8859-1</code> encoding to <code class="literal">UTF-8</code>.
+  </p>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    Many web pages marked as using the <code class="literal">ISO-8859-1</code> character
+    encoding actually use the similar <code class="literal">Windows-1252</code> encoding,
+    and web browsers will interpret <code class="literal">ISO-8859-1</code> web pages as
+    <code class="literal">Windows-1252</code>. <code class="literal">Windows-1252</code> features
+    additional printable characters, such as the Euro sign
+    (<code class="literal">€</code>) and curly quotes (<code class="literal">“</code>
+    <code class="literal">”</code>), instead of certain <code class="literal">ISO-8859-1</code>
+    control characters. This function will not convert such
+    <code class="literal">Windows-1252</code> characters correctly. Use a different
+    function if <code class="literal">Windows-1252</code> conversion is required.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.utf8-encode-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">data</code></dt>
+
+     <dd>
+
+      <p class="para">
+       An ISO-8859-1 string.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.utf8-encode-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns the UTF-8 translation of <code class="parameter">data</code>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.utf8-encode-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.2.0</td>
+       <td>
+        This function has been moved to the core of PHP, and therefore lifting the requirement 
+        on the XML extension for this function to be available.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.utf8-encode-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.utf8-decode.html" class="function" rel="rdfs-seeAlso">utf8_decode()</a> - Converts a string with ISO-8859-1 characters encoded with UTF-8
+   to single-byte ISO-8859-1</span> - Performs the reverse conversion</li>
+    <li class="member"><span class="function"><a href="function.mb-convert-encoding.html" class="function" rel="rdfs-seeAlso">mb_convert_encoding()</a> - Convert character encoding</span> - Converts between various character encodings, including UTF-8, ISO-8859-1 and Windows-1252</li>
+    <li class="member"><span class="function"><a href="function.iconv.html" class="function" rel="rdfs-seeAlso">iconv()</a> - Convert string to requested character encoding</span> - Converts between various character encodings</li>
+    <li class="member"><span class="function"><a href="function.recode-string.html" class="function" rel="rdfs-seeAlso">recode_string()</a> - Recode a string according to a recode request</span> - Converts between various character encodings</li>
+   </ul>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

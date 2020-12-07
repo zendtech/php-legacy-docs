@@ -1,0 +1,320 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The DateInterval class</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="datetimezone.listidentifiers.html">« DateTimeZone::listIdentifiers</a></li>
+      <li style="float: right;"><a href="dateinterval.construct.html">DateInterval::__construct »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.datetime.html">Date/Time</a></li>
+    <li>The DateInterval class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="class.dateinterval" class="reference">
+
+ <h1 class="title">The DateInterval class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p>
+
+
+  <div class="section" id="dateinterval.intro">
+   <h2 class="title">Introduction</h2>
+   <p class="para">
+    Represents a date interval.
+   </p>
+   <p class="para">
+    A date interval stores either a fixed amount of time (in years, months,
+    days, hours etc) or a relative time string in the format that
+    <a href="class.datetime.html" class="classname">DateTime</a>&#039;s constructor supports.
+   </p>
+   <p class="para">
+    More specifically, the information in an object of the
+    <strong class="classname">DateInterval</strong> class is an instruction to get from
+    one date/time to another date/time. This process is not always reversible.
+   </p>
+   <p class="para">
+    A common way to create a <strong class="classname">DateInterval</strong> object
+    is by calculating the difference between two date/time objects through
+    <span class="function"><a href="datetime.diff.html" class="function">DateTimeInterface::diff()</a></span>.
+   </p>
+  </div>
+
+
+  <div class="section" id="dateinterval.synopsis">
+   <h2 class="title">Class synopsis</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <strong class="classname">DateInterval</strong>
+     </span>
+     {</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Properties */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+     <span class="type">integer</span>
+     <var class="varname">y</var>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+     <span class="type">integer</span>
+     <var class="varname">m</var>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+     <span class="type">integer</span>
+     <var class="varname">d</var>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+     <span class="type">integer</span>
+     <var class="varname">h</var>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+     <span class="type">integer</span>
+     <var class="varname">i</var>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+     <span class="type">integer</span>
+     <var class="varname">s</var>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+     <span class="type">float</span>
+     <var class="varname">f</var>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+     <span class="type">integer</span>
+     <var class="varname">invert</var>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+     <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span>
+     <var class="varname">days</var>
+    ;</div>
+
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
+    <div class="constructorsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a href="dateinterval.construct.html" class="methodname">__construct</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$duration</code></span>
+   )</div>
+
+    
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="dateinterval.createfromdatestring.html" class="methodname">createFromDateString</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$datetime</code></span>
+   ) : <span class="type"><a href="class.dateinterval.html" class="type DateInterval">DateInterval</a></span></div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a href="dateinterval.format.html" class="methodname">format</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
+   ) : <span class="type">string</span></div>
+
+
+   }</div>
+
+
+  </div>
+  
+  <div class="section" id="dateinterval.props">
+   <h2 class="title">Properties</h2>
+   <dl>
+
+    
+     <dt id="dateinterval.props.y"><var class="varname">y</var></dt>
+
+     <dd>
+
+      <p class="para">
+       Number of years.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="dateinterval.props.m"><var class="varname">m</var></dt>
+
+     <dd>
+
+      <p class="para">
+       Number of months.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="dateinterval.props.d"><var class="varname">d</var></dt>
+
+     <dd>
+
+      <p class="para">
+       Number of days.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="dateinterval.props.h"><var class="varname">h</var></dt>
+
+     <dd>
+
+      <p class="para">
+       Number of hours.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="dateinterval.props.i"><var class="varname">i</var></dt>
+
+     <dd>
+
+      <p class="para">
+       Number of minutes.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="dateinterval.props.s"><var class="varname">s</var></dt>
+
+     <dd>
+
+      <p class="para">
+       Number of seconds.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="dateinterval.props.f"><var class="varname">f</var></dt>
+
+     <dd>
+
+      <p class="para">
+       Number of microseconds, as a fraction of a second.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="dateinterval.props.invert"><var class="varname">invert</var></dt>
+
+     <dd>
+
+      <p class="para">
+       Is <code class="literal">1</code> if the interval
+       represents a negative time period and
+       <code class="literal">0</code> otherwise.
+       See <span class="methodname"><a href="dateinterval.format.html" class="methodname">DateInterval::format()</a></span>.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="dateinterval.props.days"><var class="varname">days</var></dt>
+
+     <dd>
+
+      <p class="para">
+       If the DateInterval object was created by
+       <span class="function"><a href="datetime.diff.html" class="function">DateTime::diff()</a></span>, then this is the total number of
+       days between the start and end dates. Otherwise,
+       <var class="varname">days</var> will be <strong><code>FALSE</code></strong>.
+      </p>
+      <p class="para">
+       Before PHP 5.4.20/5.5.4 instead of <strong><code>FALSE</code></strong> you will receive -99999 upon
+       accessing the property.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </div>
+
+  <div class="section" id="dateinterval.changelog">
+   <h2 class="title">Changelog</h2>
+   <p class="para">
+    <table class="doctable informaltable">
+     
+      <thead>
+       <tr>
+        <th>Version</th>
+        <th>Description</th>
+       </tr>
+
+      </thead>
+
+      <tbody class="tbody">
+       <tr>
+        <td>7.1.0</td>
+        <td>The <var class="varname">f</var> property was added.</td>
+       </tr>
+
+      </tbody>
+     
+    </table>
+
+   </p>
+  </div>
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="dateinterval.construct.html">DateInterval::__construct</a> — Creates a new DateInterval object</li><li><a href="dateinterval.createfromdatestring.html">DateInterval::createFromDateString</a> — Sets up a DateInterval from the relative parts of the string</li><li><a href="dateinterval.format.html">DateInterval::format</a> — Formats the interval</li></ul>
+</div>
+</div></div></body></html>

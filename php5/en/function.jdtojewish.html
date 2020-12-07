@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Converts a Julian day count to a Jewish calendar date</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.jdtogregorian.html">« jdtogregorian</a></li>
+      <li style="float: right;"><a href="function.jdtojulian.html">jdtojulian »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.calendar.html">Calendar Functions</a></li>
+    <li>Converts a Julian day count to a Jewish calendar date</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.jdtojewish" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">jdtojewish</h1>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">jdtojewish</span> &mdash; <span class="dc-title">Converts a Julian day count to a Jewish calendar date</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.jdtojewish-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>jdtojewish</strong></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$juliandaycount</code></span>
+   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$hebrew</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$fl</code><span class="initializer"> = 0</span></span>
+  ]] ) : <span class="type">string</span></div>
+
+  <p class="para rdfs-comment">
+   Converts a Julian Day Count to the Jewish Calendar.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.jdtojewish-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">julianday</code></dt>
+
+     <dd>
+
+      <p class="para">
+       A julian day number as integer
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">hebrew</code></dt>
+
+     <dd>
+
+      <p class="para">
+       If the <code class="parameter">hebrew</code> parameter is set to <strong><code>TRUE</code></strong>, the
+       <code class="parameter">fl</code> parameter is used for Hebrew, ISO-8859-8 encoded string based,
+       output format.  
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">fl</code></dt>
+
+     <dd>
+
+      <p class="para">
+       A bitmask which may consist of
+       <strong><code>CAL_JEWISH_ADD_ALAFIM_GERESH</code></strong>,
+       <strong><code>CAL_JEWISH_ADD_ALAFIM</code></strong> and
+       <strong><code>CAL_JEWISH_ADD_GERESHAYIM</code></strong>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.jdtojewish-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   The Jewish date as a string in the form &quot;month/day/year&quot;, or an ISO-8859-8
+   encoded Hebrew date string, according to the <code class="parameter">hebrew</code>
+   parameter.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.jdtojewish-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-2787">
+    <p><strong>Example #1 <span class="function"><strong>jdtojewish()</strong></span> Example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$jd&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">gregoriantojd</span><span style="color: #007700">(</span><span style="color: #0000BB">10</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">8</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2002</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">jdtojewish</span><span style="color: #007700">(</span><span style="color: #0000BB">$jd</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">jdtojewish</span><span style="color: #007700">(</span><span style="color: #0000BB">$jd</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CAL_JEWISH_ADD_GERESHAYIM</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">jdtojewish</span><span style="color: #007700">(</span><span style="color: #0000BB">$jd</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CAL_JEWISH_ADD_ALAFIM</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">jdtojewish</span><span style="color: #007700">(</span><span style="color: #0000BB">$jd</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,</span><span style="color: #0000BB">CAL_JEWISH_ADD_ALAFIM_GERESH</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+ב חשון התשסג
+ב&#039; חשון התשס&quot;ג
+ב חשון ה אלפים תשסג
+ב חשון ה&#039;תשסג
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.jdtojewish-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.jewishtojd.html" class="function" rel="rdfs-seeAlso">jewishtojd()</a> - Converts a date in the Jewish Calendar to Julian Day Count</span></li> 
+    <li class="member"><span class="function"><a href="function.cal-from-jd.html" class="function" rel="rdfs-seeAlso">cal_from_jd()</a> - Converts from Julian Day Count to a supported calendar</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div></div></div></body></html>

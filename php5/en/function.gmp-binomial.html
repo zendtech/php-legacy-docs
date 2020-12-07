@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Calculates binomial coefficient</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.gmp-and.html">« gmp_and</a></li>
+      <li style="float: right;"><a href="function.gmp-clrbit.html">gmp_clrbit »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.gmp.html">GMP Functions</a></li>
+    <li>Calculates binomial coefficient</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.gmp-binomial" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">gmp_binomial</h1>
+  <p class="verinfo">(PHP 7 &gt;= 7.3.0)</p><p class="refpurpose"><span class="refname">gmp_binomial</span> &mdash; <span class="dc-title">Calculates binomial coefficient</span></p>
+
+ </div>
+
+  <div class="refsect1 description" id="refsect1-function.gmp-binomial-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>gmp_binomial</strong></span>
+    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$n</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$k</code></span>
+    ) : <span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span></div>
+
+  <p class="para rdfs-comment">
+   Calculates the binomial coefficient C(n, k).
+  </p>
+ </div>
+
+
+
+  <div class="refsect1 parameters" id="refsect1-function.gmp-binomial-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">n</code></dt>
+
+     <dd>
+
+      <p class="para">Either a GMP number <span class="type"><a href="language.types.resource.html" class="type resource">resource</a></span> in PHP 5.5 and earlier, a <a href="class.gmp.html" class="classname">GMP</a> object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">k</code></dt>
+
+     <dd>
+
+      <p class="para">
+
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+  <div class="refsect1 returnvalues" id="refsect1-function.gmp-binomial-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns the binomial coefficient C(n, k),  or <strong><code>FALSE</code></strong> on failure.
+  </p>
+ </div>
+
+ 
+
+ <div class="refsect1 errors" id="refsect1-function.gmp-binomial-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   Issues E_WARNING if <code class="parameter">k</code> is negative.
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

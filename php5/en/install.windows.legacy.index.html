@@ -1,0 +1,2386 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Installation on old Windows systems</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="install.windows.troubleshooting.html">« Troubleshooting PHP on Windows</a></li>
+      <li style="float: right;"><a href="install.cloud.html">Installation on Cloud Computing platforms »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="install.windows.html">Installation on Windows systems</a></li>
+    <li>Installation on old Windows systems</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="install.windows.legacy.index" class="sect1">
+    <h2 class="title">Installation on old Windows systems</h2>
+   <p class="para">
+    This section applies to Windows 98/Me and Windows NT/2000/XP/2003. PHP 
+    will not work on 16 bit platforms such as Windows 3.1 and sometimes 
+    we refer to the supported Windows platforms as Win32.
+   </p>
+   <blockquote class="note"><p><strong class="note">Note</strong>: 
+    <p class="para">
+     Windows XP/2003 are no longer supported as of PHP 5.5.0.
+    </p>
+   </p></blockquote>
+   <blockquote class="note"><p><strong class="note">Note</strong>: 
+    <p class="para">
+     Windows 98/Me/NT4/2000 are no longer supported as of PHP 5.3.0.
+    </p>
+   </p></blockquote>
+   <blockquote class="note"><p><strong class="note">Note</strong>: 
+    <p class="para">
+     Windows 95 is no longer supported as of PHP 4.3.0.
+    </p>
+   </p></blockquote>
+   <p class="para">
+    If you have a development environment such as Microsoft Visual Studio, you can also 
+    
+    build PHP from the original source code.
+   </p>
+   <p class="para">
+    Once you have PHP installed on your Windows system, you may also
+    want to <a href="install.windows.legacy.index.html#install.windows.legacy.extensions" class="link">load various extensions</a>
+    for added functionality.
+   </p>
+   
+   
+
+   <div class="sect2" id="install.windows.legacy.manual">
+    <h3 class="title">Manual Installation Steps</h3>
+    <p class="para">
+     This section contains instructions for manually installing and configuring 
+     PHP on Microsoft Windows. 
+    </p>
+    <div class="sect3" id="install.windows.legacy.manual.download">
+     <h4 class="title">Selecting and downloading the PHP distribution package</h4>
+     <p class="para">
+      Download the PHP zip binary distribution from 
+      <a href="https://windows.php.net/download/" class="link external">&raquo;&nbsp;PHP for Windows: Binaries and Sources</a>. 
+      There are several different versions of the zip package - to choose the right version for you,
+      follow the detailed guide on the <a href="https://windows.php.net/download/" class="link external">&raquo;&nbsp;download page</a>.
+     </p>
+    </div>
+    <div class="sect3" id="install.windows.legacy.manual.package">
+     <h4 class="title">The PHP package structure and content</h4>
+     <p class="para">
+      Unpack the content of the zip archive into a directory of your choice, for 
+      example C:\PHP\. The directory and file structure extracted from the zip will 
+      look as below:
+      <div class="example" id="install.unix.nginx.restart.nginx">
+       <p><strong>Example #1 PHP 5 package structure</strong></p>
+        <div class="example-contents">
+<div class="cdata"><pre>
+
+c:\php
+   |
+   +--dev
+   |  |
+   |  |-php5ts.lib                 -- php5.lib in non thread safe version
+   |
+   +--ext                          -- extension DLLs for PHP
+   |  |
+   |  |-php_bz2.dll
+   |  |
+   |  |-php_cpdf.dll
+   |  |
+   |  |-...
+   |
+   +--extras                       -- empty 
+   |
+   +--pear                         -- initial copy of PEAR
+   |
+   |
+   |-go-pear.bat                   -- PEAR setup script
+   |
+   |-...
+   |
+   |-php-cgi.exe                   -- CGI executable
+   |
+   |-php-win.exe                   -- executes scripts without an opened command prompt
+   |
+   |-php.exe                       -- Command line PHP executable (CLI)
+   |
+   |-...
+   |
+   |-php.ini-development           -- default php.ini settings
+   |
+   |-php.ini-production            -- recommended php.ini settings
+   |
+   |-php5apache2_2.dll             -- does not exist in non thread safe version
+   |
+   |-php5apache2_2_filter.dll      -- does not exist in non thread safe version
+   |
+   |-...
+   |
+   |-php5ts.dll                    -- core PHP DLL ( php5.dll in non thread safe version)
+   | 
+   |-...
+
+</pre></div>
+       </div>
+
+      </div>
+     </p>
+     <p class="para">
+      Below is the list of the modules and executables included in the PHP zip 
+      distribution:
+      <ul class="itemizedlist">
+       <li class="listitem">
+        <p class="para">
+         <var class="filename">go-pear.bat</var> - the PEAR setup script. Refer to <a href="https://pear.php.net/manual/en/installation.php" class="link external">&raquo;&nbsp;Installation (PEAR)</a> 
+         for more details.
+        </p>
+       </li>
+       <li class="listitem">
+        <p class="para">
+         <var class="filename">php-cgi.exe</var> - CGI executable that can be used when running PHP on IIS via CGI or FastCGI.
+        </p>
+       </li>
+       <li class="listitem">
+        <p class="para">
+         <var class="filename">php-win.exe</var> - the PHP executable for executing PHP scripts without using a command line window 
+         (for example PHP applications that use Windows GUI).
+        </p>
+       </li>
+       <li class="listitem">
+        <p class="para">
+         <var class="filename">php.exe</var> - the PHP executable for executing PHP scripts within a command line interface (CLI).
+        </p>
+       </li>
+       <li class="listitem">
+        <p class="para">
+         <var class="filename">php5apache2_2.dll</var> - Apache 2.2.X module.
+        </p>
+       </li>
+       <li class="listitem">
+        <p class="para">
+         <var class="filename">php5apache2_2_filter.dll</var> - Apache 2.2.X filter.
+        </p>
+       </li>
+      </ul>
+     </p>
+    </div>
+    <div class="sect3" id="install.windows.legacy.manual.phpini">
+     <h4 class="title">Changing the <var class="filename">php.ini</var> file</h4>
+     <p class="para">
+     After the php package content has been extracted, copy the <var class="filename">php.ini-production</var> into <var class="filename">php.ini</var>
+     in the same folder. If necessary, it is also possible to place the <var class="filename">php.ini</var> into any other location of your choice 
+     but that will require additional configuration steps as described in <a href="configuration.file.html" class="link">PHP Configuration</a>.
+     </p>
+     <p class="para">
+      The <var class="filename">php.ini</var> file tells PHP how to configure itself, and how to work with the 
+      environment that it runs in. Here are a number of settings for the <var class="filename">php.ini</var> file 
+      that help PHP work better with Windows. Some of these are optional. There are 
+      many other directives that may be relevant to your environment - refer to the 
+      <a href="ini.list.html" class="link">list of php.ini directives</a> for more information.
+     </p>
+     <p class="para">
+      Required directives:
+      <ul class="itemizedlist">
+       <li class="listitem">
+        <p class="para">
+         <var class="varname">extension_dir</var> = <code class="literal">&lt;path to extension directory&gt;</code> - The <var class="varname">extension_dir</var> needs 
+         to point to the directory where PHP extensions files are stored. The path can be absolute 
+         (i.e. &quot;C:\PHP\ext&quot;) or relative (i.e. &quot;.\ext&quot;). Extensions that are listed lower in the <var class="filename">php.ini</var> file need 
+         to be located in the <var class="varname">extension_dir</var>.
+        </p>
+       </li>
+       <li class="listitem">
+        <p class="para">
+         <var class="varname">extension</var> = <code class="literal">xxxxx.dll</code> - For each extension you wish to enable, you need a corresponding &quot;extension=&quot; 
+         directive that tells PHP which extensions in the <var class="varname">extension_dir</var> to load at startup time.
+        </p>
+       </li>
+       <li class="listitem">
+        <p class="para">
+         <var class="varname">log_errors</var> = <code class="literal">On</code> - PHP has an error logging facility that can be used to send errors to a file, 
+         or to a service (i.e. syslog) and works in conjunction with the <var class="varname">error_log</var> directive below. When running under IIS, 
+         the <var class="varname">log_errors</var> should be enabled, with a valid <var class="varname">error_log</var>.
+        </p>
+       </li>
+       <li class="listitem">
+        <p class="para">
+         <var class="varname">error_log</var> = <code class="literal">&lt;path to the error log file&gt;</code> - The error_log needs to specify the absolute, 
+         or relative path to the file where PHP errors should be logged. This file needs to be writable for the web server. 
+         The most common places for this file are in various TEMP directories, for example &quot;C:\inetpub\temp\php-errors.log&quot;.
+        </p>
+       </li>
+       <li class="listitem">
+        <p class="para">
+         <var class="varname">cgi.force_redirect</var> = <code class="literal">0</code> - This directive is required for running under IIS. 
+         It is a directory security facility required by many other web servers. However, enabling it under IIS will 
+         cause the PHP engine to fail on Windows. 
+        </p>
+       </li>
+       <li class="listitem">
+        <p class="para">
+         <var class="varname">cgi.fix_pathinfo</var> = <code class="literal">1</code> - This lets PHP access real path info following the CGI Spec. 
+         The IIS FastCGI implementation needs this set.
+        </p>
+       </li>
+       <li class="listitem">
+        <p class="para">
+         <var class="varname">fastcgi.impersonate</var> = <code class="literal">1</code> - FastCGI under IIS supports the ability to impersonate 
+         security tokens of the calling client. This allows IIS to define the security context that the request runs under.
+        </p>
+       </li>
+       <li class="listitem">
+        <p class="para">
+         <var class="varname">fastcgi.logging</var> = <code class="literal">0</code> - FastCGI logging should be disabled on IIS. If it is left enabled, 
+         then any messages of any class are treated by FastCGI as error conditions which will cause IIS to generate an HTTP 500 exception.
+        </p>
+       </li>
+      </ul>
+     </p>
+     <p class="para">
+      Optional directives
+      <ul class="itemizedlist">
+       <li class="listitem">
+        <p class="para">
+         <var class="varname">max_execution_time</var> = <code class="literal">##</code> - This directive tells PHP the maximum amount of time that it can spend 
+         executing any given script. The default for this is 30 seconds. Increase the value of this directive if PHP application take long time to execute.
+        </p>
+       </li>
+       <li class="listitem">
+        <p class="para">
+         <var class="varname">memory_limit</var> = <code class="literal">###M</code> - The amount of memory available for the PHP process, in Megabytes. 
+         The default is 128, which is fine for most PHP applications. Some of the more complex ones might need more.
+        </p>
+       </li>
+       <li class="listitem">
+        <p class="para">
+         <var class="varname">display_errors</var> = <code class="literal">Off</code> - This directive tells PHP whether to include any error messages in the 
+         stream that it returns to the Web server. If this is set to &quot;On&quot;, then PHP will send whichever classes of errors 
+         that you define with the <var class="varname">error_reporting</var> directive back to web server as part of the error stream. 
+         For security reasons it is recommended to set it to &quot;Off&quot; on production servers in order not to reveal any 
+         security sensitive information that is often included in the error messages.
+        </p>
+       </li>
+       <li class="listitem">
+        <p class="para">
+         <var class="varname">open_basedir</var> = <code class="literal">&lt;paths to directories, separated by semicolon&gt;</code>, e.g. 
+         openbasedir=&quot;C:\inetpub\wwwroot;C:\inetpub\temp&quot;. This directive specified the directory paths where PHP 
+         is allowed to perform file system operations. Any file operation outside of the specified paths will result in an error. 
+         This directive is especially useful for locking down the PHP installation in shared hosting environments to prevent 
+         PHP scripts from accessing any files outside of the web site&#039;s root directory.
+        </p>
+       </li>
+       <li class="listitem">
+         <p class="para">
+          <var class="varname">upload_max_filesize</var> = <code class="literal">###M</code> and <var class="varname">post_max_size</var> = <code class="literal">###M</code> - 
+          The maximum allowed size of an uploaded file and post data respectively. The values of these directives should be 
+          increased if PHP applications need to perform large uploads, such as for example photos or video files.
+         </p>
+        </li>
+      </ul>
+     </p>
+    <p class="para">
+     PHP is now setup on your system.  The next step is to choose a web
+     server, and enable it to run PHP.  Choose a web server from the table of 
+     contents.
+    </p>
+    <p class="para">
+     In addition to running PHP via a web server, PHP can run from the command
+     line just like a <code class="literal">.BAT</code> script. See
+     
+    </p>
+    </div>
+   </div>
+
+
+
+   
+
+<div class="sect2" id="install.windows.legacy.iis">
+ <h3 class="title">Microsoft IIS</h3>
+ <p class="para">
+  This section contains PHP installation instructions specific to Microsoft Internet Information Services (IIS).
+ </p>
+ <ul class="itemizedlist">
+  <li class="listitem">
+   <span class="simpara">
+    <a href="install.windows.legacy.index.html#install.windows.legacy.iis6" class="link">Manually installing PHP on Microsoft IIS 5.1 and IIS 6.0</a>
+   </span>
+  </li>
+  <li class="listitem">
+   <span class="simpara">
+    <a href="install.windows.legacy.index.html#install.windows.legacy.iis7" class="link">Manually installing PHP on Microsoft IIS 7.0 and later</a>
+   </span>
+  </li>
+ </ul>
+</div>
+
+
+
+   
+
+
+<div class="sect2" id="install.windows.legacy.iis6">
+ <h3 class="title">Microsoft IIS 5.1 and IIS 6.0</h3>
+ <p class="para">
+  This section contains instructions for manually setting up Internet Information 
+  Services (IIS) 5.1 and IIS 6.0 to work with PHP on Microsoft Windows XP and Windows 
+  Server 2003. For instructions on setting up IIS 7.0 and later versions on Windows 
+  Vista, Windows Server 2008, Windows 7 and Windows Server 2008 R2 refer to 
+  <a href="install.windows.legacy.index.html#install.windows.legacy.iis7" class="link">Microsoft IIS 7.0 and later</a>.
+ </p>
+ <div class="sect3" id="install.windows.legacy.iis6.fastcgi">
+  <h4 class="title">Configuring IIS to process PHP requests</h4>
+  <p class="para">
+   Download and install PHP in accordance to the instructions described in 
+    <a href="install.windows.legacy.index.html#install.windows.legacy.manual" class="link">manual installation steps</a>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="para">
+      Non-thread-safe build of PHP is recommended when using IIS. The non-thread-safe 
+      builds are available at <a href="https://windows.php.net/download/" class="link external">&raquo;&nbsp;PHP for Windows: 
+      Binaries and Sources Releases.</a>
+     </p>
+    </p></blockquote>
+  </p>
+  <p class="para">
+   Configure the CGI- and FastCGI-specific settings in <var class="filename">php.ini</var> file as shown below:
+   <div class="example" id="install.unix.nginx.test.nginx.php">
+    <p><strong>Example #2 CGI and FastCGI settings in <var class="filename">php.ini</var></strong></p>
+    <div class="example-contents">
+<div class="inicode"><pre class="inicode">fastcgi.impersonate = 1
+fastcgi.logging = 0
+cgi.fix_pathinfo=1
+cgi.force_redirect = 0</pre>
+</div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   Download and install the <a href="http://www.iis.net/extensions/fastcgi" class="link external">&raquo;&nbsp;Microsoft FastCGI Extension for IIS 5.1 and 6.0</a>. 
+   The extension is available for 32-bit and 64-bit platforms - select the right download package for your platform.
+  </p>
+  <p class="para">Configure the FastCGI extension to handle PHP-specific requests by running the command shown below. 
+   Replace the value of the &quot;-path&quot; parameter with the absolute file path to the 
+   <var class="filename">php-cgi.exe</var> file.
+   <div class="example" id="example-12">
+    <p><strong>Example #3 Configuring FastCGI extension to handle PHP requests</strong></p>
+    <div class="example-contents">
+<div class="cdata"><pre>
+cscript %windir%\system32\inetsrv\fcgiconfig.js -add -section:&quot;PHP&quot; ^
+-extension:php -path:&quot;C:\PHP\php-cgi.exe&quot;
+</pre></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   This command will create an IIS script mapping for *.php file extension, which will result in all URLs 
+   that end with .php being handled by FastCGI extension. Also, it will configure FastCGI extension to 
+   use the executable <var class="filename">php-cgi.exe</var> to process the PHP requests.
+   <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="para">
+      At this point the required installation and configuration steps are completed. The remaining 
+      instructions below are optional but highly recommended for achieving optimal functionality 
+      and performance of PHP on IIS.
+     </p>
+   </p></blockquote>
+  </p>
+ </div>
+ <div class="sect3" id="install.windows.legacy.iis6.impersonation">
+  <h4 class="title">Impersonation and file system access</h4>
+  <p class="para">
+   It is recommended to enable FastCGI impersonation in PHP when using IIS. This 
+   is controlled by the <var class="varname">fastcgi.impersonate</var> directive in <var class="filename">php.ini</var> file. When 
+   impersonation is enabled, PHP will perform all the file system operations on 
+   behalf of the user account that has been determined by IIS authentication. This 
+   ensures that even if the same PHP process is shared across different IIS web 
+   sites, the PHP scripts in those web sites will not be able to access each 
+   others&#039; files as long as different user accounts are used for IIS authentication 
+   on each web site.
+  </p>
+  <p class="para">
+   For example IIS 5.1 and IIS 6.0, in its default configuration, has anonymous authentication enabled 
+   with built-in user account IUSR_&lt;MACHINE_NAME&gt; used as a default identity. This means that in 
+   order for IIS to execute PHP scripts, it is necessary to grant IUSR_&lt;MACHINE_NAME&gt; account 
+   read permission on those scripts. If PHP applications need to perform write operations on certain 
+   files or write files into some folders then IUSR_&lt;MACHINE_NAME&gt; account should have write permission to those.
+  </p>
+  <p class="para">
+   To determine which user account is used by IIS anonymous authentication, follow these steps:
+   <div class="procedure">
+    <ol type="1"><li>
+     <p class="simpara">In the Windows Start Menu choose &quot;Run:&quot;, type &quot;inetmgr&quot; and click &quot;Ok&quot;;</p>
+    </li>
+    <li>
+     <p class="simpara">Expand the list of web sites under the &quot;Web Sites&quot; node in the tree view, right-click on a web 
+      site that is being used and select &quot;Properties&quot;;
+     </p>    
+    </li>
+    <li>
+     <p class="simpara">Click the &quot;Directory Security&quot; tab;</p>    
+    </li>
+    <li>
+     <p class="simpara">Take note of a &quot;User name:&quot; field in the &quot;Authentication Methods&quot; dialog</p>
+    </li>
+   </ol></div>
+   <div class="mediaobject">
+    
+    <div class="imageobject">
+     <img src="images/b4cf2bb34e3c20eebcf8f9e8e7949efd-iis6anonauth.png" alt="Anonymous authenication for IIS 5.1 and IIS 6.0" width="654" height="461" />
+    </div>
+   </div>
+  </p>
+  <p class="para">
+   To modify the permissions settings on files and folders, use the Windows Explorer user interface 
+   or <var class="varname">icacls</var> command.
+   <div class="example" id="example-13">
+    <p><strong>Example #4 Configuring file access permissions</strong></p>
+    <div class="example-contents">
+<div class="cdata"><pre>
+icacls C:\inetpub\wwwroot\upload /grant IUSR:(OI)(CI)(M)
+</pre></div>     
+    </div>
+
+   </div>
+  </p>
+ </div>
+ <div class="sect3" id="install.windows.legacy.iis6.defaultdoc">
+  <h4 class="title">Set <var class="filename">index.php</var> as a default document in IIS</h4>
+  <p class="para">
+   The IIS default documents are used for HTTP requests that do not specify a document name. With PHP applications, 
+   <var class="filename">index.php</var> usually acts as a default document. To add <var class="filename">index.php</var> to the list of 
+   IIS default documents, follow these steps:
+   <div class="procedure">
+    <ol type="1"><li>
+     <p class="simpara">In the Windows Start Menu choose &quot;Run:&quot;, type &quot;inetmgr&quot; and click &quot;Ok&quot;;</p>
+    </li>
+    <li>
+     <p class="simpara">Right-click on the &quot;Web Sites&quot; node in the tree view and select &quot;Properties&quot;;</p>
+    </li>
+    <li>
+     <p class="simpara">Click the &quot;Documents&quot; tab;</p>
+    </li>
+    <li>
+     <p class="simpara">Click the &quot;Add...&quot; button and enter &quot;index.php&quot; for the &quot;Default content page:&quot;.</p>
+    </li>
+   </ol></div>
+   <div class="mediaobject">
+    
+    <div class="imageobject">
+     <img src="images/b4cf2bb34e3c20eebcf8f9e8e7949efd-iis6defaultdoc.png" alt="Setting index.php as default document for IIS" width="659" height="465" />
+    </div>
+   </div>
+  </p>
+ </div>
+ <div class="sect3" id="install.windows.legacy.iis6.recycling">
+  <h4 class="title">FastCGI and PHP Recycling configuration</h4>
+  <p class="para">
+   Configure IIS FastCGI extension settings for recycling of PHP processes by using the commands shown below. 
+   The FastCGI setting <var class="varname">instanceMaxRequests</var> controls how many requests will be processed by a single 
+   <var class="filename">php-cgi.exe</var> process before FastCGI extension shuts it down. The PHP environment variable 
+   <var class="varname">PHP_FCGI_MAX_REQUESTS</var> controls how many requests a single <var class="filename">php-cgi.exe</var> process 
+   will handle before it recycles itself. Make sure that the value specified for FastCGI <var class="varname">InstanceMaxRequests</var>
+   setting is less than or equal to the value specified for <var class="varname">PHP_FCGI_MAX_REQUESTS</var>.
+   <div class="example" id="example-14">
+    <p><strong>Example #5 Configuring FastCGI and PHP recycling</strong></p>
+    <div class="example-contents">
+<div class="cdata"><pre>
+cscript %windir%\system32\inetsrv\fcgiconfig.js -set -section:&quot;PHP&quot; ^
+-InstanceMaxRequests:10000
+
+cscript %windir%\system32\inetsrv\fcgiconfig.js -set -section:&quot;PHP&quot; ^
+-EnvironmentVars:PHP_FCGI_MAX_REQUESTS:10000
+</pre></div>     
+    </div>
+
+   </div>
+  </p>
+ </div>
+ <div class="sect3" id="install.windows.legacy.iis6.timeouts">
+  <h4 class="title">Configuring FastCGI timeout settings</h4>
+  <p class="para">
+   Increase the timeout settings for FastCGI extension if there are applications that have long running PHP scripts. 
+   The two settings that control timeouts are <var class="varname">ActivityTimeout</var> and <var class="varname">RequestTimeout</var>. 
+   Refer to <a href="http://learn.iis.net/page.aspx/248/configuring-fastcgi-extension-for-iis-60/" class="link external">&raquo;&nbsp;Configuring FastCGI Extension for IIS 6.0</a> for more 
+   information about those settings.
+   <div class="example" id="install.unix.litespeed.extract.php">
+    <p><strong>Example #6 Configuring FastCGI timeout settings</strong></p>
+    <div class="example-contents">
+<div class="cdata"><pre>
+cscript %windir%\system32\inetsrv\fcgiconfig.js -set -section:&quot;PHP&quot; ^
+-ActivityTimeout:90
+
+cscript %windir%\system32\inetsrv\fcgiconfig.js -set -section:&quot;PHP&quot; ^
+-RequestTimeout:90
+</pre></div>     
+    </div>
+
+   </div>
+   </p>
+ </div>
+ <div class="sect3" id="install.windows.legacy.iis6.phpinilocation">
+  <h4 class="title">Changing the Location of <var class="filename">php.ini</var> file</h4>
+  <p class="para">
+   PHP searches for <var class="filename">php.ini</var> file in 
+   <a href="configuration.file.html" class="link">several locations</a> and it is 
+   possible to change the default locations of <var class="filename">php.ini</var> 
+   file by using <var class="varname">PHPRC</var> environment variable. To instruct PHP 
+   to load the configuration file from a custom location run the command shown below. 
+   The absolute path to the directory with <var class="filename">php.ini</var> file should be 
+   specified as a value of <var class="varname">PHPRC</var> environment variable.
+   <div class="example" id="install.unix.litespeed.build.php">
+    <p><strong>Example #7 Changing the location of <var class="filename">php.ini</var> file</strong></p>
+    <div class="example-contents">
+<div class="cdata"><pre>
+cscript %windir%\system32\inetsrv\fcgiconfig.js -set -section:&quot;PHP&quot; ^
+-EnvironmentVars:PHPRC:&quot;C:\Some\Directory\&quot;
+</pre></div>         
+    </div>
+
+   </div>
+  </p>
+ </div>
+</div>
+
+
+
+   
+
+
+<div class="sect2" id="install.windows.legacy.iis7">
+ <h3 class="title">Microsoft IIS 7.0 and later</h3>
+ <p class="para">
+  This section contains instructions for manually setting up Internet Information 
+  Services (IIS) 7.0 and later to work with PHP on Microsoft Windows Vista SP1, 
+  Windows 7, Windows Server 2008 and Windows Server 2008 R2. For instructions 
+  on setting up IIS 5.1 and IIS 6.0 on Windows XP and Windows Server 2003 refer to 
+  <a href="install.windows.legacy.index.html#install.windows.legacy.iis6" class="link">Microsoft IIS 5.1 and IIS 6.0</a>.
+ </p>
+ <div class="sect3" id="install.windows.legacy.iis7.fastcgi.enable">
+  <h4 class="title">Enabling FastCGI support in IIS</h4>
+  <p class="para">
+   FastCGI module is disabled in default installation of IIS. The steps to enable it differ 
+   based on the version of Windows being used.
+  </p>
+  <p class="para">
+   To enable FastCGI support on Windows Vista SP1 and Windows 7:
+   <div class="procedure">
+    <ol type="1"><li>
+     <p class="simpara">
+      In the Windows Start Menu choose &quot;Run:&quot;, type &quot;optionalfeatures.exe&quot; 
+      and click &quot;Ok&quot;;
+     </p>
+    </li>
+    <li>
+     <p class="simpara">
+      In the &quot;Windows Features&quot; dialog expand &quot;Internet Information 
+      Services&quot;, &quot;World Wide Web Services&quot;, &quot;Application Development 
+      Features&quot; and then enable the &quot;CGI&quot; checkbox;
+     </p>
+    </li>
+    <li>
+     <p class="simpara">
+      Click OK and wait until the installation is complete.
+     </p>
+    </li>
+   </ol></div>
+   <div class="mediaobject">
+    
+    <div class="imageobject">
+     <img src="images/b4cf2bb34e3c20eebcf8f9e8e7949efd-iis7vistacgi.png" alt="Enabling FastCGI support for IIS7 on Windows Vista SP1 and Windows 7" width="429" height="375" />
+    </div>
+   </div>
+  </p>
+  <p class="para">
+   To enable FastCGI support on Windows Server 2008 and Windows Server 2008 R2:
+   <div class="procedure">
+    <ol type="1"><li>
+     <p class="simpara">
+      In the Windows Start Menu choose &quot;Run:&quot;, type &quot;CompMgmtLauncher&quot; 
+      and click &quot;Ok&quot;;
+     </p>
+    </li>
+    <li>
+     <p class="simpara">
+      If the &quot;Web Server (IIS)&quot; role is not present under the &quot;Roles&quot; 
+      node, then add it by clicking &quot;Add Roles&quot;;
+     </p>
+    </li>
+    <li>
+     <p class="simpara">
+      If the &quot;Web Server (IIS)&quot; role is present, then click &quot;Add Role Services&quot; 
+      and then enable the &quot;CGI&quot; checkbox under &quot;Application Development&quot; group;
+     </p>
+    </li>
+    <li>
+     <p class="simpara">
+      Click &quot;Next&quot; and then &quot;Install&quot; and wait for the installation to complete.
+     </p>
+    </li>
+   </ol></div>
+   <div class="mediaobject">
+    
+    <div class="imageobject">
+     <img src="images/b4cf2bb34e3c20eebcf8f9e8e7949efd-iis7w2k8cgi.png" alt="Enabling FastCGI support on Windows Server 2008 and Windows Server 2008 R2" width="546" height="411" />
+    </div>
+   </div>
+  </p>
+ </div>
+ <div class="sect3" id="install.windows.legacy.iis7.fastcgi.conf">
+  <h4 class="title">Configuring IIS to process PHP requests</h4>
+  <p class="para">
+   Download and install PHP in accordance to the instructions described in 
+    <a href="install.windows.legacy.index.html#install.windows.legacy.manual" class="link">manual installation steps</a>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="para">
+      Non-thread-safe build of PHP is recommended when using IIS. The non-thread-safe 
+      builds are available at <a href="https://windows.php.net/download/" class="link external">&raquo;&nbsp;PHP for Windows: 
+      Binaries and Sources Releases.</a>
+     </p>
+    </p></blockquote>
+  </p>
+  <p class="para">
+   Configure the CGI- and FastCGI-specific settings in <var class="filename">php.ini</var> file as shown below:
+   <div class="example" id="install.unix.openbsd.ports.example">
+    <p><strong>Example #8 CGI and FastCGI settings in <var class="filename">php.ini</var></strong></p>
+    <div class="example-contents">
+<div class="inicode"><pre class="inicode">fastcgi.impersonate = 1
+fastcgi.logging = 0
+cgi.fix_pathinfo=1
+cgi.force_redirect = 0</pre>
+</div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   Configure IIS handler mapping for PHP by using either IIS Manager user interface or a command line tool.
+  </p>
+  <div class="sect4" id="install.windows.legacy.iis7.fastcgi.conf.ui">
+   <h5 class="title">Using IIS Manager user interface to create a handler mapping for PHP</h5>
+    <p class="para">
+     Follow these steps to create an IIS handler mapping for PHP in IIS Manager user interface:
+     <div class="procedure">
+      <ol type="1"><li>
+       <p class="simpara">In the Windows Start Menu choose &quot;Run:&quot;, type &quot;inetmgr&quot; and click &quot;Ok&quot;;</p>
+      </li>
+      <li>
+       <p class="simpara">In the IIS Manager user interface select the server node in the &quot;Connections&quot; tree view;</p>
+      </li>
+      <li>
+       <p class="para">
+        In the &quot;Features View&quot; page open the &quot;Handler Mappings&quot; feature;
+        <div class="mediaobject">
+         
+         <div class="imageobject">
+          <img src="images/b4cf2bb34e3c20eebcf8f9e8e7949efd-iis7handlericon.png" alt="Create IIS handler mapping for PHP : Locate Handler Mappings" width="708" height="515" />
+         </div>
+        </div>
+       </p>
+      </li>
+      <li>
+       <p class="simpara">In the &quot;Actions&quot; pane click &quot;Add Module Mapping...&quot;;</p>
+      </li>
+      <li>
+       <p class="para">
+        In the &quot;Add Module Mapping&quot; dialog enter the following:
+        <ul class="itemizedlist">
+         <li class="listitem">
+          <span class="simpara">Request path: *.php</span>
+         </li>
+         <li class="listitem">
+          <span class="simpara">Module: FastCgiModule</span>
+         </li>
+         <li class="listitem">
+          <span class="simpara">Executable: C:\[Path to PHP installation]\php-cgi.exe</span>
+         </li>
+         <li class="listitem">
+          <span class="simpara">Name: PHP_via_FastCGI</span>
+         </li>
+        </ul>
+       </p>
+      </li>
+      <li>
+       <p class="simpara">
+        Click &quot;Request Restrictions&quot; button and then configure the mapping to invoke handler 
+        only if request is mapped to a file or a folder;
+        </p>
+      </li>
+      <li>
+       <p class="simpara">Click OK on all the dialogs to save the configuration.</p>
+      </li>
+     </ol></div>
+     <div class="mediaobject">
+      
+      <div class="imageobject">
+       <img src="images/b4cf2bb34e3c20eebcf8f9e8e7949efd-iis7handlermap.png" alt="Create IIS handler mapping for PHP : Add Handler Mapping" width="705" height="512" />
+      </div>
+     </div>
+    </p>
+  </div>
+  <div class="sect4" id="install.windows.legacy.iis7.fastcgi.conf.cmd">
+   <h5 class="title">Using command line tool to create a handler mapping for PHP</h5>
+   <p class="para">
+    Use the command shown below to create an IIS FastCGI process pool which will use <var class="filename">php-cgi.exe</var> 
+    executable for processing PHP requests. Replace the value of the <var class="varname">fullPath</var> parameter with the 
+    absolute file path to the <var class="filename">php-cgi.exe</var> file.
+    <div class="example" id="install.unix.debian.apt.example">
+     <p><strong>Example #9 Creating IIS FastCGI process pool</strong></p>
+     <div class="example-contents">
+<div class="cdata"><pre>
+%windir%\system32\inetsrv\appcmd set config /section:system.webServer/fastCGI ^
+/+[fullPath=&#039;c:\PHP\php-cgi.exe&#039;]
+</pre></div>
+     </div>
+
+    </div>
+   </p>
+   <p class="para">
+    Configure IIS to handle PHP specific requests by running the command shown below. Replace the value of the 
+    <var class="varname">scriptProcessor</var> parameter with the absolute file path to the <var class="filename">php-cgi.exe</var> file.
+    <div class="example" id="install.unix.debian.apt.example2">
+     <p><strong>Example #10 Creating handler mapping for PHP requests</strong></p>
+     <div class="example-contents">
+<div class="cdata"><pre>
+%windir%\system32\inetsrv\appcmd set config /section:system.webServer/handlers ^
+/+[name=&#039;PHP_via_FastCGI&#039;, path=&#039;*.php&#039;,verb=&#039;*&#039;,modules=&#039;FastCgiModule&#039;,^
+scriptProcessor=&#039;c:\PHP\php-cgi.exe&#039;,resourceType=&#039;Either&#039;]
+</pre></div>
+     </div>
+
+    </div>
+   </p>
+   <p class="para">
+    This command creates an IIS handler mapping for *.php file extension, which will result in all URLs that 
+    end with .php being handled by FastCGI module.
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="para">
+      At this point the required installation and configuration steps are completed. The remaining 
+      instructions below are optional but highly recommended for achieving optimal functionality 
+      and performance of PHP on IIS.
+     </p>
+    </p></blockquote>
+   </p>
+  </div>
+ </div>
+ <div class="sect3" id="install.windows.legacy.iis7.impersonation">
+  <h4 class="title">Impersonation and file system access</h4>
+  <p class="para">
+   It is recommended to enable FastCGI impersonation in PHP when using IIS. This 
+   is controlled by the <var class="varname">fastcgi.impersonate</var> directive in <var class="filename">php.ini</var> 
+   file. When impersonation is enabled, PHP will perform all the file system operations on behalf of 
+   the user account that has been determined by IIS authentication. This ensures that even if the 
+   same PHP process is shared across different IIS web sites, the PHP scripts in those web sites 
+   will not be able to access each other&#039;s files as long as different user accounts are used 
+   for IIS authentication on each web site.
+  </p>
+  <p class="para">
+   For example IIS 7, in its default configuration, has anonymous authentication enabled with 
+   built-in user account IUSR used as a default identity. This means that in order for IIS to 
+   execute PHP scripts, it is necessary to grant IUSR account read permission on those scripts. 
+   If PHP applications need to perform write operations on certain files or write files into some 
+   folders then IUSR account should have write permission to those.
+  </p>
+  <p class="para">
+   To determine what user account is used as an anonymous identity in IIS 7 use the following command. 
+   Replace the &quot;Default Web Site&quot; with the name of IIS web site that you use. In the output 
+   XML configuration element look for the <var class="varname">userName</var> attribute.
+   <div class="example" id="install.unix.debian.config.example">
+    <p><strong>Example #11 Determining the account used as IIS anonymous identity</strong></p>
+    <div class="example-contents">
+<div class="cdata"><pre>
+%windir%\system32\inetsrv\appcmd.exe list config &quot;Default Web Site&quot; ^
+/section:anonymousAuthentication
+
+&lt;system.webServer&gt;
+  &lt;security&gt;
+    &lt;authentication&gt;
+      &lt;anonymousAuthentication enabled=&quot;true&quot; userName=&quot;IUSR&quot; /&gt;
+    &lt;/authentication&gt;
+   &lt;/security&gt;
+&lt;/system.webServer&gt;
+</pre></div>
+    </div>
+
+   </div>
+   <blockquote class="note"><p><strong class="note">Note</strong>: 
+    <p class="para">
+     If <var class="varname">userName</var> attribute is not present in the <var class="varname">anonymousAuthentication</var> element, 
+     or is set to an empty string, then it means that the application pool identity is used as an 
+     anonymous identity for that web site.
+    </p>
+   </p></blockquote>
+  </p>
+  <p class="para">
+   To modify the permissions settings on files and folders, use the Windows Explorer 
+   user interface or <var class="varname">icacls</var> command.
+   <div class="example" id="install.unix.debian.config.example2">
+    <p><strong>Example #12 Configuring file access permissions</strong></p>
+    <div class="example-contents">
+<div class="cdata"><pre>
+icacls C:\inetpub\wwwroot\upload /grant IUSR:(OI)(CI)(M)
+</pre></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+ <div class="sect3" id="install.windows.legacy.iis7.defaultdoc">
+  <h4 class="title">Set <var class="filename">index.php</var> as a default document in IIS</h4>
+  <p class="para">
+   The IIS default documents are used for HTTP requests that do not specify a 
+   document name. With PHP applications, <var class="filename">index.php</var> usually 
+   acts as a default document. To add <var class="filename">index.php</var> to the list 
+   of IIS default documents, use this command:
+   <div class="example" id="example-20">
+    <p><strong>Example #13 Set <var class="filename">index.php</var> as a default document in IIS</strong></p>
+    <div class="example-contents">
+<div class="cdata"><pre>
+%windir%\system32\inetsrv\appcmd.exe set config ^
+-section:system.webServer/defaultDocument /+&quot;files.[value=&#039;index.php&#039;]&quot; ^
+/commit:apphost
+</pre></div>
+    </div>
+
+   </div>   
+  </p>
+ </div>
+ <div class="sect3" id="install.windows.legacy.iis7.recycling">
+  <h4 class="title">FastCGI and PHP Recycling configuration</h4>
+  <p class="para">
+   Configure IIS FastCGI settings for recycling of PHP processes by using the commands shown below. 
+   The FastCGI setting <var class="varname">instanceMaxRequests</var> controls how many requests will be 
+   processed by a single <var class="filename">php-cgi.exe</var> process before IIS shuts it down. 
+   The PHP environment variable <var class="varname">PHP_FCGI_MAX_REQUESTS</var> controls how many 
+   requests a single <var class="filename">php-cgi.exe</var> process will handle before it recycles 
+   itself. Make sure that the value specified for FastCGI <var class="varname">InstanceMaxRequests</var> 
+   setting is less than or equal to the value specified for <var class="varname">PHP_FCGI_MAX_REQUESTS</var>.
+   <div class="example" id="example-21">
+    <p><strong>Example #14 Configuring FastCGI and PHP recycling</strong></p>
+    <div class="example-contents">
+<div class="cdata"><pre>
+%windir%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi ^
+/[fullPath=&#039;c:\php\php-cgi.exe&#039;].instanceMaxRequests:10000
+
+%windir%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi ^
+/+&quot;[fullPath=&#039;C:\{php_folder}\php-cgi.exe&#039;].environmentVariables.^
+[name=&#039;PHP_FCGI_MAX_REQUESTS&#039;,value=&#039;10000&#039;]&quot;
+</pre></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+ <div class="sect3" id="install.windows.legacy.iis7.timeouts">
+  <h4 class="title">FastCGI timeout settings</h4>
+  <p class="para">
+   Increase the timeout settings for FastCGI if it is expected to have long running PHP scripts.
+   The two settings that control timeouts are <var class="varname">activityTimeout</var> and 
+   <var class="varname">requestTimeout</var>. Use the commands below to change the timeout settings. 
+   Make sure to replace the value in the <var class="varname">fullPath</var> parameter to 
+   contain the absolute path to the <var class="filename">php-cgi.exe</var> file.
+   <div class="example" id="example-22">
+    <p><strong>Example #15 Configuring FastCGI timeout settings</strong></p>
+    <div class="example-contents">
+<div class="cdata"><pre>
+%windir%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi ^
+/[fullPath=&#039;C:\php\php-cgi.exe&#039;,arguments=&#039;&#039;].activityTimeout:&quot;90&quot;  /commit:apphost
+
+%windir%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi ^
+/[fullPath=&#039;C:\php\php-cgi.exe&#039;,arguments=&#039;&#039;].requestTimeout:&quot;90&quot;  /commit:apphost
+</pre></div>
+    </div>
+
+   </div>   
+  </p>
+ </div>
+ <div class="sect3" id="install.windows.legacy.iis7.phpinilocation">
+  <h4 class="title">Changing the Location of <var class="filename">php.ini</var> file</h4>
+  <p class="para">
+   PHP searches for <var class="filename">php.ini</var> file in 
+   <a href="configuration.file.html" class="link">several locations</a> and it is 
+   possible to change the default locations of <var class="filename">php.ini</var> 
+   file by using <var class="varname">PHPRC</var> environment variable. To instruct PHP 
+   to load the configuration file from a custom location run the command shown below. 
+   The absolute path to the directory with <var class="filename">php.ini</var> file should be 
+   specified as a value of <var class="varname">PHPRC</var> environment variable.
+   <div class="example" id="example-23">
+    <p><strong>Example #16 Changing the location of <var class="filename">php.ini</var> file</strong></p>
+    <div class="example-contents">
+<div class="cdata"><pre>
+appcmd.exe set config  -section:system.webServer/fastCgi ^
+/+&quot;[fullPath=&#039;C:\php\php.exe&#039;,arguments=&#039;&#039;].environmentVariables.^
+[name=&#039;PHPRC&#039;,value=&#039;C:\Some\Directory\&#039;]&quot; /commit:apphost
+</pre></div>         
+    </div>
+
+   </div>   
+  </p>
+ </div>
+</div>
+
+
+   
+   
+
+   <div class="sect2" id="install.windows.legacy.apache1">
+    <h3 class="title">Apache 1.3.x on Microsoft Windows</h3>
+    <p class="para">
+     This section contains notes and hints specific to Apache 1.3.x installs
+     of PHP on Microsoft Windows systems. There are also
+     
+    </p>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="para">
+      Please read the <a href="install.windows.legacy.index.html#install.windows.legacy.manual" class="link">manual
+      installation steps</a> first!
+     </p>
+    </p></blockquote>
+    
+    <p class="simpara">
+     There are two ways to set up PHP to work with Apache 1.3.x
+     on Windows. One is to use the CGI binary (<var class="filename">php.exe</var>
+     for PHP 4 and <var class="filename">php-cgi.exe</var> for PHP 5),
+     the other is to use the Apache Module DLL. In either case
+     you need to edit your <var class="filename">httpd.conf</var> to configure Apache to
+     work with PHP, and then restart the server.
+    </p>
+    
+    <p class="simpara">
+     It is worth noting here that now the SAPI module has been 
+     made more stable under Windows, we recommend it&#039;s use above
+     the CGI binary, since it is more transparent and secure.
+    </p>
+    
+    <p class="simpara">
+     Although there can be a few variations of configuring PHP
+     under Apache, these are simple enough to be used by the
+     newcomer. Please consult the Apache Documentation for further
+     configuration directives.
+    </p>
+  
+    <p class="simpara">
+     After changing the configuration file, remember to restart the server, for
+     example, <strong class="command">NET STOP APACHE</strong> followed by
+     <strong class="command">NET START APACHE</strong>, if you run Apache as a Windows
+     Service, or use your regular shortcuts.
+    </p>
+    
+    <blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">Remember that when adding
+path values in the Apache configuration files on Windows, all backslashes
+such as <var class="filename">c:\directory\file.ext</var> should be converted to
+forward slashes: <var class="filename">c:/directory/file.ext</var>. A trailing
+slash may also be necessary for directories.</span></p></blockquote>
+
+    <div class="sect3" id="install.windows.legacy.apache1.module">
+     <h4 class="title">Installing as an Apache module</h4>
+     <p class="para">
+      You should add the following lines to your Apache <var class="filename">httpd.conf</var> file:
+     </p>
+     <p class="para">
+      <div class="example" id="example-24">
+       <p><strong>Example #17 PHP as an Apache 1.3.x module</strong></p>
+        <div class="example-contents"><p>
+         This assumes PHP is installed to <var class="filename">c:\php</var>. Adjust the
+         path if this is not the case.
+        </p></div>
+        <div class="example-contents"><p>
+         For PHP 4:
+        </p></div>
+        <div class="example-contents">
+<div class="apache-confcode"><pre class="apache-confcode"># Add to the end of the LoadModule section
+# Don&#039;t forget to copy this file from the sapi directory!
+LoadModule php4_module &quot;C:/php/php4apache.dll&quot;
+
+# Add to the end of the AddModule section
+AddModule mod_php4.c</pre>
+</div>
+       </div>
+
+       <div class="example-contents"><p>
+        For PHP 5:
+       </p></div>
+       <div class="example-contents">
+<div class="apache-confcode"><pre class="apache-confcode"># Add to the end of the LoadModule section
+LoadModule php5_module &quot;C:/php/php5apache.dll&quot;
+
+# Add to the end of the AddModule section
+AddModule mod_php5.c</pre>
+</div>
+       </div>
+
+       <div class="example-contents"><p>
+        For both:
+       </p></div>
+       <div class="example-contents">
+<div class="apache-confcode"><pre class="apache-confcode"># Add this line inside the &lt;IfModule mod_mime.c&gt; conditional brace
+AddType application/x-httpd-php .php
+
+# For syntax highlighted .phps files, also add
+AddType application/x-httpd-php-source .phps</pre>
+</div>
+       </div>
+
+      </div>
+     </p>
+    </div>
+
+    <div class="sect3" id="install.windows.legacy.apache1.cgi">
+     <h4 class="title">Installing as a CGI binary</h4>
+    
+     <p class="para">
+      If you unzipped the PHP package to <var class="filename">C:\php\</var> as described
+      in the <a href="install.windows.legacy.index.html#install.windows.legacy.manual" class="link">Manual
+      Installation Steps</a> section, you need to insert
+      these lines to your Apache configuration file to set
+      up the CGI binary:
+      <div class="example" id="example-25">
+       <p><strong>Example #18 PHP and Apache 1.3.x as CGI</strong></p>
+        <div class="example-contents">
+<div class="apache-confcode"><pre class="apache-confcode">ScriptAlias /php/ &quot;c:/php/&quot;
+AddType application/x-httpd-php .php
+
+# For PHP 4
+Action application/x-httpd-php &quot;/php/php.exe&quot;
+
+# For PHP 5
+Action application/x-httpd-php &quot;/php/php-cgi.exe&quot;
+
+# specify the directory where php.ini is
+SetEnv PHPRC C:/php</pre>
+</div>
+       </div>
+
+      </div>
+      Note that the second line in the list above can be found
+      in the actual versions of <var class="filename">httpd.conf</var>, but it is commented out. Remember
+      also to substitute the <var class="filename">c:/php/</var> for your actual path to
+      PHP.
+     </p>
+     <div class="warning"><strong class="warning">Warning</strong><p class="para">A server deployed in CGI mode is open
+to several possible vulnerabilities. Please read our
+<a href="security.cgi-bin.html" class="link">CGI security section</a> to learn how to
+defend yourself from such attacks.</p></div>
+     <p class="simpara">
+      If you would like to present PHP source files syntax highlighted, there
+      is no such convenient option as with the module version of PHP.
+      If you chose to configure Apache to use PHP as a CGI binary, you
+      will need to use the <span class="function"><a href="function.highlight-file.html" class="function">highlight_file()</a></span> function. To
+      do this simply create a PHP script file and add this code: 
+      <code class="literal">&lt;?php highlight_file(&#039;some_php_script.php&#039;); ?&gt;</code>.
+     </p>
+    </div>
+
+   </div>
+
+
+
+   
+
+   <div class="sect2" id="install.windows.legacy.apache2">
+    <h3 class="title">Apache 2.x on Microsoft Windows</h3>
+    <p class="para">
+     This section contains notes and hints specific to Apache 2.x installs
+     of PHP on Microsoft Windows systems. We also
+     
+    </p>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="para">
+      You should read the <a href="install.windows.legacy.index.html#install.windows.legacy.manual" class="link">manual
+       installation steps</a> first!
+     </p>
+    </p></blockquote>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <strong>Apache 2.2 Support</strong><br />
+     <p class="para">
+      Users of Apache 2.2 should note that the DLL file for Apache 2.2 is
+      named <var class="filename">php5apache2_2.dll</var> rather than <var class="filename">php5apache2.dll</var>
+      and is available only for PHP 5.2.0 and later.
+     </p>
+    </p></blockquote>
+    
+    <p class="para">
+     You are strongly encouraged to consult the
+     <a href="http://httpd.apache.org/docs/current/" class="link external">&raquo;&nbsp;Apache Documentation</a> to get
+     a basic understanding of the Apache 2.x Server. Also consider
+     reading the <a href="http://httpd.apache.org/docs/current/platform/windows.html" class="link external">&raquo;&nbsp;Windows specific
+     notes</a> for Apache 2.x before reading on here.
+    </p>
+    
+     <p class="para">
+      Apache 2.x is designed to run on the Windows version designated as
+      server platforms, such as Windows NT 4.0, Windows 2000,
+      Windows XP, or Windows 7. While Apache 2.x works tolerably well on Windows 9x,
+      support on these platforms is incomplete, and some things will not work
+      correctly. There is no plan to remedy this situation.
+     </p>
+
+    <p class="para">
+     Download the most recent version of <a href="http://httpd.apache.org/" class="link external">&raquo;&nbsp;
+     Apache 2.x</a> and a fitting PHP version.
+     Follow the <a href="install.windows.legacy.index.html#install.windows.legacy.manual" class="link">Manual Installation
+     Steps</a> and come back to go on with the integration of PHP and Apache.
+    </p>
+
+    <p class="para">
+     There are three ways to set up PHP to work with Apache 2.x on Windows.
+     You can run PHP as a handler, as a CGI, or under FastCGI.
+    </p>
+    
+    <blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">Remember that when adding
+path values in the Apache configuration files on Windows, all backslashes
+such as <var class="filename">c:\directory\file.ext</var> should be converted to
+forward slashes: <var class="filename">c:/directory/file.ext</var>. A trailing
+slash may also be necessary for directories.</span></p></blockquote>
+    
+    <div class="sect3" id="install.windows.apache2.legacy.module">
+     <h4 class="title">Installing as an Apache handler</h4>
+     <p class="para">
+      You need to insert the following lines into your
+      Apache <var class="filename">httpd.conf</var> configuration file to load the
+      PHP module for Apache 2.x:
+      <div class="example" id="example-26">
+       <p><strong>Example #19 PHP and Apache 2.x as handler</strong></p>
+        <div class="example-contents">
+<div class="apache-confcode"><pre class="apache-confcode"># 
+LoadModule php5_module &quot;c:/php/php5apache2.dll&quot;
+AddHandler application/x-httpd-php .php
+
+# configure the path to php.ini
+PHPIniDir &quot;C:/php&quot;</pre>
+</div>
+       </div>
+
+      </div>
+     </p>
+     <blockquote class="note"><p><strong class="note">Note</strong>: 
+      <span class="simpara">
+       Remember to substitute your actual path to PHP for the
+       <var class="filename">C:/php/</var> in the above examples. Take care to use
+       either <var class="filename">php5apache2.dll</var> or 
+       <var class="filename">php5apache2_2.dll</var> in your LoadModule directive and
+       verify that the referenced file is in fact located at the file path
+       that you point to in this directive.
+      </span>
+     </p></blockquote>
+      <p class="para">
+      The above configuration will enable PHP handling of any file that has a
+      .php extension, even if there are other file extensions. For example, a
+      file named <var class="filename">example.php.txt</var> will be executed by the
+      PHP handler. To ensure that only files that <em class="emphasis">end in</em>
+      <var class="filename">.php</var> are executed, use the following configuration
+      instead:
+      </p>
+
+      <div class="example" id="example-27">
+        <div class="example-contents">
+<div class="apache-confcode"><pre class="apache-confcode">&lt;FilesMatch \.php$&gt;
+      SetHandler application/x-httpd-php
+ &lt;/FilesMatch&gt;</pre>
+</div>
+       </div>
+
+      </div>
+    </div>
+
+    <div class="sect3" id="install.windows.apache2.legacy.cgi">
+     <h4 class="title">Running PHP as CGI</h4>
+
+     <p class="para">
+      You should consult the <a href="http://httpd.apache.org/docs/current/howto/cgi.html" class="link external">&raquo;&nbsp;Apache CGI
+      documentation</a> for a more complete understanding of running CGI
+      on Apache.
+     </p>
+   
+     <p class="para">
+      To run PHP as CGI, you&#039;ll need to place your php-cgi files in a
+      directory designated as a CGI directory using the ScriptAlias directive.
+     </p>
+
+     <p class="para">
+      You will then need to insert a #! line in the PHP files, pointing to the
+      location of your PHP binary:
+
+      <div class="example" id="example-28">
+       <p><strong>Example #20 PHP and Apache 2.x as CGI</strong></p>
+        <div class="example-contents">
+<div class="cdata"><pre>
+#!C:/php/php.exe
+&lt;?php
+  phpinfo();
+?&gt;
+</pre></div>
+       </div>
+
+      </div>
+     </p>
+     <div class="warning"><strong class="warning">Warning</strong><p class="para">A server deployed in CGI mode is open
+to several possible vulnerabilities. Please read our
+<a href="security.cgi-bin.html" class="link">CGI security section</a> to learn how to
+defend yourself from such attacks.</p></div>
+    </div>
+
+    <div class="sect3" id="install.windows.apache2.legacy.fastcgi">
+     <h4 class="title">Running PHP under FastCGI</h4>
+
+     <p class="para">
+     Running PHP under FastCGI has a number of advantages over running it as a
+     CGI. Setting it up this way is fairly straightforward:
+     </p>
+     <p class="para">
+     Obtain mod_fcgid from 
+     <a href="http://httpd.apache.org/mod_fcgid/" class="link external">&raquo;&nbsp;http://httpd.apache.org/mod_fcgid/</a>. Win32
+     binaries are available for download from that site. Install the module
+     according to the instructions that will come with it.
+     </p>
+     <p class="para">
+     Configure your web server as shown below, taking care to adjust any paths
+     to reflect your how you have installed things on your particular system:
+
+     <div class="example" id="example-29">
+     <p><strong>Example #21 Configure Apache to run PHP as FastCGI</strong></p>
+     <div class="example-contents">
+<div class="cdata"><pre>
+LoadModule fcgid_module modules/mod_fcgid.so  
+
+# Where is your php.ini file?
+FcgidInitialEnv PHPRC        &quot;c:/php&quot; 
+
+AddHandler fcgid-script .php  
+FcgidWrapper &quot;c:/php/php-cgi.exe&quot; .php  
+</pre></div>
+     </div>
+
+     </div>
+
+     Files with a .php extension will now be executed by the PHP FastCGI
+     wrapper.
+     </p>
+
+    </div>
+
+   </div>
+
+
+
+   
+
+  <div class="sect2" id="install.windows.legacy.sun">
+   <h3 class="title">Sun, iPlanet and Netscape servers on Microsoft Windows</h3>
+   <p class="para">
+    This section contains notes and hints specific to Sun Java System Web Server,
+    Sun ONE Web Server, iPlanet and Netscape server installs of PHP on Windows.
+   </p>
+   <p class="para">
+    From PHP 4.3.3 on you can use PHP scripts with the
+    <a href="ref.nsapi.html" class="link">NSAPI module</a> to 
+    
+    Apache compatibility are also available. For support in current web servers
+    
+   </p>
+   
+   <div class="sect3" id="install.windows.legacy.sun.cgi">
+    <h4 class="title">CGI setup on Sun, iPlanet and Netscape servers</h4> 
+    <p class="para">
+     To install PHP as a CGI handler, do the following:
+    </p>
+    <ul class="itemizedlist">
+     <li class="listitem">
+      <span class="simpara">
+       Copy <var class="filename">php4ts.dll</var> to your systemroot
+       (the directory where you installed Windows)
+      </span>
+     </li>
+     <li class="listitem">
+      <p class="para">
+       Make a file association from the command line.
+       Type the following two lines:
+       <div class="example-contents">
+<div class="shellcode"><pre class="shellcode">assoc .php=PHPScript
+ftype PHPScript=c:\php\php.exe %1 %*</pre>
+</div>
+       </div>
+
+      </p>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       In the Netscape Enterprise Administration Server create
+       a dummy shellcgi directory and remove it just after (this
+       step creates 5 important lines in obj.conf and allow the
+       web server to handle shellcgi scripts).
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       In the Netscape Enterprise Administration Server create
+       a new mime type (Category: type,
+       Content-Type: magnus-internal/shellcgi, File Suffix:php).
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       Do it for each web server instance you want PHP to run
+      </span>
+     </li>
+    </ul>
+    <p class="para">
+     More details about setting up
+     PHP as a CGI executable can be found here:
+     <a href="http://benoit.noss.free.fr/php/install-php.html" class="link external">&raquo;&nbsp;http://benoit.noss.free.fr/php/install-php.html</a>
+    </p>
+   </div>
+    
+   <div class="sect3" id="install.windows.legacy.sun.nsapi">
+    <h4 class="title">NSAPI setup on Sun, iPlanet and Netscape servers</h4> 
+    <p class="para">
+     To install PHP with NSAPI, do the following:
+    </p>
+    <ul class="itemizedlist">
+     <li class="listitem">
+      <span class="simpara">
+       Copy <var class="filename">php4ts.dll</var> to your systemroot
+       (the directory where you installed Windows)
+      </span>
+     </li>
+     <li class="listitem">
+      <p class="para">
+       Make a file association from the command line.
+       Type the following two lines:
+       <div class="example-contents">
+<div class="shellcode"><pre class="shellcode">assoc .php=PHPScript
+ftype PHPScript=c:\php\php.exe %1 %*</pre>
+</div>
+       </div>
+
+      </p>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       In the Netscape Enterprise Administration Server create
+       a new mime type (Category: type,
+       Content-Type: magnus-internal/x-httpd-php, File Suffix: php).
+      </span>
+     </li>
+     <li class="listitem">
+      <p class="para">
+        Edit <var class="filename">magnus.conf</var> (for servers &gt;= 6) or
+        <var class="filename">obj.conf</var> (for servers &lt; 6) and add the following:
+        You should
+        place the lines after <code class="literal">mime types init</code>.
+       <div class="example-contents">
+<div class="cdata"><pre>
+Init fn=&quot;load-modules&quot; funcs=&quot;php4_init,php4_execute,php4_auth_trans&quot; shlib=&quot;c:/php/sapi/php4nsapi.dll&quot;
+Init fn=&quot;php4_init&quot; LateInit=&quot;yes&quot; errorString=&quot;Failed to initialise PHP!&quot; [php_ini=&quot;c:/path/to/php.ini&quot;]
+</pre></div>
+       </div>
+
+       (PHP &gt;= 4.3.3) The <code class="literal">php_ini</code> parameter is
+       optional but with it you can place your
+       <var class="filename">php.ini</var> in your web server configuration directory.
+      </p>
+     </li>
+     <li class="listitem">
+      <p class="para">
+       Configure the default object in <var class="filename">obj.conf</var>
+       (for virtual server classes [Sun Web Server 6.0+] in
+       their <var class="filename">vserver.obj.conf</var>):
+       In the <code class="literal">&lt;Object name=&quot;default&quot;&gt;</code>
+       section, place this line necessarily after all &#039;ObjectType&#039;
+       and before all &#039;AddLog&#039; lines:
+       <div class="example-contents">
+<div class="cdata"><pre>
+Service fn=&quot;php4_execute&quot; type=&quot;magnus-internal/x-httpd-php&quot; [inikey=value inikey=value ...]
+</pre></div>
+       </div>
+
+       (PHP &gt;= 4.3.3) As additional parameters you can add some special
+       <var class="filename">php.ini</var>-values, for example you
+       can set a <code class="literal">docroot=&quot;/path/to/docroot&quot;</code>
+       specific to the context <code class="literal">php4_execute</code>
+       is called. For boolean ini-keys please use 0/1 as value,
+       not <code class="literal">&quot;On&quot;,&quot;Off&quot;,...</code>
+       (this will not work correctly), e.g.
+       <code class="literal">zlib.output_compression=1</code> instead of
+       <code class="literal">zlib.output_compression=&quot;On&quot;</code>
+      </p>
+     </li>
+     <li class="listitem">
+      <p class="para">
+       This is only needed if you want to configure a directory that only consists of
+       PHP scripts (same like a cgi-bin directory):
+       <div class="example-contents">
+<div class="cdata"><pre>
+&lt;Object name=&quot;x-httpd-php&quot;&gt;
+ObjectType fn=&quot;force-type&quot; type=&quot;magnus-internal/x-httpd-php&quot;
+Service fn=php4_execute [inikey=value inikey=value ...]
+&lt;/Object&gt;
+</pre></div>
+       </div>
+
+       After that you can configure a directory in the Administration server and assign it
+       the style <code class="literal">x-httpd-php</code>. All files in it will get executed as PHP.
+       This is nice to hide PHP usage by renaming files to <var class="filename">.html</var>.
+      </p>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       Restart your web service and apply changes
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       Do it for each web server instance you want PHP to run
+      </span>
+     </li>
+    </ul>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="para">
+      More details about setting up
+      PHP as an NSAPI filter can be found here:
+      <a href="http://benoit.noss.free.fr/php/install-php4.html" class="link external">&raquo;&nbsp;http://benoit.noss.free.fr/php/install-php4.html</a>
+     </p>
+    </p></blockquote>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="para">
+      The stacksize that PHP uses depends on the configuration of the web server. If you get
+      crashes with very large PHP scripts, it is recommended to raise it with the Admin Server
+      (in the section &quot;MAGNUS EDITOR&quot;).
+     </p>
+    </p></blockquote>
+   </div>
+   
+   <div class="sect3" id="install.windows.legacy.sun.phpini">
+    <h4 class="title">CGI environment and recommended modifications in <var class="filename">php.ini</var></h4>
+    <p class="para">
+     Important when writing PHP scripts is the fact that Sun JSWS/Sun ONE
+     WS/iPlanet/Netscape is a multithreaded web server. Because of that all
+     requests are running in the same process space (the space of the web server
+     itself) and this space has only one environment. If you want to get CGI
+     variables like <code class="literal">PATH_INFO</code>, <code class="literal">HTTP_HOST</code>
+     etc. it is not the correct way to try this in the old PHP  way with
+     <span class="function"><a href="function.getenv.html" class="function">getenv()</a></span> or a similar way (register globals to
+     environment, <code class="literal">$_ENV</code>). You would only get the environment
+     of the running web server without any valid CGI variables!
+    </p>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="para">
+      Why are there (invalid) CGI variables in the environment?
+     </p>
+     <p class="para">
+      Answer: This is because you started the web server process from the admin server
+      which runs the startup script of the web server, you wanted to start, as a CGI script
+      (a CGI script inside of the admin server!). This is why the environment of
+      the started web server has some CGI environment variables in it. You can test
+      this by starting the web server not from the administration server. Use
+      the command line as root user and start it manually - you will see
+      there are no CGI-like environment variables.
+     </p>
+    </p></blockquote>
+    <p class="para">
+     Simply change your scripts to get CGI variables in the correct way for
+     PHP 4.x by using the superglobal <var class="varname"><a href="reserved.variables.server.html" class="classname">$_SERVER</a></var>. If you have
+     older scripts which use <var class="varname">$HTTP_HOST</var>, etc., you should turn
+     on <code class="literal">register_globals</code> in <var class="filename">php.ini</var> and change the variable
+     order too (important: remove <code class="literal">&quot;E&quot;</code> from it,
+     because you do not need the environment here):
+     <div class="example-contents">
+<div class="cdata"><pre>
+variables_order = &quot;GPCS&quot;
+register_globals = On
+</pre></div>
+     </div>
+
+    </p>
+   </div>
+   
+   <div class="sect3" id="install.windows.legacy.sun.specialpages">
+    <h4 class="title">Special use for error pages or self-made directory listings (PHP &gt;= 4.3.3)</h4>
+    <p class="para">
+     You can use PHP to generate the error pages for <code class="literal">&quot;404 Not Found&quot;</code>
+     or similar. Add the following line to the object in <var class="filename">obj.conf</var> for
+     every error page you want to overwrite:
+     <div class="example-contents">
+<div class="cdata"><pre>
+Error fn=&quot;php4_execute&quot; code=XXX script=&quot;/path/to/script.php&quot; [inikey=value inikey=value...]
+</pre></div>
+     </div>
+
+     where <code class="literal">XXX</code> is the HTTP error code. Please delete
+     any other <code class="literal">Error</code> directives which could interfere with yours.
+     If you want to place a page for all errors that could exist, leave
+     the <code class="literal">code</code> parameter out. Your script can get the HTTP status code
+     with <var class="varname"><a href="reserved.variables.server.html" class="classname">$_SERVER['ERROR_TYPE']</a></var>.
+    </p>
+    <p class="para">
+     Another possibility is to generate self-made directory listings.
+     Just create a PHP script which displays a directory listing and
+     replace the corresponding default Service line for
+     <code class="literal">type=&quot;magnus-internal/directory&quot;</code>
+     in <var class="filename">obj.conf</var> with the following:
+     <div class="example-contents">
+<div class="cdata"><pre>
+Service fn=&quot;php4_execute&quot; type=&quot;magnus-internal/directory&quot; script=&quot;/path/to/script.php&quot; [inikey=value inikey=value...]
+</pre></div>
+     </div>
+
+     For both error and directory listing pages the original URI and
+     translated URI are in the variables <var class="varname"><a href="reserved.variables.server.html" class="classname">$_SERVER['PATH_INFO']</a></var> and
+     <var class="varname"><a href="reserved.variables.server.html" class="classname">$_SERVER['PATH_TRANSLATED']</a></var>.
+    </p>
+   </div>
+   
+   <div class="sect3" id="install.windows.legacy.sun.notes">
+    <h4 class="title">Note about <span class="function"><a href="function.nsapi-virtual.html" class="function">nsapi_virtual()</a></span> and subrequests (PHP &gt;= 4.3.3)</h4>
+    <p class="para">
+     The NSAPI module now supports the <span class="function"><a href="function.nsapi-virtual.html" class="function">nsapi_virtual()</a></span> function
+     (alias: <span class="function"><a href="function.virtual.html" class="function">virtual()</a></span>)
+     to make subrequests on the web server and insert the result in the web page.
+     The problem is, that this function uses some undocumented features from
+     the NSAPI library.
+    </p>
+    <p class="para">
+     Under Unix this is not a problem, because the module automatically looks
+     for the needed functions and uses them if available.
+     If not, <span class="function"><a href="function.nsapi-virtual.html" class="function">nsapi_virtual()</a></span> is disabled.
+    </p>
+    <p class="para">
+     Under Windows limitations in the DLL handling need the use of a automatic
+     detection of the most recent <var class="filename">ns-httpdXX.dll</var> file.
+     This is tested for servers till version 6.1. If a newer version of the
+     Sun server is used, the detection fails and <span class="function"><a href="function.nsapi-virtual.html" class="function">nsapi_virtual()</a></span>
+     is disabled.
+    </p>
+    <p class="para">
+     If this is the case, try the following:
+     Add the following parameter to <code class="literal">php4_init</code> in
+     <var class="filename">magnus.conf</var>/<var class="filename">obj.conf</var>:
+     <div class="example-contents">
+<div class="cdata"><pre>
+Init fn=php4_init ... server_lib=&quot;ns-httpdXX.dll&quot;
+</pre></div>
+     </div>
+
+     where <code class="literal">XX</code> is the correct DLL version number.
+     To get it, look in the server-root for the correct DLL name. The
+     DLL with the biggest filesize is the right one.
+    </p>
+    <p class="para">
+     You can check the status by using the <span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span> function.
+    </p>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="para">
+      But be warned: Support for <span class="function"><a href="function.nsapi-virtual.html" class="function">nsapi_virtual()</a></span> is EXPERIMENTAL!!!
+     </p>
+    </p></blockquote>
+   </div>   
+  </div>
+
+
+
+   
+
+   <div class="sect2" id="install.windows.legacy.sambar">
+    <h3 class="title">Sambar Server on Microsoft Windows</h3>
+    <p class="para">
+     This section contains notes and hints specific to the
+     <a href="http://www.sambar.com/" class="link external">&raquo;&nbsp;Sambar Server</a> for Windows.
+    </p>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="para">
+      You should read the <a href="install.windows.legacy.index.html#install.windows.legacy.manual" class="link">manual
+       installation steps</a> first!
+     </p>
+    </p></blockquote>
+    <p class="simpara">
+     This list describes how to set up the ISAPI module to
+     work with the Sambar server on Windows.
+    </p>
+
+    <p class="para">
+     <ul class="itemizedlist">
+      <li class="listitem">
+       <p class="para">
+        Find the file called <var class="filename">mappings.ini</var> (in the config
+        directory) in the Sambar install directory.
+       </p>
+      </li>
+      <li class="listitem">
+       <p class="para">
+        Open <var class="filename">mappings.ini</var> and add the following line
+        under <code class="literal">[ISAPI]</code>:
+      <div class="example" id="example-30">
+       <p><strong>Example #22 ISAPI configuration of Sambar</strong></p>
+       <div class="example-contents">
+<div class="cdata"><pre>
+#for PHP 4
+*.php = c:\php\php4isapi.dll
+
+#for PHP 5
+*.php = c:\php\php5isapi.dll
+</pre></div>
+       </div>
+
+      </div>
+        (This line assumes that PHP was installed in
+        <var class="filename">c:\php</var>.)
+       </p>
+      </li>
+      <li class="listitem">
+       <p class="para">
+        Now restart the Sambar server for the changes to take effect.
+       </p>
+      </li>
+     </ul>
+    </p>
+
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="para">
+      If you intend to use PHP to communicate with resources which are held on
+      a different computer on your network, then you will need to alter the
+      account used by the Sambar Server Service. The default account used for
+      the Sambar Server Service is LocalSystem which will not have access to
+      remote resources. The account can be amended by using the Services
+      option from within the Windows Control Panel Administration Tools.
+     </p>
+    </p></blockquote>
+   </div>
+
+
+
+   
+
+   <div class="sect2" id="install.windows.legacy.xitami">
+    <h3 class="title">Xitami on Microsoft Windows</h3>
+    <p class="para">
+     This section contains notes and hints specific to
+     <a href="http://www.xitami.com/" class="link external">&raquo;&nbsp;Xitami</a> on Windows.
+    </p>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="para">
+      You should read the <a href="install.windows.legacy.index.html#install.windows.legacy.manual" class="link">manual
+       installation steps</a> first!
+     </p>
+    </p></blockquote>
+    <p class="simpara">
+     This list describes how to set up the PHP CGI binary
+     to work with Xitami on Windows.
+    </p>
+    
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <strong>Important for CGI users</strong><br />
+     <p class="para">
+      Read the <a href="faq.installation.html#faq.installation.forceredirect" class="link">faq
+      on cgi.force_redirect</a> for important details.  This
+      directive needs to be set to <code class="literal">0</code>.
+      If you want to use <code class="literal">$_SERVER[&#039;PHP_SELF&#039;]</code> you have to
+      enable the <a href="ini.core.html#ini.cgi.fix-pathinfo" class="link">cgi.fix_pathinfo</a>
+      directive.
+     </p>
+    </p></blockquote>
+    <div class="warning"><strong class="warning">Warning</strong><p class="para">A server deployed in CGI mode is open
+to several possible vulnerabilities. Please read our
+<a href="security.cgi-bin.html" class="link">CGI security section</a> to learn how to
+defend yourself from such attacks.</p></div>
+    <p class="para">
+     <ul class="itemizedlist">
+      <li class="listitem">
+       <p class="para">
+        Make sure the web server is running, and point
+        your browser to xitamis admin console
+        (usually <code class="literal">http://127.0.0.1/admin</code>),
+        and click on Configuration.
+       </p>
+      </li>
+      <li class="listitem">
+       <p class="para">
+        Navigate to the Filters, and put the
+        extension which PHP should parse (i.e. .php)
+        into the field File extensions (.xxx).
+       </p>
+      </li>
+      <li class="listitem">
+       <p class="para">
+        In Filter command or script put the path and name
+        of your PHP CGI executable i.e. <var class="filename">C:\php\php.exe</var>
+        for PHP 4, or <var class="filename">C:\php\php-cgi.exe</var> for PHP 5.
+       </p>
+      </li>
+      <li class="listitem">
+       <p class="para">
+        Press the &#039;Save&#039; icon.
+       </p>
+      </li>
+      <li class="listitem">
+       <p class="para">
+        Restart the server to reflect changes.
+       </p>
+      </li>
+     </ul>
+    </p>
+   </div>
+
+
+
+   
+
+<div class="sect2" id="install.windows.legacy.building">
+ <h3 class="title">Building from source</h3>
+ <p class="para">
+  This chapter teaches how to compile PHP from sources on windows, using
+  Microsoft&#039;s tools. To compile PHP with cygwin, please refer to <a href="install.unix.html" class="xref">Installation on Unix systems</a>.
+ </p>
+ <p class="para">
+  See the Wiki documentation at:
+  <a href="https://wiki.php.net/internals/windows/stepbystepbuild" class="link external">&raquo;&nbsp;https://wiki.php.net/internals/windows/stepbystepbuild</a>  
+ </p>
+</div>
+
+
+
+   
+
+   <div class="sect2" id="install.windows.legacy.extensions">
+    <h3 class="title">Installation of extensions on Windows</h3>
+    <p class="para">
+     After installing PHP and a web server on Windows, you will probably want to
+     install some extensions for added functionality. You can choose which
+     extensions you would like to load when PHP starts by modifying your
+     <var class="filename">php.ini</var>. You can also load a module dynamically in your script using
+     <span class="function"><a href="function.dl.html" class="function">dl()</a></span>.
+    </p>
+    <p class="para">
+     The DLLs for PHP extensions are prefixed with <code class="literal">php_</code>.
+    </p>
+    <p class="para">
+     Many extensions are <em class="emphasis">built into</em> the Windows version
+     of PHP. This means additional DLL files, and the 
+     <a href="ini.core.html#ini.extension" class="link">extension</a> directive, are  
+     <em class="emphasis">not</em> used to load these extensions. The Windows 
+     <a href="install.windows.legacy.index.html#install.windows.legacy.extensions.overview" class="link">PHP Extensions</a>
+     table lists extensions that require, or used to require, additional PHP 
+     DLL files. Here&#039;s a list of built in extensions (updated PHP 5.0.4):
+     <a href="book.bc.html" class="link">BCMath</a>,
+     <a href="book.calendar.html" class="link">Calendar</a>,
+     <a href="book.com.html" class="link">COM</a>,
+     <a href="book.ctype.html" class="link">Ctype</a>,
+     <a href="book.dom.html" class="link">DOM</a>,
+     <a href="book.ftp.html" class="link">FTP</a>,
+     <a href="book.libxml.html" class="link">LibXML</a>,
+     <a href="book.iconv.html" class="link">Iconv</a>,
+     <a href="book.uodbc.html" class="link">ODBC</a>,
+     <a href="book.pcre.html" class="link">PCRE</a>,
+     <a href="book.session.html" class="link">Session</a>,
+     <a href="book.simplexml.html" class="link">SimpleXML</a>,
+     <a href="book.spl.html" class="link">SPL</a>,
+     <a href="book.sqlite.html" class="link">SQLite</a>,
+     <a href="book.wddx.html" class="link">WDDX</a>,
+     <a href="book.xml.html" class="link">XML</a> and
+     <a href="book.zlib.html" class="link">Zlib</a>.
+    </p>
+    <p class="para">
+     The default location PHP searches for extensions is
+     <var class="filename">C:\php5</var>. To change this
+     setting to reflect your setup of PHP edit your <var class="filename">php.ini</var> file:
+     <ul class="itemizedlist">
+      <li class="listitem">
+       <p class="para">
+        You will need to change the
+        <a href="ini.core.html#ini.extension-dir" class="link">extension_dir</a> setting to
+        point to the directory where your extensions lives, or where you have
+        placed your <var class="filename">php_*.dll</var> files. For example:
+        <div class="informalexample">
+         <div class="example-contents">
+<div class="inicode"><pre class="inicode">extension_dir = C:\php\extensions</pre>
+</div>
+         </div>
+
+        </div>
+       </p>
+      </li>
+     <li class="listitem">
+      <p class="para">
+       Enable the extension(s) in <var class="filename">php.ini</var> you want to use by uncommenting the
+       <code class="literal">extension=php_*.dll</code> lines in <var class="filename">php.ini</var>. This is done
+       by deleting the leading ; from the extension you want to load. 
+       <div class="example" id="example-31">
+        <p><strong>Example #23 Enable <a href="book.bzip2.html" class="link">Bzip2</a> extension for PHP-Windows</strong></p>
+         <div class="example-contents">
+<div class="inicode"><pre class="inicode">// change the following line from ...
+;extension=php_bz2.dll
+
+// ... to
+extension=php_bz2.dll</pre>
+</div>
+         </div>
+
+        </div>      
+       </p>
+     </li>
+      <li class="listitem">
+       <p class="para">
+        Some of the extensions need extra DLLs to work. Couple of them can be
+        found in the distribution package, in the main folder, but some, for example Oracle
+        (<var class="filename">php_oci8.dll</var>) require DLLs which are not bundled
+        with the distribution package. Don&#039;t forget to include <var class="filename">C:\php</var> in the system
+        <var class="envar">PATH</var> (this process is explained in a separate <a href="faq.installation.html#faq.installation.addtopath" class="link">FAQ entry</a>).
+       </p>
+     </li>
+     <li class="listitem">
+      <p class="para">
+       Some of these DLLs are not bundled with the PHP distribution. See each
+       extensions documentation page for details. Also, read the manual 
+       section titled <a href="install.pecl.html" class="link">Installation of PECL 
+       extensions</a> for details on <acronym title="PHP Extension and Application Repository">PECL</acronym>. An 
+       increasingly large number of PHP extensions are found in 
+       <acronym title="PHP Extension and Application Repository">PECL</acronym>, and these extensions require a
+       <a href="install.pecl.downloads.html" class="link">separate download</a>.
+      </p>
+     </li>
+    </ul>
+   <blockquote class="note"><p><strong class="note">Note</strong>: 
+    <span class="simpara">
+     If you are running a server module version of PHP
+     remember to restart your web server to reflect your changes to <var class="filename">php.ini</var>.
+    </span>
+   </p></blockquote>
+   </p>
+
+   <p class="para">
+    The following table describes some of the extensions available and required
+    additional dlls.   
+    <table id="install.windows.legacy.extensions.overview" class="doctable table">
+     <caption><strong>PHP Extensions</strong></caption>
+     
+      <thead>
+       <tr>
+        <th>Extension</th>
+        <th>Description</th>
+        <th>Notes</th>
+       </tr>
+
+      </thead>
+
+      <tbody class="tbody">
+  <tr>
+   <td>php_bz2.dll</td>
+   <td><a href="book.bzip2.html" class="link">bzip2</a> compression functions</td>
+   <td>None</td>
+  </tr>
+
+  <tr>
+   <td>php_calendar.dll</td>
+   <td><a href="book.calendar.html" class="link">Calendar</a> conversion functions</td>
+   <td>None</td>
+  </tr>
+
+  <tr>
+   <td>php_crack.dll</td>
+   <td><a href="book.crack.html" class="link">Crack</a> functions</td>
+   <td>None</td>
+  </tr>
+
+  <tr>
+   <td>php_ctype.dll</td>
+   <td><a href="book.ctype.html" class="link">ctype</a> family functions</td>
+   <td>None</td>
+  </tr>
+
+  <tr>
+   <td>php_curl.dll</td>
+   <td><a href="book.curl.html" class="link">CURL</a>, Client URL library functions</td>
+   <td>Requires: <var class="filename">libeay32.dll</var>, 
+   <var class="filename">ssleay32.dll</var> (bundled), or, as of OpenSSL 1.1
+   <var class="filename">libcrypto-*.dll</var> and <var class="filename">libssl-*.dll</var> (bundled)</td>
+  </tr>
+
+  <tr>
+   <td>php_dba.dll</td>
+   <td><a href="book.dba.html" class="link">DBA</a>: DataBase (dbm-style) 
+   Abstraction layer functions</td>
+   <td>None</td>
+  </tr>
+
+  <tr>
+   <td>php_dbase.dll</td>
+   <td><a href="book.dbase.html" class="link">dBase</a> functions</td>
+   <td>None</td>
+  </tr>
+
+  <tr>
+   <td>php_dbx.dll</td>
+   <td><a href="book.dbx.html" class="link">dbx</a> functions</td>
+   <td class="empty">&nbsp;</td>
+  </tr>
+
+  <tr>
+   <td>php_exif.dll</td>
+   <td><a href="book.exif.html" class="link">EXIF</a> functions</td>
+   <td>
+    <a href="book.mbstring.html" class="link">php_mbstring.dll</a>. And, 
+    <var class="filename">php_exif.dll</var> must be loaded <code class="literal">after</code> 
+    <var class="filename">php_mbstring.dll</var> in <var class="filename">php.ini</var>.
+   </td>
+  </tr>
+
+  <tr>
+   <td>php_fbsql.dll</td>
+   <td><a href="book.fbsql.html" class="link">FrontBase</a> functions</td>
+   <td>None</td>
+  </tr>
+
+  <tr>
+   <td>php_fdf.dll</td>
+   <td><a href="book.fdf.html" class="link">FDF</a>: Forms Data Format functions.</td>
+   <td>Requires: <var class="filename">fdftk.dll</var> (bundled)</td>
+  </tr>
+
+  <tr>
+   <td>php_filepro.dll</td>
+   <td><a href="book.filepro.html" class="link">filePro</a> functions</td>
+   <td>Read-only access</td>
+  </tr>
+
+  <tr>
+   <td>php_ftp.dll</td>
+   <td><a href="book.ftp.html" class="link">FTP</a> functions</td>
+   <td>None</td>
+  </tr>
+
+  <tr>
+   <td>php_gd2.dll</td>
+   <td><a href="book.image.html" class="link">GD</a> library image functions</td>
+   <td>GD2</td>
+  </tr>
+
+  <tr>
+   <td>php_gettext.dll</td>
+   <td><a href="book.gettext.html" class="link">Gettext</a> functions</td>
+   <td>
+    PHP &lt;= 4.2.0 requires <var class="filename">gnu_gettext.dll</var> (bundled), 
+    PHP &gt;= 4.2.3 requires <var class="filename">libintl-1.dll</var>,
+    <var class="filename">iconv.dll</var> (bundled).
+   </td>
+  </tr>
+
+  <tr>
+   <td>php_hyperwave.dll</td>
+   <td>HyperWave functions</td>
+   <td>None</td>
+  </tr>
+
+  <tr>
+   <td>php_iconv.dll</td>
+   <td><a href="book.iconv.html" class="link">ICONV</a> characterset conversion</td>
+   <td>
+    Requires: <var class="filename">iconv-1.3.dll</var> (bundled), <var class="filename">iconv.dll</var>
+   </td>
+  </tr>
+
+  <tr>
+   <td>php_ifx.dll</td>
+   <td><a href="book.ifx.html" class="link">Informix</a> functions</td>
+   <td>Requires: Informix libraries</td>
+  </tr>
+
+  <tr>
+   <td>php_iisfunc.dll</td>
+   <td>IIS management functions</td>
+   <td>None</td>
+  </tr>
+
+  <tr>
+   <td>php_imap.dll</td>
+   <td><a href="book.imap.html" class="link">IMAP</a> POP3 and NNTP functions</td>
+   <td>None</td>
+  </tr>
+
+  <tr>
+   <td>php_ingres.dll</td>
+   <td><a href="book.ingres.html" class="link">Ingres</a> functions</td>
+   <td>Requires: Ingres libraries</td>
+  </tr>
+
+  <tr>
+   <td>php_interbase.dll</td>
+   <td><a href="book.ibase.html" class="link">InterBase</a> functions</td>
+   <td>Requires: <var class="filename">gds32.dll</var> (bundled)</td>
+  </tr>
+
+  <tr>
+   <td>php_ldap.dll</td>
+   <td><a href="book.ldap.html" class="link">LDAP</a> functions</td>
+   <td>
+    Requires <var class="filename">libeay32.dll</var>, 
+    <var class="filename">ssleay32.dll</var> (bundled), or, as of OpenSSL 1.1
+    <var class="filename">libcrypto-*.dll</var> and <var class="filename">libssl-*.dll</var> (bundled)
+   </td>
+  </tr>
+
+  <tr>
+   <td>php_mbstring.dll</td>
+   <td><a href="book.mbstring.html" class="link">Multi-Byte String</a> functions</td>
+   <td>None</td>
+  </tr>
+
+  <tr>
+   <td>php_mcrypt.dll</td>
+   <td><a href="book.mcrypt.html" class="link">Mcrypt Encryption</a> functions</td>
+   <td>Requires: <var class="filename">libmcrypt.dll</var></td>
+  </tr>
+
+  <tr>
+   <td>php_mhash.dll</td>
+   <td><a href="book.mhash.html" class="link">Mhash</a> functions</td>
+   <td>Requires: <var class="filename">libmhash.dll</var> (bundled)</td>
+  </tr>
+
+  <tr>
+   <td>php_mime_magic.dll</td>
+   <td><a href="book.mime-magic.html" class="link">Mimetype</a> functions</td>
+   <td>Requires: <var class="filename">magic.mime</var> (bundled)</td>
+  </tr>
+
+  <tr>
+   <td>php_ming.dll</td>
+   <td><a href="book.ming.html" class="link">Ming</a> functions for Flash</td>
+   <td>None</td>
+  </tr>
+
+  <tr>
+   <td>php_msql.dll</td>
+   <td><a href="book.msql.html" class="link">mSQL</a> functions</td>
+   <td>Requires: <var class="filename">msql.dll</var> (bundled)</td>
+  </tr>
+
+  <tr>
+   <td>php_mssql.dll</td>
+   <td><a href="book.mssql.html" class="link">MSSQL</a> functions</td>
+   <td>Requires: <var class="filename">ntwdblib.dll</var> (bundled)</td>
+  </tr>
+
+  <tr>
+   <td>php_mysql.dll</td>
+   <td><a href="book.mysql.html" class="link">MySQL</a> functions</td>
+   <td>Requires <var class="filename">libmysql.dll</var> (bundled)</td>
+  </tr>
+
+  <tr>
+   <td>php_mysqli.dll</td>
+   <td><a href="book.mysqli.html" class="link">MySQLi</a> functions</td>
+   <td>Requires <var class="filename">libmysql.dll</var>
+    (<var class="filename">libmysqli.dll</var> in PHP &lt;= 5.0.2) (bundled)</td>
+  </tr>
+
+  <tr>
+   <td>php_oci8.dll</td>
+   <td><a href="book.oci8.html" class="link">Oracle 8</a> functions</td>
+   <td>Requires: Oracle 8.1+ client libraries</td>
+  </tr>
+
+  <tr>
+   <td>php_openssl.dll</td>
+   <td><a href="book.openssl.html" class="link">OpenSSL</a> functions</td>
+   <td>Requires: <var class="filename">libeay32.dll</var> (bundled),
+   or, as of OpenSSL 1.1, <var class="filename">liblibcrypto-*.dll</var> (bundled)</td>
+  </tr>
+
+  <tr>
+   <td>php_pdf.dll</td>
+   <td><a href="book.pdf.html" class="link">PDF</a> functions</td>
+   <td>None</td>
+  </tr>
+
+  <tr>
+   <td>php_pgsql.dll</td>
+   <td><a href="book.pgsql.html" class="link">PostgreSQL</a> functions</td>
+   <td>None</td>
+  </tr>
+
+  <tr>
+   <td>php_shmop.dll</td>
+   <td><a href="book.shmop.html" class="link">Shared Memory</a> functions</td>
+   <td>None</td>
+  </tr>
+
+  <tr>
+   <td>php_snmp.dll</td>
+   <td><a href="book.snmp.html" class="link">SNMP</a> get and walk functions</td>
+   <td>NT only!</td>
+  </tr>
+
+  <tr>
+   <td>php_soap.dll</td>
+   <td><a href="book.soap.html" class="link">SOAP</a> functions</td>
+   <td>None</td>
+  </tr>
+
+  <tr>
+   <td>php_sockets.dll</td>
+   <td><a href="book.sockets.html" class="link">Socket</a> functions</td>
+   <td>None</td>
+  </tr>
+
+  <tr>
+   <td>php_sybase_ct.dll</td>
+   <td><a href="book.sybase.html" class="link">Sybase</a> functions</td>
+   <td>Requires: Sybase client libraries</td>
+  </tr>
+
+  <tr>
+   <td>php_tidy.dll</td>
+   <td><a href="book.tidy.html" class="link">Tidy</a> functions</td>
+   <td>None</td>
+  </tr>
+
+  <tr>
+   <td>php_tokenizer.dll</td>
+   <td><a href="book.tokenizer.html" class="link">Tokenizer</a> functions</td>
+   <td>None</td>
+  </tr>
+
+  <tr>
+   <td>php_w32api.dll</td>
+   <td>W32api functions</td>
+   <td>None</td>
+  </tr>
+
+  <tr>
+   <td>php_xmlrpc.dll</td>
+   <td><a href="book.xmlrpc.html" class="link">XML-RPC</a> functions</td>
+   <td>Requires: <var class="filename">iconv.dll</var> (bundled)</td>
+  </tr>
+
+  <tr>
+   <td>php_xslt.dll</td>
+   <td>XSLT functions</td>
+   <td>
+    Requires <var class="filename">sablot.dll</var>, <var class="filename">expat.dll</var>,
+    <var class="filename">iconv.dll</var> (bundled).
+   </td>
+  </tr>
+
+  <tr>
+   <td>php_yaz.dll</td>
+   <td><a href="book.yaz.html" class="link">YAZ</a> functions</td>
+   <td>Requires: <var class="filename">yaz.dll</var> (bundled)</td>
+  </tr>
+
+  <tr>
+   <td>php_zip.dll</td>
+   <td><a href="book.zip.html" class="link">Zip File</a> functions</td>
+   <td>Read only access</td>
+  </tr>
+
+  <tr>
+   <td>php_zlib.dll</td>
+   <td><a href="book.zlib.html" class="link">ZLib</a> compression functions</td>
+   <td>None</td>
+  </tr>
+
+       </tbody>
+      
+     </table>
+
+    </p>
+   </div>
+
+
+
+   
+
+   <div class="sect2" id="install.windows.legacy.commandline">
+    <h3 class="title">Command Line PHP on Microsoft Windows</h3>
+    <p class="para">
+     This section contains notes and hints specific to getting PHP running
+     from the command line for Windows.
+    </p>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="para">
+      You should read the <a href="install.windows.legacy.index.html#install.windows.legacy.manual" class="link">manual
+      installation steps</a> first!
+     </p>
+    </p></blockquote>
+    <p class="para">
+     Getting PHP to run from the command line can be performed without making
+     any changes to Windows.
+     <div class="example-contents screen">
+<div class="cdata"><pre>
+C:\PHP5\php.exe -f &quot;C:\PHP Scripts\script.php&quot; -- -arg1 -arg2 -arg3
+</pre></div>     
+     </div>
+    </p>
+
+    <p class="para">
+     But there are some easy steps that can be followed to make this simpler.
+     Some of these steps should already have been taken, but are repeated here
+     to be able to provide a complete step-by-step sequence.
+      
+     
+     <ul class="itemizedlist">
+      
+      <blockquote class="note"><p><strong class="note">Note</strong>: 
+       <p class="para">
+        Both <var class="envar">PATH</var> and <var class="envar">PATHEXT</var> are important pre-existing system variables in Windows, and care should be taken to not overwrite either variable, only to add to them.
+       </p>
+      </p></blockquote>
+
+      <li class="listitem">
+       <p class="para">
+        Append the location of the PHP executable (<var class="filename">php.exe</var>,
+        <var class="filename">php-win.exe</var> or <var class="filename">php-cli.exe</var>
+        depending upon your PHP version and display preferences) to the
+        <var class="envar">PATH</var> environment variable. Read more about how to
+        add your PHP directory to <var class="envar">PATH</var> in the <a href="faq.installation.html#faq.installation.addtopath" class="link">corresponding FAQ entry</a>.
+       </p>
+      </li>
+
+      <li class="listitem">
+       <p class="para">
+        Append the <code class="literal">.PHP</code> extension to the
+        <var class="varname">PATHEXT</var> environment variable. This can be done
+        at the same time as amending the <var class="envar">PATH</var> environment
+        variable. Follow the same steps as described in the <a href="faq.installation.html#faq.installation.addtopath" class="link">FAQ</a> but amend the
+        <var class="varname">PATHEXT</var> environment variable rather than the
+        <var class="envar">PATH</var> environment variable.
+        <blockquote class="note"><p><strong class="note">Note</strong>: 
+         <p class="para">
+          The position in which you place the <code class="literal">.PHP</code> will
+          determine which script or program is executed when there are matching
+          filenames. For example, placing <code class="literal">.PHP</code> before
+          <code class="literal">.BAT</code> will cause your script to run, rather than
+          the batch file, if there is a batch file with the same name.
+         </p>
+        </p></blockquote>
+       </p>
+      </li>
+
+      <li class="listitem">
+       <p class="para">
+        Associate the <code class="literal">.PHP</code> extension with a file type. This
+        is done by running the following command:
+        <div class="example-contents screen">
+<div class="cdata"><pre>
+assoc .php=phpfile
+</pre></div>     
+        </div>
+       </p>
+      </li>
+
+      <li class="listitem">
+       <p class="para">
+        Associate the <code class="literal">phpfile</code> file type with the appropriate
+        PHP executable. This is done by running the following command:
+        <div class="example-contents screen">
+<div class="cdata"><pre>
+ftype phpfile=&quot;C:\PHP5\php.exe&quot; -f &quot;%1&quot; -- %~2
+</pre></div>     
+        </div>
+       </p>
+      </li>
+
+     </ul>
+    </p>
+
+    <p class="para">
+     Following these steps will allow PHP scripts to be run from any directory
+     without the need to type the PHP executable or the <code class="literal">.PHP</code>
+     extension and all parameters will be supplied to the script for processing.
+    </p>
+
+    <p class="para">
+     The example below details some of the registry changes that can be made manually.
+     <div class="example" id="example-32">
+      <p><strong>Example #24 Registry changes</strong></p>
+      <div class="example-contents screen">
+<div class="cdata"><pre>
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\.php]
+@=&quot;phpfile&quot;
+&quot;Content Type&quot;=&quot;application/php&quot;
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\phpfile]
+@=&quot;PHP Script&quot;
+&quot;EditFlags&quot;=dword:00000000
+&quot;BrowserFlags&quot;=dword:00000008
+&quot;AlwaysShowExt&quot;=&quot;&quot;
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\phpfile\DefaultIcon]
+@=&quot;C:\\PHP5\\php-win.exe,0&quot;
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\phpfile\shell]
+@=&quot;Open&quot;
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\phpfile\shell\Open]
+@=&quot;&amp;Open&quot;
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\phpfile\shell\Open\command]
+@=&quot;\&quot;C:\\PHP5\\php.exe\&quot; -f \&quot;%1\&quot; -- %~2&quot;
+</pre></div>
+      </div>
+     </div>
+    </p>
+
+    <p class="para">
+     With these changes the same command can be written as:
+     <div class="example-contents screen">
+<div class="cdata"><pre>
+&quot;C:\PHP Scripts\script&quot; -arg1 -arg2 -arg3
+</pre></div>
+     </div>
+     or, if your <code class="literal">&quot;C:\PHP Scripts&quot;</code> path is in the
+     <var class="envar">PATH</var> environment variable:
+     <div class="example-contents screen">
+<div class="cdata"><pre>
+script -arg1 -arg2 -arg3
+</pre></div>
+     </div>
+    </p>
+
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="para">
+      There is a small problem if you intend to use this technique and use your
+      PHP scripts as a command line filter, like the example below:
+      <div class="example-contents screen">
+<div class="cdata"><pre>
+dir | &quot;C:\PHP Scripts\script&quot; -arg1 -arg2 -arg3
+</pre></div>
+      </div>
+      or
+      <div class="example-contents screen">
+<div class="cdata"><pre>
+dir | script -arg1 -arg2 -arg3
+</pre></div>
+      </div>
+      You may find that the script simply hangs and nothing is output.
+      To get this operational, you need to make another registry change.
+      <div class="example-contents screen">
+<div class="cdata"><pre>
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Explorer]
+&quot;InheritConsoleHandles&quot;=dword:00000001
+</pre></div>
+      </div>
+      Further information regarding this issue can be found in this <a href="http://support.microsoft.com/default.aspx?scid=kb;en-us;321788" class="link external">&raquo;&nbsp;Microsoft
+      Knowledgebase Article : 321788</a>.
+      As of Windows 10, this setting seems to be reversed, making the default install of
+      Windows 10 support inherited console handles automatically. This <a href="https://social.msdn.microsoft.com/Forums/en-US/f19d740d-21c8-4dc2-a9ab-d5c0527e932b/nasty-file-association-regression-bug-in-windows-10-console?forum=windowssdk" class="link external">&raquo;&nbsp;
+      Microsoft forum post</a> provides the explanation.
+     </p>
+    </p></blockquote>
+   </div>
+
+
+
+  </div></div></div></body></html>

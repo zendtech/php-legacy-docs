@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>.user.ini files</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="configuration.file.html">« The configuration file</a></li>
+      <li style="float: right;"><a href="configuration.changes.modes.html">Where a configuration setting may be set »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="configuration.html">Runtime Configuration</a></li>
+    <li>.user.ini files</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="configuration.file.per-user" class="sect1">
+  <h2 class="title">.user.ini files</h2>
+  
+  <p class="simpara">
+   Since PHP 5.3.0, PHP includes support for configuration INI files on a
+   per-directory basis. These files are processed <em class="emphasis">only</em> by
+   the CGI/FastCGI SAPI. This functionality obsoletes the PECL htscanner
+   extension. If you are running PHP as Apache module, use <var class="filename">.htaccess</var> files for the same
+   effect.
+  </p>
+  
+  <p class="simpara">
+   In addition to the main <var class="filename">php.ini</var> file, PHP scans for INI files in each
+   directory, starting with the directory of the requested PHP file, and
+   working its way up to the current document root (as set in
+   <var class="varname"><a href="reserved.variables.server.html" class="classname">$_SERVER['DOCUMENT_ROOT']</a></var>). In case the PHP file is
+   outside the document root, only its directory is scanned.
+  </p>
+  <p class="simpara">
+   Only INI settings with the
+   modes <strong><code>PHP_INI_PERDIR</code></strong> and
+   <strong><code>PHP_INI_USER</code></strong> will be recognized in .user.ini-style INI
+   files.
+  </p>
+  
+  <p class="simpara">
+   Two new INI directives,
+   <a href="ini.core.html#ini.user-ini.filename" class="link">user_ini.filename</a> and
+   <a href="ini.core.html#ini.user-ini.cache-ttl" class="link">user_ini.cache_ttl</a>
+   control the use of user INI files.
+  </p>
+  
+  <p class="simpara">
+   <a href="ini.core.html#ini.user-ini.filename" class="link">user_ini.filename</a> sets the name of the file PHP looks for
+   in each directory; if set to an empty string, PHP doesn&#039;t scan at all. The
+   default is <code class="literal">.user.ini</code>.
+  </p>
+  
+  <p class="simpara">
+   <a href="ini.core.html#ini.user-ini.cache-ttl" class="link">user_ini.cache_ttl</a> controls how often user INI files are
+   re-read. The default is 300 seconds (5 minutes).
+  </p>
+ </div></div></div></body></html>

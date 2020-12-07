@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Introduction</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="book.seaslog.html">« Seaslog</a></li>
+      <li style="float: right;"><a href="seaslog.setup.html">Installing/Configuring »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.seaslog.html">Seaslog</a></li>
+    <li>Introduction</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="intro.seaslog" class="preface">
+  <h1 class="title">Introduction</h1>
+   <p class="para">
+   The <acronym>Seaslog</acronym> is an effective,fast,stable log extension for PHP.
+  </p>
+  <p class="para">
+   SeasLog requires PHP 5.2.0 or greater. Earlier versions may not work.
+  </p>
+  <p class="para">
+  The log journal，which is usually the operate record of the system，
+  software and the application record. 
+  Through the analysis of the log，it can facilitate users to understand the operation of the system，
+  software and the application situation. 
+  If your application log is rich enough,
+  it can also analyze the previous use’s operation behavior,type,
+  regional distribution or other more information. 
+  The application log also points the multiple levels at the same time,
+  you can easily get the application analysis of health status, 
+  timely find problems and quick positioning, and solve the problem, remedy the loss.
+  </p>
+  <p class="para">
+  The error_log, syslog function which built in PHP is powerful and excellent performance, 
+  but due to various defects (error_log have no error level, no fixed format, syslog regardless of module, 
+  and mix with system log ), reducing a lot of flexibility , and can&#039;t meet the application requirements.
+  </p>
+  <p class="para">
+  The good news is that there are a number of third-party log class library established 
+  to make up for the defects, such as log4php, plog, monolog (of course, 
+  there are many applications in the project development of the log class). 
+  </p>
+  <p class="para">
+  So is there a log of libraries meet the following requirements：
+    <ul class="simplelist">
+        <li class="member"> Modules, classification </li>
+        <li class="member"> Simple configuration(preferably without configuration) </li>
+        <li class="member"> Clear log format and easy understanding </li>
+        <li class="member"> Simple application and well performance </li>
+    </ul>
+    <acronym>Seaslog</acronym> just meet these demands.
+  </p>
+  <p class="para">
+  What is provided at present:
+    <ul class="simplelist">
+        <li class="member"> In the PHP project, record the log specification and repidly. </li>
+        <li class="member"> Configure the default log directory and module </li>
+        <li class="member"> Specified log directory and capture current configuration </li>
+        <li class="member"> Preliminary analysis of the early warning framework </li>
+        <li class="member"> Efficient log buffer and convenient buffer debug </li>
+        <li class="member"> Follow the PSR-3 log interface specification </li>
+        <li class="member"> Automatically record error information </li>
+        <li class="member"> Automatically record abnormal information </li>
+        <li class="member"> Support Connect the TCP port, send with RFC5424 </li>
+        <li class="member"> Support Connect the UDP port, send with RFC5424 </li>
+        <li class="member"> Support RequestId differentiated requests </li>
+        <li class="member"> Support for log template customizations </li>
+    </ul>
+  </p>
+  <p class="para">
+   Read More <a href="https://seasx.github.io/SeasLog/" class="link external">&raquo;&nbsp;SeasLog Document</a> at Github.
+  </p>
+ </div></div></div></body></html>

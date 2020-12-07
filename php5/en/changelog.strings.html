@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Changelog</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.wordwrap.html">« wordwrap</a></li>
+      <li style="float: right;"><a href="refs.basic.vartype.html">Variable and Type Related Extensions »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.strings.html">Strings</a></li>
+    <li>Changelog</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="changelog.strings" class="appendix">
+ <h1>Changelog</h1>
+
+ <p class="para">The following changes have been made to classes/functions/methods of this extension.</p>
+ <table class='doctable table' rules='groups'><thead><tr><th>Version</th><th>Function</th><th>Description</th></tr></thead><tbody class="gen-changelog v"><tr><td>7.4.0</td><td><a href='function.implode.html'>implode</a></td><td>Passing the glue after the pieces
+       (i.e. not using the documented order of parameters) has been deprecated.</td></tr><tr><td>&nbsp;</td><td><a href='function.money-format.html'>money_format</a></td><td>This function has been deprecated. Instead, 
+        use NumberFormatter::formatCurrency.</td></tr><tr><td>&nbsp;</td><td><a href='function.str-getcsv.html'>str_getcsv</a></td><td>The escape parameter now interprets an empty
+        string as signal to disable the proprietary escape mechanism. Formerly,
+        an empty string was treated like the default parameter value.</td></tr><tr><td>&nbsp;</td><td><a href='function.strip-tags.html'>strip_tags</a></td><td>The allowable_tags now alternatively accepts an array.</td></tr></tbody><tbody class="gen-changelog v7-4-0"><tr><td>7.2.18, 7.3.5</td><td><a href='function.substr-compare.html'>substr_compare</a></td><td>offset may now be equal to the length of main_str.</td></tr></tbody><tbody class="gen-changelog v7-2-18, 7-3-5"><tr><td>7.2.0</td><td><a href='function.number-format.html'>number_format</a></td><td>number_format was changed to not being able to return 
+        -0, previously -0 could be returned 
+        for cases like where number would be -0.01.</td></tr><tr><td>&nbsp;</td><td><a href='function.parse-str.html'>parse_str</a></td><td>Usage of parse_str without a second parameter
+        now emits an E_DEPRECATED notice.</td></tr></tbody><tbody class="gen-changelog v7-2-0"><tr><td>7.1.0</td><td><a href='function.str-shuffle.html'>str_shuffle</a></td><td>The internal randomization algorithm has been changed to use the Mersenne Twister Random Number Generator instead of the libc rand function.</td></tr><tr><td>&nbsp;</td><td><a href='function.stripos.html'>stripos</a></td><td>Support for negative offsets has been added.</td></tr><tr><td>&nbsp;</td><td><a href='function.strpos.html'>strpos</a></td><td>Support for negative offsets has been added.</td></tr><tr><td>&nbsp;</td><td><a href='function.substr-count.html'>substr_count</a></td><td>Support for negative offsets and lengths has been added.
+        length may also be 0 now.</td></tr></tbody><tbody class="gen-changelog v7-1-0"><tr><td>7.0.0</td><td><a href='function.setlocale.html'>setlocale</a></td><td>Support for the category parameter passed as a string has
+        been removed. Only LC_* constants can be used as of this version.</td></tr><tr><td>&nbsp;</td><td><a href='function.substr.html'>substr</a></td><td>If string is equal to
+        start characters long, an empty string will be
+        returned. Prior to this version, FALSE was returned in this case.</td></tr></tbody><tbody class="gen-changelog v7-0-0"><tr><td>5.6.5</td><td><a href='function.crypt.html'>crypt</a></td><td>When the failure string &quot;*0&quot; is given as the
+        salt, &quot;*1&quot; will now be returned for consistency
+        with other crypt implementations. Prior to this version, PHP 5.6 would
+        incorrectly return a DES hash.</td></tr></tbody><tbody class="gen-changelog v5-6-5"><tr><td>5.6.0</td><td><a href='function.crypt.html'>crypt</a></td><td>Raise E_NOTICE security warning if salt is omitted.</td></tr><tr><td>&nbsp;</td><td><a href='function.html-entity-decode.html'>html_entity_decode</a></td><td>The default value for the encoding parameter was
+   changed to be the value of the
+   default_charset configuration
+   option.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlentities.html'>htmlentities</a></td><td>The default value for the encoding parameter was
+   changed to be the value of the
+   default_charset configuration
+   option.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlspecialchars.html'>htmlspecialchars</a></td><td>The default value for the encoding parameter was
+   changed to be the value of the
+   default_charset configuration
+   option.</td></tr></tbody><tbody class="gen-changelog v5-6-0"><tr><td>5.5.21</td><td><a href='function.crypt.html'>crypt</a></td><td>When the failure string &quot;*0&quot; is given as the
+        salt, &quot;*1&quot; will now be returned for consistency
+        with other crypt implementations. Prior to this version, PHP 5.5 (and
+        earlier branches) would incorrectly return a DES hash.</td></tr></tbody><tbody class="gen-changelog v5-5-21"><tr><td>5.5.11</td><td><a href='function.substr-compare.html'>substr_compare</a></td><td>length may now be 0.</td></tr></tbody><tbody class="gen-changelog v5-5-11"><tr><td>5.5.1</td><td><a href='function.hex2bin.html'>hex2bin</a></td><td>A warning is thrown if the input string is invalid hexadecimal string.</td></tr></tbody><tbody class="gen-changelog v5-5-1"><tr><td>5.4.32, 5.5.16</td><td><a href='function.ucwords.html'>ucwords</a></td><td>Added the delimiters parameter.</td></tr></tbody><tbody class="gen-changelog v5-4-32, 5-5-16"><tr><td>5.4.4</td><td><a href='function.hex2bin.html'>hex2bin</a></td><td>A warning is thrown if the input string is of odd length. In PHP 5.4.0 the string
+        was silently accepted, but the last byte was truncated.</td></tr></tbody><tbody class="gen-changelog v5-4-4"><tr><td>5.4.0</td><td><a href='function.get-html-translation-table.html'>get_html_translation_table</a></td><td>The constants ENT_HTML401, ENT_XML1,
+        ENT_XHTML and ENT_HTML5 were added.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-html-translation-table.html'>get_html_translation_table</a></td><td>The default value for the encoding parameter was
+        changed to UTF-8.</td></tr><tr><td>&nbsp;</td><td><a href='function.html-entity-decode.html'>html_entity_decode</a></td><td>The constants ENT_HTML401, ENT_XML1,
+        ENT_XHTML and ENT_HTML5 were added.</td></tr><tr><td>&nbsp;</td><td><a href='function.html-entity-decode.html'>html_entity_decode</a></td><td>Default encoding changed from ISO-8859-1 to UTF-8.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlentities.html'>htmlentities</a></td><td>The constants ENT_SUBSTITUTE, ENT_DISALLOWED,
+        ENT_HTML401, ENT_XML1,
+        ENT_XHTML and ENT_HTML5 were added.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlentities.html'>htmlentities</a></td><td>The default value for the encoding parameter was
+        changed to UTF-8.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlspecialchars.html'>htmlspecialchars</a></td><td>The default value for the encoding parameter was
+        changed to UTF-8.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlspecialchars.html'>htmlspecialchars</a></td><td>The constants ENT_SUBSTITUTE, ENT_DISALLOWED,
+        ENT_HTML401, ENT_XML1,
+        ENT_XHTML and ENT_HTML5 were added.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlspecialchars-decode.html'>htmlspecialchars_decode</a></td><td>The constants ENT_HTML401, ENT_XML1,
+        ENT_XHTML and ENT_HTML5 were added.</td></tr><tr><td>&nbsp;</td><td><a href='function.number-format.html'>number_format</a></td><td>This function now supports multiple bytes in
+        dec_point and
+        thousands_sep. Only the first byte of each
+        separator was used in older versions.</td></tr></tbody><tbody class="gen-changelog v5-4-0"><tr><td>5.3.7</td><td><a href='function.crypt.html'>crypt</a></td><td>Added $2x$ and $2y$ Blowfish
+        modes to deal with potential high-bit attacks.</td></tr></tbody><tbody class="gen-changelog v5-3-7"><tr><td>5.3.4</td><td><a href='function.get-html-translation-table.html'>get_html_translation_table</a></td><td>The encoding parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.strip-tags.html'>strip_tags</a></td><td>strip_tags ignores self-closing XHTML
+        tags in
+        allowable_tags.</td></tr></tbody><tbody class="gen-changelog v5-3-4"><tr><td>5.3.2</td><td><a href='function.crypt.html'>crypt</a></td><td>Added SHA-256 and SHA-512 crypt based on Ulrich Drepper's 
+        implementation.</td></tr><tr><td>&nbsp;</td><td><a href='function.crypt.html'>crypt</a></td><td>Fixed Blowfish behaviour on invalid rounds to return &quot;failure&quot; 
+        string (&quot;*0&quot; or &quot;*1&quot;), instead of falling back to DES.</td></tr></tbody><tbody class="gen-changelog v5-3-2"><tr><td>5.3.0</td><td><a href='function.crypt.html'>crypt</a></td><td>PHP now contains its own implementation for the MD5 crypt, Standard DES,
+        Extended DES and the Blowfish algorithms and will use that if the system
+        lacks of support for one or more of the algorithms.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlentities.html'>htmlentities</a></td><td>The constant ENT_IGNORE was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlspecialchars.html'>htmlspecialchars</a></td><td>The constant ENT_IGNORE was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.nl2br.html'>nl2br</a></td><td>Added the optional is_xhtml parameter. Before
+         this version '&lt;br /&gt;' was always inserted.</td></tr><tr><td>&nbsp;</td><td><a href='function.setlocale.html'>setlocale</a></td><td>This function now throws an E_DEPRECATED notice if a string is passed 
+        to the category parameter instead of one of the 
+        LC_* constants.</td></tr><tr><td>&nbsp;</td><td><a href='function.stristr.html'>stristr</a></td><td>Added the optional parameter before_needle.</td></tr><tr><td>&nbsp;</td><td><a href='function.strlen.html'>strlen</a></td><td>Prior versions treated arrays as the string Array, thus returning
+       a string length of 5 and emitting an E_NOTICE level error.</td></tr><tr><td>&nbsp;</td><td><a href='function.strstr.html'>strstr</a></td><td>Added the optional parameter before_needle.</td></tr></tbody><tbody class="gen-changelog v5-3-0"><tr><td>5.2.5</td><td><a href='function.addcslashes.html'>addcslashes</a></td><td>The escape sequences \v and \f were added.</td></tr></tbody><tbody class="gen-changelog v5-2-5"><tr><td>5.2.3</td><td><a href='function.htmlentities.html'>htmlentities</a></td><td>The double_encode parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlspecialchars.html'>htmlspecialchars</a></td><td>The double_encode parameter was added.</td></tr></tbody><tbody class="gen-changelog v5-2-3"><tr><td>5.2.2 - 5.2.6</td><td><a href='function.substr.html'>substr</a></td><td>If the start parameter indicates the position of
+        a negative truncation or beyond, false is returned. Other versions get
+        the string from start.</td></tr></tbody><tbody class="gen-changelog v5-2-2 - 5-2-6"><tr><td>5.1.0</td><td><a href='function.explode.html'>explode</a></td><td>Support for negative limits was added</td></tr><tr><td>&nbsp;</td><td><a href='function.md5-file.html'>md5_file</a></td><td>Changed the function to use the streams API. It means that you can use
+        it with wrappers, like md5_file('http://example.com/..')</td></tr><tr><td>&nbsp;</td><td><a href='function.sha1-file.html'>sha1_file</a></td><td>Changed the function to use the streams API. It means that you can use
+        it with wrappers, like sha1_file('http://example.com/..')</td></tr><tr><td>&nbsp;</td><td><a href='function.str-word-count.html'>str_word_count</a></td><td>Added the charlist parameter</td></tr><tr><td>&nbsp;</td><td><a href='function.substr-compare.html'>substr_compare</a></td><td>Added the possibility to use a negative offset.</td></tr><tr><td>&nbsp;</td><td><a href='function.substr-count.html'>substr_count</a></td><td>Added the offset and
+        the length parameters</td></tr></tbody></table>
+</div>
+</div></div></body></html>

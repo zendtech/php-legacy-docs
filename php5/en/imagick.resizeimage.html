@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Scales an image</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="imagick.resetimagepage.html">« Imagick::resetImagePage</a></li>
+      <li style="float: right;"><a href="imagick.rollimage.html">Imagick::rollImage »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.imagick.html">Imagick</a></li>
+    <li>Scales an image</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="imagick.resizeimage" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">Imagick::resizeImage</h1>
+  <p class="verinfo">(PECL imagick 2.0.0)</p><p class="refpurpose"><span class="refname">Imagick::resizeImage</span> &mdash; <span class="dc-title">Scales an image</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-imagick.resizeimage-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>Imagick::resizeImage</strong></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$columns</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$rows</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$filter</code></span>
+   , <span class="methodparam"><span class="type">float</span> <code class="parameter">$blur</code></span>
+   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$bestfit</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
+   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$legacy</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
+  ]] ) : <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   Scales an image to the desired dimensions with a
+   <a href="imagick.constants.html#imagick.constants.filters" class="link">filter</a>.
+  </p>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+ <span class="simpara">
+  The behavior of the parameter <code class="parameter">bestfit</code> changed in Imagick 3.0.0.
+  Before this version given dimensions 400x400 an image of dimensions 200x150 would be
+  left untouched. In Imagick 3.0.0 and later the image would be scaled up to size 400x300 as
+  this is the &quot;best fit&quot; for the given dimensions. If <code class="parameter">bestfit</code>
+  parameter is used both width and height must be given.
+ </span>
+</p></blockquote>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-imagick.resizeimage-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">columns</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Width of the image
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">rows</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Height of the image
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">filter</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Refer to the list of <a href="imagick.constants.html#imagick.constants.filters" class="link">filter constants</a>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">blur</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The blur factor where &gt; 1 is blurry, &lt; 1 is sharp.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">bestfit</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Optional fit parameter.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-imagick.resizeimage-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns <strong><code>TRUE</code></strong> on success.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-imagick.resizeimage-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>2.1.0</td>
+       <td>
+       Added optional fit parameter. This method now supports proportional scaling.
+       Pass zero as either parameter for proportional scaling.  
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+
+
+ <div class="refsect1 examples" id="refsect1-imagick.resizeimage-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+    <div class="example" id="example-4049">
+      <p><strong>Example #1  <span class="function"><strong>Imagick::resizeImage()</strong></span></strong></p>
+      <div class="example-contents">
+      <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">resizeImage</span><span style="color: #007700">(</span><span style="color: #0000BB">$imagePath</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$width</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$height</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$filterType</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$blur</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$bestFit</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$cropZoom</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//The&nbsp;blur&nbsp;factor&nbsp;where&nbsp;&gt;&nbsp;1&nbsp;is&nbsp;blurry,&nbsp;&lt;&nbsp;1&nbsp;is&nbsp;sharp.<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$imagick&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;\</span><span style="color: #0000BB">Imagick</span><span style="color: #007700">(</span><span style="color: #0000BB">realpath</span><span style="color: #007700">(</span><span style="color: #0000BB">$imagePath</span><span style="color: #007700">));<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$imagick</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">resizeImage</span><span style="color: #007700">(</span><span style="color: #0000BB">$width</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$height</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$filterType</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$blur</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$bestFit</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cropWidth&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$imagick</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getImageWidth</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cropHeight&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$imagick</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getImageHeight</span><span style="color: #007700">();<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$cropZoom</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$newWidth&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$cropWidth&nbsp;</span><span style="color: #007700">/&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$newHeight&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$cropHeight&nbsp;</span><span style="color: #007700">/&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$imagick</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">cropimage</span><span style="color: #007700">(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$newWidth</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$newHeight</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(</span><span style="color: #0000BB">$cropWidth&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">$newWidth</span><span style="color: #007700">)&nbsp;/&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(</span><span style="color: #0000BB">$cropHeight&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">$newHeight</span><span style="color: #007700">)&nbsp;/&nbsp;</span><span style="color: #0000BB">2<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$imagick</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scaleimage</span><span style="color: #007700">(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$imagick</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getImageWidth</span><span style="color: #007700">()&nbsp;*&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$imagick</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getImageHeight</span><span style="color: #007700">()&nbsp;*&nbsp;</span><span style="color: #0000BB">4<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Content-Type:&nbsp;image/jpg"</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$imagick</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getImageBlob</span><span style="color: #007700">();<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+      </div>
+
+    </div>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

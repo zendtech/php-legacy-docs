@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Closes a previously opened database connection</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="mysqli.character-set-name.html">« mysqli::character_set_name</a></li>
+      <li style="float: right;"><a href="mysqli.commit.html">mysqli::commit »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.mysqli.html">mysqli</a></li>
+    <li>Closes a previously opened database connection</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="mysqli.close" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">mysqli::close</h1>
+  <h1 class="refname">mysqli_close</h1>
+  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mysqli::close</span> -- <span class="refname">mysqli_close</span> &mdash; <span class="dc-title">Closes a previously opened database connection</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-mysqli.close-description">
+  <h3 class="title">Description</h3>
+  <p class="para">Object oriented style</p>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>mysqli::close</strong></span>
+    ( <span class="methodparam">void</span>
+   ) : <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">Procedural style</p>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>mysqli_close</strong></span>
+    ( <span class="methodparam"><span class="type"><a href="class.mysqli.html" class="type mysqli">mysqli</a></span> <code class="parameter">$link</code></span>
+   ) : <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   Closes a previously opened database connection.
+  </p>
+  <p class="para">
+Open non-persistent MySQL connections and result sets are automatically destroyed when a 
+PHP script finishes its execution. So, while explicitly closing open 
+connections and freeing result sets is optional, doing so is recommended. 
+This will immediately return resources to PHP and MySQL, which can 
+improve performance. For related information, see 
+<a href="language.types.resource.html#language.types.resource.self-destruct" class="link">freeing resources</a></p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-mysqli.close-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+<code class="parameter">
+link</code></dt>
+<dd>
+<p class="para">Procedural style only: A link identifier
+returned by <span class="function"><a href="function.mysqli-connect.html" class="function">mysqli_connect()</a></span> or <span class="function"><a href="mysqli.init.html" class="function">mysqli_init()</a></span>
+</p></dd>
+
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-mysqli.close-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-mysqli.close-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   See <span class="function"><a href="function.mysqli-connect.html" class="function">mysqli_connect()</a></span>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-mysqli.close-notes">
+  <h3 class="title">Notes</h3>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    <span class="function"><strong>mysqli_close()</strong></span> will not close persistent connections. 
+    For additional details, see the manual page on
+    <a href="features.persistent-connections.html" class="link">persistent connections</a>.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-mysqli.close-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a href="mysqli.construct.html" class="methodname" rel="rdfs-seeAlso">mysqli::__construct()</a> - Open a new connection to the MySQL server</span></li>
+    <li class="member"><span class="function"><a href="mysqli.init.html" class="function" rel="rdfs-seeAlso">mysqli_init()</a> - Initializes MySQLi and returns a resource for use with mysqli_real_connect()</span></li>
+    <li class="member"><span class="function"><a href="mysqli.real-connect.html" class="function" rel="rdfs-seeAlso">mysqli_real_connect()</a> - Opens a connection to a mysql server</span></li>
+    <li class="member"><span class="function"><a href="mysqli-result.free.html" class="function" rel="rdfs-seeAlso">mysqli_free_result()</a> - Frees the memory associated with a result</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

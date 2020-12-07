@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Sets a type map to use for BSON unserialization</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="mongodb-driver-cursorinterface.isdead.html">« MongoDB\Driver\CursorInterface::isDead</a></li>
+      <li style="float: right;"><a href="mongodb-driver-cursorinterface.toarray.html">MongoDB\Driver\CursorInterface::toArray »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.mongodb-driver-cursorinterface.html">MongoDB\Driver\CursorInterface</a></li>
+    <li>Sets a type map to use for BSON unserialization</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="mongodb-driver-cursorinterface.settypemap" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">MongoDB\Driver\CursorInterface::setTypeMap</h1>
+  <p class="verinfo">(mongodb &gt;=1.6.0)</p><p class="refpurpose"><span class="refname">MongoDB\Driver\CursorInterface::setTypeMap</span> &mdash; <span class="dc-title">Sets a type map to use for BSON unserialization</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-mongodb-driver-cursorinterface.settypemap-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">abstract</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\CursorInterface::setTypeMap</strong></span>
+    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$typemap</code></span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
+
+  <p class="para rdfs-comment">
+   Sets the <a href="mongodb.persistence.deserialization.html#mongodb.persistence.typemaps" class="link">type map
+   configuration</a> to use when unserializing the BSON results into PHP
+   values.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-mongodb-driver-cursorinterface.settypemap-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+
+   
+   
+    <dt>
+<code class="parameter">typeMap</code> (<span class="type"><a href="language.types.array.html" class="type array">array</a></span>)</dt>
+
+    <dd>
+
+     <p class="para">
+      <a href="mongodb.persistence.deserialization.html#mongodb.persistence.typemaps" class="link">Type map configuration</a>.
+     </p>
+    </dd>
+
+   
+
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-mongodb-driver-cursorinterface.settypemap-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   No value is returned.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-mongodb-driver-cursorinterface.settypemap-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <ul class="simplelist">
+   <li class="member">Throws <a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a> on argument parsing errors.</li>
+  </ul>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-mongodb-driver-cursorinterface.settypemap-seealso">
+  <h3 class="title">See Also</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="methodname"><a href="mongodb-driver-cursor.settypemap.html" class="methodname" rel="rdfs-seeAlso">MongoDB\Driver\Cursor::setTypeMap()</a> - Sets a type map to use for BSON unserialization</span></li>
+   <li class="member"><a href="mongodb.persistence.html" class="xref">Persisting Data</a></li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

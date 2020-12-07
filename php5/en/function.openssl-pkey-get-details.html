@@ -1,0 +1,284 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Returns an array with the key details</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.openssl-pkey-free.html">« openssl_pkey_free</a></li>
+      <li style="float: right;"><a href="function.openssl-pkey-get-private.html">openssl_pkey_get_private »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.openssl.html">OpenSSL Functions</a></li>
+    <li>Returns an array with the key details</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.openssl-pkey-get-details" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">openssl_pkey_get_details</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7)</p><p class="refpurpose"><span class="refname">openssl_pkey_get_details</span> &mdash; <span class="dc-title">Returns an array with the key details</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.openssl-pkey-get-details-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>openssl_pkey_get_details</strong></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$key</code></span>
+   ) : <span class="type">array</span></div>
+
+  <p class="para rdfs-comment">
+   This function returns the key details (bits, key, type).
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.openssl-pkey-get-details-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">key</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Resource holding the key.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.openssl-pkey-get-details-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns an array with the key details in success or <strong><code>FALSE</code></strong> in failure.
+   Returned array has indexes <code class="literal">bits</code> (number of bits),
+   <code class="literal">key</code> (string representation of the public key) and
+   <code class="literal">type</code> (type of the key which is one of
+   <strong><code>OPENSSL_KEYTYPE_RSA</code></strong>,
+   <strong><code>OPENSSL_KEYTYPE_DSA</code></strong>,
+   <strong><code>OPENSSL_KEYTYPE_DH</code></strong>,
+   <strong><code>OPENSSL_KEYTYPE_EC</code></strong> or -1 meaning unknown).
+  </p>
+  <p class="para">
+   Depending on the key type used, additional details may be returned. Note that 
+   some elements may not always be available.
+  </p>
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code>OPENSSL_KEYTYPE_RSA</code></strong>, an additional array key named <code class="literal">&quot;rsa&quot;</code>, 
+     containing the key data is returned.
+    </span>
+     <table class="doctable informaltable">
+      
+       <thead>
+        <tr>
+         <th>Key</th>
+         <th>Description</th>
+        </tr>
+
+       </thead>
+
+       <tbody class="tbody">
+        <tr>
+         <td><code class="literal">&quot;n&quot;</code></td>
+         <td>modulus</td>
+        </tr>
+
+        <tr>
+         <td><code class="literal">&quot;e&quot;</code></td>
+         <td>public exponent</td>
+        </tr>
+
+        <tr>
+         <td><code class="literal">&quot;d&quot;</code></td>
+         <td>private exponent</td>
+        </tr>
+
+        <tr>
+         <td><code class="literal">&quot;p&quot;</code></td>
+         <td>prime 1</td>
+        </tr>
+
+        <tr>
+         <td><code class="literal">&quot;q&quot;</code></td>
+         <td>prime 2</td>
+        </tr>
+
+        <tr>
+         <td><code class="literal">&quot;dmp1&quot;</code></td>
+         <td>exponent1, d mod (p-1)</td>
+        </tr>
+
+        <tr>
+         <td><code class="literal">&quot;dmq1&quot;</code></td>
+         <td>exponent2, d mod (q-1)</td>
+        </tr>
+
+        <tr>
+         <td><code class="literal">&quot;iqmp&quot;</code></td>
+         <td>coefficient, (inverse of q) mod p</td>
+        </tr>
+
+       </tbody>
+      
+     </table>
+
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code>OPENSSL_KEYTYPE_DSA</code></strong>, an additional array key named <code class="literal">&quot;dsa&quot;</code>, 
+     containing the key data is returned.
+    </span>
+     <table class="doctable informaltable">
+      
+       <thead>
+        <tr>
+         <th>Key</th>
+         <th>Description</th>
+        </tr>
+
+       </thead>
+
+       <tbody class="tbody">
+        <tr>
+         <td><code class="literal">&quot;p&quot;</code></td>
+         <td>prime number (public)</td>
+        </tr>
+
+        <tr>
+         <td><code class="literal">&quot;q&quot;</code></td>
+         <td>160-bit subprime, q | p-1 (public)</td>
+        </tr>
+
+        <tr>
+         <td><code class="literal">&quot;g&quot;</code></td>
+         <td>generator of subgroup (public)</td>
+        </tr>
+
+        <tr>
+         <td><code class="literal">&quot;priv_key&quot;</code></td>
+         <td>private key x</td>
+        </tr>
+
+        <tr>
+         <td><code class="literal">&quot;pub_key&quot;</code></td>
+         <td>public key y = g^x</td>
+        </tr>
+
+       </tbody>
+      
+     </table>
+
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code>OPENSSL_KEYTYPE_DH</code></strong>, an additional array key named <code class="literal">&quot;dh&quot;</code>, 
+     containing the key data is returned.
+    </span>
+     <table class="doctable informaltable">
+      
+       <thead>
+        <tr>
+         <th>Key</th>
+         <th>Description</th>
+        </tr>
+
+       </thead>
+
+       <tbody class="tbody">
+        <tr>
+         <td><code class="literal">&quot;p&quot;</code></td>
+         <td>prime number (shared)</td>
+        </tr>
+
+        <tr>
+         <td><code class="literal">&quot;g&quot;</code></td>
+         <td>generator of Z_p (shared)</td>
+        </tr>
+
+        <tr>
+         <td><code class="literal">&quot;priv_key&quot;</code></td>
+         <td>private DH value x</td>
+        </tr>
+
+        <tr>
+         <td><code class="literal">&quot;pub_key&quot;</code></td>
+         <td>public DH value g^x</td>
+        </tr>
+
+       </tbody>
+      
+     </table>
+
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code>OPENSSL_KEYTYPE_EC</code></strong>, an additional array key named <code class="literal">&quot;ec&quot;</code>, 
+     containing the key data is returned.
+    </span>
+     <table class="doctable informaltable">
+      
+       <thead>
+        <tr>
+         <th>Key</th>
+         <th>Description</th>
+        </tr>
+
+       </thead>
+
+       <tbody class="tbody">
+        <tr>
+         <td><code class="literal">&quot;curve_name&quot;</code></td>
+         <td>name of curve, see <span class="function"><a href="function.openssl-get-curve-names.html" class="function">openssl_get_curve_names()</a></span></td>
+        </tr>
+
+        <tr>
+         <td><code class="literal">&quot;curve_oid&quot;</code></td>
+         <td>ASN1 Object identifier (OID) for EC curve.</td>
+        </tr>
+
+        <tr>
+         <td><code class="literal">&quot;x&quot;</code></td>
+         <td>x coordinate (public)</td>
+        </tr>
+
+        <tr>
+         <td><code class="literal">&quot;y&quot;</code></td>
+         <td>y coordinate (public)</td>
+        </tr>
+
+        <tr>
+         <td><code class="literal">&quot;d&quot;</code></td>
+         <td>private key</td>
+        </tr>
+
+       </tbody>
+      
+     </table>
+
+   </li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

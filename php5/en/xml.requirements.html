@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Requirements</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="xml.setup.html">« Installing/Configuring</a></li>
+      <li style="float: right;"><a href="xml.installation.html">Installation »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="xml.setup.html">Installing/Configuring</a></li>
+    <li>Requirements</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="xml.requirements" class="section">
+  <h2 class="title">Requirements</h2>
+  <p class="para">
+ This extension requires the <a href="book.libxml.html" class="link">libxml</a> PHP extension.
+ This means passing the <strong class="option configure">--with-libxml</strong>,
+ or prior to PHP 7.4 the <strong class="option configure">--enable-libxml</strong>,
+ configuration flag, although this is implicitly accomplished because libxml
+ is enabled by default.
+</p>
+  <p class="para">
+   This extension uses an <span class="productname">expat compat layer</span> by
+   default. It can use also <span class="productname">expat</span>, which can
+   be found at <a href="http://www.jclark.com/xml/expat.html" class="link external">&raquo;&nbsp;http://www.jclark.com/xml/expat.html</a>.  The
+   Makefile that comes with <span class="productname">expat</span> does not build a library by
+   default, you can use this make rule for that:
+   <div class="example-contents">
+<div class="makefilecode"><pre class="makefilecode">libexpat.a: $(OBJS)
+    ar -rc $@ $(OBJS)
+    ranlib $@</pre>
+</div>
+   </div>
+
+   A source RPM package of expat can be found at <a href="http://sourceforge.net/projects/expat/" class="link external">&raquo;&nbsp;http://sourceforge.net/projects/expat/</a>.
+  </p>
+ </div></div></div></body></html>

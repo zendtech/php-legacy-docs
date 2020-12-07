@@ -1,0 +1,237 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Runtime Configuration</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="filesystem.installation.html">« Installation</a></li>
+      <li style="float: right;"><a href="filesystem.resources.html">Resource Types »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="filesystem.setup.html">Installing/Configuring</a></li>
+    <li>Runtime Configuration</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="filesystem.configuration" class="section">
+ <h2 class="title">Runtime Configuration</h2>
+ <p class="simpara">
+The behaviour of these functions is affected by settings in <var class="filename">php.ini</var>.
+</p>
+ <p class="para">
+  <table class="doctable table">
+   <caption><strong>Filesystem and Streams Configuration Options</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Name</th>
+      <th>Default</th>
+      <th>Changeable</th>
+      <th>Changelog</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td><a href="filesystem.configuration.html#ini.allow-url-fopen" class="link">allow_url_fopen</a></td>
+      <td>&quot;1&quot;</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><a href="filesystem.configuration.html#ini.allow-url-include" class="link">allow_url_include</a></td>
+      <td>&quot;0&quot;</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>Available since PHP 5.2.0. Deprecated as of PHP 7.4.0.</td>
+     </tr>
+
+     <tr>
+      <td><a href="filesystem.configuration.html#ini.user-agent" class="link">user_agent</a></td>
+      <td>NULL</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><a href="filesystem.configuration.html#ini.default-socket-timeout" class="link">default_socket_timeout</a></td>
+      <td>&quot;60&quot;</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+    </tr>
+
+     <tr>
+      <td><a href="filesystem.configuration.html#ini.from" class="link">from</a></td>
+      <td>&quot;&quot;</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><a href="filesystem.configuration.html#ini.auto-detect-line-endings" class="link">auto_detect_line_endings</a></td>
+      <td>&quot;0&quot;</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><a href="filesystem.configuration.html#ini.sys-temp-dir" class="link">sys_temp_dir</a></td>
+      <td>&quot;&quot;</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>Available since PHP 5.5.0.</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </p>
+ 
+ <p class="para">Here&#039;s a short explanation of
+the configuration directives.</p>
+ 
+ <p class="para">
+  <dl>
+
+   
+    <dt id="ini.allow-url-fopen">
+     <code class="parameter">allow_url_fopen</code>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      This option enables the URL-aware fopen wrappers that enable 
+      accessing URL object like files. Default wrappers are provided for 
+      the access of <a href="features.remote-files.html" class="link">remote files</a>
+      using the ftp or http protocol, some extensions like
+      <a href="ref.zlib.html" class="link">zlib</a> may register additional
+      wrappers. 
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="ini.allow-url-include">
+     <code class="parameter">allow_url_include</code>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      This option allows the use of URL-aware fopen wrappers with the following 
+      functions: <span class="function"><a href="function.include.html" class="function">include</a></span>, <span class="function"><a href="function.include-once.html" class="function">include_once</a></span>, 
+      <span class="function"><a href="function.require.html" class="function">require</a></span>, <span class="function"><a href="function.require-once.html" class="function">require_once</a></span>.
+     </p>
+     <blockquote class="note"><p><strong class="note">Note</strong>: 
+      <p class="para">
+       This setting requires allow_url_fopen to be on. 
+      </p>
+     </p></blockquote>
+    </dd>
+
+   
+
+   
+    <dt id="ini.user-agent">
+     <code class="parameter">user_agent</code>
+     <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Define the user agent for PHP to send.
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="ini.default-socket-timeout">
+     <code class="parameter">default_socket_timeout</code>
+     <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Default timeout (in seconds) for socket based streams.
+      Specifying a negative value means an infinite timeout.
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="ini.from">
+     <code class="parameter">from</code>
+     <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      The email address to be used on unauthenticated FTP connections and
+      as the value of From header for HTTP connections, when using the ftp
+      and http wrappers, respectively.
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="ini.auto-detect-line-endings">
+     <code class="parameter">auto_detect_line_endings</code>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      When turned on, PHP will examine the data read by
+      <span class="function"><a href="function.fgets.html" class="function">fgets()</a></span> and <span class="function"><a href="function.file.html" class="function">file()</a></span> to see if it
+      is using Unix, MS-Dos or Macintosh line-ending conventions.
+     </p>
+     <p class="para">This enables PHP to interoperate with Macintosh systems,
+      but defaults to Off, as there is a very small performance penalty
+      when detecting the EOL conventions for the first line, and also
+      because people using carriage-returns as item separators under
+      Unix systems would experience non-backwards-compatible behaviour.
+     </p>
+    </dd>
+
+   
+   
+   
+    <dt id="ini.sys-temp-dir">
+     <code class="parameter">sys_temp_dir</code>
+     <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+     </p>
+    </dd>
+
+   
+
+  </dl>
+
+ </p>
+</div></div></div></body></html>

@@ -1,0 +1,218 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="sqlite3.resources.html">« Resource Types</a></li>
+      <li style="float: right;"><a href="class.sqlite3.html">SQLite3 »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.sqlite3.html">SQLite3</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="sqlite3.constants" class="appendix">
+ <h1>Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are defined by this extension, and
+will only be available when the extension has either
+been compiled into PHP or dynamically loaded at runtime.
+</p>
+ <p class="para">
+  <dl>
+
+   
+    <dt id="constant.sqlite3-assoc">
+     <strong><code>SQLITE3_ASSOC</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Specifies that the <span class="methodname"><a href="sqlite3result.fetcharray.html" class="methodname">Sqlite3Result::fetchArray()</a></span>
+      method shall return an array indexed by column name as returned in the
+      corresponding result set.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.sqlite3-num">
+     <strong><code>SQLITE3_NUM</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Specifies that the <span class="methodname"><a href="sqlite3result.fetcharray.html" class="methodname">Sqlite3Result::fetchArray()</a></span>
+      method shall return an array indexed by column number as returned in the
+      corresponding result set, starting at column 0.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.sqlite3-both">
+     <strong><code>SQLITE3_BOTH</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Specifies that the <span class="methodname"><a href="sqlite3result.fetcharray.html" class="methodname">Sqlite3Result::fetchArray()</a></span>
+      method shall return an array indexed by both column name and number as
+      returned in the corresponding result set, starting at column 0.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.sqlite3-integer">
+     <strong><code>SQLITE3_INTEGER</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Represents the SQLite3 INTEGER storage class.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.sqlite3-float">
+     <strong><code>SQLITE3_FLOAT</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Represents the SQLite3 REAL (FLOAT) storage class.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.sqlite3-text">
+     <strong><code>SQLITE3_TEXT</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Represents the SQLite3 TEXT storage class.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.sqlite3-blob">
+     <strong><code>SQLITE3_BLOB</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Represents the SQLite3 BLOB storage class.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.sqlite3-null">
+     <strong><code>SQLITE3_NULL</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Represents the SQLite3 NULL storage class.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.sqlite3-open-readonly">
+     <strong><code>SQLITE3_OPEN_READONLY</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Specifies that the SQLite3 database be opened for reading only.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.sqlite3-open-readwrite">
+     <strong><code>SQLITE3_OPEN_READWRITE</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Specifies that the SQLite3 database be opened for reading and writing.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.sqlite3-open-create">
+     <strong><code>SQLITE3_OPEN_CREATE</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Specifies that the SQLite3 database be created if it does not already
+      exist.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.sqlite3-deterministic">
+     <strong><code>SQLITE3_DETERMINISTIC</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Specifies that a function created with <span class="function"><a href="sqlite3.createfunction.html" class="function">SQLite3::createFunction()</a></span>
+      is deterministic, i.e. it always returns the same result given the same inputs within
+      a single SQL statement. (Available as of PHP 7.1.4.)
+     </span>
+    </dd>
+
+   
+  </dl>
+
+ </p>
+</div>
+</div></div></body></html>

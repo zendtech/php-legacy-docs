@@ -1,0 +1,553 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Unicode character properties</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="regexp.reference.escape.html">« Escape sequences</a></li>
+      <li style="float: right;"><a href="regexp.reference.anchors.html">Anchors »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="reference.pcre.pattern.syntax.html">PCRE regex syntax</a></li>
+    <li>Unicode character properties</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="regexp.reference.unicode" class="section">
+  <h2 class="title">Unicode character properties</h2>
+  <p class="para">
+   Since 5.1.0, three
+   additional escape sequences to match generic character types are available
+   when <em class="emphasis">UTF-8 mode</em> is selected. They are:
+  </p>
+  <dl>
+
+   
+    <dt>
+<em class="emphasis">\p{xx}</em></dt>
+
+    <dd>
+<span class="simpara">a character with the xx property</span></dd>
+
+   
+   
+    <dt>
+<em class="emphasis">\P{xx}</em></dt>
+
+    <dd>
+<span class="simpara">a character without the xx property</span></dd>
+
+   
+   
+    <dt>
+<em class="emphasis">\X</em></dt>
+
+    <dd>
+<span class="simpara">an extended Unicode sequence</span></dd>
+
+   
+  </dl>
+
+  <p class="para">
+   The property names represented by <code class="literal">xx</code> above are limited
+   to the Unicode general category properties. Each character has exactly one
+   such property, specified by a two-letter abbreviation. For compatibility with
+   Perl, negation can be specified by including a circumflex between the
+   opening brace and the property name. For example, <code class="literal">\p{^Lu}</code>
+   is the same as <code class="literal">\P{Lu}</code>.
+  </p>
+  <p class="para">
+   If only one letter is specified with <code class="literal">\p</code> or
+   <code class="literal">\P</code>, it includes all the properties that start with that
+   letter. In this case, in the absence of negation, the curly brackets in the
+   escape sequence are optional; these two examples have the same effect:
+  </p>
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="cdata"><pre>
+\p{L}
+\pL
+</pre></div>
+   </div>
+
+  </div>
+  <table class="doctable table">
+   <caption><strong>Supported property codes</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Property</th>
+      <th>Matches</th>
+      <th>Notes</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td><code class="literal">C</code></td>
+      <td>Other</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Cc</code></td>
+      <td>Control</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Cf</code></td>
+      <td>Format</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Cn</code></td>
+      <td>Unassigned</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Co</code></td>
+      <td>Private use</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Cs</code></td>
+      <td>Surrogate</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">L</code></td>
+      <td>Letter</td>
+      <td>
+       Includes the following properties: <code class="literal">Ll</code>,
+       <code class="literal">Lm</code>, <code class="literal">Lo</code>, <code class="literal">Lt</code> and
+       <code class="literal">Lu</code>.
+      </td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Ll</code></td>
+      <td>Lower case letter</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Lm</code></td>
+      <td>Modifier letter</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Lo</code></td>
+      <td>Other letter</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Lt</code></td>
+      <td>Title case letter</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Lu</code></td>
+      <td>Upper case letter</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">M</code></td>
+      <td>Mark</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Mc</code></td>
+      <td>Spacing mark</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Me</code></td>
+      <td>Enclosing mark</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Mn</code></td>
+      <td>Non-spacing mark</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">N</code></td>
+      <td>Number</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Nd</code></td>
+      <td>Decimal number</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Nl</code></td>
+      <td>Letter number</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">No</code></td>
+      <td>Other number</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">P</code></td>
+      <td>Punctuation</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Pc</code></td>
+      <td>Connector punctuation</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Pd</code></td>
+      <td>Dash punctuation</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Pe</code></td>
+      <td>Close punctuation</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Pf</code></td>
+      <td>Final punctuation</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Pi</code></td>
+      <td>Initial punctuation</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Po</code></td>
+      <td>Other punctuation</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Ps</code></td>
+      <td>Open punctuation</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">S</code></td>
+      <td>Symbol</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Sc</code></td>
+      <td>Currency symbol</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Sk</code></td>
+      <td>Modifier symbol</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Sm</code></td>
+      <td>Mathematical symbol</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">So</code></td>
+      <td>Other symbol</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Z</code></td>
+      <td>Separator</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Zl</code></td>
+      <td>Line separator</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Zp</code></td>
+      <td>Paragraph separator</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Zs</code></td>
+      <td>Space separator</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+  <p class="para">
+   Extended properties such as <code class="literal">InMusicalSymbols</code> are not
+   supported by PCRE.
+  </p>
+  <p class="para">
+   Specifying case-insensitive (caseless) matching does not affect these escape sequences.
+   For example, <code class="literal">\p{Lu}</code> always matches only upper case letters.
+  </p>
+  <p class="para">
+   Sets of Unicode characters are defined as belonging to certain scripts.  A
+   character from one of these sets can be matched using a script name.  For
+   example:
+  </p>
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara"><code class="literal">\p{Greek}</code></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><code class="literal">\P{Han}</code></span>
+   </li>
+  </ul>
+  <p class="para">
+   Those that are not part of an identified script are lumped together  as
+   <code class="literal">Common</code>. The current list of scripts is:
+  </p>
+  <table class="doctable table">
+   <caption><strong>Supported scripts</strong></caption>
+   
+    <tbody class="tbody">
+     <tr>
+      <td><code class="literal">Arabic</code></td>
+      <td><code class="literal">Armenian</code></td>
+      <td><code class="literal">Avestan</code></td>
+      <td><code class="literal">Balinese</code></td>
+      <td><code class="literal">Bamum</code></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Batak</code></td>
+      <td><code class="literal">Bengali</code></td>
+      <td><code class="literal">Bopomofo</code></td>
+      <td><code class="literal">Brahmi</code></td>
+      <td><code class="literal">Braille</code></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Buginese</code></td>
+      <td><code class="literal">Buhid</code></td>
+      <td><code class="literal">Canadian_Aboriginal</code></td>
+      <td><code class="literal">Carian</code></td>
+      <td><code class="literal">Chakma</code></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Cham</code></td>
+      <td><code class="literal">Cherokee</code></td>
+      <td><code class="literal">Common</code></td>
+      <td><code class="literal">Coptic</code></td>
+      <td><code class="literal">Cuneiform</code></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Cypriot</code></td>
+      <td><code class="literal">Cyrillic</code></td>
+      <td><code class="literal">Deseret</code></td>
+      <td><code class="literal">Devanagari</code></td>
+      <td><code class="literal">Egyptian_Hieroglyphs</code></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Ethiopic</code></td>
+      <td><code class="literal">Georgian</code></td>
+      <td><code class="literal">Glagolitic</code></td>
+      <td><code class="literal">Gothic</code></td>
+      <td><code class="literal">Greek</code></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Gujarati</code></td>
+      <td><code class="literal">Gurmukhi</code></td>
+      <td><code class="literal">Han</code></td>
+      <td><code class="literal">Hangul</code></td>
+      <td><code class="literal">Hanunoo</code></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Hebrew</code></td>
+      <td><code class="literal">Hiragana</code></td>
+      <td><code class="literal">Imperial_Aramaic</code></td>
+      <td><code class="literal">Inherited</code></td>
+      <td><code class="literal">Inscriptional_Pahlavi</code></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Inscriptional_Parthian</code></td>
+      <td><code class="literal">Javanese</code></td>
+      <td><code class="literal">Kaithi</code></td>
+      <td><code class="literal">Kannada</code></td>
+      <td><code class="literal">Katakana</code></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Kayah_Li</code></td>
+      <td><code class="literal">Kharoshthi</code></td>
+      <td><code class="literal">Khmer</code></td>
+      <td><code class="literal">Lao</code></td>
+      <td><code class="literal">Latin</code></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Lepcha</code></td>
+      <td><code class="literal">Limbu</code></td>
+      <td><code class="literal">Linear_B</code></td>
+      <td><code class="literal">Lisu</code></td>
+      <td><code class="literal">Lycian</code></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Lydian</code></td>
+      <td><code class="literal">Malayalam</code></td>
+      <td><code class="literal">Mandaic</code></td>
+      <td><code class="literal">Meetei_Mayek</code></td>
+      <td><code class="literal">Meroitic_Cursive</code></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Meroitic_Hieroglyphs</code></td>
+      <td><code class="literal">Miao</code></td>
+      <td><code class="literal">Mongolian</code></td>
+      <td><code class="literal">Myanmar</code></td>
+      <td><code class="literal">New_Tai_Lue</code></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Nko</code></td>
+      <td><code class="literal">Ogham</code></td>
+      <td><code class="literal">Old_Italic</code></td>
+      <td><code class="literal">Old_Persian</code></td>
+      <td><code class="literal">Old_South_Arabian</code></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Old_Turkic</code></td>
+      <td><code class="literal">Ol_Chiki</code></td>
+      <td><code class="literal">Oriya</code></td>
+      <td><code class="literal">Osmanya</code></td>
+      <td><code class="literal">Phags_Pa</code></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Phoenician</code></td>
+      <td><code class="literal">Rejang</code></td>
+      <td><code class="literal">Runic</code></td>
+      <td><code class="literal">Samaritan</code></td>
+      <td><code class="literal">Saurashtra</code></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Sharada</code></td>
+      <td><code class="literal">Shavian</code></td>
+      <td><code class="literal">Sinhala</code></td>
+      <td><code class="literal">Sora_Sompeng</code></td>
+      <td><code class="literal">Sundanese</code></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Syloti_Nagri</code></td>
+      <td><code class="literal">Syriac</code></td>
+      <td><code class="literal">Tagalog</code></td>
+      <td><code class="literal">Tagbanwa</code></td>
+      <td><code class="literal">Tai_Le</code></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Tai_Tham</code></td>
+      <td><code class="literal">Tai_Viet</code></td>
+      <td><code class="literal">Takri</code></td>
+      <td><code class="literal">Tamil</code></td>
+      <td><code class="literal">Telugu</code></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Thaana</code></td>
+      <td><code class="literal">Thai</code></td>
+      <td><code class="literal">Tibetan</code></td>
+      <td><code class="literal">Tifinagh</code></td>
+      <td><code class="literal">Ugaritic</code></td>
+     </tr>
+
+     <tr>
+      <td><code class="literal">Vai</code></td>
+      <td><code class="literal">Yi</code></td>
+      <td class="empty">&nbsp;</td>
+      <td class="empty">&nbsp;</td>
+      <td class="empty">&nbsp;</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+  <p class="para">
+   The <code class="literal">\X</code> escape matches a Unicode extended grapheme
+   cluster. An extended grapheme cluster is one or more Unicode characters
+   that combine to form a single glyph. In effect, this can be thought of as
+   the Unicode equivalent of <code class="literal">.</code> as it will match one
+   composed character, regardless of how many individual characters are
+   actually used to render it.
+  </p>
+  <p class="para">
+   In versions of PCRE older than 8.32 (which corresponds to PHP versions
+   before 5.4.14 when using the bundled PCRE library), <code class="literal">\X</code>
+   is equivalent to <code class="literal">(?&gt;\PM\pM*)</code>.  That is, it matches a
+   character without the &quot;mark&quot; property, followed by zero or more characters
+   with the &quot;mark&quot; property, and treats the sequence as an atomic group (see
+   below). Characters with the &quot;mark&quot; property are typically accents that
+   affect the preceding character.
+  </p>
+  <p class="para">
+   Matching characters by Unicode property is not fast, because PCRE has
+   to search a structure that contains data for over fifteen thousand
+   characters. That is why the traditional escape sequences such as
+   <code class="literal">\d</code> and <code class="literal">\w</code> do not use Unicode properties
+   in PCRE.
+  </p>
+ </div></div></div></body></html>

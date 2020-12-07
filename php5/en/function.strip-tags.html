@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Strip HTML and PHP tags from a string</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.strcspn.html">« strcspn</a></li>
+      <li style="float: right;"><a href="function.stripcslashes.html">stripcslashes »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.strings.html">String Functions</a></li>
+    <li>Strip HTML and PHP tags from a string</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.strip-tags" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">strip_tags</h1>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">strip_tags</span> &mdash; <span class="dc-title">Strip HTML and PHP tags from a string</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.strip-tags-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>strip_tags</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str</code></span>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$allowable_tags</code></span>
+  ] ) : <span class="type">string</span></div>
+
+  <p class="para rdfs-comment">
+   This function tries to return a string with all NULL bytes, HTML and PHP tags stripped
+   from a given <code class="parameter">str</code>.  It uses the same tag stripping
+   state machine as the <span class="function"><a href="function.fgetss.html" class="function">fgetss()</a></span> function.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.strip-tags-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">str</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The input string.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">allowable_tags</code></dt>
+
+     <dd>
+
+      <p class="para">
+       You can use the optional second parameter to specify tags which should
+       not be stripped.
+       These are either given as <span class="type"><a href="language.types.string.html" class="type string">string</a></span>, or as of PHP 7.4.0, as <span class="type"><a href="language.types.array.html" class="type array">array</a></span>.
+       Refer to the example below regarding the format of this parameter.
+      </p>
+      <blockquote class="note"><p><strong class="note">Note</strong>: 
+       <p class="para">
+        HTML comments and PHP tags are also stripped. This is hardcoded and
+        can not be changed with <code class="parameter">allowable_tags</code>.
+       </p>
+      </p></blockquote>
+      <blockquote class="note"><p><strong class="note">Note</strong>: 
+       <p class="para">
+        In PHP 5.3.4 and later, self-closing
+        XHTML tags are ignored and only non-self-closing tags should be used in
+        <code class="parameter">allowable_tags</code>. For example,
+        to allow both <code class="literal">&lt;br&gt;</code> and
+        <code class="literal">&lt;br/&gt;</code>, you should use:
+       </p>
+       <div class="informalexample">
+        <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />strip_tags</span><span style="color: #007700">(</span><span style="color: #0000BB">$input</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'&lt;br&gt;'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+
+       </div>
+      </p></blockquote>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.strip-tags-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns the stripped string.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.strip-tags-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.4.0</td>
+       <td>
+        The <code class="parameter">allowable_tags</code> now alternatively accepts an <span class="type"><a href="language.types.array.html" class="type array">array</a></span>.
+       </td>
+      </tr>
+
+      <tr>
+       <td>5.3.4</td>
+       <td>
+        <span class="function"><strong>strip_tags()</strong></span> ignores self-closing XHTML
+        tags in
+        <code class="parameter">allowable_tags</code>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.strip-tags-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-6191">
+    <p><strong>Example #1 <span class="function"><strong>strip_tags()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$text&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'&lt;p&gt;Test&nbsp;paragraph.&lt;/p&gt;&lt;!--&nbsp;Comment&nbsp;--&gt;&nbsp;&lt;a&nbsp;href="#fragment"&gt;Other&nbsp;text&lt;/a&gt;'</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">strip_tags</span><span style="color: #007700">(</span><span style="color: #0000BB">$text</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Allow&nbsp;&lt;p&gt;&nbsp;and&nbsp;&lt;a&gt;<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">strip_tags</span><span style="color: #007700">(</span><span style="color: #0000BB">$text</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'&lt;p&gt;&lt;a&gt;'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;as&nbsp;of&nbsp;PHP&nbsp;7.4.0&nbsp;the&nbsp;line&nbsp;above&nbsp;can&nbsp;be&nbsp;written&nbsp;as:<br />//&nbsp;echo&nbsp;strip_tags($text,&nbsp;['p',&nbsp;'a']);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Test paragraph. Other text
+&lt;p&gt;Test paragraph.&lt;/p&gt; &lt;a href=&quot;#fragment&quot;&gt;Other text&lt;/a&gt;
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.strip-tags-notes">
+  <h3 class="title">Notes</h3>
+  <div class="warning"><strong class="warning">Warning</strong>
+   <p class="para">
+    This function should not be used to try to prevent XSS attacks.
+    Use more appropriate functions like <span class="function"><a href="function.htmlspecialchars.html" class="function">htmlspecialchars()</a></span>
+    or other means depending on the context of the output.
+   </p>
+  </div>  
+  <div class="warning"><strong class="warning">Warning</strong>
+   <p class="para">
+    Because <span class="function"><strong>strip_tags()</strong></span> does not actually validate the
+    HTML, partial or broken tags can result in the removal of more
+    text/data than expected.
+   </p>
+  </div>
+  <div class="warning"><strong class="warning">Warning</strong>
+   <p class="para">
+    This function does not modify any attributes on the tags that you allow
+    using <code class="parameter">allowable_tags</code>, including the
+    <code class="literal">style</code> and <code class="literal">onmouseover</code> attributes
+    that a mischievous user may abuse when posting text that will be shown
+    to other users.
+   </p>
+  </div>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    Tag names within the input HTML that are greater than 1023 bytes in length
+    will be treated as though they are invalid, regardless of the
+    <code class="parameter">allowable_tags</code> parameter.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.strip-tags-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.htmlspecialchars.html" class="function" rel="rdfs-seeAlso">htmlspecialchars()</a> - Convert special characters to HTML entities</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

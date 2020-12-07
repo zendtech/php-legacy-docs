@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Tips</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="userlandnaming.rules.html">« Rules</a></li>
+      <li style="float: right;"><a href="about.html">About the manual »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="userlandnaming.html">Userland Naming Guide</a></li>
+    <li>Tips</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="userlandnaming.tips" class="section">
+  <h2 class="title">Tips</h2>
+  <p class="para">
+   In order to write future-proof code, it is recommended that you don&#039;t
+   place many variables, functions or classes in the global namespace. This will
+   prevent naming conflicts with 3rd party code as well as possible
+   future additions to the language.
+  </p>
+  <p class="para">
+   One common way to prevent naming conflicts of functions and classes is to
+   add them to their own dedicated
+   <a href="language.namespaces.html" class="link">namespace</a>.
+  </p>
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">namespace&nbsp;</span><span style="color: #0000BB">MyProject</span><span style="color: #007700">;<br /><br />function&nbsp;</span><span style="color: #0000BB">my_function</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />}<br /><br />\</span><span style="color: #0000BB">MyProject</span><span style="color: #007700">\</span><span style="color: #0000BB">my_function</span><span style="color: #007700">();</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+  <p class="para">
+   This still needs you to keep track of already used namespaces, but once you
+   have decided on a namespace you will be using you can add all functions and
+   classes to it without having to think about conflicts again.
+  </p>
+  <p class="para">
+   It is considered best practice to limit the number of variables added to
+   the global scope in order to prevent naming conflicts with 3rd party
+   code.
+  </p>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <strong>Variable scoping</strong><br />
+   <p class="para">
+    Because of PHP&#039;s <a href="language.variables.scope.html" class="link">scoping rules</a>
+    variables defined inside functions and methods are not in the global scope
+    and as such cannot conflict with other variables defined in the global scope.
+   </p>
+  </p></blockquote>
+ </div></div></div></body></html>

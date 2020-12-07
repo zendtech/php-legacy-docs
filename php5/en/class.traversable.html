@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The Traversable interface</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="reserved.interfaces.html">« Predefined Interfaces and Classes</a></li>
+      <li style="float: right;"><a href="class.iterator.html">Iterator »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="reserved.interfaces.html">Predefined Interfaces and Classes</a></li>
+    <li>The Traversable interface</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="class.traversable" class="reference">
+
+ <h1 class="title">The <span class="interfacename"><a href="class.traversable.html" class="interfacename">Traversable</a></span> interface</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 5, PHP 7)</p>
+
+
+  <div class="section" id="traversable.intro">
+   <h2 class="title">Introduction</h2>
+   <p class="para">
+    Interface to detect if a class is traversable using <a href="control-structures.foreach.html" class="link">foreach</a>.
+   </p>
+   <p class="para">
+    Abstract base interface that cannot be implemented alone. Instead it must
+    be implemented by either <span class="interfacename"><a href="class.iteratoraggregate.html" class="interfacename">IteratorAggregate</a></span> or
+    <span class="interfacename"><a href="class.iterator.html" class="interfacename">Iterator</a></span>.
+   </p>
+   <blockquote class="note"><p><strong class="note">Note</strong>: 
+    <p class="para">
+     Internal (built-in) classes that implement this interface can be used in
+     a <a href="control-structures.foreach.html" class="link">foreach</a> construct and do not need to implement
+     <span class="interfacename"><a href="class.iteratoraggregate.html" class="interfacename">IteratorAggregate</a></span> or
+     <span class="interfacename"><a href="class.iterator.html" class="interfacename">Iterator</a></span>.
+    </p>
+   </p></blockquote>
+   <blockquote class="note"><p><strong class="note">Note</strong>: 
+    <p class="para">
+     This is an internal engine interface which cannot be implemented in PHP
+     scripts. Either <span class="interfacename"><a href="class.iteratoraggregate.html" class="interfacename">IteratorAggregate</a></span> or
+     <span class="interfacename"><a href="class.iterator.html" class="interfacename">Iterator</a></span> must be used instead.
+      When implementing an interface which extends Traversable, make sure to
+      list <span class="interfacename"><a href="class.iteratoraggregate.html" class="interfacename">IteratorAggregate</a></span> or
+      <span class="interfacename"><a href="class.iterator.html" class="interfacename">Iterator</a></span> before its name in the implements
+      clause.
+    </p>
+   </p></blockquote>
+  </div>
+
+
+  <div class="section" id="traversable.synopsis">
+   <h2 class="title">Interface synopsis</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <strong class="classname">Traversable</strong>
+     </span>
+     {</div>
+
+
+   }</div>
+
+
+   <p class="para">
+    This interface has no methods, its only purpose is to be the base
+    interface for all traversable classes.
+   </p>
+
+  </div>
+
+ </div>
+
+</div>
+</div></div></body></html>

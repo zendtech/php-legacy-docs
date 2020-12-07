@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Other changes</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="migration72.deprecated.html">« Deprecated features in PHP 7.2.x</a></li>
+      <li style="float: right;"><a href="migration71.html">Migrating from PHP 7.0.x to PHP 7.1.x »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="migration72.html">Migrating from PHP 7.1.x to PHP 7.2.x</a></li>
+    <li>Other changes</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="migration72.other-changes" class="sect1">
+ <h2 class="title">Other changes</h2>
+
+ <div class="sect2" id="migration72.other-changes.utf8_-functions-to-ext-standard">
+  <h3 class="title">Moving of <span class="function"><a href="function.utf8-encode.html" class="function">utf8_encode()</a></span> and <span class="function"><a href="function.utf8-decode.html" class="function">utf8_decode()</a></span></h3>
+
+  <p class="para">
+   The <span class="function"><a href="function.utf8-encode.html" class="function">utf8_encode()</a></span> and <span class="function"><a href="function.utf8-decode.html" class="function">utf8_decode()</a></span>
+   functions have now been moved to the standard extension as string functions, whereas before 
+   the <a href="book.xml.html" class="link">XML</a> extension was required for them to be available.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration72.other-changes.mail">
+  <h3 class="title">Changes to <span class="function"><a href="function.mail.html" class="function">mail()</a></span> and <span class="function"><strong>mb_sendmail()</strong></span></h3>
+
+  <p class="para">
+   The $additional_headers parameter of <span class="function"><a href="function.mail.html" class="function">mail()</a></span> and
+   <span class="function"><strong>mb_sendmail()</strong></span> now also accepts an <span class="type"><a href="language.types.array.html" class="type array">array</a></span>
+   instead of a <span class="type"><a href="language.types.string.html" class="type string">string</a></span>.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration72.other-changes.lmdb-support">
+  <h3 class="title">LMDB support</h3>
+
+  <p class="para">
+   The <a href="book.dba.html" class="link">DBA</a> extension now has support for LMDB.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration72.other-changes.build-system">
+  <h3 class="title">Changes to the PHP build system</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     Unix: Autoconf 2.64 or greater is now required to build PHP.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Unix: <code class="literal">--with-pdo-oci</code> configure argument no longer needs 
+     the version number of the Oracle Instant Client.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Unix: <code class="literal">--enable-gd-native-ttf</code> configure argument has been 
+     removed. This was not used since PHP 5.5.0.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Windows: <code class="literal">--with-config-profile</code> configure argument has been 
+     added. This can be used to save specific configures, much like the magical 
+     <var class="filename">config.nice.bat</var> file.
+    </span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration72.other-changes.image">
+  <h3 class="title">Changes to <a href="book.image.html" class="link">GD</a></h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a href="function.imageantialias.html" class="function">imageantialias()</a></span> is now also available if compiled with
+     a system libgd.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a href="function.imagegd.html" class="function">imagegd()</a></span> stores truecolor images as real truecolor
+     images. Formerly, they have been converted to palette.
+    </span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration72.other-changes.mcrypt">
+  <h3 class="title">Moving <a href="book.mcrypt.html" class="link">MCrypt</a> to PECL</h3>
+
+  <p class="para">
+   The <a href="book.mcrypt.html" class="link">MCrypt</a> extension has now been moved
+   out of the core to PECL. Given the mcrypt library has not seen any updates
+   since 2007, its usage is highly discouraged. Instead, either the
+   <a href="book.openssl.html" class="link">OpenSSL</a> or <a href="book.sodium.html" class="link">Sodium</a>
+   extension should be used.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration72.other-changes.session-module-name">
+  <h3 class="title"><span class="function"><a href="function.session-module-name.html" class="function">session_module_name()</a></span></h3>
+
+  <p class="para">
+   Passing <code class="literal">&quot;user&quot;</code> to <span class="function"><a href="function.session-module-name.html" class="function">session_module_name()</a></span>
+   now raises an error of level <strong><code>E_RECOVERABLE_ERROR</code></strong>. Formerly,
+   this has been silently ignored.
+  </p>
+ </div>
+
+</div></div></div></body></html>

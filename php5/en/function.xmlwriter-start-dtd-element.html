@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Create start DTD element</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.xmlwriter-start-dtd-attlist.html">« XMLWriter::startDtdAttlist</a></li>
+      <li style="float: right;"><a href="function.xmlwriter-start-dtd-entity.html">XMLWriter::startDtdEntity »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.xmlwriter.html">XMLWriter Functions</a></li>
+    <li>Create start DTD element</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.xmlwriter-start-dtd-element" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">XMLWriter::startDtdElement</h1>
+  <h1 class="refname">xmlwriter_start_dtd_element</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.2, PHP 7, PECL xmlwriter &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">XMLWriter::startDtdElement</span> -- <span class="refname">xmlwriter_start_dtd_element</span> &mdash; <span class="dc-title">Create start DTD element</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.xmlwriter-start-dtd-element-description">
+  <h3 class="title">Description</h3>
+  <p class="para">Object oriented style</p>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>XMLWriter::startDtdElement</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$qualifiedName</code></span>
+   ) : <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">Procedural style</p>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>xmlwriter_start_dtd_element</strong></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$xmlwriter</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$qualifiedName</code></span>
+   ) : <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   Starts a DTD element.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.xmlwriter-start-dtd-element-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+<code class="parameter">
+xmlwriter</code></dt>
+<dd>
+<p class="para">Only for procedural calls.
+The XMLWriter <span class="type"><a href="language.types.resource.html" class="type resource">resource</a></span> that is being modified. This resource comes from a call to <span class="function"><a href="function.xmlwriter-open-uri.html" class="function">xmlwriter_open_uri()</a></span> or <span class="function"><a href="function.xmlwriter-open-memory.html" class="function">xmlwriter_open_memory()</a></span>.</p></dd>
+
+    
+     <dt>
+<code class="parameter">qualifiedName</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The qualified name of the document type to create.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.xmlwriter-start-dtd-element-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.xmlwriter-start-dtd-element-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a href="function.xmlwriter-end-dtd-element.html" class="methodname" rel="rdfs-seeAlso">XMLWriter::endDtdElement()</a> - End current DTD element</span></li>
+    <li class="member"><span class="methodname"><a href="function.xmlwriter-write-dtd-element.html" class="methodname" rel="rdfs-seeAlso">XMLWriter::writeDtdElement()</a> - Write full DTD element tag</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

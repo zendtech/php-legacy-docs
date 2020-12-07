@@ -1,0 +1,844 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Changelog</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="indexes.examples.html">« Example listing</a></li>
+      
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="appendices.html">Appendices</a></li>
+    <li>Changelog</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="doc.changelog" class="appendix">
+   <h1>Changelog</h1>
+
+    <p class="para">The following changes have been made to functions of bundled extensions.</p>
+    
+    <table class='doctable table' rules='groups'><thead><tr><th>Version</th><th>Function</th><th>Description</th></tr></thead><tbody class="gen-changelog v"><tr><td>8.0.0 / 1.18.1</td><td><a href='ziparchive.addglob.html'>ZipArchive::addGlob</a></td><td>&quot;comp_method&quot;, &quot;comp_flags&quot;,
+        &quot;enc_method&quot; and &quot;enc_password&quot; in
+        options were added.</td></tr></tbody><tbody class="gen-changelog v8-0-0 / 1-18-1"><tr><td>8.0.0 / 1.18.0</td><td><a href='ziparchive.addemptydir.html'>ZipArchive::addEmptyDir</a></td><td>flags was added.</td></tr><tr><td>&nbsp;</td><td><a href='ziparchive.addfile.html'>ZipArchive::addFile</a></td><td>flags was added.</td></tr><tr><td>&nbsp;</td><td><a href='ziparchive.addfromstring.html'>ZipArchive::addFromString</a></td><td>flags was added.</td></tr><tr><td>&nbsp;</td><td><a href='ziparchive.addglob.html'>ZipArchive::addGlob</a></td><td>&quot;flags&quot; in options was added.</td></tr><tr><td>&nbsp;</td><td><a href='ziparchive.getstatusstring.html'>ZipArchive::getStatusString</a></td><td>This method can be called on closed archive.</td></tr></tbody><tbody class="gen-changelog v8-0-0 / 1-18-0"><tr><td>8.0.0</td><td><a href='function.mb-parse-str.html'>mb_parse_str</a></td><td>The second parameter was no longer optional.</td></tr><tr><td>&nbsp;</td><td><a href='function.zip-close.html'>zip_close</a></td><td>This function is deprecated in favor of the Object API,
+        see ZipArchive::close.</td></tr><tr><td>&nbsp;</td><td><a href='function.zip-entry-close.html'>zip_entry_close</a></td><td>This function is deprecated in favor of the Object API.</td></tr><tr><td>&nbsp;</td><td><a href='function.zip-entry-compressedsize.html'>zip_entry_compressedsize</a></td><td>This function is deprecated in favor of the Object API,
+        see ZipArchive::statIndex.</td></tr><tr><td>&nbsp;</td><td><a href='function.zip-entry-compressionmethod.html'>zip_entry_compressionmethod</a></td><td>This function is deprecated in favor of the Object API,
+        see ZipArchive::statIndex.</td></tr><tr><td>&nbsp;</td><td><a href='function.zip-entry-filesize.html'>zip_entry_filesize</a></td><td>This function is deprecated in favor of the Object API,
+        see ZipArchive::statIndex.</td></tr><tr><td>&nbsp;</td><td><a href='function.zip-entry-name.html'>zip_entry_name</a></td><td>This function is deprecated in favor of the Object API,
+        see ZipArchive::statIndex.</td></tr><tr><td>&nbsp;</td><td><a href='function.zip-entry-open.html'>zip_entry_open</a></td><td>This function is deprecated in favor of the Object API.</td></tr><tr><td>&nbsp;</td><td><a href='function.zip-entry-read.html'>zip_entry_read</a></td><td>This function is deprecated in favor of the Object API,
+        see ZipArchive::getFromIndex.</td></tr><tr><td>&nbsp;</td><td><a href='function.zip-open.html'>zip_open</a></td><td>This function is deprecated in favor of the Object API,
+        see ZipArchive::open.</td></tr><tr><td>&nbsp;</td><td><a href='function.zip-read.html'>zip_read</a></td><td>This function is deprecated in favor of the Object API,
+        see ZipArchive::statIndex.</td></tr><tr><td>&nbsp;</td><td><a href='reflectionparameter.getdefaultvalue.html'>ReflectionParameter::getDefaultValue</a></td><td>This method now allows getting the default value of parameters of built-in functions and
+        built-in class methods. Previously, a ReflectionException was thrown.</td></tr><tr><td>&nbsp;</td><td><a href='reflectionparameter.getdefaultvalueconstantname.html'>ReflectionParameter::getDefaultValueConstantName</a></td><td>This method now allows getting the default values' constant names of built-in functions and
+        built-in class methods. Previously, a ReflectionException was thrown.</td></tr></tbody><tbody class="gen-changelog v8-0-0"><tr><td>7.4.4</td><td><a href='function.proc-open.html'>proc_open</a></td><td>Added the create_new_console option to the
+        other_options parameter.</td></tr></tbody><tbody class="gen-changelog v7-4-4"><tr><td>7.4.0</td><td><a href='function.array-merge.html'>array_merge</a></td><td>This function can now be called without any parameter.
+        Formerly, at least one parameter has been required.</td></tr><tr><td>&nbsp;</td><td><a href='function.array-merge-recursive.html'>array_merge_recursive</a></td><td>This function can now be called without any parameter.
+        Formerly, at least one parameter has been required.</td></tr><tr><td>&nbsp;</td><td><a href='function.base-convert.html'>base_convert</a></td><td>Passing invalid characters will now generate a deprecation notice.
+       The result will still be computed as if the invalid characters did not exist.</td></tr><tr><td>&nbsp;</td><td><a href='function.bindec.html'>bindec</a></td><td>Passing invalid characters will now generate a deprecation notice.
+       The result will still be computed as if the invalid characters did not exist.</td></tr><tr><td>&nbsp;</td><td><a href='function.fgetcsv.html'>fgetcsv</a></td><td>The escape parameter now also accepts an empty
+        string to disable the proprietary escape mechanism.</td></tr><tr><td>&nbsp;</td><td><a href='function.fputcsv.html'>fputcsv</a></td><td>The escape_char parameter now also accepts an empty
+        string to disable the proprietary escape mechanism.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-declared-classes.html'>get_declared_classes</a></td><td>Previously get_declared_classes always returned parent classes before
+       child classes. This is no longer the case. No particular order is guaranteed
+       for the get_declared_classes return value.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-magic-quotes-gpc.html'>get_magic_quotes_gpc</a></td><td>This function has been deprecated.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-magic-quotes-runtime.html'>get_magic_quotes_runtime</a></td><td>This function has been deprecated.</td></tr><tr><td>&nbsp;</td><td><a href='function.hash-algos.html'>hash_algos</a></td><td>Support for crc32c has been added.</td></tr><tr><td>&nbsp;</td><td><a href='function.hexdec.html'>hexdec</a></td><td>Passing invalid characters will now generate a deprecation notice.
+       The result will still be computed as if the invalid characters did not exist.</td></tr><tr><td>&nbsp;</td><td><a href='function.idn-to-ascii.html'>idn_to_ascii</a></td><td>The default value of variant is now
+        INTL_IDNA_VARIANT_UTS46 instead of the deprecated
+        INTL_IDNA_VARIANT_2003.</td></tr><tr><td>&nbsp;</td><td><a href='function.idn-to-utf8.html'>idn_to_utf8</a></td><td>The default value of variant is now
+        INTL_IDNA_VARIANT_UTS46 instead of the deprecated
+        INTL_IDNA_VARIANT_2003.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagecropauto.html'>imagecropauto</a></td><td>The default value of mode has been changed to
+       IMG_CROP_AUTO. Formerly, the default value has been
+       -1 which corresponds to IMG_CROP_DEFAULT,
+       but passing -1 is now deprecated.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagecropauto.html'>imagecropauto</a></td><td>The behavior of imagecropauto() in the bundled libgd has been synced with
+       that of system libgd: IMG_CROP_DEFAULT no longer falls
+       back to IMG_CROP_SIDES and threshold-cropping now uses
+       the same algorithm as system libgd.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagefilter.html'>imagefilter</a></td><td>Scatter support (IMG_FILTER_SCATTER) was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.implode.html'>implode</a></td><td>Passing the glue after the pieces
+       (i.e. not using the documented order of parameters) has been deprecated.</td></tr><tr><td>&nbsp;</td><td><a href='function.ldap-control-paged-result.html'>ldap_control_paged_result</a></td><td>This function has been deprecated.</td></tr><tr><td>&nbsp;</td><td><a href='function.ldap-control-paged-result-response.html'>ldap_control_paged_result_response</a></td><td>This function has been deprecated.</td></tr><tr><td>&nbsp;</td><td><a href='function.money-format.html'>money_format</a></td><td>This function has been deprecated. Instead, 
+        use NumberFormatter::formatCurrency.</td></tr><tr><td>&nbsp;</td><td><a href='function.octdec.html'>octdec</a></td><td>Passing invalid characters will now generate a deprecation notice.
+       The result will still be computed as if the invalid characters did not exist.</td></tr><tr><td>&nbsp;</td><td><a href='function.password-hash.html'>password_hash</a></td><td>The algo parameter expects a string now, but still accepts
+        integers for backward compatibility.</td></tr><tr><td>&nbsp;</td><td><a href='function.password-needs-rehash.html'>password_needs_rehash</a></td><td>The algo parameter expects a string now, but still accepts
+        integers for backward compatibility.</td></tr><tr><td>&nbsp;</td><td><a href='function.preg-replace-callback.html'>preg_replace_callback</a></td><td>The flags parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.preg-replace-callback-array.html'>preg_replace_callback_array</a></td><td>The flags parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.proc-open.html'>proc_open</a></td><td>Added the create_process_group option to the
+        other_options parameter.</td></tr><tr><td>&nbsp;</td><td><a href='function.proc-open.html'>proc_open</a></td><td>proc_open now also accepts an array
+        for the cmd.</td></tr><tr><td>&nbsp;</td><td><a href='function.stat.html'>stat</a></td><td>On Windows, the device number is now the serial number of the volume that
+       contains the file, and the inode number is the identifier associated with the file.</td></tr><tr><td>&nbsp;</td><td><a href='function.stat.html'>stat</a></td><td>The size, atime, mtime and
+       ctime statistics of symlinks are always those of the target.
+       This was previously not the case for NTS builds on Windows.</td></tr><tr><td>&nbsp;</td><td><a href='function.str-getcsv.html'>str_getcsv</a></td><td>The escape parameter now interprets an empty
+        string as signal to disable the proprietary escape mechanism. Formerly,
+        an empty string was treated like the default parameter value.</td></tr><tr><td>&nbsp;</td><td><a href='function.strip-tags.html'>strip_tags</a></td><td>The allowable_tags now alternatively accepts an array.</td></tr><tr><td>&nbsp;</td><td><a href='splfileobject.fgetcsv.html'>SplFileObject::fgetcsv</a></td><td>The escape parameter now also accepts an empty
+        string to disable the proprietary escape mechanism.</td></tr><tr><td>&nbsp;</td><td><a href='splfileobject.fputcsv.html'>SplFileObject::fputcsv</a></td><td>The escape parameter now also accepts an empty
+        string to disable the proprietary escape mechanism.</td></tr><tr><td>&nbsp;</td><td><a href='splfileobject.fwrite.html'>SplFileObject::fwrite</a></td><td>The function now returns FALSE instead of zero on failure.</td></tr><tr><td>&nbsp;</td><td><a href='splfileobject.getcsvcontrol.html'>SplFileObject::getCsvControl</a></td><td>The escape character can now be an empty string.</td></tr><tr><td>&nbsp;</td><td><a href='splfileobject.setcsvcontrol.html'>SplFileObject::setCsvControl</a></td><td>The escape parameter now also accepts an empty
+        string to disable the proprietary escape mechanism.</td></tr><tr><td>&nbsp;</td><td><a href='sqlite3stmt.bindparam.html'>SQLite3Stmt::bindParam</a></td><td>sql_param now also supports the @param
+       notation.</td></tr><tr><td>&nbsp;</td><td><a href='sqlite3stmt.bindvalue.html'>SQLite3Stmt::bindValue</a></td><td>sql_param now also supports the @param
+       notation.</td></tr></tbody><tbody class="gen-changelog v7-4-0"><tr><td>7.3.15, 7.4.3</td><td><a href='function.curl-setopt.html'>curl_setopt</a></td><td>Introduced CURLOPT_HTTP09_ALLOWED .</td></tr></tbody><tbody class="gen-changelog v7-3-15, 7-4-3"><tr><td>7.3.14, 7.4.2</td><td><a href='function.dba-open.html'>dba_open</a></td><td>The lmdb driver now supports an additional $mapsize
+       parameter.</td></tr></tbody><tbody class="gen-changelog v7-3-14, 7-4-2"><tr><td>7.3.0</td><td><a href='datetime.createfromformat.html'>DateTime::createFromFormat</a></td><td>The v format specifier has been added.</td></tr><tr><td>&nbsp;</td><td><a href='function.apache-request-headers.html'>apache_request_headers</a></td><td>This function became available in the FPM SAPI.</td></tr><tr><td>&nbsp;</td><td><a href='function.array-push.html'>array_push</a></td><td>This function can now be called with only one parameter. Formerly, at
+        least two parameters have been required.</td></tr><tr><td>&nbsp;</td><td><a href='function.array-unshift.html'>array_unshift</a></td><td>This function can now be called with only one parameter. Formerly, at
+        least two parameters have been required.</td></tr><tr><td>&nbsp;</td><td><a href='function.bcmul.html'>bcmul</a></td><td>bcmul now returns numbers with the requested scale.
+       Formerly, the returned numbers may have omitted trailing decimal zeroes.</td></tr><tr><td>&nbsp;</td><td><a href='function.bcpow.html'>bcpow</a></td><td>bcpow now returns numbers with the requested scale.
+       Formerly, the returned numbers may have omitted trailing decimal zeroes.</td></tr><tr><td>&nbsp;</td><td><a href='function.bcscale.html'>bcscale</a></td><td>bcscale can now be used to get the current scale
+       factor; when used as setter, it now returns the old scale value.
+       Formerly, scale was mandatory, and
+       bcscale always returned TRUE.</td></tr><tr><td>&nbsp;</td><td><a href='function.compact.html'>compact</a></td><td>compact now issues an E_NOTICE level error if a given string
+       refers to an unset variable. Formerly, such strings have been silently skipped.</td></tr><tr><td>&nbsp;</td><td><a href='function.curl-getinfo.html'>curl_getinfo</a></td><td>Introduced CURLINFO_CONTENT_LENGTH_DOWNLOAD_T,
+        CURLINFO_CONTENT_LENGTH_UPLOAD_T, 
+        CURLINFO_HTTP_VERSION,
+        CURLINFO_PROTOCOL,
+        CURLINFO_PROXY_SSL_VERIFYRESULT,
+        CURLINFO_SCHEME,
+        CURLINFO_SIZE_DOWNLOAD_T,
+        CURLINFO_SIZE_UPLOAD_T,
+        CURLINFO_SPEED_DOWNLOAD_T,
+        CURLINFO_SPEED_UPLOAD_T,
+        CURLINFO_APPCONNECT_TIME_T,
+        CURLINFO_CONNECT_TIME_T,
+        CURLINFO_FILETIME_T,
+        CURLINFO_NAMELOOKUP_TIME_T,
+        CURLINFO_PRETRANSFER_TIME_T,
+        CURLINFO_REDIRECT_TIME_T,
+        CURLINFO_STARTTRANSFER_TIME_T,
+        CURLINFO_TOTAL_TIME_T.</td></tr><tr><td>&nbsp;</td><td><a href='function.curl-setopt.html'>curl_setopt</a></td><td>Introduced CURLOPT_ABSTRACT_UNIX_SOCKET, CURLOPT_KEEP_SENDING_ON_ERROR,
+        CURLOPT_PRE_PROXY, CURLOPT_PROXY_CAINFO,
+        CURLOPT_PROXY_CAPATH, CURLOPT_PROXY_CRLFILE,
+        CURLOPT_PROXY_KEYPASSWD, CURLOPT_PROXY_PINNEDPUBLICKEY,
+        CURLOPT_PROXY_SSLCERT, CURLOPT_PROXY_SSLCERTTYPE,
+        CURLOPT_PROXY_SSL_CIPHER_LIST, CURLOPT_PROXY_SSLKEY,
+        CURLOPT_PROXY_SSLKEYTYPE, CURLOPT_PROXY_SSL_OPTIONS,
+        CURLOPT_PROXY_SSL_VERIFYHOST, CURLOPT_PROXY_SSL_VERIFYPEER,
+        CURLOPT_PROXY_SSLVERSION, CURLOPT_PROXY_TLSAUTH_PASSWORD,
+        CURLOPT_PROXY_TLSAUTH_TYPE, CURLOPT_PROXY_TLSAUTH_USERNAME,
+        CURLOPT_SOCKS5_AUTH, CURLOPT_SUPPRESS_CONNECT_HEADERS,
+        CURLOPT_DISALLOW_USERNAME_IN_URL, CURLOPT_DNS_SHUFFLE_ADDRESSES,
+        CURLOPT_HAPPY_EYEBALLS_TIMEOUT_MS, CURLOPT_HAPROXYPROTOCOL,
+        CURLOPT_PROXY_TLS13_CIPHERS, CURLOPT_SSH_COMPRESSION,
+        CURLOPT_TIMEVALUE_LARGE and CURLOPT_TLS13_CIPHERS.</td></tr><tr><td>&nbsp;</td><td><a href='function.define.html'>define</a></td><td>case_insensitive has been deprecated and will be removed in version 8.0.0.</td></tr><tr><td>&nbsp;</td><td><a href='function.ftp-fget.html'>ftp_fget</a></td><td>The mode parameter is now optional. Formerly it
+       has been mandatory.</td></tr><tr><td>&nbsp;</td><td><a href='function.ftp-fput.html'>ftp_fput</a></td><td>The mode parameter is now optional. Formerly it
+       has been mandatory.</td></tr><tr><td>&nbsp;</td><td><a href='function.ftp-get.html'>ftp_get</a></td><td>The mode parameter is now optional. Formerly it
+       has been mandatory.</td></tr><tr><td>&nbsp;</td><td><a href='function.ftp-nb-fget.html'>ftp_nb_fget</a></td><td>The mode parameter is now optional. Formerly it
+       has been mandatory.</td></tr><tr><td>&nbsp;</td><td><a href='function.ftp-nb-fput.html'>ftp_nb_fput</a></td><td>The mode parameter is now optional. Formerly it
+       has been mandatory.</td></tr><tr><td>&nbsp;</td><td><a href='function.ftp-nb-get.html'>ftp_nb_get</a></td><td>The mode parameter is now optional. Formerly it
+       has been mandatory.</td></tr><tr><td>&nbsp;</td><td><a href='function.ftp-nb-put.html'>ftp_nb_put</a></td><td>The mode parameter is now optional. Formerly it
+       has been mandatory.</td></tr><tr><td>&nbsp;</td><td><a href='function.ftp-put.html'>ftp_put</a></td><td>The mode parameter is now optional. Formerly it
+       has been mandatory.</td></tr><tr><td>&nbsp;</td><td><a href='function.getallheaders.html'>getallheaders</a></td><td>This function became available in the FPM SAPI.</td></tr><tr><td>&nbsp;</td><td><a href='function.is-countable.html'>is_countable</a></td><td>is_countable has been added.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-decode.html'>json_decode</a></td><td>JSON_THROW_ON_ERROR
+        options was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-encode.html'>json_encode</a></td><td>JSON_THROW_ON_ERROR
+        options was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.list.html'>list</a></td><td>Support for reference assignments in array destructuring was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.mb-convert-case.html'>mb_convert_case</a></td><td>Added support for
+        MB_CASE_FOLD,
+        MB_CASE_UPPER_SIMPLE,
+        MB_CASE_LOWER_SIMPLE,
+        MB_CASE_TITLE_SIMPLE, and
+        MB_CASE_FOLD_SIMPLE
+        as mode.</td></tr><tr><td>&nbsp;</td><td><a href='function.password-hash.html'>password_hash</a></td><td>Support for Argon2id passwords using PASSWORD_ARGON2ID was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.preg-quote.html'>preg_quote</a></td><td>The # character is now quoted</td></tr><tr><td>&nbsp;</td><td><a href='function.session-get-cookie-params.html'>session_get_cookie_params</a></td><td>The &quot;samesite&quot; entry was added in the returned array.</td></tr><tr><td>&nbsp;</td><td><a href='function.session-set-cookie-params.html'>session_set_cookie_params</a></td><td>An alternative signature supporting an options
+        array has been added. This signature supports also setting of the
+        SameSite cookie attribute.</td></tr><tr><td>&nbsp;</td><td><a href='function.setcookie.html'>setcookie</a></td><td>An alternative signature supporting an options
+        array has been added. This signature supports also setting of the
+        SameSite cookie attribute.</td></tr><tr><td>&nbsp;</td><td><a href='function.setrawcookie.html'>setrawcookie</a></td><td>An alternative signature supporting an options
+        array has been added. This signature supports also setting of the
+        SameSite cookie attribute.</td></tr><tr><td>&nbsp;</td><td><a href='function.unlink.html'>unlink</a></td><td>On Windows, it is now possible to unlink files with
+       handles in use, while formerly that would fail. However, it is still not
+       possible to re-create the unlinked file, until all handles to it have been
+       closed.</td></tr><tr><td>&nbsp;</td><td><a href='function.var-export.html'>var_export</a></td><td>Now exports stdClass objects as an array cast to
+        an object ((object) array( ... )), rather than using the
+        nonexistent method stdClass::__setState.
+        The practical effect is that now stdClass is
+        exportable, and the resulting code will even work on earlier versions of
+        PHP.</td></tr><tr><td>&nbsp;</td><td><a href='function.xml-set-external-entity-ref-handler.html'>xml_set_external_entity_ref_handler</a></td><td>The return value of the handler is no longer
+       ignored if the extension has been built against libxml. Formerly, the return
+       value has been ignored, and parsing did never stop.</td></tr></tbody><tbody class="gen-changelog v7-3-0"><tr><td>7.3</td><td><a href='function.ldap-add.html'>ldap_add</a></td><td>Support for serverctrls added</td></tr><tr><td>&nbsp;</td><td><a href='function.ldap-compare.html'>ldap_compare</a></td><td>Support for serverctrls added</td></tr><tr><td>&nbsp;</td><td><a href='function.ldap-delete.html'>ldap_delete</a></td><td>Support for serverctrls added</td></tr><tr><td>&nbsp;</td><td><a href='function.ldap-exop.html'>ldap_exop</a></td><td>Support for serverctrls added</td></tr><tr><td>&nbsp;</td><td><a href='function.ldap-exop-passwd.html'>ldap_exop_passwd</a></td><td>Support for serverctrls added</td></tr><tr><td>&nbsp;</td><td><a href='function.ldap-list.html'>ldap_list</a></td><td>Support for serverctrls added</td></tr><tr><td>&nbsp;</td><td><a href='function.ldap-mod-add.html'>ldap_mod_add</a></td><td>Support for serverctrls added</td></tr><tr><td>&nbsp;</td><td><a href='function.ldap-mod-del.html'>ldap_mod_del</a></td><td>Support for serverctrls added</td></tr><tr><td>&nbsp;</td><td><a href='function.ldap-mod-replace.html'>ldap_mod_replace</a></td><td>Support for serverctrls added</td></tr><tr><td>&nbsp;</td><td><a href='function.ldap-modify-batch.html'>ldap_modify_batch</a></td><td>Support for serverctrls added</td></tr><tr><td>&nbsp;</td><td><a href='function.ldap-parse-result.html'>ldap_parse_result</a></td><td>Support for serverctrls added</td></tr><tr><td>&nbsp;</td><td><a href='function.ldap-read.html'>ldap_read</a></td><td>Support for serverctrls added</td></tr><tr><td>&nbsp;</td><td><a href='function.ldap-rename.html'>ldap_rename</a></td><td>Support for serverctrls added</td></tr><tr><td>&nbsp;</td><td><a href='function.ldap-search.html'>ldap_search</a></td><td>Support for serverctrls added</td></tr></tbody><tbody class="gen-changelog v7-3"><tr><td>7.2.19, 7.3.6</td><td><a href='splfileobject.tostring.html'>SplFileObject::__toString</a></td><td>Changed from an alias of SplFileObject::current to an alias of SplFileObject::fgets.</td></tr></tbody><tbody class="gen-changelog v7-2-19, 7-3-6"><tr><td>7.2.18, 7.3.5</td><td><a href='function.substr-compare.html'>substr_compare</a></td><td>offset may now be equal to the length of main_str.</td></tr></tbody><tbody class="gen-changelog v7-2-18, 7-3-5"><tr><td>7.2.0</td><td><a href='function.array-unique.html'>array_unique</a></td><td>If sort_flags is SORT_STRING,
+        formerly array has been copied and non-unique
+        elements have been removed (without packing the array afterwards), but
+        now a new array is built by adding the unique elements. This can result
+        in different numeric indexes.</td></tr><tr><td>&nbsp;</td><td><a href='function.assert.html'>assert</a></td><td>Usage of a string as the assertion
+        became deprecated. It now emits an E_DEPRECATED
+        notice when both assert.active
+        and zend.assertions are set
+        to 1.</td></tr><tr><td>&nbsp;</td><td><a href='function.bcmod.html'>bcmod</a></td><td>The scale parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.bcmod.html'>bcmod</a></td><td>dividend and divisor are no
+       longer truncated to integer, so now the behavior of
+       bcmod follows fmod rather than
+       the % operator.</td></tr><tr><td>&nbsp;</td><td><a href='function.count.html'>count</a></td><td>count will now yield a warning on invalid countable types 
+       passed to the array_or_countable parameter.</td></tr><tr><td>&nbsp;</td><td><a href='function.date-parse.html'>date_parse</a></td><td>The zone element of the returned array represents
+       seconds instead of minutes now, and its sign is inverted. For instance
+       -120 is now 7200.</td></tr><tr><td>&nbsp;</td><td><a href='function.date-parse-from-format.html'>date_parse_from_format</a></td><td>The zone element of the returned array represents
+       seconds instead of minutes now, and its sign is inverted. For instance
+       -120 is now 7200.</td></tr><tr><td>&nbsp;</td><td><a href='function.exif-read-data.html'>exif_read_data</a></td><td>The filename parameter was renamed to 
+        stream and now supports both local files 
+        or stream resources.</td></tr><tr><td>&nbsp;</td><td><a href='function.exif-read-data.html'>exif_read_data</a></td><td>Support for the following EXIF formats were added:
+       
+        
+         
+          Samsung
+         
+        
+        
+         
+          DJI
+         
+        
+        
+         
+          Panasonic
+         
+        
+        
+         
+          Sony
+         
+        
+        
+         
+          Pentax
+         
+        
+        
+         
+          Minolta
+         
+        
+        
+         
+          Sigma/Foveon
+         
+        
+        
+         
+          AGFA
+         
+        
+        
+         
+          Kyocera
+         
+        
+        
+         
+          Ricoh
+         
+        
+        
+         
+          Epson</td></tr><tr><td>&nbsp;</td><td><a href='function.exif-thumbnail.html'>exif_thumbnail</a></td><td>The filename parameter was renamed to 
+        stream and now supports both local files 
+        or stream resources.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-class.html'>get_class</a></td><td>NULL was removed as the default value for object,
+        and is no longer a valid input.</td></tr><tr><td>&nbsp;</td><td><a href='function.gettype.html'>gettype</a></td><td>Closed resources are now reported as 'resource (closed)'. 
+        Previously the returned value for closed resources were 'unknown type'.</td></tr><tr><td>&nbsp;</td><td><a href='function.hash-copy.html'>hash_copy</a></td><td>Accept and return HashContext instead of resource.</td></tr><tr><td>&nbsp;</td><td><a href='function.hash-final.html'>hash_final</a></td><td>Accept HashContext instead of resource.</td></tr><tr><td>&nbsp;</td><td><a href='function.hash-hmac.html'>hash_hmac</a></td><td>Usage of non-cryptographic hash functions (adler32, crc32, crc32b, fnv132, fnv1a32, fnv164, fnv1a64, joaat) was disabled.</td></tr><tr><td>&nbsp;</td><td><a href='function.hash-hmac-file.html'>hash_hmac_file</a></td><td>Usage of non-cryptographic hash functions (adler32, crc32, crc32b, fnv132, fnv1a32, fnv164, fnv1a64, joaat) was disabled.</td></tr><tr><td>&nbsp;</td><td><a href='function.hash-init.html'>hash_init</a></td><td>Usage of non-cryptographic hash functions (adler32, crc32, crc32b, fnv132, fnv1a32, fnv164, fnv1a64, joaat) with HASH_HMAC was disabled.</td></tr><tr><td>&nbsp;</td><td><a href='function.hash-init.html'>hash_init</a></td><td>Return HashContext instead of resource.</td></tr><tr><td>&nbsp;</td><td><a href='function.hash-pbkdf2.html'>hash_pbkdf2</a></td><td>Usage of non-cryptographic hash functions (adler32, crc32, crc32b, fnv132, fnv1a32, fnv164, fnv1a64, joaat) was disabled.</td></tr><tr><td>&nbsp;</td><td><a href='function.hash-update.html'>hash_update</a></td><td>Accept HashContext instead of resource.</td></tr><tr><td>&nbsp;</td><td><a href='function.hash-update-file.html'>hash_update_file</a></td><td>Accept HashContext instead of resource.</td></tr><tr><td>&nbsp;</td><td><a href='function.hash-update-stream.html'>hash_update_stream</a></td><td>Accept HashContext instead of resource.</td></tr><tr><td>&nbsp;</td><td><a href='function.idn-to-ascii.html'>idn_to_ascii</a></td><td>INTL_IDNA_VARIANT_2003 has been deprecated; use
+        INTL_IDNA_VARIANT_UTS46 instead.</td></tr><tr><td>&nbsp;</td><td><a href='function.idn-to-utf8.html'>idn_to_utf8</a></td><td>INTL_IDNA_VARIANT_2003 has been deprecated; use
+        INTL_IDNA_VARIANT_UTS46 instead.</td></tr><tr><td>&nbsp;</td><td><a href='function.imageantialias.html'>imageantialias</a></td><td>imageantialias is now generally available. Formerly
+       it was only available if PHP was compiled with the bundled version of the
+       GD library.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagegd.html'>imagegd</a></td><td>imagegd now allows to output truecolor images.
+        Formerly, these have been implicitly converted to palette.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagelayereffect.html'>imagelayereffect</a></td><td>Added IMG_EFFECT_MULTIPLY (requires system libgd &gt;=
+       2.1.1 or the bundled libgd).</td></tr><tr><td>&nbsp;</td><td><a href='function.imagetypes.html'>imagetypes</a></td><td>IMG_BMP added.</td></tr><tr><td>&nbsp;</td><td><a href='function.is-object.html'>is_object</a></td><td>is_object now returns TRUE for unserialized objects without 
+        a class definition (class of __PHP_Incomplete_Class). Previously 
+        FALSE was returned.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-decode.html'>json_decode</a></td><td>JSON_INVALID_UTF8_IGNORE, and
+        JSON_INVALID_UTF8_SUBSTITUTE
+        options were added.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-decode.html'>json_decode</a></td><td>assoc is nullable now.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-encode.html'>json_encode</a></td><td>JSON_INVALID_UTF8_IGNORE, and
+        JSON_INVALID_UTF8_SUBSTITUTE
+        options were added.</td></tr><tr><td>&nbsp;</td><td><a href='function.mail.html'>mail</a></td><td>The additional_headers parameter now also accepts
+        an array.</td></tr><tr><td>&nbsp;</td><td><a href='function.mb-check-encoding.html'>mb_check_encoding</a></td><td>This function now also accepts an array as var.
+       Formerly, only strings have been supported.</td></tr><tr><td>&nbsp;</td><td><a href='function.mb-convert-encoding.html'>mb_convert_encoding</a></td><td>This function now also accepts an array as val.
+       Formerly, only strings have been supported.</td></tr><tr><td>&nbsp;</td><td><a href='function.mb-parse-str.html'>mb_parse_str</a></td><td>Calling mb_parse_str without the second parameter was deprecated.</td></tr><tr><td>&nbsp;</td><td><a href='function.mb-send-mail.html'>mb_send_mail</a></td><td>The additional_headers parameter now also accepts
+        an array.</td></tr><tr><td>&nbsp;</td><td><a href='function.mt-rand.html'>mt_rand</a></td><td>mt_rand has received a bug fix for a modulo bias bug. This means that sequences generated with a specific seed may differ from PHP 7.1 on 64-bit machines.</td></tr><tr><td>&nbsp;</td><td><a href='function.number-format.html'>number_format</a></td><td>number_format was changed to not being able to return 
+        -0, previously -0 could be returned 
+        for cases like where number would be -0.01.</td></tr><tr><td>&nbsp;</td><td><a href='function.openssl-pkcs7-verify.html'>openssl_pkcs7_verify</a></td><td>The p7bfilename parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.pack.html'>pack</a></td><td>float and double types supports both Big Endian and Little Endian.</td></tr><tr><td>&nbsp;</td><td><a href='function.parse-str.html'>parse_str</a></td><td>Usage of parse_str without a second parameter
+        now emits an E_DEPRECATED notice.</td></tr><tr><td>&nbsp;</td><td><a href='function.password-hash.html'>password_hash</a></td><td>Support for Argon2i passwords using PASSWORD_ARGON2I was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.preg-match.html'>preg_match</a></td><td>The PREG_UNMATCHED_AS_NULL is now supported for the
+        $flags parameter.</td></tr><tr><td>&nbsp;</td><td><a href='function.preg-match-all.html'>preg_match_all</a></td><td>The PREG_UNMATCHED_AS_NULL is now supported for the
+        $flags parameter.</td></tr><tr><td>&nbsp;</td><td><a href='function.proc-nice.html'>proc_nice</a></td><td>This function is now available on Windows.</td></tr><tr><td>&nbsp;</td><td><a href='function.rand.html'>rand</a></td><td>rand has received a bug fix for a modulo bias bug. This means that sequences generated with a specific seed may differ from PHP 7.1 on 64-bit machines.</td></tr><tr><td>&nbsp;</td><td><a href='function.read-exif-data.html'>read_exif_data</a></td><td>This function alias was deprecated.</td></tr><tr><td>&nbsp;</td><td><a href='function.session-abort.html'>session_abort</a></td><td>The return type of this function is bool now.
+       Formerly, it has been void.</td></tr><tr><td>&nbsp;</td><td><a href='function.session-module-name.html'>session_module_name</a></td><td>It is now explicitly forbidden to set the module name to
+       &quot;user&quot;. Formerly, this has been silently ignored.</td></tr><tr><td>&nbsp;</td><td><a href='function.session-name.html'>session_name</a></td><td>session_name checks session status,
+        previously it only checked cookie status. Therefore,
+        older session_name allows to
+        call session_name
+        after session_start which may crash PHP
+        and may result in misbehaviors.</td></tr><tr><td>&nbsp;</td><td><a href='function.session-reset.html'>session_reset</a></td><td>The return type of this function is bool now.
+       Formerly, it has been void.</td></tr><tr><td>&nbsp;</td><td><a href='function.session-set-cookie-params.html'>session_set_cookie_params</a></td><td>Returns TRUE on success or FALSE on failure. Formerly the function returned void.</td></tr><tr><td>&nbsp;</td><td><a href='function.session-unset.html'>session_unset</a></td><td>The return type of this function is bool now.
+       Formerly, it has been void.</td></tr><tr><td>&nbsp;</td><td><a href='function.session-write-close.html'>session_write_close</a></td><td>The return type of this function is bool now.
+       Formerly, it has been void.</td></tr><tr><td>&nbsp;</td><td><a href='function.set-error-handler.html'>set_error_handler</a></td><td>errcontext became deprecated. Usage of this parameter now emits an E_DEPRECATED notice.</td></tr><tr><td>&nbsp;</td><td><a href='function.unpack.html'>unpack</a></td><td>float and double types supports both Big Endian and Little Endian.</td></tr><tr><td>&nbsp;</td><td><a href='function.utf8-decode.html'>utf8_decode</a></td><td>This function has been moved to the core of PHP, and therefore lifting the requirement 
+        on the XML extension for this function to be available.</td></tr><tr><td>&nbsp;</td><td><a href='function.utf8-encode.html'>utf8_encode</a></td><td>This function has been moved to the core of PHP, and therefore lifting the requirement 
+        on the XML extension for this function to be available.</td></tr><tr><td>&nbsp;</td><td><a href='pdostatement.debugdumpparams.html'>PDOStatement::debugDumpParams</a></td><td>PDOStatement::debugDumpParams now returns the SQL sent to 
+        the database, including the full, raw query (including the replaced placeholders with 
+        their bounded values). Note, that this will only be available if emulated prepared 
+        statements are turned on.</td></tr><tr><td>&nbsp;</td><td><a href='sqlite3.openblob.html'>SQLite3::openBlob</a></td><td>The flags parameter has been added, allowing to
+       write BLOBs; formerly only reading was supported.</td></tr></tbody><tbody class="gen-changelog v7-2-0"><tr><td>7.1.24, 7.2.12, 7.3.0</td><td><a href='function.xml-parser-get-option.html'>xml_parser_get_option</a></td><td>options now supports XML_OPTION_SKIP_TAGSTART
+       and XML_OPTION_SKIP_WHITE.</td></tr></tbody><tbody class="gen-changelog v7-1-24, 7-2-12, 7-3-0"><tr><td>7.1.5</td><td><a href='intldateformatter.format.html'>IntlDateFormatter::format</a></td><td>Support for providing general DateTimeInterface objects to the
+        value parameter was added. Formerly, only proper
+        DateTime objects were supported.</td></tr></tbody><tbody class="gen-changelog v7-1-5"><tr><td>7.1.4</td><td><a href='pdo.sqlitecreatefunction.html'>PDO::sqliteCreateFunction</a></td><td>The flags parameter has been added.</td></tr><tr><td>&nbsp;</td><td><a href='sqlite3.createfunction.html'>SQLite3::createFunction</a></td><td>The flags parameter has been added.</td></tr></tbody><tbody class="gen-changelog v7-1-4"><tr><td>7.1.0</td><td><a href='dateinterval.format.html'>DateInterval::format</a></td><td>The F and f format
+       characters were added.</td></tr><tr><td>&nbsp;</td><td><a href='datetime.settime.html'>DateTime::setTime</a></td><td>The microsecond parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.array-rand.html'>array_rand</a></td><td>The internal randomization algorithm has been changed to use the Mersenne Twister Random Number Generator instead of the libc rand function.</td></tr><tr><td>&nbsp;</td><td><a href='function.curl-multi-setopt.html'>curl_multi_setopt</a></td><td>Introduced CURLMOPT_PUSHFUNCTION.</td></tr><tr><td>&nbsp;</td><td><a href='function.exif-imagetype.html'>exif_imagetype</a></td><td>Added WebP support.</td></tr><tr><td>&nbsp;</td><td><a href='function.file-get-contents.html'>file_get_contents</a></td><td>Support for negative offsets has been added.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-headers.html'>get_headers</a></td><td>The context parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.getenv.html'>getenv</a></td><td>The varname can now be omitted to retrieve an
+       associative array of all environment variables.</td></tr><tr><td>&nbsp;</td><td><a href='function.getimagesize.html'>getimagesize</a></td><td>Added WebP support.</td></tr><tr><td>&nbsp;</td><td><a href='function.getopt.html'>getopt</a></td><td>Added the optind parameter.</td></tr><tr><td>&nbsp;</td><td><a href='function.grapheme-extract.html'>grapheme_extract</a></td><td>Support for negative starts has been added.</td></tr><tr><td>&nbsp;</td><td><a href='function.grapheme-stripos.html'>grapheme_stripos</a></td><td>Support for negative offsets has been added.</td></tr><tr><td>&nbsp;</td><td><a href='function.grapheme-strpos.html'>grapheme_strpos</a></td><td>Support for negative offsets has been added.</td></tr><tr><td>&nbsp;</td><td><a href='function.hash-algos.html'>hash_algos</a></td><td>Support for sha512/224, sha512/256, sha3-224, sha3-256, sha3-384 and
+        sha3-512 has been added.</td></tr><tr><td>&nbsp;</td><td><a href='function.iconv-strpos.html'>iconv_strpos</a></td><td>Support for negative offsets has been added.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-decode.html'>json_decode</a></td><td>An empty JSON key (&quot;&quot;) can be encoded to the empty object property
+        instead of using a key with value _empty_.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-encode.html'>json_encode</a></td><td>serialize_precision is
+        used instead of precision when
+        encoding double values.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-encode.html'>json_encode</a></td><td>JSON_UNESCAPED_LINE_TERMINATORS
+        options was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.list.html'>list</a></td><td>It is now possible to specify keys in list. This
+        enables destructuring of arrays with non-integer or non-sequential keys.</td></tr><tr><td>&nbsp;</td><td><a href='function.long2ip.html'>long2ip</a></td><td>The parameter type of proper_address has been
+       changed from string to integer.</td></tr><tr><td>&nbsp;</td><td><a href='function.mb-ereg.html'>mb_ereg</a></td><td>mb_ereg will now set regs to
+       an empty array, if nothing matched. Formerly,
+       regs was not modified in that case.</td></tr><tr><td>&nbsp;</td><td><a href='function.mb-ereg-replace.html'>mb_ereg_replace</a></td><td>The e modifier has been deprecated.</td></tr><tr><td>&nbsp;</td><td><a href='function.mb-ereg-search-setpos.html'>mb_ereg_search_setpos</a></td><td>Support for negative positions has been added.</td></tr><tr><td>&nbsp;</td><td><a href='function.mb-eregi.html'>mb_eregi</a></td><td>mb_eregi will now set regs to
+       an empty array, if nothing matched. Formerly,
+       regs was not modified in that case.</td></tr><tr><td>&nbsp;</td><td><a href='function.mb-eregi-replace.html'>mb_eregi_replace</a></td><td>The e modifier has been deprecated.</td></tr><tr><td>&nbsp;</td><td><a href='function.mb-strimwidth.html'>mb_strimwidth</a></td><td>Support for negative starts and widths has been added.</td></tr><tr><td>&nbsp;</td><td><a href='function.mb-stripos.html'>mb_stripos</a></td><td>Support for negative offsets has been added.</td></tr><tr><td>&nbsp;</td><td><a href='function.mb-strpos.html'>mb_strpos</a></td><td>Support for negative offsets has been added.</td></tr><tr><td>&nbsp;</td><td><a href='function.mt-rand.html'>mt_rand</a></td><td>rand has been made an alias of mt_rand.</td></tr><tr><td>&nbsp;</td><td><a href='function.mt-rand.html'>mt_rand</a></td><td>mt_rand has been updated to use the fixed, correct, version of
+         the Mersenne Twister algorithm. To fall back to the old behaviour, use mt_srand with MT_RAND_PHP as the second parameter.</td></tr><tr><td>&nbsp;</td><td><a href='function.mt-srand.html'>mt_srand</a></td><td>mt_rand has been updated to use the fixed, correct, version of
+         the Mersenne Twister algorithm. To fall back to the old behaviour, use mt_srand with MT_RAND_PHP as the second parameter.</td></tr><tr><td>&nbsp;</td><td><a href='function.mt-srand.html'>mt_srand</a></td><td>srand has been made an alias of mt_srand.</td></tr><tr><td>&nbsp;</td><td><a href='function.openssl-csr-new.html'>openssl_csr_new</a></td><td>configargs now also supports curve_name.</td></tr><tr><td>&nbsp;</td><td><a href='function.openssl-decrypt.html'>openssl_decrypt</a></td><td>The tag and aad parameters were added.</td></tr><tr><td>&nbsp;</td><td><a href='function.openssl-encrypt.html'>openssl_encrypt</a></td><td>The tag, aad and tag_length parameters were added.</td></tr><tr><td>&nbsp;</td><td><a href='function.openssl-pkey-new.html'>openssl_pkey_new</a></td><td>The curve_name configarg was added to make it possible to create EC keys.</td></tr><tr><td>&nbsp;</td><td><a href='function.output-add-rewrite-var.html'>output_add_rewrite_var</a></td><td>Before PHP 7.1.0, rewrite vars set by output_add_rewrite_var
+        use the same Session module trans sid output buffer. Since PHP 7.1.0,
+        dedicated output buffer is used, 
+        url_rewriter.tags is used solely for output functions, url_rewriter.hosts is added.</td></tr><tr><td>&nbsp;</td><td><a href='function.output-reset-rewrite-vars.html'>output_reset_rewrite_vars</a></td><td>Before PHP 7.1.0, rewrite vars set by output_add_rewrite_var
+        use the same Session module trans sid output buffer. Since PHP 7.1.0,
+        dedicated output buffer is used and output_reset_rewrite_vars
+        only removes rewrite vars defined by output_add_rewrite_var.</td></tr><tr><td>&nbsp;</td><td><a href='function.pcntl-signal.html'>pcntl_signal</a></td><td>As of PHP 7.1.0 the handler callback is given a second argument
+        containing the signinfo of the specific signal.  This data is only
+        supplied if the operating system has the signinfo_t structure.
+        If the OS does not implement siginfo_t NULL is supplied.</td></tr><tr><td>&nbsp;</td><td><a href='function.pcntl-signal-get-handler.html'>pcntl_signal_get_handler</a></td><td>pcntl_signal_get_handler has been added.</td></tr><tr><td>&nbsp;</td><td><a href='function.pg-fetch-all.html'>pg_fetch_all</a></td><td>The result_type parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.pg-last-notice.html'>pg_last_notice</a></td><td>The option parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.pg-select.html'>pg_select</a></td><td>The result_type parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.rand.html'>rand</a></td><td>rand has been made an alias of mt_rand.</td></tr><tr><td>&nbsp;</td><td><a href='function.session-start.html'>session_start</a></td><td>session_start now returns FALSE and no longer
+        initializes $_SESSION when it failed to start the
+        session.</td></tr><tr><td>&nbsp;</td><td><a href='function.shuffle.html'>shuffle</a></td><td>The internal randomization algorithm has been changed to use the Mersenne Twister Random Number Generator instead of the libc rand function.</td></tr><tr><td>&nbsp;</td><td><a href='function.srand.html'>srand</a></td><td>srand has been made an alias of mt_srand.</td></tr><tr><td>&nbsp;</td><td><a href='function.str-shuffle.html'>str_shuffle</a></td><td>The internal randomization algorithm has been changed to use the Mersenne Twister Random Number Generator instead of the libc rand function.</td></tr><tr><td>&nbsp;</td><td><a href='function.stripos.html'>stripos</a></td><td>Support for negative offsets has been added.</td></tr><tr><td>&nbsp;</td><td><a href='function.strpos.html'>strpos</a></td><td>Support for negative offsets has been added.</td></tr><tr><td>&nbsp;</td><td><a href='function.substr-count.html'>substr_count</a></td><td>Support for negative offsets and lengths has been added.
+        length may also be 0 now.</td></tr><tr><td>&nbsp;</td><td><a href='function.unpack.html'>unpack</a></td><td>The optional offset has been added.</td></tr><tr><td>&nbsp;</td><td><a href='function.unserialize.html'>unserialize</a></td><td>The allowed_classes element of
+        options) is now strictly typed, i.e. if anything
+        other than an array or a boolean is given,
+        unserialize returns FALSE and issues an
+        E_WARNING.</td></tr></tbody><tbody class="gen-changelog v7-1-0"><tr><td>7.1</td><td><a href='datetime.construct.html'>DateTime::__construct</a></td><td>From now on microseconds are filled with actual value. Not with '00000'.</td></tr></tbody><tbody class="gen-changelog v7-1"><tr><td>7.0.16, 7.1.2</td><td><a href='function.dns-get-record.html'>dns_get_record</a></td><td>Added support for CAA record type.</td></tr><tr><td>&nbsp;</td><td><a href='function.fopen.html'>fopen</a></td><td>The 'e' option was added.</td></tr></tbody><tbody class="gen-changelog v7-0-16, 7-1-2"><tr><td>7.0.15, 7.1.1</td><td><a href='function.get-defined-functions.html'>get_defined_functions</a></td><td>The exclude_disabled parameter has been added.</td></tr></tbody><tbody class="gen-changelog v7-0-15, 7-1-1"><tr><td>7.0.15,7.1.1</td><td><a href='function.pack.html'>pack</a></td><td>The &quot;e&quot;, &quot;E&quot;, &quot;g&quot; and &quot;G&quot; codes were added to enable byte order support for float and double.</td></tr></tbody><tbody class="gen-changelog v7-0-15,7-1-1"><tr><td>7.0.11</td><td><a href='function.iconv-substr.html'>iconv_substr</a></td><td>If str is equal to
+        offset characters long, an empty string will be
+        returned. Prior to this version, FALSE was returned in this case.</td></tr></tbody><tbody class="gen-changelog v7-0-11"><tr><td>7.0.10</td><td><a href='sqlite3.construct.html'>SQLite3::__construct</a></td><td>The filename can now be empty to use a private,
+       temporary on-disk database.</td></tr></tbody><tbody class="gen-changelog v7-0-10"><tr><td>7.0.7</td><td><a href='function.curl-multi-setopt.html'>curl_multi_setopt</a></td><td>Introduced CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE,
+        CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE,
+        CURLMOPT_MAX_HOST_CONNECTIONS,
+        CURLMOPT_MAX_PIPELINE_LENGTH and
+        CURLMOPT_MAX_TOTAL_CONNECTIONS.</td></tr><tr><td>&nbsp;</td><td><a href='function.curl-setopt.html'>curl_setopt</a></td><td>Introduced CURL_HTTP_VERSION_2, CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE,
+        CURL_HTTP_VERSION_2TLS, CURL_REDIR_POST_301,
+        CURL_REDIR_POST_302, CURL_REDIR_POST_303,
+        CURL_REDIR_POST_ALL, CURL_VERSION_KERBEROS5,
+        CURL_VERSION_PSL, CURL_VERSION_UNIX_SOCKETS,
+        CURLAUTH_NEGOTIATE, CURLAUTH_NTLM_WB,
+        CURLFTP_CREATE_DIR, CURLFTP_CREATE_DIR_NONE,
+        CURLFTP_CREATE_DIR_RETRY, CURLHEADER_SEPARATE,
+        CURLHEADER_UNIFIED, CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE,
+        CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE, CURLMOPT_MAX_HOST_CONNECTIONS,
+        CURLMOPT_MAX_PIPELINE_LENGTH, CURLMOPT_MAX_TOTAL_CONNECTIONS,
+        CURLOPT_CONNECT_TO, CURLOPT_DEFAULT_PROTOCOL,
+        CURLOPT_DNS_INTERFACE, CURLOPT_DNS_LOCAL_IP4,
+        CURLOPT_DNS_LOCAL_IP6, CURLOPT_EXPECT_100_TIMEOUT_MS,
+        CURLOPT_HEADEROPT, CURLOPT_LOGIN_OPTIONS,
+        CURLOPT_PATH_AS_IS, CURLOPT_PINNEDPUBLICKEY,
+        CURLOPT_PIPEWAIT, CURLOPT_PROXY_SERVICE_NAME,
+        CURLOPT_PROXYHEADER, CURLOPT_SASL_IR,
+        CURLOPT_SERVICE_NAME, CURLOPT_SSL_ENABLE_ALPN,
+        CURLOPT_SSL_ENABLE_NPN, CURLOPT_SSL_FALSESTART,
+        CURLOPT_SSL_VERIFYSTATUS, CURLOPT_STREAM_WEIGHT,
+        CURLOPT_TCP_FASTOPEN, CURLOPT_TFTP_NO_OPTIONS,
+        CURLOPT_UNIX_SOCKET_PATH, CURLOPT_XOAUTH2_BEARER,
+        CURLPROTO_SMB, CURLPROTO_SMBS,
+        CURLPROXY_HTTP_1_0, CURLSSH_AUTH_AGENT and
+        CURLSSLOPT_NO_REVOKE.</td></tr></tbody><tbody class="gen-changelog v7-0-7"><tr><td>7.0.0</td><td><a href='function.array-column.html'>array_column</a></td><td>Added the ability for the input parameter to be
+        an array of objects.</td></tr><tr><td>&nbsp;</td><td><a href='function.assert.html'>assert</a></td><td>assert is now a language construct and not a
+        function. assertion can now be an expression.
+        The second parameter is now interpreted either as an
+        exception (if a
+        Throwable object is given), or as the
+        description supported from PHP 5.4.8 onwards.</td></tr><tr><td>&nbsp;</td><td><a href='function.curl-setopt.html'>curl_setopt</a></td><td>Support for disabling the CURLOPT_SAFE_UPLOAD option has been removed.
+        All curl file uploads must use CURLFile.</td></tr><tr><td>&nbsp;</td><td><a href='function.current.html'>current</a></td><td>array is now always passed by value.
+        Prior to this version, it was passed by reference if possible,
+        and by value otherwise.</td></tr><tr><td>&nbsp;</td><td><a href='function.define.html'>define</a></td><td>array values are allowed.</td></tr><tr><td>&nbsp;</td><td><a href='function.dirname.html'>dirname</a></td><td>Added the optional levels parameter.</td></tr><tr><td>&nbsp;</td><td><a href='function.dl.html'>dl</a></td><td>dl is disabled in PHP-FPM.</td></tr><tr><td>&nbsp;</td><td><a href='function.getrusage.html'>getrusage</a></td><td>This function is now supported on Windows.</td></tr><tr><td>&nbsp;</td><td><a href='function.gmmktime.html'>gmmktime</a></td><td>isDST parameter has been removed.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagepsbbox.html'>imagepsbbox</a></td><td>T1Lib support was removed from PHP, thus this function was removed.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagepsencodefont.html'>imagepsencodefont</a></td><td>T1Lib support was removed from PHP, thus this function was removed.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagepsextendfont.html'>imagepsextendfont</a></td><td>T1Lib support was removed from PHP, thus this function was removed.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagepsfreefont.html'>imagepsfreefont</a></td><td>T1Lib support was removed from PHP, thus this function was removed.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagepsloadfont.html'>imagepsloadfont</a></td><td>T1Lib support was removed from PHP, thus this function was removed.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagepsslantfont.html'>imagepsslantfont</a></td><td>T1Lib support was removed from PHP, thus this function was removed.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagepstext.html'>imagepstext</a></td><td>T1Lib support was removed from PHP, thus this function was removed.</td></tr><tr><td>&nbsp;</td><td><a href='function.is-numeric.html'>is_numeric</a></td><td>Strings in hexadecimal (e.g. 0xf4c3b00c) notation are
+        no longer regarded as numeric strings, i.e.
+        is_numeric returns FALSE now.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-decode.html'>json_decode</a></td><td>Rejected RFC 7159 incompatible number formats - top level
+        (07, 0xff, .1, -.1) and all levels ([1.], [1.e1])</td></tr><tr><td>&nbsp;</td><td><a href='function.json-decode.html'>json_decode</a></td><td>An empty PHP string or value that after casting to string is an empty
+        string (NULL, FALSE) results
+        in JSON syntax error.</td></tr><tr><td>&nbsp;</td><td><a href='function.key.html'>key</a></td><td>array is now always passed by value.
+        Prior to this version, it was passed by reference if possible,
+        and by value otherwise.</td></tr><tr><td>&nbsp;</td><td><a href='function.list.html'>list</a></td><td>list expressions can no longer be completely
+        empty.</td></tr><tr><td>&nbsp;</td><td><a href='function.list.html'>list</a></td><td>The order that the assignment operations are performed in has
+        changed.</td></tr><tr><td>&nbsp;</td><td><a href='function.list.html'>list</a></td><td>Strings can no longer be unpacked.</td></tr><tr><td>&nbsp;</td><td><a href='function.mktime.html'>mktime</a></td><td>isDST parameter has been removed.</td></tr><tr><td>&nbsp;</td><td><a href='function.ob-start.html'>ob_start</a></td><td>In case ob_start is used inside an output buffer 
+        callback, this function will no longer issue an E_ERROR 
+        but instead an E_RECOVERABLE_ERROR, allowing custom 
+        error handlers to catch such errors.</td></tr><tr><td>&nbsp;</td><td><a href='function.openssl-open.html'>openssl_open</a></td><td>The iv has been added.</td></tr><tr><td>&nbsp;</td><td><a href='function.openssl-seal.html'>openssl_seal</a></td><td>The iv has been added.</td></tr><tr><td>&nbsp;</td><td><a href='function.parse-ini-file.html'>parse_ini_file</a></td><td>Hash marks (#) are no longer recognized as comments.</td></tr><tr><td>&nbsp;</td><td><a href='function.preg-replace.html'>preg_replace</a></td><td>Support for the /e modifier has been removed.
+        Use preg_replace_callback instead.</td></tr><tr><td>&nbsp;</td><td><a href='function.proc-open.html'>proc_open</a></td><td>Added the blocking_pipes option to the
+        other_options parameter.</td></tr><tr><td>&nbsp;</td><td><a href='function.session-regenerate-id.html'>session_regenerate_id</a></td><td>session_regenerate_id saves old session data
+        before closing.</td></tr><tr><td>&nbsp;</td><td><a href='function.session-set-save-handler.html'>session_set_save_handler</a></td><td>Added the optional validate_sid and
+       update_timestamp parameters.</td></tr><tr><td>&nbsp;</td><td><a href='function.session-start.html'>session_start</a></td><td>The options parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.set-exception-handler.html'>set_exception_handler</a></td><td>The type of parameter passed into exception_handler changed
+        from Exception to Throwable</td></tr><tr><td>&nbsp;</td><td><a href='function.setlocale.html'>setlocale</a></td><td>Support for the category parameter passed as a string has
+        been removed. Only LC_* constants can be used as of this version.</td></tr><tr><td>&nbsp;</td><td><a href='function.shmop-close.html'>shmop_close</a></td><td>The type of shmid has been changed from
+       int to resource.</td></tr><tr><td>&nbsp;</td><td><a href='function.shmop-delete.html'>shmop_delete</a></td><td>The type of shmid has been changed from
+       int to resource.</td></tr><tr><td>&nbsp;</td><td><a href='function.shmop-open.html'>shmop_open</a></td><td>The return type of shmop_open has been changed from
+       int to resource.</td></tr><tr><td>&nbsp;</td><td><a href='function.shmop-read.html'>shmop_read</a></td><td>The type of shmid has been changed from
+       int to resource.</td></tr><tr><td>&nbsp;</td><td><a href='function.shmop-size.html'>shmop_size</a></td><td>The type of shmid has been changed from
+       int to resource.</td></tr><tr><td>&nbsp;</td><td><a href='function.shmop-write.html'>shmop_write</a></td><td>The type of shmid has been changed from
+       int to resource.</td></tr><tr><td>&nbsp;</td><td><a href='function.substr.html'>substr</a></td><td>If string is equal to
+        start characters long, an empty string will be
+        returned. Prior to this version, FALSE was returned in this case.</td></tr><tr><td>&nbsp;</td><td><a href='function.token-get-all.html'>token_get_all</a></td><td>Added the optional flags parameter along with
+        the TOKEN_PARSE flag.</td></tr><tr><td>&nbsp;</td><td><a href='function.unserialize.html'>unserialize</a></td><td>The options parameter has been added.</td></tr><tr><td>&nbsp;</td><td><a href='intldateformatter.settimezoneid.html'>IntlDateFormatter::setTimeZoneId</a></td><td>This function has been removed.</td></tr></tbody><tbody class="gen-changelog v7-0-0"><tr><td>5.6.25, 7.0.10</td><td><a href='function.imagetypes.html'>imagetypes</a></td><td>IMG_WEBP added.</td></tr><tr><td>&nbsp;</td><td><a href='splfileobject.getcsvcontrol.html'>SplFileObject::getCsvControl</a></td><td>Added the escape character to the returned array.</td></tr></tbody><tbody class="gen-changelog v5-6-25, 7-0-10"><tr><td>5.6.16</td><td><a href='mysqli.real-connect.html'>mysqli::real_connect</a></td><td>Added the MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT flag for MySQL Native Driver</td></tr></tbody><tbody class="gen-changelog v5-6-16"><tr><td>5.6.12</td><td><a href='function.gd-info.html'>gd_info</a></td><td>WebP Support added.</td></tr></tbody><tbody class="gen-changelog v5-6-12"><tr><td>5.6.6</td><td><a href='function.json-encode.html'>json_encode</a></td><td>JSON_PRESERVE_ZERO_FRACTION
+        options was added.</td></tr></tbody><tbody class="gen-changelog v5-6-6"><tr><td>5.6.5</td><td><a href='function.crypt.html'>crypt</a></td><td>When the failure string &quot;*0&quot; is given as the
+        salt, &quot;*1&quot; will now be returned for consistency
+        with other crypt implementations. Prior to this version, PHP 5.6 would
+        incorrectly return a DES hash.</td></tr></tbody><tbody class="gen-changelog v5-6-5"><tr><td>5.6.3</td><td><a href='function.pack.html'>pack</a></td><td>The &quot;q&quot;, &quot;Q&quot;, &quot;J&quot; and &quot;P&quot; codes were added to enable working with 64-bit numbers.</td></tr></tbody><tbody class="gen-changelog v5-6-3"><tr><td>5.6.1</td><td><a href='function.parse-ini-file.html'>parse_ini_file</a></td><td>Added new INI_SCANNER_TYPED mode.</td></tr><tr><td>&nbsp;</td><td><a href='function.sem-acquire.html'>sem_acquire</a></td><td>The $nowait parameter was added.</td></tr></tbody><tbody class="gen-changelog v5-6-1"><tr><td>5.6.0</td><td><a href='function.array-fill.html'>array_fill</a></td><td>num may now be zero. Previously,
+        num was required to be greater than zero.</td></tr><tr><td>&nbsp;</td><td><a href='function.array-filter.html'>array_filter</a></td><td>Added optional flag parameter and constants 
+       ARRAY_FILTER_USE_KEY and 
+       ARRAY_FILTER_USE_BOTH</td></tr><tr><td>&nbsp;</td><td><a href='function.crypt.html'>crypt</a></td><td>Raise E_NOTICE security warning if salt is omitted.</td></tr><tr><td>&nbsp;</td><td><a href='function.curl-setopt.html'>curl_setopt</a></td><td>CURLOPT_SAFE_UPLOAD is now TRUE by default.</td></tr><tr><td>&nbsp;</td><td><a href='function.curl-setopt.html'>curl_setopt</a></td><td>Removed CURLOPT_CLOSEPOLICY and associated values.</td></tr><tr><td>&nbsp;</td><td><a href='function.hash-algos.html'>hash_algos</a></td><td>Support for gost-crypto was added. This implements the GOST hash
+        function using the CryptoPro S-box tables as specified by
+        RFC 4357, section 11.2.</td></tr><tr><td>&nbsp;</td><td><a href='function.html-entity-decode.html'>html_entity_decode</a></td><td>The default value for the encoding parameter was
+   changed to be the value of the
+   default_charset configuration
+   option.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlentities.html'>htmlentities</a></td><td>The default value for the encoding parameter was
+   changed to be the value of the
+   default_charset configuration
+   option.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlspecialchars.html'>htmlspecialchars</a></td><td>The default value for the encoding parameter was
+   changed to be the value of the
+   default_charset configuration
+   option.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-decode.html'>json_decode</a></td><td>Invalid non-lowercased variants of the true,
+        false and null literals are no
+        longer accepted as valid input, and will generate warnings.</td></tr><tr><td>&nbsp;</td><td><a href='function.mb-regex-encoding.html'>mb_regex_encoding</a></td><td>Default encoding is changed to UTF-8. It was EUC-JP Previously.</td></tr><tr><td>&nbsp;</td><td><a href='function.mcrypt-create-iv.html'>mcrypt_create_iv</a></td><td>MCRYPT_DEV_URANDOM is now the default value of
+        source.</td></tr><tr><td>&nbsp;</td><td><a href='function.mcrypt-decrypt.html'>mcrypt_decrypt</a></td><td>Invalid key and iv sizes
+        are no longer accepted. mcrypt_decrypt will now throw
+        a warning and return FALSE if the inputs are invalid. Previously keys and
+        IVs were padded with '\0' bytes to the next valid size.</td></tr><tr><td>&nbsp;</td><td><a href='function.mcrypt-encrypt.html'>mcrypt_encrypt</a></td><td>Invalid key and iv sizes
+        are no longer accepted. mcrypt_encrypt will now throw
+        a warning and return FALSE if the inputs are invalid. Previously keys and
+        IVs were padded with '\0' bytes to the next valid size.</td></tr><tr><td>&nbsp;</td><td><a href='function.pg-connect.html'>pg_connect</a></td><td>Support for giving the PGSQL_CONNECT_ASYNC
+        constant as the connect_type was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.pg-convert.html'>pg_convert</a></td><td>No longer experimental. Boolean/NULL data types are supported. Unknown/unsupported
+        data types are escaped without validation. pg_convert can
+        be used with any data types.</td></tr><tr><td>&nbsp;</td><td><a href='function.pg-delete.html'>pg_delete</a></td><td>No longer experimental. Added PGSQL_DML_ESCAPE constant,
+        TRUE/FALSE and NULL data type support.</td></tr><tr><td>&nbsp;</td><td><a href='function.pg-insert.html'>pg_insert</a></td><td>Unless PGSQL_DML_STRING is passed, the function
+        now returns the connection resource instead of TRUE on success.</td></tr><tr><td>&nbsp;</td><td><a href='function.pg-insert.html'>pg_insert</a></td><td>No longer experimental. Added PGSQL_DML_ESCAPE constant,
+        TRUE/FALSE and NULL data type support.</td></tr><tr><td>&nbsp;</td><td><a href='function.pg-lo-seek.html'>pg_lo_seek</a></td><td>Added PostgreSQL 9.3's 64bit large object support. Both client and server must
+        support PostgreSQL 9.3 and PHP must be 64bit build to use 64bit large object.</td></tr><tr><td>&nbsp;</td><td><a href='function.pg-lo-tell.html'>pg_lo_tell</a></td><td>Added PostgreSQL 9.3's 64bit large object support. Both client and server must
+        support PostgreSQL 9.3 and PHP must be 64bit build to use 64bit large object.</td></tr><tr><td>&nbsp;</td><td><a href='function.pg-lo-truncate.html'>pg_lo_truncate</a></td><td>Added truncate function. It supports PostgreSQL 9.3's 64bit large object. Both client and server must
+        support PostgreSQL 9.3 and PHP must be 64bit build to use 64bit large object.</td></tr><tr><td>&nbsp;</td><td><a href='function.pg-meta-data.html'>pg_meta_data</a></td><td>No longer experimental. Added &quot;is enum&quot; as default attribute.
+        extended flag is added.</td></tr><tr><td>&nbsp;</td><td><a href='function.pg-select.html'>pg_select</a></td><td>No longer experimental. Added PGSQL_DML_ESCAPE constant,
+        TRUE/FALSE and NULL data type support.</td></tr><tr><td>&nbsp;</td><td><a href='function.pg-update.html'>pg_update</a></td><td>No longer experimental. Added PGSQL_DML_ESCAPE constant,
+        TRUE/FALSE and NULL data type support.</td></tr><tr><td>&nbsp;</td><td><a href='function.stream-socket-enable-crypto.html'>stream_socket_enable_crypto</a></td><td>The crypto_type is now optional.</td></tr><tr><td>&nbsp;</td><td><a href='function.stream-socket-enable-crypto.html'>stream_socket_enable_crypto</a></td><td>Introduce STREAM_CRYPTO_METHOD_ANY_CLIENT, STREAM_CRYPTO_METHOD_TLSv1_0_CLIENT, STREAM_CRYPTO_METHOD_TLSv1_1_CLIENT, STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT, STREAM_CRYPTO_METHOD_ANY_SERVER, STREAM_CRYPTO_METHOD_TLSv1_0_SERVER, STREAM_CRYPTO_METHOD_TLSv1_1_SERVER, STREAM_CRYPTO_METHOD_TLSv1_2_SERVER.</td></tr><tr><td>&nbsp;</td><td><a href='function.unserialize.html'>unserialize</a></td><td>Manipulating the serialised data by replacing C:
+        with O: to force object instantiation without
+        calling the constructor will now fail.</td></tr><tr><td>&nbsp;</td><td><a href='reflectionclass.newinstancewithoutconstructor.html'>ReflectionClass::newInstanceWithoutConstructor</a></td><td>All internal classes can now be instantiated except for those declared
+        final.</td></tr><tr><td>&nbsp;</td><td><a href='xmlreader.getattributeno.html'>XMLReader::getAttributeNo</a></td><td>XMLReader::getAttributeNo now returns NULL
+        if the attribute doesn't exist.</td></tr><tr><td>&nbsp;</td><td><a href='xmlreader.getattributens.html'>XMLReader::getAttributeNs</a></td><td>XMLReader::getAttributeNS now returns NULL
+        if the attribute doesn't exist.</td></tr></tbody><tbody class="gen-changelog v5-6-0"><tr><td>5.5.38, 5.6.24, 7.0.9</td><td><a href='function.getenv.html'>getenv</a></td><td>The local_only parameter has been added.</td></tr></tbody><tbody class="gen-changelog v5-5-38, 5-6-24, 7-0-9"><tr><td>5.5.22, 5.6.6</td><td><a href='function.flock.html'>flock</a></td><td>Added support for the wouldblock parameter on
+        Windows.</td></tr><tr><td>&nbsp;</td><td><a href='splfileobject.flock.html'>SplFileObject::flock</a></td><td>Added support for the wouldblock parameter on
+        Windows.</td></tr></tbody><tbody class="gen-changelog v5-5-22, 5-6-6"><tr><td>5.5.21, 5.6.5</td><td><a href='splfileobject.fputcsv.html'>SplFileObject::fputcsv</a></td><td>Added the escape parameter.</td></tr></tbody><tbody class="gen-changelog v5-5-21, 5-6-5"><tr><td>5.5.21</td><td><a href='function.crypt.html'>crypt</a></td><td>When the failure string &quot;*0&quot; is given as the
+        salt, &quot;*1&quot; will now be returned for consistency
+        with other crypt implementations. Prior to this version, PHP 5.5 (and
+        earlier branches) would incorrectly return a DES hash.</td></tr></tbody><tbody class="gen-changelog v5-5-21"><tr><td>5.5.19/5.6.3</td><td><a href='function.imagescale.html'>imagescale</a></td><td>The calculation of the height if new_height was
+        negative or omitted was fixed; prior to these versions, the aspect
+        ratio was not maintained correctly.</td></tr></tbody><tbody class="gen-changelog v5-5-19/5-6-3"><tr><td>5.5.19, 5.6.3</td><td><a href='datetimezone.getoffset.html'>DateTimeZone::getOffset</a></td><td>datetime type changed to
+        DateTimeInterface.
+        Previously, DateTime.</td></tr></tbody><tbody class="gen-changelog v5-5-19, 5-6-3"><tr><td>5.5.11</td><td><a href='function.substr-compare.html'>substr_compare</a></td><td>length may now be 0.</td></tr></tbody><tbody class="gen-changelog v5-5-11"><tr><td>5.5.10</td><td><a href='datetimezone.construct.html'>DateTimeZone::__construct</a></td><td>The timezone parameter accepts offset values.</td></tr></tbody><tbody class="gen-changelog v5-5-10"><tr><td>5.5.8</td><td><a href='dateperiod.construct.html'>DatePeriod::__construct</a></td><td>end type changed to
+        DateTimeInterface.
+        Previously, DateTime.</td></tr></tbody><tbody class="gen-changelog v5-5-8"><tr><td>5.5.7</td><td><a href='function.apache-request-headers.html'>apache_request_headers</a></td><td>This function became available in the CLI server.</td></tr><tr><td>&nbsp;</td><td><a href='function.apache-response-headers.html'>apache_response_headers</a></td><td>This function became available in the CLI server.</td></tr><tr><td>&nbsp;</td><td><a href='function.getallheaders.html'>getallheaders</a></td><td>This function became available in the CLI server.</td></tr></tbody><tbody class="gen-changelog v5-5-7"><tr><td>5.5.4</td><td><a href='function.fputcsv.html'>fputcsv</a></td><td>The escape_char parameter was added</td></tr></tbody><tbody class="gen-changelog v5-5-4"><tr><td>5.5.3/5.4.19</td><td><a href='function.pg-delete.html'>pg_delete</a></td><td>Direct SQL injection to table_name and Indirect SQL
+        injection to identifiers are fixed.</td></tr><tr><td>&nbsp;</td><td><a href='function.pg-insert.html'>pg_insert</a></td><td>Direct SQL injection to table_name and Indirect SQL
+        injection to identifiers are fixed.</td></tr><tr><td>&nbsp;</td><td><a href='function.pg-select.html'>pg_select</a></td><td>Direct SQL injection to table_name and Indirect SQL
+        injection to identifiers are fixed.</td></tr><tr><td>&nbsp;</td><td><a href='function.pg-update.html'>pg_update</a></td><td>Direct SQL injection to table_name and Indirect 
+        SQL injection to identifiers are fixed.</td></tr></tbody><tbody class="gen-changelog v5-5-3/5-4-19"><tr><td>5.5.2</td><td><a href='domdocument.schemavalidate.html'>DOMDocument::schemaValidate</a></td><td>Added the flags parameter</td></tr><tr><td>&nbsp;</td><td><a href='domdocument.schemavalidatesource.html'>DOMDocument::schemaValidateSource</a></td><td>Added the flags parameter</td></tr></tbody><tbody class="gen-changelog v5-5-2"><tr><td>5.5.1</td><td><a href='function.hex2bin.html'>hex2bin</a></td><td>A warning is thrown if the input string is invalid hexadecimal string.</td></tr><tr><td>&nbsp;</td><td><a href='function.pg-unescape-bytea.html'>pg_unescape_bytea</a></td><td>A warning is thrown if the input string is invalid.</td></tr><tr><td>&nbsp;</td><td><a href='function.session-set-save-handler.html'>session_set_save_handler</a></td><td>Added the optional create_sid parameter.</td></tr></tbody><tbody class="gen-changelog v5-5-1"><tr><td>5.5.0/PECL 3.0.0</td><td><a href='intldateformatter.create.html'>IntlDateFormatter::create</a></td><td>An IntlCalendar object is allowed for
+         calendar.
+        
+        
+         Objects of type IntlTimeZone and
+         DateTimeZone are allowed for
+         timezone.
+        
+        
+         Invalid timezone identifiers (including empty strings) are no longer
+         allowed for timezone.
+        
+        
+         If NULL is given for timezone, the timezone
+         identifier given by date_default_timezone_get will
+         be used instead of ICUʼs default.</td></tr><tr><td>&nbsp;</td><td><a href='intldateformatter.format.html'>IntlDateFormatter::format</a></td><td>Support for providing IntlCalendar objects to the
+        value parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='intldateformatter.setcalendar.html'>IntlDateFormatter::setCalendar</a></td><td>It became possible to pass an IntlCalendar
+        object.</td></tr></tbody><tbody class="gen-changelog v5-5-0/PECL 3-0-0"><tr><td>5.5.0</td><td><a href='dateperiod.construct.html'>DatePeriod::__construct</a></td><td>start type changed to
+        DateTimeInterface.
+        Previously, DateTime.</td></tr><tr><td>&nbsp;</td><td><a href='function.curl-getinfo.html'>curl_getinfo</a></td><td>Introduced CURLINFO_RESPONSE_CODE,
+        CURLINFO_HTTP_CONNECTCODE,
+        CURLINFO_HTTPAUTH_AVAIL,
+        CURLINFO_PROXYAUTH_AVAIL,
+        CURLINFO_OS_ERRNO,
+        CURLINFO_NUM_CONNECTS,
+        CURLINFO_SSL_ENGINES,
+        CURLINFO_COOKIELIST,
+        CURLINFO_FTP_ENTRY_PATH,
+        CURLINFO_APPCONNECT_TIME,
+        CURLINFO_CONDITION_UNMET,
+        CURLINFO_RTSP_CLIENT_CSEQ,
+        CURLINFO_RTSP_CSEQ_RECV,
+        CURLINFO_RTSP_SERVER_CSEQ and
+        CURLINFO_RTSP_SESSION_ID.</td></tr><tr><td>&nbsp;</td><td><a href='function.curl-setopt.html'>curl_setopt</a></td><td>Introduced CURLOPT_SHARE.</td></tr><tr><td>&nbsp;</td><td><a href='function.curl-setopt.html'>curl_setopt</a></td><td>Added the cURL resource as the first argument to the
+        CURLOPT_PROGRESSFUNCTION callback.</td></tr><tr><td>&nbsp;</td><td><a href='function.empty.html'>empty</a></td><td>empty now supports expressions, rather than only
+         variables.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagerotate.html'>imagerotate</a></td><td>This function is now affected by the interpolation method set by the 
+        imagesetinterpolation function.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagerotate.html'>imagerotate</a></td><td>The ignore_transparent is now silently ignored.</td></tr><tr><td>&nbsp;</td><td><a href='function.ip2long.html'>ip2long</a></td><td>Prior to this version, on Windows ip2long would sometimes return
+        a valid number even if passed a value which was not an (IPv4) Internet Protocol
+        dotted address.</td></tr><tr><td>&nbsp;</td><td><a href='function.iterator-to-array.html'>iterator_to_array</a></td><td>iterator_to_array gained support for key types
+        other than integer and string when the
+        use_keys parameter is enabled.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-encode.html'>json_encode</a></td><td>The return value on failure was changed from null
+        string to FALSE.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-encode.html'>json_encode</a></td><td>E_WARNING is no longer emitted for an invalid value.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-encode.html'>json_encode</a></td><td>When value triggers a JSON encoding error,
+        FALSE is returned instead of partial output,
+        unless options contains JSON_PARTIAL_OUTPUT_ON_ERROR.
+        See json_last_error for the full list of reasons that can cause JSON encoding to fail.
+        One of the potential failure reasons is that value contains strings containing invalid UTF-8.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-encode.html'>json_encode</a></td><td>JSON_PARTIAL_OUTPUT_ON_ERROR
+        options was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-encode.html'>json_encode</a></td><td>depth parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.mysql-connect.html'>mysql_connect</a></td><td>This function will generate an E_DEPRECATED
+        error.</td></tr><tr><td>&nbsp;</td><td><a href='function.mysql-db-name.html'>mysql_db_name</a></td><td>The mysql_list_dbs function is deprecated, 
+        and emits an E_DEPRECATED level error.</td></tr><tr><td>&nbsp;</td><td><a href='function.mysql-pconnect.html'>mysql_pconnect</a></td><td>This function will generate an E_DEPRECATED
+        error.</td></tr><tr><td>&nbsp;</td><td><a href='function.mysql-tablename.html'>mysql_tablename</a></td><td>The mysql_tablename function is deprecated, 
+        and emits an E_DEPRECATED level error.</td></tr><tr><td>&nbsp;</td><td><a href='function.pack.html'>pack</a></td><td>The &quot;Z&quot; code was added with equivalent functionality to &quot;a&quot; for Perl
+        compatibility.</td></tr><tr><td>&nbsp;</td><td><a href='function.php-logo-guid.html'>php_logo_guid</a></td><td>php_logo_guid has been removed from PHP.</td></tr><tr><td>&nbsp;</td><td><a href='function.phpinfo.html'>phpinfo</a></td><td>Logo GUIDs were replaced with data URIs, and so turning off expose_php
+        now has no effect on the result of phpinfo(). Credits are also now
+        embedded within the output itself instead of linked.</td></tr><tr><td>&nbsp;</td><td><a href='function.preg-replace.html'>preg_replace</a></td><td>The /e modifier is deprecated. Use
+        preg_replace_callback instead. See the
+        PREG_REPLACE_EVAL
+        documentation for additional information about security risks.</td></tr><tr><td>&nbsp;</td><td><a href='function.set-error-handler.html'>set_error_handler</a></td><td>error_handler now accepts NULL.</td></tr><tr><td>&nbsp;</td><td><a href='function.set-exception-handler.html'>set_exception_handler</a></td><td>Previously, if NULL was passed then this function returned TRUE.
+        It returns the previous handler since PHP 5.5.0.</td></tr><tr><td>&nbsp;</td><td><a href='function.setcookie.html'>setcookie</a></td><td>A Max-Age attribute is now included in the Set-Cookie header sent to
+        the client.</td></tr><tr><td>&nbsp;</td><td><a href='function.setrawcookie.html'>setrawcookie</a></td><td>A Max-Age attribute is now included in the Set-Cookie header sent to
+        the client.</td></tr><tr><td>&nbsp;</td><td><a href='function.unpack.html'>unpack</a></td><td>Changes were made to bring this function into line with Perl:
+        
+        
+         The &quot;a&quot; code now retains trailing NULL bytes.
+        
+        
+         The &quot;A&quot; code now strips all trailing ASCII whitespace (spaces, tabs,
+         newlines, carriage returns, and NULL bytes).
+        
+        
+         The &quot;Z&quot; code was added for NULL-padded strings, and removes trailing
+         NULL bytes.</td></tr><tr><td>&nbsp;</td><td><a href='function.zend-logo-guid.html'>zend_logo_guid</a></td><td>zend_logo_guid has been removed from PHP.</td></tr><tr><td>&nbsp;</td><td><a href='intldateformatter.settimezoneid.html'>IntlDateFormatter::setTimeZoneId</a></td><td>This function has been deprecated.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.commit.html'>mysqli::commit</a></td><td>Added flags and name
+        parameters.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.options.html'>mysqli::options</a></td><td>The MYSQLI_SERVER_PUBLIC_KEY option was added.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.rollback.html'>mysqli::rollback</a></td><td>Added flags and name
+        parameters.</td></tr><tr><td>&nbsp;</td><td><a href='soapclient.soapclient.html'>SoapClient::SoapClient</a></td><td>New ssl_method option.</td></tr></tbody><tbody class="gen-changelog v5-5-0"><tr><td>5.4.43, 5.5.27, 5.6.11</td><td><a href='function.escapeshellarg.html'>escapeshellarg</a></td><td>Exclamation marks are replaced by spaces.</td></tr><tr><td>&nbsp;</td><td><a href='function.escapeshellcmd.html'>escapeshellcmd</a></td><td>Exclamation marks are replaced by spaces.</td></tr></tbody><tbody class="gen-changelog v5-4-43, 5-5-27, 5-6-11"><tr><td>5.4.42, 5.5.27</td><td><a href='function.mail.html'>mail</a></td><td>Header injection protection has been added for the
+        additional_headers parameter. This means that
+        multiple consecutive newlines are no longer allowed.</td></tr></tbody><tbody class="gen-changelog v5-4-42, 5-5-27"><tr><td>5.4.32, 5.5.16</td><td><a href='function.ucwords.html'>ucwords</a></td><td>Added the delimiters parameter.</td></tr></tbody><tbody class="gen-changelog v5-4-32, 5-5-16"><tr><td>5.4.8</td><td><a href='function.assert.html'>assert</a></td><td>The description parameter was added. The
+        description is also now provided to a callback
+        function in ASSERT_CALLBACK mode as the fourth
+        argument.</td></tr><tr><td>&nbsp;</td><td><a href='function.mb-strcut.html'>mb_strcut</a></td><td>Passing NULL as length
+        extracts all bytes to the end of the string. Prior to this version
+        NULL was treated the same as 0.</td></tr><tr><td>&nbsp;</td><td><a href='function.mb-substr.html'>mb_substr</a></td><td>Passing NULL as length
+        extracts all characters to the end of the string. Prior to this version
+        NULL was treated the same as 0.</td></tr></tbody><tbody class="gen-changelog v5-4-8"><tr><td>5.4.7</td><td><a href='function.curl-getinfo.html'>curl_getinfo</a></td><td>Introduced CURLINFO_PRIMARY_IP,
+        CURLINFO_PRIMARY_PORT,
+        CURLINFO_LOCAL_IP and
+        CURLINFO_LOCAL_PORT.</td></tr><tr><td>&nbsp;</td><td><a href='function.parse-url.html'>parse_url</a></td><td>Fixed host recognition when scheme
+        is omitted and a leading component separator is present.</td></tr></tbody><tbody class="gen-changelog v5-4-7"><tr><td>5.4.4</td><td><a href='function.hex2bin.html'>hex2bin</a></td><td>A warning is thrown if the input string is of odd length. In PHP 5.4.0 the string
+        was silently accepted, but the last byte was truncated.</td></tr></tbody><tbody class="gen-changelog v5-4-4"><tr><td>5.4.0/PECL 2.0.0b1</td><td><a href='function.idn-to-ascii.html'>idn_to_ascii</a></td><td>Added the parameters variant and
+        idna_info; UTS #46 support (requires ICU &ge; 4.6).</td></tr><tr><td>&nbsp;</td><td><a href='function.idn-to-utf8.html'>idn_to_utf8</a></td><td>Added the parameters variant and
+        idna_info; UTS #46 support (requires ICU &ge; 4.6).</td></tr></tbody><tbody class="gen-changelog v5-4-0/PECL 2-0-0b1"><tr><td>5.4.0</td><td><a href='domdocument.loadhtml.html'>DOMDocument::loadHTML</a></td><td>Added options parameter.</td></tr><tr><td>&nbsp;</td><td><a href='domdocument.loadhtmlfile.html'>DOMDocument::loadHTMLFile</a></td><td>Added options parameter.</td></tr><tr><td>&nbsp;</td><td><a href='function.apache-child-terminate.html'>apache_child_terminate</a></td><td>This function became available under FastCGI. Previously, it was
+        supported only when PHP was installed as an Apache module.</td></tr><tr><td>&nbsp;</td><td><a href='function.apache-request-headers.html'>apache_request_headers</a></td><td>This function became available under FastCGI. Previously, it was
+        supported when PHP was installed as an Apache module or by the 
+        NSAPI server module in Netscape/iPlanet/SunONE
+        webservers.</td></tr><tr><td>&nbsp;</td><td><a href='function.apache-response-headers.html'>apache_response_headers</a></td><td>This function became available under FastCGI. Previously, it was
+        supported when PHP was installed as an Apache module or by the 
+        NSAPI server module in Netscape/iPlanet/SunONE
+        webservers.</td></tr><tr><td>&nbsp;</td><td><a href='function.array-combine.html'>array_combine</a></td><td>Previous versions issued E_WARNING and returned
+        FALSE for empty arrays.</td></tr><tr><td>&nbsp;</td><td><a href='function.array-multisort.html'>array_multisort</a></td><td>The SORT_NATURAL and SORT_FLAG_CASE
+        were added to array1_sort_flags as possible sort flags.</td></tr><tr><td>&nbsp;</td><td><a href='function.date-default-timezone-get.html'>date_default_timezone_get</a></td><td>The timezone is no longer guessed from information available through the
+        operating system as the guessed timezone can not be relied on.</td></tr><tr><td>&nbsp;</td><td><a href='function.date-default-timezone-get.html'>date_default_timezone_get</a></td><td>The TZ environment variable is no longer used to
+        guess the timezone.</td></tr><tr><td>&nbsp;</td><td><a href='function.debug-backtrace.html'>debug_backtrace</a></td><td>Added the optional parameter limit.</td></tr><tr><td>&nbsp;</td><td><a href='function.debug-print-backtrace.html'>debug_print_backtrace</a></td><td>Added the optional parameter limit.</td></tr><tr><td>&nbsp;</td><td><a href='function.define-syslog-variables.html'>define_syslog_variables</a></td><td>This function was removed from PHP.</td></tr><tr><td>&nbsp;</td><td><a href='function.dns-get-record.html'>dns_get_record</a></td><td>Added raw parameter.</td></tr><tr><td>&nbsp;</td><td><a href='function.empty.html'>empty</a></td><td>Checking non-numeric offsets of strings returns TRUE.</td></tr><tr><td>&nbsp;</td><td><a href='function.error-reporting.html'>error_reporting</a></td><td>E_STRICT became part of E_ALL.</td></tr><tr><td>&nbsp;</td><td><a href='function.filter-input-array.html'>filter_input_array</a></td><td>Added add_empty parameter.</td></tr><tr><td>&nbsp;</td><td><a href='function.filter-var-array.html'>filter_var_array</a></td><td>Added add_empty parameter.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-html-translation-table.html'>get_html_translation_table</a></td><td>The constants ENT_HTML401, ENT_XML1,
+        ENT_XHTML and ENT_HTML5 were added.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-html-translation-table.html'>get_html_translation_table</a></td><td>The default value for the encoding parameter was
+        changed to UTF-8.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-magic-quotes-gpc.html'>get_magic_quotes_gpc</a></td><td>Always returns FALSE because the magic quotes feature was removed from PHP.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-magic-quotes-runtime.html'>get_magic_quotes_runtime</a></td><td>Always returns FALSE because the magic quotes feature was removed from PHP.</td></tr><tr><td>&nbsp;</td><td><a href='function.getallheaders.html'>getallheaders</a></td><td>This function became available under FastCGI. Previously, it was
+        supported when PHP was installed as an Apache module or by the 
+        NSAPI server module in Netscape/iPlanet/SunONE
+        webservers.</td></tr><tr><td>&nbsp;</td><td><a href='function.gzcompress.html'>gzcompress</a></td><td>Added encoding parameter.</td></tr><tr><td>&nbsp;</td><td><a href='function.gzdeflate.html'>gzdeflate</a></td><td>Added encoding parameter.</td></tr><tr><td>&nbsp;</td><td><a href='function.gzencode.html'>gzencode</a></td><td>FORCE_DEFLATE now generates RFC 1950 compliant
+        output.</td></tr><tr><td>&nbsp;</td><td><a href='function.hash.html'>hash</a></td><td>The tiger algorithm now uses big-endian byte ordering. See also example below.</td></tr><tr><td>&nbsp;</td><td><a href='function.hash-algos.html'>hash_algos</a></td><td>Support for joaat, fnv132 and fnv164 was added. Support for Salsa10 and Salsa20 was removed.</td></tr><tr><td>&nbsp;</td><td><a href='function.html-entity-decode.html'>html_entity_decode</a></td><td>The constants ENT_HTML401, ENT_XML1,
+        ENT_XHTML and ENT_HTML5 were added.</td></tr><tr><td>&nbsp;</td><td><a href='function.html-entity-decode.html'>html_entity_decode</a></td><td>Default encoding changed from ISO-8859-1 to UTF-8.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlentities.html'>htmlentities</a></td><td>The constants ENT_SUBSTITUTE, ENT_DISALLOWED,
+        ENT_HTML401, ENT_XML1,
+        ENT_XHTML and ENT_HTML5 were added.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlentities.html'>htmlentities</a></td><td>The default value for the encoding parameter was
+        changed to UTF-8.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlspecialchars.html'>htmlspecialchars</a></td><td>The constants ENT_SUBSTITUTE, ENT_DISALLOWED,
+        ENT_HTML401, ENT_XML1,
+        ENT_XHTML and ENT_HTML5 were added.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlspecialchars.html'>htmlspecialchars</a></td><td>The default value for the encoding parameter was
+        changed to UTF-8.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlspecialchars-decode.html'>htmlspecialchars_decode</a></td><td>The constants ENT_HTML401, ENT_XML1,
+        ENT_XHTML and ENT_HTML5 were added.</td></tr><tr><td>&nbsp;</td><td><a href='function.http-build-query.html'>http_build_query</a></td><td>The enc_type parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.iconv.html'>iconv</a></td><td>Since this version, the function returns FALSE on illegal characters,
+         unless //IGNORE is specified in output charset.
+         Before, it returned partial output string.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagecolorset.html'>imagecolorset</a></td><td>The alpha parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagegd.html'>imagegd</a></td><td>Added support for passing a stream resource to
+        to.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagegd2.html'>imagegd2</a></td><td>Added support for passing a stream resource to
+        to.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagegif.html'>imagegif</a></td><td>Added support for passing a stream resource to
+        to.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagejpeg.html'>imagejpeg</a></td><td>Added support for passing a stream resource to
+        to.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagejpeg.html'>imagejpeg</a></td><td>Disallowed passing an empty string to to to
+        skip this argument.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagepng.html'>imagepng</a></td><td>Added support for passing a stream resource to
+        to.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagewbmp.html'>imagewbmp</a></td><td>Added support for passing a stream resource to
+        to.</td></tr><tr><td>&nbsp;</td><td><a href='function.isset.html'>isset</a></td><td>Checking non-numeric offsets of strings now returns FALSE.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-decode.html'>json_decode</a></td><td>The options parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-decode.html'>json_decode</a></td><td>JSON_BIGINT_AS_STRING, and
+        JSON_OBJECT_AS_ARRAY
+        options were added.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-encode.html'>json_encode</a></td><td>JSON_PRETTY_PRINT,
+        JSON_UNESCAPED_SLASHES, and
+        JSON_UNESCAPED_UNICODE
+        options were added.</td></tr><tr><td>&nbsp;</td><td><a href='function.mb-decode-numericentity.html'>mb_decode_numericentity</a></td><td>Added is_hex parameter.</td></tr><tr><td>&nbsp;</td><td><a href='function.mb-encode-numericentity.html'>mb_encode_numericentity</a></td><td>Added is_hex parameter.</td></tr><tr><td>&nbsp;</td><td><a href='function.mysqli-get-cache-stats.html'>mysqli_get_cache_stats</a></td><td>The mysqli_get_cache_stats was removed.</td></tr><tr><td>&nbsp;</td><td><a href='function.number-format.html'>number_format</a></td><td>This function now supports multiple bytes in
+        dec_point and
+        thousands_sep. Only the first byte of each
+        separator was used in older versions.</td></tr><tr><td>&nbsp;</td><td><a href='function.ob-start.html'>ob_start</a></td><td>The third parameter of ob_start changed from a
+        boolean parameter called erase
+        (which, if set to FALSE, would prevent the output buffer from being
+        deleted until the script finished executing) to an
+        integer parameter called flags.
+        Unfortunately, this results in an API compatibility break for code
+        written prior to PHP 5.4.0 that uses the third parameter. See
+        the flags example
+        for an example of how to handle this with code that needs to be
+        compatible with both.</td></tr><tr><td>&nbsp;</td><td><a href='function.ob-start.html'>ob_start</a></td><td>A chunk size of 1 now results in chunks of 1 byte
+        being sent to the output buffer.</td></tr><tr><td>&nbsp;</td><td><a href='function.openssl-decrypt.html'>openssl_decrypt</a></td><td>The raw_output was changed to options.</td></tr><tr><td>&nbsp;</td><td><a href='function.openssl-encrypt.html'>openssl_encrypt</a></td><td>The raw_output was changed to options.</td></tr><tr><td>&nbsp;</td><td><a href='function.preg-match-all.html'>preg_match_all</a></td><td>The matches parameter became optional.</td></tr><tr><td>&nbsp;</td><td><a href='function.scandir.html'>scandir</a></td><td>sorting_order constants
+        were added. Any nonzero value caused descending order in previous versions. So
+        for all PHP versions, use 0 for ascending order, and 1
+        for descending order. An option for SCANDIR_SORT_NONE behavior did not
+        exist prior to PHP 5.4.0.</td></tr><tr><td>&nbsp;</td><td><a href='function.session-set-save-handler.html'>session_set_save_handler</a></td><td>Added SessionHandlerInterface for implementing session handlers and
+       SessionHandler to expose internal PHP session handlers.</td></tr><tr><td>&nbsp;</td><td><a href='function.snmp-set-valueretrieval.html'>snmp_set_valueretrieval</a></td><td>Constants SNMP_VALUE_PLAIN or SNMP_VALUE_LIBRARY
+         may be combined with SNMP_VALUE_OBJECT
+         resulting different way of representing contents of value
+         array element in return value of GET-function. If no
+         SNMP_VALUE_{PLAIN,LIBRARY} constant is
+         accompanying SNMP_VALUE_OBJECT,
+         SNMP_VALUE_LIBRARY is used.
+        
+        
+         Prior to 5.4.0 SNMP_VALUE_OBJECT effecively meant
+         SNMP_VALUE_OBJECT|SNMP_VALUE_PLAIN.</td></tr><tr><td>&nbsp;</td><td><a href='function.sort.html'>sort</a></td><td>Added support for SORT_NATURAL and
+       SORT_FLAG_CASE as sort_flags</td></tr><tr><td>&nbsp;</td><td><a href='pdostatement.getcolumnmeta.html'>PDOStatement::getColumnMeta</a></td><td>PDO_DBLIB driver support added</td></tr><tr><td>&nbsp;</td><td><a href='phar.setstub.html'>Phar::setStub</a></td><td>Added len parameter.</td></tr><tr><td>&nbsp;</td><td><a href='phardata.setstub.html'>PharData::setStub</a></td><td>Added len parameter.</td></tr><tr><td>&nbsp;</td><td><a href='simplexmlelement.getdocnamespaces.html'>SimpleXMLElement::getDocNamespaces</a></td><td>Added from_root parameter.</td></tr><tr><td>&nbsp;</td><td><a href='soapclient.soapclient.html'>SoapClient::SoapClient</a></td><td>New keep_alive option.</td></tr></tbody><tbody class="gen-changelog v5-4-0"><tr><td>5.4</td><td><a href='function.grapheme-substr.html'>grapheme_substr</a></td><td>If length is given and positive and the
+        argument string is shorter than the specified length, all the rest of
+        the string according to start parameter is
+        returned. Previously, FALSE was returned.</td></tr></tbody><tbody class="gen-changelog v5-4"><tr><td>5.3.19</td><td><a href='function.imagecreatefromxpm.html'>imagecreatefromxpm</a></td><td>imagecreatefromxpm is available on Windows.</td></tr></tbody><tbody class="gen-changelog v5-3-19"><tr><td>5.3.15, 5.4.5</td><td><a href='collator.getsortkey.html'>Collator::getSortKey</a></td><td>Sort keys do no longer contain any NUL bytes.</td></tr></tbody><tbody class="gen-changelog v5-3-15, 5-4-5"><tr><td>5.3.9</td><td><a href='datetime.createfromformat.html'>DateTime::createFromFormat</a></td><td>The + format specifier has been added.</td></tr><tr><td>&nbsp;</td><td><a href='function.dl.html'>dl</a></td><td>dl is enabled in PHP-FPM, albeit discouraged.</td></tr><tr><td>&nbsp;</td><td><a href='function.is-a.html'>is_a</a></td><td>Added allow_string parameter</td></tr><tr><td>&nbsp;</td><td><a href='function.is-subclass-of.html'>is_subclass_of</a></td><td>Added allow_string parameter</td></tr></tbody><tbody class="gen-changelog v5-3-9"><tr><td>5.3.7</td><td><a href='function.crypt.html'>crypt</a></td><td>Added $2x$ and $2y$ Blowfish
+        modes to deal with potential high-bit attacks.</td></tr><tr><td>&nbsp;</td><td><a href='function.curl-getinfo.html'>curl_getinfo</a></td><td>Introduced CURLINFO_REDIRECT_URL.</td></tr><tr><td>&nbsp;</td><td><a href='function.is-subclass-of.html'>is_subclass_of</a></td><td>Added support for class_name to work with
+        interfaces</td></tr></tbody><tbody class="gen-changelog v5-3-7"><tr><td>5.3.6</td><td><a href='datetime.modify.html'>DateTime::modify</a></td><td>Absolute date/time statements now take effect.
+       Previously, only relative parts were used.</td></tr><tr><td>&nbsp;</td><td><a href='domdocument.savehtml.html'>DOMDocument::saveHTML</a></td><td>The node parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.array-product.html'>array_product</a></td><td>The product of an empty array is now 1, when before this function would
+        return 0 for an empty array.</td></tr><tr><td>&nbsp;</td><td><a href='function.debug-backtrace.html'>debug_backtrace</a></td><td>The parameter provide_object changed to options and additional option
+        DEBUG_BACKTRACE_IGNORE_ARGS is added.</td></tr><tr><td>&nbsp;</td><td><a href='function.debug-print-backtrace.html'>debug_print_backtrace</a></td><td>Added the optional parameter options.</td></tr><tr><td>&nbsp;</td><td><a href='function.preg-match.html'>preg_match</a></td><td>Returns FALSE if offset is higher than
+        subject length.</td></tr><tr><td>&nbsp;</td><td><a href='function.preg-match-all.html'>preg_match_all</a></td><td>Returns FALSE if offset
+        is higher than
+        subject length.</td></tr><tr><td>&nbsp;</td><td><a href='ref.pdo-mysql.connection.html'>PDO_MYSQL DSN</a></td><td>Prior to version 5.3.6, charset was ignored.</td></tr></tbody><tbody class="gen-changelog v5-3-6"><tr><td>5.3.4</td><td><a href='function.copy.html'>copy</a></td><td>Changed the context parameter to actually have an effect.
+        Previously, any context was ignored.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-html-translation-table.html'>get_html_translation_table</a></td><td>The encoding parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.mt-rand.html'>mt_rand</a></td><td>Issues an E_WARNING and returns FALSE if
+        max &lt; min.</td></tr><tr><td>&nbsp;</td><td><a href='function.rawurlencode.html'>rawurlencode</a></td><td>Tilde characters are no longer encoded when
+        rawurlencode is used with EBCDIC strings.</td></tr><tr><td>&nbsp;</td><td><a href='function.sleep.html'>sleep</a></td><td>Before PHP 5.3.4, on Windows, sleep always
+        returns NULL when sleep has occurred, regardless of whether the
+        sleep was interrupted or not.</td></tr><tr><td>&nbsp;</td><td><a href='function.strip-tags.html'>strip_tags</a></td><td>strip_tags ignores self-closing XHTML
+        tags in
+        allowable_tags.</td></tr><tr><td>&nbsp;</td><td><a href='intldateformatter.format.html'>IntlDateFormatter::format</a></td><td>Support for providing DateTime objects to the
+        value parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli-driver.report-mode.html'>mysqli_driver::$report_mode</a></td><td>Changing the reporting mode is now be per-request, rather than per-process.</td></tr></tbody><tbody class="gen-changelog v5-3-4"><tr><td>5.3.3</td><td><a href='domxpath.evaluate.html'>DOMXPath::evaluate</a></td><td>The registerNodeNS parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='domxpath.query.html'>DOMXPath::query</a></td><td>The registerNodeNS parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.imap-fetch-overview.html'>imap_fetch_overview</a></td><td>Add the udate property.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-encode.html'>json_encode</a></td><td>JSON_NUMERIC_CHECK options was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.ldap-sasl-bind.html'>ldap_sasl_bind</a></td><td>Support on Windows was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.openssl-decrypt.html'>openssl_decrypt</a></td><td>The iv parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.openssl-encrypt.html'>openssl_encrypt</a></td><td>The iv parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.parse-url.html'>parse_url</a></td><td>Removed the E_WARNING that was emitted when URL
+        parsing failed.</td></tr></tbody><tbody class="gen-changelog v5-3-3"><tr><td>5.3.2 (PECL OCI8 1.4)</td><td><a href='function.oci-set-prefetch.html'>oci_set_prefetch</a></td><td>Before this release, rows must be &gt;= 1.</td></tr></tbody><tbody class="gen-changelog v5-3-2 (PECL OCI8 1-4)"><tr><td>5.3.2</td><td><a href='function.crypt.html'>crypt</a></td><td>Fixed Blowfish behaviour on invalid rounds to return &quot;failure&quot; 
+        string (&quot;*0&quot; or &quot;*1&quot;), instead of falling back to DES.</td></tr><tr><td>&nbsp;</td><td><a href='function.crypt.html'>crypt</a></td><td>Added SHA-256 and SHA-512 crypt based on Ulrich Drepper's 
+        implementation.</td></tr><tr><td>&nbsp;</td><td><a href='function.flock.html'>flock</a></td><td>The automatic unlocking when the file's resource handle is closed was
+        removed. Unlocking now always has to be done manually.</td></tr><tr><td>&nbsp;</td><td><a href='function.gmp-init.html'>gmp_init</a></td><td>The base was extended from 2 to 36, to
+        2 to 62 and -2 to -36.</td></tr><tr><td>&nbsp;</td><td><a href='function.gmp-strval.html'>gmp_strval</a></td><td>The base was extended from 2 to 36, to
+        2 to 62 and -2 to -36.</td></tr><tr><td>&nbsp;</td><td><a href='function.imap-append.html'>imap_append</a></td><td>Added INTERNALDATE support to imap_append.</td></tr><tr><td>&nbsp;</td><td><a href='function.imap-open.html'>imap_open</a></td><td>params added</td></tr><tr><td>&nbsp;</td><td><a href='splfileobject.flock.html'>SplFileObject::flock</a></td><td>The automatic unlocking when the file's resource handle is closed was
+        removed. Unlocking now always has to be done manually.</td></tr></tbody><tbody class="gen-changelog v5-3-2"><tr><td>5.3.1</td><td><a href='function.get-defined-constants.html'>get_defined_constants</a></td><td>Windows only: Core constants are categorized under Core,
+        previously mhash.</td></tr><tr><td>&nbsp;</td><td><a href='function.ibase-query.html'>ibase_query</a></td><td>On success the function now returns TRUE if there were no 
+        affected rows, where it previously returned 0  
+        (a zero followed by an empty space).</td></tr><tr><td>&nbsp;</td><td><a href='function.rename.html'>rename</a></td><td>rename can now rename files across drives in
+        Windows.</td></tr></tbody><tbody class="gen-changelog v5-3-1"><tr><td>5.3.0 (PECL OCI8 1.3.4)</td><td><a href='function.oci-set-prefetch.html'>oci_set_prefetch</a></td><td>Before this release, prefetching was limited to the lesser
+         of rows rows and 1024
+         * rows bytes.  The byte size
+         restriction has now been removed.</td></tr></tbody><tbody class="gen-changelog v5-3-0 (PECL OCI8 1-3-4)"><tr><td>5.3.0</td><td><a href='datetime.construct.html'>DateTime::__construct</a></td><td>If datetime contains an invalid
+        date/time format, then an
+        exception is now thrown. Previously an error was emitted.</td></tr><tr><td>&nbsp;</td><td><a href='datetime.modify.html'>DateTime::modify</a></td><td>Changed the
+return value on success from NULL to DateTime.</td></tr><tr><td>&nbsp;</td><td><a href='datetime.setdate.html'>DateTime::setDate</a></td><td>Changed the
+return value on success from NULL to DateTime.</td></tr><tr><td>&nbsp;</td><td><a href='datetime.setisodate.html'>DateTime::setISODate</a></td><td>Changed the
+return value on success from NULL to DateTime.</td></tr><tr><td>&nbsp;</td><td><a href='datetime.settime.html'>DateTime::setTime</a></td><td>Changed the
+return value on success from NULL to DateTime.</td></tr><tr><td>&nbsp;</td><td><a href='datetime.settimezone.html'>DateTime::setTimezone</a></td><td>Changed the
+return value on success from NULL to DateTime.</td></tr><tr><td>&nbsp;</td><td><a href='datetimezone.gettransitions.html'>DateTimeZone::getTransitions</a></td><td>The optional timestampBegin and timestampEnd 
+        were added.</td></tr><tr><td>&nbsp;</td><td><a href='datetimezone.listidentifiers.html'>DateTimeZone::listIdentifiers</a></td><td>Added the optional timezoneGroup and
+        countryCode parameters.</td></tr><tr><td>&nbsp;</td><td><a href='directoryiterator.construct.html'>DirectoryIterator::__construct</a></td><td>Throws UnexpectedValueException if the
+        path cannot be opened.</td></tr><tr><td>&nbsp;</td><td><a href='function.acosh.html'>acosh</a></td><td>This function is now available on all platforms</td></tr><tr><td>&nbsp;</td><td><a href='function.array-multisort.html'>array_multisort</a></td><td>The SORT_LOCALE_STRING was added to
+        array1_sort_flags as possible sort flags.</td></tr><tr><td>&nbsp;</td><td><a href='function.array-reduce.html'>array_reduce</a></td><td>Changed initial to allow mixed, previously integer.</td></tr><tr><td>&nbsp;</td><td><a href='function.array-search.html'>array_search</a></td><td>As with all internal PHP functions as of 5.3.0,
+        array_search returns NULL if invalid parameters
+        are passed to it.</td></tr><tr><td>&nbsp;</td><td><a href='function.asinh.html'>asinh</a></td><td>This function is now available on all platforms</td></tr><tr><td>&nbsp;</td><td><a href='function.atanh.html'>atanh</a></td><td>This function is now available on all platforms</td></tr><tr><td>&nbsp;</td><td><a href='function.call-user-func.html'>call_user_func</a></td><td>The interpretation of object oriented keywords like parent 
+        and self has changed. Previously, calling them using the 
+        double colon syntax would emit an E_STRICT warning because 
+        they were interpreted as static.</td></tr><tr><td>&nbsp;</td><td><a href='function.call-user-func.html'>call_user_func</a></td><td>If the called function expects a parameter to be passed by reference, an
+        E_WARNING is now issued.</td></tr><tr><td>&nbsp;</td><td><a href='function.call-user-func-array.html'>call_user_func_array</a></td><td>The interpretation of object oriented keywords like parent 
+        and self has changed. Previously, calling them using the 
+        double colon syntax would emit an E_STRICT warning because 
+        they were interpreted as static.</td></tr><tr><td>&nbsp;</td><td><a href='function.checkdnsrr.html'>checkdnsrr</a></td><td>This function is now available on Windows platforms.</td></tr><tr><td>&nbsp;</td><td><a href='function.clearstatcache.html'>clearstatcache</a></td><td>Added optional clear_realpath_cache
+        and filename parameters.</td></tr><tr><td>&nbsp;</td><td><a href='function.copy.html'>copy</a></td><td>Added context support.</td></tr><tr><td>&nbsp;</td><td><a href='function.crypt.html'>crypt</a></td><td>PHP now contains its own implementation for the MD5 crypt, Standard DES,
+        Extended DES and the Blowfish algorithms and will use that if the system
+        lacks of support for one or more of the algorithms.</td></tr><tr><td>&nbsp;</td><td><a href='function.curl-getinfo.html'>curl_getinfo</a></td><td>Introduced CURLINFO_CERTINFO.</td></tr><tr><td>&nbsp;</td><td><a href='function.curl-setopt.html'>curl_setopt</a></td><td>Introduced CURLOPT_PROGRESSFUNCTION.</td></tr><tr><td>&nbsp;</td><td><a href='function.date-default-timezone-set.html'>date_default_timezone_set</a></td><td>Now throws E_WARNING rather than
+        E_STRICT.</td></tr><tr><td>&nbsp;</td><td><a href='function.define-syslog-variables.html'>define_syslog_variables</a></td><td>This function now throws an E_DEPRECATED notice.</td></tr><tr><td>&nbsp;</td><td><a href='function.dl.html'>dl</a></td><td>dl is now disabled in some SAPIs due to
+        stability issues.  The only SAPIs that
+        allow dl are CLI and Embed.  Use
+        the Extension Loading
+        Directives instead.</td></tr><tr><td>&nbsp;</td><td><a href='function.dns-get-record.html'>dns_get_record</a></td><td>Prior to this release, if the authns parameter
+        was given, the addtl parameter was also
+        required.</td></tr><tr><td>&nbsp;</td><td><a href='function.dns-get-record.html'>dns_get_record</a></td><td>This function is now available on Windows platforms.</td></tr><tr><td>&nbsp;</td><td><a href='function.error-reporting.html'>error_reporting</a></td><td>E_DEPRECATED and E_USER_DEPRECATED introduced.</td></tr><tr><td>&nbsp;</td><td><a href='function.escapeshellcmd.html'>escapeshellcmd</a></td><td>On Windows, the special characters are now properly escaped.
+        Previously, they have been replaced with a space character.</td></tr><tr><td>&nbsp;</td><td><a href='function.exif-imagetype.html'>exif_imagetype</a></td><td>Added icon support.</td></tr><tr><td>&nbsp;</td><td><a href='function.expm1.html'>expm1</a></td><td>This function is now available on all platforms</td></tr><tr><td>&nbsp;</td><td><a href='function.fgetcsv.html'>fgetcsv</a></td><td>The escape parameter was added</td></tr><tr><td>&nbsp;</td><td><a href='function.fnmatch.html'>fnmatch</a></td><td>This function is now available on Windows platforms.</td></tr><tr><td>&nbsp;</td><td><a href='function.func-get-arg.html'>func_get_arg</a></td><td>If this function is called from the outermost scope of a file
+        which has been included by calling include
+        or require from within a function in the
+        calling file, it now generates a warning and returns FALSE.</td></tr><tr><td>&nbsp;</td><td><a href='function.func-get-arg.html'>func_get_arg</a></td><td>This function can now be used in parameter lists.</td></tr><tr><td>&nbsp;</td><td><a href='function.func-get-args.html'>func_get_args</a></td><td>This function can now be used in parameter lists.</td></tr><tr><td>&nbsp;</td><td><a href='function.func-get-args.html'>func_get_args</a></td><td>If this function is called from the outermost scope of a file
+        which has been included by calling include
+        or require from within a function in the
+        calling file, it now generates a warning and returns FALSE.</td></tr><tr><td>&nbsp;</td><td><a href='function.func-num-args.html'>func_num_args</a></td><td>If this function is called from the outermost scope of a file
+        which has been included by calling include
+        or require from within a function in the
+        calling file, it now generates a warning and returns -1.</td></tr><tr><td>&nbsp;</td><td><a href='function.func-num-args.html'>func_num_args</a></td><td>This function can now be used in parameter lists.</td></tr><tr><td>&nbsp;</td><td><a href='function.gd-info.html'>gd_info</a></td><td>JPG Support attribute renamed to JPEG Support.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-cfg-var.html'>get_cfg_var</a></td><td>get_cfg_var was fixed to be able 
+        to return &quot;array&quot; ini options.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-class.html'>get_class</a></td><td>NULL became the default value for object,
+        so passing NULL to object now has the same
+        result as not passing any value.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-defined-constants.html'>get_defined_constants</a></td><td>Core constants are categorized under Core,
+        previously internal. On Windows, the Core Constants
+        are categorized under mhash.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-object-vars.html'>get_object_vars</a></td><td>This function now returns NULL if the 
+        object isn't an object. Previously FALSE was returned.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-resource-type.html'>get_resource_type</a></td><td>If handle is not a resource this
+       functions returns NULL. Formerly, FALSE has been returned.</td></tr><tr><td>&nbsp;</td><td><a href='function.getimagesize.html'>getimagesize</a></td><td>Added icon support.</td></tr><tr><td>&nbsp;</td><td><a href='function.getmxrr.html'>getmxrr</a></td><td>This function is now available on Windows platforms.</td></tr><tr><td>&nbsp;</td><td><a href='function.getopt.html'>getopt</a></td><td>This function is no longer system dependent, and now works on Windows, too.</td></tr><tr><td>&nbsp;</td><td><a href='function.getopt.html'>getopt</a></td><td>Added support for &quot;=&quot; as argument/value separator.</td></tr><tr><td>&nbsp;</td><td><a href='function.getopt.html'>getopt</a></td><td>Parameter longopts is available on all systems.</td></tr><tr><td>&nbsp;</td><td><a href='function.getopt.html'>getopt</a></td><td>Added support for optional values (specified with &quot;::&quot;).</td></tr><tr><td>&nbsp;</td><td><a href='function.hash-algos.html'>hash_algos</a></td><td>Support for md2, ripemd256, ripemd320, salsa10, salsa20, snefru256 and sha224 was added</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlentities.html'>htmlentities</a></td><td>The constant ENT_IGNORE was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlspecialchars.html'>htmlspecialchars</a></td><td>The constant ENT_IGNORE was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagecolorclosesthwb.html'>imagecolorclosesthwb</a></td><td>This function is now available on Windows</td></tr><tr><td>&nbsp;</td><td><a href='function.imagefilter.html'>imagefilter</a></td><td>Pixelation support (IMG_FILTER_PIXELATE) was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.inet-ntop.html'>inet_ntop</a></td><td>This function is now available on Windows platforms.</td></tr><tr><td>&nbsp;</td><td><a href='function.inet-pton.html'>inet_pton</a></td><td>This function is now available on Windows platforms.</td></tr><tr><td>&nbsp;</td><td><a href='function.ini-get.html'>ini_get</a></td><td>Previously, the empty string was returned if the configuration
+        option didn't exist. now, FALSE is returned instead.</td></tr><tr><td>&nbsp;</td><td><a href='function.ini-get-all.html'>ini_get_all</a></td><td>Added details.</td></tr><tr><td>&nbsp;</td><td><a href='function.is-a.html'>is_a</a></td><td>This function is no longer deprecated, and will therefore 
+        no longer throw E_STRICT warnings.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-decode.html'>json_decode</a></td><td>Added the optional depth. The default
+        recursion depth was increased from 128 to 512</td></tr><tr><td>&nbsp;</td><td><a href='function.json-encode.html'>json_encode</a></td><td>JSON_FORCE_OBJECT,
+        JSON_HEX_AMP,
+        JSON_HEX_APOS,
+        JSON_HEX_QUOT, and
+        JSON_HEX_TAG,
+        options were added.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-encode.html'>json_encode</a></td><td>The options parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.link.html'>link</a></td><td>This function is now available on Windows platforms  (Vista, Server 
+        2008 or greater).</td></tr><tr><td>&nbsp;</td><td><a href='function.linkinfo.html'>linkinfo</a></td><td>This function is now available on Windows platforms  (Vista, Server 
+        2008 or greater).</td></tr><tr><td>&nbsp;</td><td><a href='function.log1p.html'>log1p</a></td><td>This function is now available on all platforms</td></tr><tr><td>&nbsp;</td><td><a href='function.mb-get-info.html'>mb_get_info</a></td><td>The entry &quot;http_output_conv_mimetypes&quot; was made available.</td></tr><tr><td>&nbsp;</td><td><a href='function.mcrypt-create-iv.html'>mcrypt_create_iv</a></td><td>MCRYPT_DEV_RANDOM and
+        MCRYPT_DEV_URANDOM became available on Windows
+        platforms.</td></tr><tr><td>&nbsp;</td><td><a href='function.mcrypt-create-iv.html'>mcrypt_create_iv</a></td><td>It is no longer required to call srand first. This
+        is now done automatically.</td></tr><tr><td>&nbsp;</td><td><a href='function.mktime.html'>mktime</a></td><td>mktime now throws E_DEPRECATED notice 
+        if the isDST parameter is used.</td></tr><tr><td>&nbsp;</td><td><a href='function.mysql-db-query.html'>mysql_db_query</a></td><td>This function now throws an E_DEPRECATED notice.</td></tr><tr><td>&nbsp;</td><td><a href='function.mysql-escape-string.html'>mysql_escape_string</a></td><td>This function now throws an E_DEPRECATED notice.</td></tr><tr><td>&nbsp;</td><td><a href='function.mysqli-get-cache-stats.html'>mysqli_get_cache_stats</a></td><td>The mysqli_get_cache_stats was added as stub.</td></tr><tr><td>&nbsp;</td><td><a href='function.nl2br.html'>nl2br</a></td><td>Added the optional is_xhtml parameter. Before
+         this version '&lt;br /&gt;' was always inserted.</td></tr><tr><td>&nbsp;</td><td><a href='function.openssl-open.html'>openssl_open</a></td><td>The method has been added.</td></tr><tr><td>&nbsp;</td><td><a href='function.openssl-seal.html'>openssl_seal</a></td><td>The method has been added.</td></tr><tr><td>&nbsp;</td><td><a href='function.parse-ini-file.html'>parse_ini_file</a></td><td>Added optional scanner_mode parameter.
+         Single quotes may now be used around variable assignments.
+         Hash marks (#) should no longer be used as comments
+         and will throw a deprecation warning if used.</td></tr><tr><td>&nbsp;</td><td><a href='function.pg-lo-create.html'>pg_lo_create</a></td><td>The optional object_id was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.pg-lo-import.html'>pg_lo_import</a></td><td>The optional object_id was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.preg-quote.html'>preg_quote</a></td><td>The - character is now quoted</td></tr><tr><td>&nbsp;</td><td><a href='function.property-exists.html'>property_exists</a></td><td>This function checks the existence of a property independent of 
+        accessibility.</td></tr><tr><td>&nbsp;</td><td><a href='function.rawurlencode.html'>rawurlencode</a></td><td>Now conforms to RFC 3986.</td></tr><tr><td>&nbsp;</td><td><a href='function.readlink.html'>readlink</a></td><td>This function is now available on Windows platforms  (Vista, Server 
+        2008 or greater).</td></tr><tr><td>&nbsp;</td><td><a href='function.realpath.html'>realpath</a></td><td>Prior to this release, if only the last path
+        component did not exist, realpath would not fail on
+        *BSD systems. realpath now fails in this case.</td></tr><tr><td>&nbsp;</td><td><a href='function.register-tick-function.html'>register_tick_function</a></td><td>Ticks are now supported on threaded web server modules.</td></tr><tr><td>&nbsp;</td><td><a href='function.round.html'>round</a></td><td>The mode parameter was introduced.</td></tr><tr><td>&nbsp;</td><td><a href='function.session-start.html'>session_start</a></td><td>If a session fails to start, then FALSE is returned.
+        Previously TRUE was returned.</td></tr><tr><td>&nbsp;</td><td><a href='function.setlocale.html'>setlocale</a></td><td>This function now throws an E_DEPRECATED notice if a string is passed 
+        to the category parameter instead of one of the 
+        LC_* constants.</td></tr><tr><td>&nbsp;</td><td><a href='function.shm-attach.html'>shm_attach</a></td><td>This function now returns a resource instead of an 
+         integer.</td></tr><tr><td>&nbsp;</td><td><a href='function.socket-create-pair.html'>socket_create_pair</a></td><td>This function is now available on Windows platforms.</td></tr><tr><td>&nbsp;</td><td><a href='function.spl-autoload-register.html'>spl_autoload_register</a></td><td>Namespaces support was introduced.</td></tr><tr><td>&nbsp;</td><td><a href='function.spl-autoload-register.html'>spl_autoload_register</a></td><td>The prepend parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.stream-context-create.html'>stream_context_create</a></td><td>Added the optional params argument.</td></tr><tr><td>&nbsp;</td><td><a href='function.stream-socket-pair.html'>stream_socket_pair</a></td><td>This function is now available on Windows platforms.</td></tr><tr><td>&nbsp;</td><td><a href='function.stristr.html'>stristr</a></td><td>Added the optional parameter before_needle.</td></tr><tr><td>&nbsp;</td><td><a href='function.strlen.html'>strlen</a></td><td>Prior versions treated arrays as the string Array, thus returning
+       a string length of 5 and emitting an E_NOTICE level error.</td></tr><tr><td>&nbsp;</td><td><a href='function.strstr.html'>strstr</a></td><td>Added the optional parameter before_needle.</td></tr><tr><td>&nbsp;</td><td><a href='function.strtotime.html'>strtotime</a></td><td>Prior to PHP 5.3.0, 24:00 was not a valid format and
+        strtotime returned FALSE.</td></tr><tr><td>&nbsp;</td><td><a href='function.strtotime.html'>strtotime</a></td><td>Prior to PHP 5.3.0, relative time formats supplied to the
+        datetime argument of strtotime
+        such as this week, previous week,
+        last week, and next week were
+        interpreted to mean a 7 day period relative to the current date/time, rather
+        than a week period of Monday through Sunday.</td></tr><tr><td>&nbsp;</td><td><a href='function.sybase-connect.html'>sybase_connect</a></td><td>The new parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.symlink.html'>symlink</a></td><td>This function is now available on Windows platforms  (Vista, Server 
+        2008 or greater).</td></tr><tr><td>&nbsp;</td><td><a href='function.time-nanosleep.html'>time_nanosleep</a></td><td>This function is now available on Windows platforms.</td></tr><tr><td>&nbsp;</td><td><a href='function.time-sleep-until.html'>time_sleep_until</a></td><td>This function is now available on Windows platforms.</td></tr><tr><td>&nbsp;</td><td><a href='function.touch.html'>touch</a></td><td>It became possible to change the modification time of a directory 
+        under Windows.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.construct.html'>mysqli::__construct</a></td><td>Added the ability of persistent connections.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.options.html'>mysqli::options</a></td><td>The MYSQLI_OPT_INT_AND_FLOAT_NATIVE,
+        MYSQLI_OPT_NET_CMD_BUFFER_SIZE,
+        MYSQLI_OPT_NET_READ_BUFFER_SIZE, and
+        MYSQLI_OPT_SSL_VERIFY_SERVER_CERT options were
+        added.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.query.html'>mysqli::query</a></td><td>Added the ability of async queries.</td></tr><tr><td>&nbsp;</td><td><a href='pdo.construct.html'>PDO::__construct</a></td><td>Classes which extends PDO and implements the __call 
+        magic method will now receive the method name in the declared casing. Previously this was always 
+        lower case.</td></tr><tr><td>&nbsp;</td><td><a href='reflectionfunction.construct.html'>ReflectionFunction::__construct</a></td><td>name can now be a closure.</td></tr><tr><td>&nbsp;</td><td><a href='splfileobject.setcsvcontrol.html'>SplFileObject::setCsvControl</a></td><td>Added the escape parameter.</td></tr><tr><td>&nbsp;</td><td><a href='splobjectstorage.attach.html'>SplObjectStorage::attach</a></td><td>Added the data parameter.</td></tr><tr><td>&nbsp;</td><td><a href='xmlreader.expand.html'>XMLReader::expand</a></td><td>The parameter basenode was added.</td></tr></tbody><tbody class="gen-changelog v5-3-0"><tr><td>5.2.15</td><td><a href='mysqli-driver.report-mode.html'>mysqli_driver::$report_mode</a></td><td>Changing the reporting mode is now be per-request, rather than per-process.</td></tr></tbody><tbody class="gen-changelog v5-2-15"><tr><td>5.2.11</td><td><a href='function.get-defined-constants.html'>get_defined_constants</a></td><td>The categorize parameter now operates appropriately.
+        Previously, the categorize parameter was interpreted
+        as !is_null($categorize), making any value other than NULL
+        force the constants to be categorized.</td></tr></tbody><tbody class="gen-changelog v5-2-11"><tr><td>5.2.10</td><td><a href='function.array-rand.html'>array_rand</a></td><td>The resulting array of keys is no longer shuffled.</td></tr><tr><td>&nbsp;</td><td><a href='function.array-unique.html'>array_unique</a></td><td>Changed the default value of sort_flags back to
+        SORT_STRING.</td></tr><tr><td>&nbsp;</td><td><a href='function.curl-setopt.html'>curl_setopt</a></td><td>Introduced CURLOPT_PROTOCOLS, and
+        CURLOPT_REDIR_PROTOCOLS.</td></tr><tr><td>&nbsp;</td><td><a href='function.ip2long.html'>ip2long</a></td><td>Prior to this version, ip2long would sometimes return
+        a valid number even if passed a value which was not an (IPv4) Internet Protocol
+        dotted address.</td></tr><tr><td>&nbsp;</td><td><a href='function.natsort.html'>natsort</a></td><td>Zero padded numeric strings (e.g., '00005') now essentially ignore the 0 padding.</td></tr></tbody><tbody class="gen-changelog v5-2-10"><tr><td>5.2.9</td><td><a href='function.array-unique.html'>array_unique</a></td><td>Added the optional sort_flags defaulting
+        to SORT_REGULAR. Prior to 5.2.9, this function used to sort
+        the array with SORT_STRING internally.</td></tr></tbody><tbody class="gen-changelog v5-2-9"><tr><td>5.2.8</td><td><a href='xsltprocessor.importstylesheet.html'>XSLTProcessor::importStylesheet</a></td><td>Accepts SimpleXMLElement again which was broken
+        since PHP 5.2.6.</td></tr></tbody><tbody class="gen-changelog v5-2-8"><tr><td>5.2.7</td><td><a href='function.error-log.html'>error_log</a></td><td>The possible value of 4 was added to message_type.</td></tr><tr><td>&nbsp;</td><td><a href='function.parse-ini-file.html'>parse_ini_file</a></td><td>On syntax error this function will return FALSE rather than an empty
+        array.</td></tr><tr><td>&nbsp;</td><td><a href='function.round.html'>round</a></td><td>The inner workings of round was changed 
+        to conform to the C99 standard.</td></tr><tr><td>&nbsp;</td><td><a href='function.strtotime.html'>strtotime</a></td><td>In PHP 5 prior to 5.2.7, requesting a given occurrence of a
+        given weekday in a month where that weekday was the first day
+        of the month would incorrectly add one week to the returned
+        timestamp. This has been corrected in 5.2.7 and later
+        versions.</td></tr></tbody><tbody class="gen-changelog v5-2-7"><tr><td>5.2.6</td><td><a href='function.fopen.html'>fopen</a></td><td>The 'c' and 'c+' options were
+        added</td></tr></tbody><tbody class="gen-changelog v5-2-6"><tr><td>5.2.5</td><td><a href='function.addcslashes.html'>addcslashes</a></td><td>The escape sequences \v and \f were added.</td></tr><tr><td>&nbsp;</td><td><a href='function.debug-backtrace.html'>debug_backtrace</a></td><td>Added the optional parameter provide_object.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagefilter.html'>imagefilter</a></td><td>Alpha support for IMG_FILTER_COLORIZE was added.</td></tr></tbody><tbody class="gen-changelog v5-2-5"><tr><td>5.2.4</td><td><a href='function.array-slice.html'>array_slice</a></td><td>The default value of the length parameter was
+        changed to NULL. A NULL length now tells
+        the function to use the length of array.
+        Prior to this version, a NULL length was
+        taken to mean a zero length (nothing will be returned).</td></tr><tr><td>&nbsp;</td><td><a href='function.checkdnsrr.html'>checkdnsrr</a></td><td>TXT type was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.curl-getinfo.html'>curl_getinfo</a></td><td>Introduced CURLINFO_PRIVATE.</td></tr><tr><td>&nbsp;</td><td><a href='function.curl-setopt.html'>curl_setopt</a></td><td>Introduced CURLOPT_PRIVATE.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-loaded-extensions.html'>get_loaded_extensions</a></td><td>The optional zend_extensions parameter was added</td></tr><tr><td>&nbsp;</td><td><a href='function.ldap-first-attribute.html'>ldap_first_attribute</a></td><td>The ber_identifier was removed. This
+        is now handled automatically by PHP.</td></tr><tr><td>&nbsp;</td><td><a href='function.ldap-next-attribute.html'>ldap_next_attribute</a></td><td>The ber_identifier was removed. This
+        is now handled automatically by PHP.</td></tr><tr><td>&nbsp;</td><td><a href='function.parse-ini-file.html'>parse_ini_file</a></td><td>Keys and section names consisting of numbers are now evaluated as PHP
+        integers thus numbers
+        starting by 0 are evaluated as octals and numbers starting by 0x are
+        evaluated as hexadecimals.</td></tr><tr><td>&nbsp;</td><td><a href='function.stream-wrapper-register.html'>stream_wrapper_register</a></td><td>Added the flags parameter.</td></tr></tbody><tbody class="gen-changelog v5-2-4"><tr><td>5.2.3</td><td><a href='function.getimagesize.html'>getimagesize</a></td><td>Read errors generated by this function downgraded to
+        E_NOTICE from E_WARNING.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlentities.html'>htmlentities</a></td><td>The double_encode parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlspecialchars.html'>htmlspecialchars</a></td><td>The double_encode parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-decode.html'>json_decode</a></td><td>The nesting limit was increased from 20 to 128</td></tr><tr><td>&nbsp;</td><td><a href='function.xmlwriter-write-element.html'>XMLWriter::writeElement</a></td><td>The content parameter became optional.</td></tr><tr><td>&nbsp;</td><td><a href='function.xmlwriter-write-element-ns.html'>XMLWriter::writeElementNs</a></td><td>The content parameter became optional.</td></tr><tr><td>&nbsp;</td><td><a href='pdostatement.getcolumnmeta.html'>PDOStatement::getColumnMeta</a></td><td>table field</td></tr></tbody><tbody class="gen-changelog v5-2-3"><tr><td>5.2.2 - 5.2.6</td><td><a href='function.substr.html'>substr</a></td><td>If the start parameter indicates the position of
+        a negative truncation or beyond, false is returned. Other versions get
+        the string from start.</td></tr></tbody><tbody class="gen-changelog v5-2-2 - 5-2-6"><tr><td>5.2.2</td><td><a href='domdocument.registernodeclass.html'>DOMDocument::registerNodeClass</a></td><td>Prior to 5.2.2, a previously registered extendedclass
+        had to be unregistered before being able to register a new class extending
+        the same baseclass.</td></tr><tr><td>&nbsp;</td><td><a href='function.date-sun-info.html'>date_sun_info</a></td><td>The order of latitude and
+       longitude has been swapped.</td></tr><tr><td>&nbsp;</td><td><a href='function.ftp-ssl-connect.html'>ftp_ssl_connect</a></td><td>The function was changed to return FALSE when it can't use an SSL
+        connection, instead of falling back to a non-SSL one as previously.</td></tr><tr><td>&nbsp;</td><td><a href='function.phpinfo.html'>phpinfo</a></td><td>The &quot;Loaded Configuration File&quot; information was added, when before
+        only &quot;Configuration File (php.ini) Path&quot; existed.</td></tr><tr><td>&nbsp;</td><td><a href='function.preg-match.html'>preg_match</a></td><td>Named subpatterns now accept the
+        syntax (?&lt;name&gt;)
+        and (?'name') as well
+        as (?P&lt;name&gt;). Previous versions
+        accepted only (?P&lt;name&gt;).</td></tr><tr><td>&nbsp;</td><td><a href='function.preg-match-all.html'>preg_match_all</a></td><td>Named subpatterns now accept the
+        syntax (?&lt;name&gt;)
+        and (?'name') as well
+        as (?P&lt;name&gt;). Previous versions
+        accepted only (?P&lt;name&gt;).</td></tr><tr><td>&nbsp;</td><td><a href='function.proc-terminate.html'>proc_terminate</a></td><td>Previous versions used to destroy the given process
+        resource.</td></tr><tr><td>&nbsp;</td><td><a href='function.token-get-all.html'>token_get_all</a></td><td>Line numbers are returned in element 2</td></tr></tbody><tbody class="gen-changelog v5-2-2"><tr><td>5.2.1</td><td><a href='function.iterator-to-array.html'>iterator_to_array</a></td><td>The use_keys parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-decode.html'>json_decode</a></td><td>Added support for JSON decoding of basic types.</td></tr><tr><td>&nbsp;</td><td><a href='function.memory-get-peak-usage.html'>memory_get_peak_usage</a></td><td>Compiling with --enable-memory-limit 
+        is no longer required for this function to exist.</td></tr><tr><td>&nbsp;</td><td><a href='function.memory-get-usage.html'>memory_get_usage</a></td><td>Compiling with --enable-memory-limit 
+        is no longer required for this function to exist.</td></tr><tr><td>&nbsp;</td><td><a href='function.mt-srand.html'>mt_srand</a></td><td>The Mersenne Twister implementation in PHP now uses a new seeding
+        algorithm by Richard Wagner. Identical seeds no longer produce the same
+        sequence of values they did in previous versions. This behavior is not
+        expected to change again, but it is considered unsafe to rely upon it
+        nonetheless.</td></tr><tr><td>&nbsp;</td><td><a href='function.proc-open.html'>proc_open</a></td><td>Added the bypass_shell option to the
+        other_options parameter.</td></tr><tr><td>&nbsp;</td><td><a href='function.realpath.html'>realpath</a></td><td>Prior to this version, realpath returned FALSE
+        if path is an empty string or NULL.</td></tr></tbody><tbody class="gen-changelog v5-2-1"><tr><td>5.2.0</td><td><a href='function.base64-decode.html'>base64_decode</a></td><td>strict added</td></tr><tr><td>&nbsp;</td><td><a href='function.curl-multi-info-read.html'>curl_multi_info_read</a></td><td>msgs_in_queue was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.error-reporting.html'>error_reporting</a></td><td>E_RECOVERABLE_ERROR introduced.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagettftext.html'>imagettftext</a></td><td>It is now possible to specify an hexadecimal entity in 
+        text.</td></tr><tr><td>&nbsp;</td><td><a href='function.imap-open.html'>imap_open</a></td><td>n_retries added</td></tr><tr><td>&nbsp;</td><td><a href='function.imap-reopen.html'>imap_reopen</a></td><td>n_retries added</td></tr><tr><td>&nbsp;</td><td><a href='function.mb-strrpos.html'>mb_strrpos</a></td><td>Added the optional parameter offset.</td></tr><tr><td>&nbsp;</td><td><a href='function.memory-get-peak-usage.html'>memory_get_peak_usage</a></td><td>real_usage was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.memory-get-usage.html'>memory_get_usage</a></td><td>real_usage was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.openssl-verify.html'>openssl_verify</a></td><td>The signature_alg parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.pathinfo.html'>pathinfo</a></td><td>The PATHINFO_FILENAME constant was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.pg-escape-bytea.html'>pg_escape_bytea</a></td><td>connection added</td></tr><tr><td>&nbsp;</td><td><a href='function.pg-escape-string.html'>pg_escape_string</a></td><td>connection added</td></tr><tr><td>&nbsp;</td><td><a href='function.session-get-cookie-params.html'>session_get_cookie_params</a></td><td>The &quot;httponly&quot; entry was added in the returned array.</td></tr><tr><td>&nbsp;</td><td><a href='function.session-set-cookie-params.html'>session_set_cookie_params</a></td><td>The httponly parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.set-error-handler.html'>set_error_handler</a></td><td>The error handler must return FALSE to populate
+        $php_errormsg.</td></tr><tr><td>&nbsp;</td><td><a href='function.setcookie.html'>setcookie</a></td><td>The httponly parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.setrawcookie.html'>setrawcookie</a></td><td>The httponly parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.simplexml-load-file.html'>simplexml_load_file</a></td><td>The optional parameter is_prefix was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.simplexml-load-string.html'>simplexml_load_string</a></td><td>The optional parameter is_prefix was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.snmp-set-oid-numeric-print.html'>snmp_set_oid_numeric_print</a></td><td>This function is now an alias of snmp_set_oid_output_format.</td></tr><tr><td>&nbsp;</td><td><a href='pdostatement.execute.html'>PDOStatement::execute</a></td><td>The keys from input_parameters must match the ones 
+        declared in the SQL. Before PHP 5.2.0 this was silently ignored.</td></tr><tr><td>&nbsp;</td><td><a href='simplexmlelement.attributes.html'>SimpleXMLElement::attributes</a></td><td>The optional parameter is_prefix was added.</td></tr><tr><td>&nbsp;</td><td><a href='simplexmlelement.children.html'>SimpleXMLElement::children</a></td><td>The optional parameter is_prefix was added.</td></tr><tr><td>&nbsp;</td><td><a href='simplexmlelement.construct.html'>SimpleXMLElement::__construct</a></td><td>Added the ns and is_prefix parameters.</td></tr><tr><td>&nbsp;</td><td><a href='soapserver.soapserver.html'>SoapServer::SoapServer</a></td><td>Added the typemap option.</td></tr><tr><td>&nbsp;</td><td><a href='xmlreader.open.html'>XMLReader::open</a></td><td>encoding and options
+        were added.</td></tr><tr><td>&nbsp;</td><td><a href='xmlreader.xml.html'>XMLReader::XML</a></td><td>encoding and options
+        were added.</td></tr></tbody><tbody class="gen-changelog v5-2-0"><tr><td>5.1.3</td><td><a href='directoryiterator.construct.html'>DirectoryIterator::__construct</a></td><td>Throws RuntimeException if the
+        path is an empty string.</td></tr><tr><td>&nbsp;</td><td><a href='function.curl-getinfo.html'>curl_getinfo</a></td><td>Introduced CURLINFO_HEADER_OUT.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-headers.html'>get_headers</a></td><td>This function now uses the default stream context, which can be
+        set/changed with the stream_context_set_default
+        function.</td></tr><tr><td>&nbsp;</td><td><a href='function.http-build-query.html'>http_build_query</a></td><td>Square brackets are escaped.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagecolorallocate.html'>imagecolorallocate</a></td><td>Returns FALSE if the allocation failed. Previously
+        -1 was returned.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagecolorallocatealpha.html'>imagecolorallocatealpha</a></td><td>Returns FALSE if the allocation failed. Previously
+        -1 was returned.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagepng.html'>imagepng</a></td><td>Added the filters parameter.</td></tr><tr><td>&nbsp;</td><td><a href='function.mb-get-info.html'>mb_get_info</a></td><td>The entries &quot;mail_charset&quot;, &quot;mail_header_encoding&quot;, and 
+        &quot;mail_body_encoding&quot; were made available.</td></tr><tr><td>&nbsp;</td><td><a href='soapclient.dorequest.html'>SoapClient::__doRequest</a></td><td>The one_way parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='xmlreader.getattribute.html'>XMLReader::getAttribute</a></td><td>Return NULL if no attribute found.
+        Previously, returned an empty string.</td></tr></tbody><tbody class="gen-changelog v5-1-3"><tr><td>5.1.2</td><td><a href='function.date-default-timezone-set.html'>date_default_timezone_set</a></td><td>The function started to validate the
+        timezoneID parameter.</td></tr><tr><td>&nbsp;</td><td><a href='function.header.html'>header</a></td><td>This function now prevents more than one header to be sent at once as
+        a protection against header injection attacks.</td></tr><tr><td>&nbsp;</td><td><a href='function.http-build-query.html'>http_build_query</a></td><td>The arg_separator parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagepng.html'>imagepng</a></td><td>Added the quality parameter.</td></tr><tr><td>&nbsp;</td><td><a href='function.parse-url.html'>parse_url</a></td><td>Added the component parameter.</td></tr><tr><td>&nbsp;</td><td><a href='simplexmlelement.construct.html'>SimpleXMLElement::__construct</a></td><td>Added the options and data_is_url parameters.</td></tr></tbody><tbody class="gen-changelog v5-1-2"><tr><td>5.1.1</td><td><a href='function.date.html'>date</a></td><td>There are useful constants 
+        of standard date/time formats that can be used to specify the 
+        format parameter.</td></tr><tr><td>&nbsp;</td><td><a href='function.debug-backtrace.html'>debug_backtrace</a></td><td>Added the current object as a possible return element.</td></tr><tr><td>&nbsp;</td><td><a href='function.gmdate.html'>gmdate</a></td><td>There are useful constants 
+        of standard date/time formats that can be used to specify the 
+        format parameter.</td></tr></tbody><tbody class="gen-changelog v5-1-1"><tr><td>5.1.0</td><td><a href='directoryiterator.construct.html'>DirectoryIterator::__construct</a></td><td>Throws RuntimeException on error.
+        Previously, threw Exception.</td></tr><tr><td>&nbsp;</td><td><a href='domdocument.save.html'>DOMDocument::save</a></td><td>Added the options parameter</td></tr><tr><td>&nbsp;</td><td><a href='domdocument.savexml.html'>DOMDocument::saveXML</a></td><td>Added the options parameter</td></tr><tr><td>&nbsp;</td><td><a href='function.class-implements.html'>class_implements</a></td><td>Added the option to pass the class parameter as
+        a string. Added the autoload parameter.</td></tr><tr><td>&nbsp;</td><td><a href='function.class-parents.html'>class_parents</a></td><td>Added the option to pass the class parameter as
+        a string. Added the autoload parameter.</td></tr><tr><td>&nbsp;</td><td><a href='function.ctype-digit.html'>ctype_digit</a></td><td>Before PHP 5.1.0, this function returned TRUE
+        when text was an empty string.</td></tr><tr><td>&nbsp;</td><td><a href='function.curl-setopt.html'>curl_setopt</a></td><td>Introduced CURLOPT_AUTOREFERER,
+        CURLOPT_BINARYTRANSFER,
+        CURLOPT_FTPSSLAUTH,
+        CURLOPT_PROXYAUTH, and
+        CURLOPT_TIMECONDITION.</td></tr><tr><td>&nbsp;</td><td><a href='function.date.html'>date</a></td><td>The valid range of a timestamp is typically from Fri, 13 Dec
+        1901 20:45:54 GMT to Tue, 19 Jan 2038 03:14:07 GMT. (These are
+        the dates that correspond to the minimum and maximum values for
+        a 32-bit signed integer). However, before PHP 5.1.0 this range was limited
+        from 01-01-1970 to 19-01-2038 on some systems (e.g. Windows).</td></tr><tr><td>&nbsp;</td><td><a href='function.date.html'>date</a></td><td>Now issues the E_STRICT and E_NOTICE
+time zone errors.</td></tr><tr><td>&nbsp;</td><td><a href='function.date-sunrise.html'>date_sunrise</a></td><td>Now issues the E_STRICT and E_NOTICE
+time zone errors.</td></tr><tr><td>&nbsp;</td><td><a href='function.date-sunset.html'>date_sunset</a></td><td>Now issues the E_STRICT and E_NOTICE
+time zone errors.</td></tr><tr><td>&nbsp;</td><td><a href='function.explode.html'>explode</a></td><td>Support for negative limits was added</td></tr><tr><td>&nbsp;</td><td><a href='function.fgetcsv.html'>fgetcsv</a></td><td>The length is now optional.
+        Default is 0, meaning no length limit.</td></tr><tr><td>&nbsp;</td><td><a href='function.file-get-contents.html'>file_get_contents</a></td><td>Added the offset and
+        maxlen parameters.</td></tr><tr><td>&nbsp;</td><td><a href='function.file-put-contents.html'>file_put_contents</a></td><td>Added support for LOCK_EX and the ability to pass
+        a stream resource to the data parameter</td></tr><tr><td>&nbsp;</td><td><a href='function.get-parent-class.html'>get_parent_class</a></td><td>If called without parameter outside object, this function would have
+        returned NULL with a warning, but now returns FALSE.</td></tr><tr><td>&nbsp;</td><td><a href='function.gettimeofday.html'>gettimeofday</a></td><td>The returnFloat parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.glob.html'>glob</a></td><td>GLOB_ERR was added</td></tr><tr><td>&nbsp;</td><td><a href='function.gmdate.html'>gmdate</a></td><td>The valid range of a timestamp is typically from Fri, 13 Dec
+        1901 20:45:54 GMT to Tue, 19 Jan 2038 03:14:07 GMT. (These are
+        the dates that correspond to the minimum and maximum values for
+        a 32-bit signed integer). However, before PHP 5.1.0 this range was limited
+        from 01-01-1970 to 19-01-2038 on some systems (e.g. Windows).</td></tr><tr><td>&nbsp;</td><td><a href='function.gmmktime.html'>gmmktime</a></td><td>As of PHP 5.1.0, the isDST parameter became
+        deprecated. As a result, the new timezone handling features should be used
+        instead.</td></tr><tr><td>&nbsp;</td><td><a href='function.idate.html'>idate</a></td><td>Now issues the E_STRICT and E_NOTICE
+time zone errors.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagerotate.html'>imagerotate</a></td><td>ignore_transparent was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.intval.html'>intval</a></td><td>Throws E_NOTICE and
+        returns 1, when an object is passed to 
+        var.</td></tr><tr><td>&nbsp;</td><td><a href='function.localtime.html'>localtime</a></td><td>Now issues the E_STRICT and E_NOTICE
+time zone errors.</td></tr><tr><td>&nbsp;</td><td><a href='function.md5-file.html'>md5_file</a></td><td>Changed the function to use the streams API. It means that you can use
+        it with wrappers, like md5_file('http://example.com/..')</td></tr><tr><td>&nbsp;</td><td><a href='function.mktime.html'>mktime</a></td><td>Now issues the E_STRICT and E_NOTICE
+time zone errors.</td></tr><tr><td>&nbsp;</td><td><a href='function.mktime.html'>mktime</a></td><td>When called with no arguments, mktime throws 
+        E_STRICT notice. Use the 
+        time function instead.</td></tr><tr><td>&nbsp;</td><td><a href='function.mktime.html'>mktime</a></td><td>The isDST parameter became deprecated.
+        Made the function return FALSE on error, instead of
+        -1.
+        Fixed the function to accept the year, month and day to be all passed
+        as zero.</td></tr><tr><td>&nbsp;</td><td><a href='function.mssql-connect.html'>mssql_connect</a></td><td>The new_link parameter was added</td></tr><tr><td>&nbsp;</td><td><a href='function.openssl-pkcs7-verify.html'>openssl_pkcs7_verify</a></td><td>The content parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.preg-replace.html'>preg_replace</a></td><td>Added the count parameter</td></tr><tr><td>&nbsp;</td><td><a href='function.preg-replace-callback.html'>preg_replace_callback</a></td><td>The count parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.session-regenerate-id.html'>session_regenerate_id</a></td><td>Added the delete_old_session parameter.</td></tr><tr><td>&nbsp;</td><td><a href='function.sha1-file.html'>sha1_file</a></td><td>Changed the function to use the streams API. It means that you can use
+        it with wrappers, like sha1_file('http://example.com/..')</td></tr><tr><td>&nbsp;</td><td><a href='function.str-word-count.html'>str_word_count</a></td><td>Added the charlist parameter</td></tr><tr><td>&nbsp;</td><td><a href='function.stream-copy-to-stream.html'>stream_copy_to_stream</a></td><td>Added the offset parameter</td></tr><tr><td>&nbsp;</td><td><a href='function.stream-filter-append.html'>stream_filter_append</a></td><td>Prior to PHP 5.1.0, this function returns TRUE on success
+        or FALSE on failure.</td></tr><tr><td>&nbsp;</td><td><a href='function.stream-filter-prepend.html'>stream_filter_prepend</a></td><td>Prior to PHP 5.1.0, this function returns TRUE on success
+        or FALSE on failure.</td></tr><tr><td>&nbsp;</td><td><a href='function.stream-get-contents.html'>stream_get_contents</a></td><td>The offset was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.strftime.html'>strftime</a></td><td>Now issues the E_STRICT and E_NOTICE
+time zone errors.</td></tr><tr><td>&nbsp;</td><td><a href='function.strtotime.html'>strtotime</a></td><td>Now issues the E_STRICT and E_NOTICE
+time zone errors.</td></tr><tr><td>&nbsp;</td><td><a href='function.strtotime.html'>strtotime</a></td><td>Now returns FALSE on failure, instead
+        of -1.</td></tr><tr><td>&nbsp;</td><td><a href='function.substr-compare.html'>substr_compare</a></td><td>Added the possibility to use a negative offset.</td></tr><tr><td>&nbsp;</td><td><a href='function.substr-count.html'>substr_count</a></td><td>Added the offset and
+        the length parameters</td></tr><tr><td>&nbsp;</td><td><a href='function.var-export.html'>var_export</a></td><td>Made it possible to export classes and arrays containing classes using
+        the __set_state() magic method.</td></tr><tr><td>&nbsp;</td><td><a href='xsltprocessor.registerphpfunctions.html'>XSLTProcessor::registerPHPFunctions</a></td><td>The restrict parameter was added.</td></tr></tbody><tbody class="gen-changelog v5-1-0"><tr><td>5.0.5</td><td><a href='function.php-check-syntax.html'>php_check_syntax</a></td><td>This function was removed from PHP.</td></tr></tbody><tbody class="gen-changelog v5-0-5"><tr><td>5.0.4</td><td><a href='function.msql-fetch-array.html'>msql_fetch_array</a></td><td>A bug was fixed when retrieving data from columns containing NULL 
+        values. Such columns were not placed into the resulting array.</td></tr><tr><td>&nbsp;</td><td><a href='function.msql-fetch-object.html'>msql_fetch_object</a></td><td>A bug was fixed when retrieving data from columns containing NULL 
+        values. Such columns were not placed into the resulting array.</td></tr><tr><td>&nbsp;</td><td><a href='function.msql-fetch-row.html'>msql_fetch_row</a></td><td>A bug was fixed when retrieving data from columns containing NULL 
+        values. Such columns were not placed into the resulting array.</td></tr></tbody><tbody class="gen-changelog v5-0-4"><tr><td>5.0.3</td><td><a href='function.get-class-vars.html'>get_class_vars</a></td><td>get_class_vars will 
+        only return the properties that can be accessed from the current 
+        scope.</td></tr><tr><td>&nbsp;</td><td><a href='function.is-subclass-of.html'>is_subclass_of</a></td><td>You may also specify the object parameter as a
+        string (the name of the class)</td></tr><tr><td>&nbsp;</td><td><a href='function.php-check-syntax.html'>php_check_syntax</a></td><td>Calling exit after 
+        php_check_syntax resulted in a Segfault.</td></tr></tbody><tbody class="gen-changelog v5-0-3"><tr><td>5.0.2</td><td><a href='function.array-slice.html'>array_slice</a></td><td>The optional preserve_keys parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.class-exists.html'>class_exists</a></td><td>No longer returns TRUE for defined interfaces. Use
+        interface_exists.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-class-vars.html'>get_class_vars</a></td><td>Calling get_class_vars will now expose 
+        all the properties as an array, unlike previous behaviour where 
+        protected and private properties were prefixed with nul bytes.</td></tr><tr><td>&nbsp;</td><td><a href='function.sort.html'>sort</a></td><td>Added SORT_LOCALE_STRING</td></tr><tr><td>&nbsp;</td><td><a href='function.strtotime.html'>strtotime</a></td><td>In PHP 5 up to 5.0.2, &quot;now&quot; and other
+        relative times are wrongly computed from today's
+        midnight. This differs from other versions where it is
+        correctly computed from current time.</td></tr></tbody><tbody class="gen-changelog v5-0-2"><tr><td>5.0.1</td><td><a href='function.get-class-vars.html'>get_class_vars</a></td><td>Calling get_class_vars will expose all 
+        properties, as when converting an object to a class.</td></tr><tr><td>&nbsp;</td><td><a href='function.php-check-syntax.html'>php_check_syntax</a></td><td>error_message is passed by reference.</td></tr></tbody><tbody class="gen-changelog v5-0-1"><tr><td>5.0.0</td><td><a href='function.curl-setopt.html'>curl_setopt</a></td><td>Introduced CURLOPT_FTP_USE_EPRT,
+        CURLOPT_NOSIGNAL,
+        CURLOPT_UNRESTRICTED_AUTH,
+        CURLOPT_BUFFERSIZE,
+        CURLOPT_HTTPAUTH,
+        CURLOPT_PROXYPORT,
+        CURLOPT_PROXYTYPE,
+        CURLOPT_SSLCERTTYPE, and
+        CURLOPT_HTTP200ALIASES.</td></tr><tr><td>&nbsp;</td><td><a href='function.is-a.html'>is_a</a></td><td>This function became deprecated in favour of the 
+        instanceof 
+        operator. Calling this function will result in an 
+        E_STRICT warning.</td></tr><tr><td>&nbsp;</td><td><a href='function.strtotime.html'>strtotime</a></td><td>Microseconds began to be allowed, but they are ignored.</td></tr></tbody></table>
+   </div>
+</div></div></body></html>

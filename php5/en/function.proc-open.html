@@ -1,0 +1,397 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Execute a command and open file pointers for input/output</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.proc-nice.html">« proc_nice</a></li>
+      <li style="float: right;"><a href="function.proc-terminate.html">proc_terminate »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.exec.html">Program execution Functions</a></li>
+    <li>Execute a command and open file pointers for input/output</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.proc-open" class="refentry">
+   <div class="refnamediv">
+    <h1 class="refname">proc_open</h1>
+    <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">proc_open</span> &mdash; <span class="dc-title">
+     Execute a command and open file pointers for input/output
+    </span></p>
+
+   </div>
+   <div class="refsect1 description" id="refsect1-function.proc-open-description">
+    <h3 class="title">Description</h3>
+     <div class="methodsynopsis dc-description">
+      <span class="methodname"><strong>proc_open</strong></span>
+       ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$cmd</code></span>
+      , <span class="methodparam"><span class="type">array</span> <code class="parameter">$descriptorspec</code></span>
+      , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$pipes</code></span>
+      [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$cwd</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
+      [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$env</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
+      [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$other_options</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
+     ]]] ) : <span class="type">resource</span></div>
+
+    <p class="para rdfs-comment">
+     <span class="function"><strong>proc_open()</strong></span> is similar to <span class="function"><a href="function.popen.html" class="function">popen()</a></span>
+     but provides a much greater degree of control over the program execution.
+    </p>
+
+
+
+   </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.proc-open-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">cmd</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The commandline to execute as <span class="type"><a href="language.types.string.html" class="type string">string</a></span>. Special characters have to be properly escaped,
+       and proper quoting has to be applied.
+      </p>
+      <blockquote class="note"><p><strong class="note">Note</strong>: 
+       <span class="simpara">
+        On <em class="emphasis">Windows</em>, unless <code class="literal">bypass_shell</code> is set to <strong><code>TRUE</code></strong> in
+        <code class="parameter">other_options</code>, the <code class="parameter">cmd</code> is
+        passed to <strong class="command">cmd.exe</strong> (actually, <code class="literal">%ComSpec%</code>)
+        with the <code class="literal">/c</code> flag as <em class="emphasis">unquoted</em> string
+        (i.e. exactly as has been given to <span class="function"><strong>proc_open()</strong></span>).
+        This can cause <strong class="command">cmd.exe</strong> to remove enclosing quotes from
+        <code class="parameter">cmd</code> (for details see the <strong class="command">cmd.exe</strong> documentation),
+        resulting in unexpected, and potentially even dangerous behavior, because
+        <strong class="command">cmd.exe</strong> error messages may contain (parts of) the passed
+        <code class="parameter">cmd</code> (see example below).
+       </span>
+      </p></blockquote>
+      <p class="para">
+       As of PHP 7.4.0, <code class="parameter">cmd</code> may be passed as <span class="type"><a href="language.types.array.html" class="type array">array</a></span> of command parameters.
+       In this case the process will be opened directly (without going through a shell)
+       and PHP will take care of any necessary argument escaping.
+      </p>
+      <blockquote class="note"><p><strong class="note">Note</strong>: 
+       <p class="para">
+        On Windows, the argument escaping of the <span class="type"><a href="language.types.array.html" class="type array">array</a></span> elements assumes that the
+        command line parsing of the executed command is compatible with the parsing
+        of command line arguments done by the VC runtime.
+       </p>
+      </p></blockquote>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">descriptorspec</code></dt>
+
+     <dd>
+
+      <p class="para">
+       An indexed array where the key represents the descriptor number and the
+       value represents how PHP will pass that descriptor to the child
+       process. 0 is stdin, 1 is stdout, while 2 is stderr.
+      </p>
+      <p class="para">
+       Each element can be:
+       <ul class="simplelist">
+        <li class="member">An array describing the pipe to pass to the process. The first
+         element is the descriptor type and the second element is an option for
+         the given type. Valid types are <code class="literal">pipe</code> (the second
+         element is either <code class="literal">r</code> to pass the read end of the pipe
+         to the process, or <code class="literal">w</code> to pass the write end) and
+         <code class="literal">file</code> (the second element is a filename).
+        </li>
+        <li class="member">
+         A stream resource representing a real file descriptor (e.g. opened file,
+         a socket, <strong><code>STDIN</code></strong>).
+        </li>
+       </ul>
+      </p>
+      <p class="para">
+       The file descriptor numbers are not limited to 0, 1 and 2 - you may
+       specify any valid file descriptor number and it will be passed to the
+       child process. This allows your script to interoperate with other
+       scripts that run as &quot;co-processes&quot;. In particular, this is useful for
+       passing passphrases to programs like PGP, GPG and openssl in a more
+       secure manner. It is also useful for reading status information
+       provided by those programs on auxiliary file descriptors.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">pipes</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Will be set to an indexed array of file pointers that correspond to
+       PHP&#039;s end of any pipes that are created.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">cwd</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The initial working dir for the command. This must be an
+       <em class="emphasis">absolute</em> directory path, or <strong><code>NULL</code></strong>
+       if you want to use the default value (the working dir of the current
+       PHP process)
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">env</code></dt>
+
+     <dd>
+
+      <p class="para">
+       An array with the environment variables for the command that will be
+       run, or <strong><code>NULL</code></strong> to use the same environment as the current PHP process
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">other_options</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Allows you to specify additional options. Currently supported options
+       include:
+       <ul class="simplelist">
+        <li class="member">
+         <code class="literal">suppress_errors</code> (windows only): suppresses errors
+         generated by this function when it&#039;s set to <strong><code>TRUE</code></strong>
+        </li>
+        <li class="member">
+         <code class="literal">bypass_shell</code> (windows only): bypass
+         <code class="literal">cmd.exe</code> shell when set to <strong><code>TRUE</code></strong>
+        </li>
+        <li class="member">
+         <code class="literal">blocking_pipes</code> (windows only): force
+         blocking pipes when set to <strong><code>TRUE</code></strong>
+        </li>
+        <li class="member">
+         <code class="literal">create_process_group</code> (windows only): allow the
+         child process to handle <code class="literal">CTRL</code> events when set to <strong><code>TRUE</code></strong>
+        </li>
+        <li class="member">
+         <code class="literal">create_new_console</code> (windows only): the new process
+         has a new console, instead of inheriting its parent&#039;s console
+        </li>
+       </ul>
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.proc-open-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns a resource representing the process, which should be freed using
+   <span class="function"><a href="function.proc-close.html" class="function">proc_close()</a></span> when you are finished with it. On failure
+   returns <strong><code>FALSE</code></strong>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.proc-open-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.4.4</td>
+       <td>
+        Added the <code class="literal">create_new_console</code> option to the
+        <code class="parameter">other_options</code> parameter.
+       </td>
+      </tr>
+
+      <tr>
+       <td>7.4.0</td>
+       <td>
+        <span class="function"><strong>proc_open()</strong></span> now also accepts an <span class="type"><a href="language.types.array.html" class="type array">array</a></span>
+        for the <code class="parameter">cmd</code>.
+       </td>
+      </tr>
+
+      <tr>
+       <td>7.4.0</td>
+       <td>
+        Added the <code class="literal">create_process_group</code> option to the
+        <code class="parameter">other_options</code> parameter.
+       </td>
+      </tr>
+
+      <tr>
+       <td>7.0.0</td>
+       <td>
+        Added the <code class="literal">blocking_pipes</code> option to the
+        <code class="parameter">other_options</code> parameter.
+       </td>
+      </tr>
+
+      <tr>
+       <td>5.2.1</td>
+       <td>
+        Added the <code class="literal">bypass_shell</code> option to the
+        <code class="parameter">other_options</code> parameter.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.proc-open-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-4550">
+    <p><strong>Example #1 A <span class="function"><strong>proc_open()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$descriptorspec&nbsp;</span><span style="color: #007700">=&nbsp;array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">0&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(</span><span style="color: #DD0000">"pipe"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"r"</span><span style="color: #007700">),&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;stdin&nbsp;is&nbsp;a&nbsp;pipe&nbsp;that&nbsp;the&nbsp;child&nbsp;will&nbsp;read&nbsp;from<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">1&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(</span><span style="color: #DD0000">"pipe"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"w"</span><span style="color: #007700">),&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;stdout&nbsp;is&nbsp;a&nbsp;pipe&nbsp;that&nbsp;the&nbsp;child&nbsp;will&nbsp;write&nbsp;to<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">2&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(</span><span style="color: #DD0000">"file"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"/tmp/error-output.txt"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"a"</span><span style="color: #007700">)&nbsp;</span><span style="color: #FF8000">//&nbsp;stderr&nbsp;is&nbsp;a&nbsp;file&nbsp;to&nbsp;write&nbsp;to<br /></span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$cwd&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'/tmp'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$env&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'some_option'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'aeiou'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$process&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">proc_open</span><span style="color: #007700">(</span><span style="color: #DD0000">'php'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$descriptorspec</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$pipes</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$cwd</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$env</span><span style="color: #007700">);<br /><br />if&nbsp;(</span><span style="color: #0000BB">is_resource</span><span style="color: #007700">(</span><span style="color: #0000BB">$process</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;$pipes&nbsp;now&nbsp;looks&nbsp;like&nbsp;this:<br />&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;0&nbsp;=&gt;&nbsp;writeable&nbsp;handle&nbsp;connected&nbsp;to&nbsp;child&nbsp;stdin<br />&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;1&nbsp;=&gt;&nbsp;readable&nbsp;handle&nbsp;connected&nbsp;to&nbsp;child&nbsp;stdout<br />&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Any&nbsp;error&nbsp;output&nbsp;will&nbsp;be&nbsp;appended&nbsp;to&nbsp;/tmp/error-output.txt<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">fwrite</span><span style="color: #007700">(</span><span style="color: #0000BB">$pipes</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">],&nbsp;</span><span style="color: #DD0000">'&lt;?php&nbsp;print_r($_ENV);&nbsp;?&gt;'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">fclose</span><span style="color: #007700">(</span><span style="color: #0000BB">$pipes</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">stream_get_contents</span><span style="color: #007700">(</span><span style="color: #0000BB">$pipes</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">fclose</span><span style="color: #007700">(</span><span style="color: #0000BB">$pipes</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">]);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;It&nbsp;is&nbsp;important&nbsp;that&nbsp;you&nbsp;close&nbsp;any&nbsp;pipes&nbsp;before&nbsp;calling<br />&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;proc_close&nbsp;in&nbsp;order&nbsp;to&nbsp;avoid&nbsp;a&nbsp;deadlock<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$return_value&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">proc_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$process</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"command&nbsp;returned&nbsp;</span><span style="color: #0000BB">$return_value</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output
+something similar to:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Array
+(
+    [some_option] =&gt; aeiou
+    [PWD] =&gt; /tmp
+    [SHLVL] =&gt; 1
+    [_] =&gt; /usr/local/bin/php
+)
+command returned 0
+</pre></div>
+    </div>
+   </div>
+  </p>
+
+  <p class="para">
+   <div class="example" id="example-4551">
+    <p><strong>Example #2 <span class="function"><strong>proc_open()</strong></span> quirk on Windows</strong></p>
+    <div class="example-contents"><p>
+     While one may expect the following program to search the file
+     <var class="filename">filename.txt</var> for the text <code class="literal">search</code> and
+     to print the results, it behaves rather differently.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$descriptorspec&nbsp;</span><span style="color: #007700">=&nbsp;[</span><span style="color: #0000BB">STDIN</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">STDOUT</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">STDOUT</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">$cmd&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'"findstr"&nbsp;"search"&nbsp;"filename.txt"'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$proc&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">proc_open</span><span style="color: #007700">(</span><span style="color: #0000BB">$cmd</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$descriptorspec</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$pipes</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">proc_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$proc</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+&#039;findstr&quot; &quot;search&quot; &quot;filename.txt&#039; is not recognized as an internal or external command,
+operable program or batch file.
+</pre></div>
+    </div>
+    <div class="example-contents"><p>
+     To work around that behavior, it is usually sufficient to enclose the
+     <code class="parameter">cmd</code> in additional quotes:
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+$cmd&nbsp;=&nbsp;'""findstr"&nbsp;"search"&nbsp;"filename.txt""';</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+
+
+
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.proc-open-notes">
+  <h3 class="title">Notes</h3>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    Windows compatibility: Descriptors beyond 2 (stderr) are made available to
+    the child process as inheritable handles, but since the Windows
+    architecture does not associate file descriptor numbers with low-level
+    handles, the child process does not (yet) have a means of accessing those
+    handles. Stdin, stdout and stderr work as expected.
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+   If you only need a uni-directional (one-way) process pipe, use
+   <span class="function"><a href="function.popen.html" class="function">popen()</a></span> instead, as it is much easier to use.
+   </p>
+  </p></blockquote>
+ </div>
+
+ 
+ <div class="refsect1 seealso" id="refsect1-function.proc-open-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.popen.html" class="function" rel="rdfs-seeAlso">popen()</a> - Opens process file pointer</span></li>
+    <li class="member"><span class="function"><a href="function.exec.html" class="function" rel="rdfs-seeAlso">exec()</a> - Execute an external program</span></li>
+    <li class="member"><span class="function"><a href="function.system.html" class="function" rel="rdfs-seeAlso">system()</a> - Execute an external program and display the output</span></li>
+    <li class="member"><span class="function"><a href="function.passthru.html" class="function" rel="rdfs-seeAlso">passthru()</a> - Execute an external program and display raw output</span></li>
+    <li class="member"><span class="function"><a href="function.stream-select.html" class="function" rel="rdfs-seeAlso">stream_select()</a> - Runs the equivalent of the select() system call on the given
+   arrays of streams with a timeout specified by tv_sec and tv_usec</span></li>
+    <li class="member">The <a href="language.operators.execution.html" class="link">backtick operator</a></li>
+   </ul>
+  </p>
+ </div>
+
+</div></div></div></body></html>

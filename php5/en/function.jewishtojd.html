@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Converts a date in the Jewish Calendar to Julian Day Count</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.jdtounix.html">« jdtounix</a></li>
+      <li style="float: right;"><a href="function.juliantojd.html">juliantojd »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.calendar.html">Calendar Functions</a></li>
+    <li>Converts a date in the Jewish Calendar to Julian Day Count</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.jewishtojd" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">jewishtojd</h1> 
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">jewishtojd</span> &mdash; <span class="dc-title">Converts a date in the Jewish Calendar to Julian Day Count</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.jewishtojd-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>jewishtojd</strong></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$month</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$day</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$year</code></span>
+   ) : <span class="type">int</span></div>
+
+  <p class="para rdfs-comment">
+   Although this function can handle dates all the way back to the year 1
+   (3761 B.C.), such use may not be meaningful.  The Jewish calendar has
+   been in use for several thousand years, but in the early days there was
+   no formula to determine the start of a month. A new month was started
+   when the new moon was first observed.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.jewishtojd-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">month</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The month as a number from <code class="literal">1</code> to <code class="literal">13</code>,
+       where <code class="literal">1</code> means <code class="literal">Tishri</code>,
+       <code class="literal">13</code> means <code class="literal">Elul</code>, and
+       <code class="literal">6</code> <em class="emphasis">and</em> <code class="literal">7</code> mean
+       <code class="literal">Adar</code> in regular years, but <code class="literal">Adar I</code>
+       and <code class="literal">Adar II</code>, respectively, in leap years.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">day</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The day as a number from <code class="literal">1</code> to <code class="literal">30</code>.
+       If the month has only 29 days, the first day of the following month is
+       assumed.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">year</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The year as a number between 1 and 9999
+      </p>
+     </dd>
+
+      
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.jewishtojd-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   The julian day for the given jewish date as an integer.
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.jewishtojd-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.jdtojewish.html" class="function" rel="rdfs-seeAlso">jdtojewish()</a> - Converts a Julian day count to a Jewish calendar date</span></li> 
+    <li class="member"><span class="function"><a href="function.cal-to-jd.html" class="function" rel="rdfs-seeAlso">cal_to_jd()</a> - Converts from a supported calendar to Julian Day Count</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div></div></div></body></html>

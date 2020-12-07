@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Encrypt a value</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="mongodb-driver-clientencryption.decrypt.html">« MongoDB\Driver\ClientEncryption::decrypt</a></li>
+      <li style="float: right;"><a href="class.mongodb-driver-writeconcern.html">MongoDB\Driver\WriteConcern »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.mongodb-driver-clientencryption.html">MongoDB\Driver\ClientEncryption</a></li>
+    <li>Encrypt a value</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="mongodb-driver-clientencryption.encrypt" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">MongoDB\Driver\ClientEncryption::encrypt</h1>
+  <p class="verinfo">(mongodb &gt;=1.7.0)</p><p class="refpurpose"><span class="refname">MongoDB\Driver\ClientEncryption::encrypt</span> &mdash; <span class="dc-title">Encrypt a value</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-mongodb-driver-clientencryption.encrypt-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\ClientEncryption::encrypt</strong></span>
+    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
+   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>
+  ] ) : <span class="type"><a href="class.mongodb-bson-binary.html" class="type MongoDB\BSON\Binary">MongoDB\BSON\Binary</a></span></div>
+
+  <p class="para rdfs-comment">
+   Encrypts the value.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 parameters" id="refsect1-mongodb-driver-clientencryption.encrypt-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+
+   
+    <dt>
+<code class="parameter">value</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The value to be encrypted. Any value that can be inserted into MongoDB can
+      be encrypted using this method.
+     </p>
+    </dd>
+
+   
+   
+   
+    <dt>
+<code class="parameter">options</code></dt>
+
+    <dd>
+
+     <p class="para">
+      <table class="doctable table">
+       <caption><strong>Encryption options</strong></caption>
+       
+        <thead>
+         <tr>
+          <th>Option</th>
+          <th>Type</th>
+          <th>Description</th>
+         </tr>
+
+        </thead>
+
+        <tbody class="tbody">
+         <tr>
+          <td>algorithm</td>
+          <td><span class="type"><a href="language.types.string.html" class="type string">string</a></span></td>
+          <td>
+           <p class="para">
+            The encryption algorithm to be used. Use the constants defined in
+            <a href="class.mongodb-driver-clientencryption.html" class="classname">MongoDB\Driver\ClientEncryption</a>.
+           </p>
+          </td>
+         </tr>
+
+         <tr>
+          <td>keyAltName</td>
+          <td><span class="type"><a href="language.types.string.html" class="type string">string</a></span></td>
+          <td>
+           <p class="para">
+            Identifies a key vault collection document by
+            <code class="literal">keyAltName</code>.
+           </p>
+          </td>
+         </tr>
+
+         <tr>
+          <td>keyId</td>
+          <td><a href="class.mongodb-bson-binary.html" class="classname">MongoDB\BSON\Binary</a></td>
+          <td>
+           <p class="para">
+            Identifies a data key by <code class="literal">_id</code>. The value is a UUID
+            (binary subtype 4).
+           </p>
+          </td>
+         </tr>
+
+        </tbody>
+       
+      </table>
+
+     </p>
+     <blockquote class="note"><p><strong class="note">Note</strong>: 
+      <span class="simpara">
+       Exactly one of <code class="literal">keyId</code> and <code class="literal">keyAltName</code>
+       must be provided. The <code class="literal">algorithm</code> option is required.
+      </span>
+     </p></blockquote>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-mongodb-driver-clientencryption.encrypt-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns the encrypted value as
+   <a href="class.mongodb-bson-binary.html" class="classname">MongoDB\BSON\Binary</a> object with subtype 6.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-mongodb-driver-clientencryption.encrypt-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <ul class="simplelist">
+   <li class="member">Throws <a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a> on argument parsing errors.</li>
+   <li class="member">Throws <a href="class.mongodb-driver-exception-encryptionexception.html" class="classname">MongoDB\Driver\Exception\EncryptionException</a> if an error occurs while encrypting the value</li>
+  </ul>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-mongodb-driver-clientencryption.encrypt-seealso">
+  <h3 class="title">See Also</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="function"><a href="mongodb-driver-clientencryption.decrypt.html" class="function" rel="rdfs-seeAlso">MongoDB\Driver\ClientEncryption::decrypt()</a> - Decrypt a value</span></li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

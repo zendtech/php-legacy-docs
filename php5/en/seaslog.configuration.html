@@ -1,0 +1,757 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Runtime Configuration</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="seaslog.installation.html">« Installation</a></li>
+      <li style="float: right;"><a href="seaslog.resources.html">Resource Types »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="seaslog.setup.html">Installing/Configuring</a></li>
+    <li>Runtime Configuration</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="seaslog.configuration" class="section">
+ <h2 class="title">Runtime Configuration</h2>
+ <p class="simpara">
+The behaviour of these functions is affected by settings in <var class="filename">php.ini</var>.
+</p>
+ <p class="para">
+  <table class="doctable table">
+   <caption><strong>Seaslog Configure Options</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Name</th>
+      <th>Default</th>
+      <th>Changeable</th>
+      <th>Changelog</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td><a href="seaslog.configuration.html#ini.seaslog.appender" class="link">seaslog.appender</a></td>
+      <td>1</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td></td>
+     </tr>
+
+     <tr>
+      <td><a href="seaslog.configuration.html#ini.seaslog.appender-retry" class="link">seaslog.appender_retry</a></td>
+      <td>0</td>
+      <td>PHP_INI_ALL</td>
+      <td></td>
+     </tr>
+
+     <tr>
+      <td><a href="seaslog.configuration.html#ini.seaslog.level" class="link">seaslog.level</a></td>
+      <td>8</td>
+      <td>PHP_INI_ALL</td>
+      <td></td>
+     </tr>
+
+     <tr>
+      <td><a href="seaslog.configuration.html#ini.seaslog.remote-host" class="link">seaslog.remote_host</a></td>
+      <td>127.0.0.1</td>
+      <td>PHP_INI_ALL</td>
+      <td></td>
+     </tr>
+
+     <tr>
+      <td><a href="seaslog.configuration.html#ini.seaslog.remote-port" class="link">seaslog.remote_port</a></td>
+      <td>514</td>
+      <td>PHP_INI_ALL</td>
+      <td></td>
+     </tr>
+
+     <tr>
+      <td><a href="seaslog.configuration.html#ini.seaslog.remote-timeout" class="link">seaslog.remote_timeout</a></td>
+      <td>1</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td></td>
+     </tr>
+        
+     <tr>
+      <td><a href="seaslog.configuration.html#ini.seaslog.default-basepath" class="link">seaslog.default_basepath</a></td>
+      <td>/var/log/www</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td></td>
+     </tr>
+
+     <tr>
+      <td><a href="seaslog.configuration.html#ini.seaslog.default-logger" class="link">seaslog.default_logger</a></td>
+      <td>default</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td></td>
+     </tr>
+
+     <tr>
+      <td><a href="seaslog.configuration.html#ini.seaslog.default-template" class="link">seaslog.default_template</a></td>
+      <td>%T | %L | %P | %Q | %t | %M</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td></td>
+     </tr>
+
+     <tr>
+      <td><a href="seaslog.configuration.html#ini.seaslog.default-datetime-format" class="link">seaslog.default_datetime_format</a></td>
+      <td>Y-m-d H:i:s</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td></td>
+     </tr>
+
+     <tr>
+      <td><a href="seaslog.configuration.html#ini.seaslog.trace-error" class="link">seaslog.trace_error</a></td>
+      <td>1</td>
+      <td>PHP_INI_ALL</td>
+      <td></td>
+     </tr>
+
+     <tr>
+      <td><a href="seaslog.configuration.html#ini.seaslog.trace-exception" class="link">seaslog.trace_exception</a></td>
+      <td>0</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td></td>
+     </tr>
+
+     <tr>
+      <td><a href="seaslog.configuration.html#ini.seaslog.trace-notice" class="link">seaslog.trace_notice</a></td>
+      <td>0</td>
+      <td>PHP_INI_ALL</td>
+      <td></td>
+     </tr>
+
+     <tr>
+      <td><a href="seaslog.configuration.html#ini.seaslog.trace-warning" class="link">seaslog.trace_warning</a></td>
+      <td>0</td>
+      <td>PHP_INI_ALL</td>
+      <td></td>
+     </tr>
+
+     <tr>
+      <td><a href="seaslog.configuration.html#ini.seaslog.use-buffer" class="link">seaslog.use_buffer</a></td>
+      <td>0</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td></td>
+     </tr>
+
+     <tr>
+      <td><a href="seaslog.configuration.html#ini.seaslog.buffer-size" class="link">seaslog.buffer_size</a></td>
+      <td>0</td>
+      <td>PHP_INI_ALL</td>
+      <td></td>
+     </tr>
+
+     <tr>
+      <td><a href="seaslog.configuration.html#ini.seaslog.buffer-disabled-in-cli" class="link">seaslog.buffer_disabled_in_cli</a></td>
+      <td>0</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td></td>
+     </tr>
+
+     <tr>
+      <td><a href="seaslog.configuration.html#ini.seaslog.disting-type" class="link">seaslog.disting_type</a></td>
+      <td>0</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td></td>
+     </tr>
+
+     <tr>
+      <td><a href="seaslog.configuration.html#ini.seaslog.disting-folder" class="link">seaslog.disting_folder</a></td>
+      <td>1</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td></td>
+     </tr>
+
+     <tr>
+      <td><a href="seaslog.configuration.html#ini.seaslog.disting-by-hour" class="link">seaslog.disting_by_hour</a></td>
+      <td>0</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td></td>
+     </tr>
+
+     <tr>
+      <td><a href="seaslog.configuration.html#ini.seaslog.recall-depth" class="link">seaslog.recall_depth</a></td>
+      <td>0</td>
+      <td>PHP_INI_ALL</td>
+      <td></td>
+     </tr>
+
+     <tr>
+      <td><a href="seaslog.configuration.html#ini.seaslog.trim-wrap" class="link">seaslog.trim_wrap</a></td>
+      <td>0</td>
+      <td>PHP_INI_ALL</td>
+      <td></td>
+     </tr>
+
+     <tr>
+      <td><a href="seaslog.configuration.html#ini.seaslog.ignore-warning" class="link">seaslog.ignore_warning</a></td>
+      <td>1</td>
+      <td>PHP_INI_ALL</td>
+      <td></td>
+     </tr>
+
+     <tr>
+      <td><a href="seaslog.configuration.html#ini.seaslog.throw-exception" class="link">seaslog.throw_exception</a></td>
+      <td>1</td>
+      <td>PHP_INI_ALL</td>
+      <td></td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </p>
+
+ <p class="para">Here&#039;s a short explanation of
+the configuration directives.</p>
+
+ <p class="para">
+  <dl>
+
+   
+     <dt id="ini.seaslog.appender">
+      <code class="parameter">seaslog.appender</code>
+      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Switch the Record Log Data Store. 1File 2TCP 3UDP (Switch default 1)
+      </p>
+      <p class="para">
+        SeasLog will send log to  tcp://remote_host:remote_port or udp://remote_host:remote_port server, 
+        when <em class="emphasis">seaslog.appender</em> configured to `2 (TCP)` or `3 (UDP)`.
+      </p>
+      <p class="para">
+        When <em class="emphasis">SeasLog</em> send log to TCP/UDP，style follow RFC5424.
+        The `{logInfo}` affected by  <em class="emphasis">seaslog.default_template</em>.
+      </p>
+      <div class="example-contents screen">
+    <div class="cdata"><pre>
+The log style finally formatted such as:
+&lt;15&gt;1 2017-08-27T01:24:59+08:00 vagrant-ubuntu-trusty test/logger[27171]: 2016-06-25 00:59:43 | DEBUG | 21423 | 599157af4e937 | 1466787583.322 | this is a neeke debug
+&lt;14&gt;1 2017-08-27T01:24:59+08:00 vagrant-ubuntu-trusty test/logger[27171]: 2016-06-25 00:59:43 | INFO | 21423 | 599157af4e937 | 1466787583.323 | this is a info log
+&lt;13&gt;1 2017-08-27T01:24:59+08:00 vagrant-ubuntu-trusty test/logger[27171]: 2016-06-25 00:59:43 | NOTICE | 21423 | 599157af4e937 | 1466787583.324 | this is a notice log
+    </pre></div>
+      </div>
+     </dd>
+
+    
+    
+     <dt id="ini.seaslog.appender-retry">
+      <code class="parameter">seaslog.appender_retry</code>
+      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Record Log Retry Count.
+       Default 0 (Do Not Retry)
+      </p>
+     </dd>
+
+    
+    
+     <dt id="ini.seaslog.buffer-disabled-in-cli">
+      <code class="parameter">seaslog.buffer_disabled_in_cli</code>
+      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Disable buffer in cli. 1-Y 0-N(Default)
+      </p>
+      <p class="para">
+       Switch the configure buffer_disabled_in_cli on. 
+       The buffer_disabled_in_cli switch default off. 
+       If switch buffer_disabled_in_cli on, and running in cli, 
+       seaslog.use_buffer setting will be discarded, 
+       Seaslog write to the Data Store IMMEDIATELY.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="ini.seaslog.buffer-size">
+      <code class="parameter">seaslog.buffer_size</code>
+      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Configure the buffer_size with 100. 
+       The buffer_size default 0, it’s meaning don’t use buffer. 
+       If buffer_size &gt; 0,SeasLog will rewritten down into the Data Store 
+       when the prerecorded log in memory count &gt;= this buffer_size,and then refresh the memory poll.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="ini.seaslog.default-basepath">
+      <code class="parameter">seaslog.default_basepath</code>
+      <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Default Log Base Path. Defult &quot;/var/log/www&quot;.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="ini.seaslog.default-datetime-format">
+      <code class="parameter">seaslog.default_datetime_format</code>
+      <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       The DateTime Style.  Default &quot;Y-m-d H:i:s&quot;.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="ini.seaslog.default-logger">
+      <code class="parameter">seaslog.default_logger</code>
+      <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Default Logger Path. Default &quot;default&quot;.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="ini.seaslog.disting-by-hour">
+      <code class="parameter">seaslog.disting_by_hour</code>
+      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Switch use the logger with hour. 1-Y 0-N(Default)
+      </p>
+      <blockquote class="note"><p><strong class="note">Note</strong>: 
+        <p class="para">
+        <em class="emphasis">seaslog.disting_by_hour = 1</em> Switch use Logger DisTing by hour. 
+        It’s  meaning SeasLog will create the file each one hour.
+        </p>
+      </p></blockquote>
+     </dd>
+
+    
+    
+     <dt id="ini.seaslog.disting-folder">
+      <code class="parameter">seaslog.disting_folder</code>
+      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Switch use the logger with folder. 1-Y(Default) 0-N
+      </p>
+      <blockquote class="note"><p><strong class="note">Note</strong>: 
+        <p class="para">
+        <em class="emphasis">seaslog.disting_folder = 1</em> Switch use Logger DisTing by folder, 
+        it’s meaning SeasLog will create the file deistic by folder, 
+        and when this configure close SeasLog will create file 
+        use underline connect Logger and Time like default_20180211.log.
+        </p>
+      </p></blockquote>
+     </dd>
+
+    
+    
+     <dt id="ini.seaslog.disting-type">
+      <code class="parameter">seaslog.disting_type</code>
+      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Switch use the logger with type. 1-Y 0-N(Default)
+      </p>
+      <blockquote class="note"><p><strong class="note">Note</strong>: 
+        <p class="para">
+        <em class="emphasis">seaslog.disting_type = 1</em> Switch use Logger DisTing by type, 
+        it’s meaning SeasLog will create the file deistic info\warn\error and the other type.
+        </p>
+      </p></blockquote>
+     </dd>
+
+    
+    
+     <dt id="ini.seaslog.ignore-warning">
+      <code class="parameter">seaslog.ignore_warning</code>
+      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Switch ignore SeasLog warning. 1-On(Default) 0-Off
+      </p>
+      <blockquote class="note"><p><strong class="note">Note</strong>: 
+        <p class="para">
+        <em class="emphasis">seaslog.ignore_warning = 1</em> Open a warning to ignore SeasLog itself. 
+        When directory permissions or receive server ports are blocked, they are ignored; 
+        when closed, a warning is thrown.
+        </p>
+      </p></blockquote>
+     </dd>
+
+    
+    
+     <dt id="ini.seaslog.level">
+      <code class="parameter">seaslog.level</code>
+      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Record logger level. Default 8 (All of them).
+       0-EMERGENCY 1-ALERT 2-CRITICAL 3-ERROR 4-WARNING 5-NOTICE 6-INFO 7-DEBUG 8-ALL
+      </p>
+      <blockquote class="note"><p><strong class="note">Note</strong>: 
+        <p class="para">
+          Tips: The configuration item has changed since the 1.7.0 version.
+          Before the 1.7.0 version, the smaller the value, the more logs are taken according to the level: 
+          0-all 1-debug 2-info 3-notice 4-warning 5-error 6-critical 7-alert 8-emergency
+          Before the 1.7.0 version, Default 0 (All of them).
+        </p>
+      </p></blockquote>
+     </dd>
+
+    
+    
+     <dt id="ini.seaslog.recall-depth">
+      <code class="parameter">seaslog.recall_depth</code>
+      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Log function recall depth.Will affected variable `LineNo` in `%F`.
+       Default 0
+      </p>
+     </dd>
+
+    
+    
+     <dt id="ini.seaslog.remote-host">
+      <code class="parameter">seaslog.remote_host</code>
+      <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       If you use  Record TCP or UDP, configure this remote ip. Default &quot;127.0.0.1&quot;
+      </p>
+     </dd>
+
+    
+    
+     <dt id="ini.seaslog.remote-port">
+      <code class="parameter">seaslog.remote_port</code>
+      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       If you use Record TCP or UDP, configure this remote port. Default 514
+      </p>
+     </dd>
+
+    
+    
+     <dt id="ini.seaslog.remote-timeout">
+      <code class="parameter">seaslog.remote_timeout</code>
+      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       If you use Record TCP or UDP, configure this remote timeout. Default 1 second
+      </p>
+     </dd>
+
+    
+    
+     <dt id="ini.seaslog.throw-exception">
+      <code class="parameter">seaslog.throw_exception</code>
+      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Switch throw SeasLog exception. 1-On(Default) 0-Off
+      </p>
+      <blockquote class="note"><p><strong class="note">Note</strong>: 
+        <p class="para">
+        <em class="emphasis">seaslog.throw_exception = 1</em> Open an exception that throws the SeasLog to throw itself. 
+        When the directory authority or the receive server port is blocked, 
+        throw an exception; do not throw an exception when closed.
+        </p>
+      </p></blockquote>
+     </dd>
+
+    
+    
+     <dt id="ini.seaslog.trace-error">
+      <code class="parameter">seaslog.trace_error</code>
+      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Automatic Record final error with default logger. 1-Y(Default) 0-N
+      </p>
+     </dd>
+
+    
+    
+     <dt id="ini.seaslog.trace-exception">
+      <code class="parameter">seaslog.trace_exception</code>
+      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Automatic Record exception with default logger. 1-Y 0-N(Default)
+      </p>
+     </dd>
+
+    
+    
+     <dt id="ini.seaslog.trace-notice">
+      <code class="parameter">seaslog.trace_notice</code>
+      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Automatic Record notice with default logger. 1-Y 0-N(Default)
+      </p>
+     </dd>
+
+    
+    
+     <dt id="ini.seaslog.trace-warning">
+      <code class="parameter">seaslog.trace_warning</code>
+      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Automatic Record warning with default logger. 1-Y 0-N(Default)
+      </p>
+     </dd>
+
+    
+    
+     <dt id="ini.seaslog.trim-wrap">
+      <code class="parameter">seaslog.trim_wrap</code>
+      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Trim the \n and \r in log message. 1-On 0-Off(Default)
+      </p>
+     </dd>
+
+    
+    
+     <dt id="ini.seaslog.use-buffer">
+      <code class="parameter">seaslog.use_buffer</code>
+      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Switch use the log buffer with memory. 1-Y 0-N(Default)
+      </p>
+      <blockquote class="note"><p><strong class="note">Note</strong>: 
+        <p class="para">
+        <em class="emphasis">seaslog.use_buffer = 1</em> Switch the configure use_buffer on. 
+        The use_buffer switch default off. 
+        If switch use_buffer on, SeasLog prerecord the log with memory, 
+        and them would be rewritten down into the Data Store by request shutdown 
+        or php process exit (PHP RSHUTDOWN or PHP MSHUTDOWN).
+        </p>
+      </p></blockquote>
+     </dd>
+
+    
+    
+     <dt id="ini.seaslog.default-template">
+      <code class="parameter">seaslog.default_template</code>
+      <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Default Log template. 
+       Default &quot;%T | %L | %P | %Q | %t | %M&quot;.
+      </p>
+      <blockquote class="note"><p><strong class="note">Note</strong>: 
+        <p class="para">
+        `SeasLog`The following default variables are provided, 
+        which can be used directly in the log template and replaced as a corresponding value 
+        when the log is eventually generated.
+        </p>
+        <p class="para">
+        Default log template is:`seaslog.default_template = &quot;%T | %L | %P | %Q | %t | %M&quot;`,
+        that&#039;s mean,default log style is:`{dateTime} | {level} | {pid} | {uniqid} | {timeStamp} | {logInfo}`
+        </p>
+        <p class="para">
+        If you custom log template, such as:`seaslog.default_template = &quot;[%T]:%L %P %Q %t %M&quot; `,
+        that&#039;s will mean,log style was custom as:`[{dateTime}]:{level} {pid} {uniqid} {timeStamp} {logInfo}`
+        </p>
+        <table class="doctable table">
+          <caption><strong>Seaslog Default Variable Table</strong></caption>
+          
+            <thead>
+              <tr>
+                <th>Variable Name</th>
+                <th>Description</th>
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr>
+                <td>%L</td>
+                <td>Level.</td>
+              </tr>
+
+              <tr>
+                <td>%M</td>
+                <td>Message.</td>
+              </tr>
+
+              <tr>
+                <td>%T</td>
+                <td>DateTime. Such as`2017-08-16 19:15:02`,affected by `seaslog.default_datetime_format`.</td>
+              </tr>
+
+              <tr>
+                <td>%t</td>
+                <td>Timestamp. Such as`1502882102.862`,accurate to milliseconds.</td>
+              </tr>
+
+              <tr>
+                <td>%Q</td>
+                <td>RequestId. To distinguish a single request, 
+                such as not invoking the `SeasLog::setRequestId($string)` function,
+                the unique value generated by the built-in `static char *get_uniqid ()` 
+                function is used when the request is initialized.</td>
+              </tr>
+
+              <tr>
+                <td>%H</td>
+                <td>HostName.</td>
+              </tr>
+
+              <tr>
+                <td>%P</td>
+                <td>ProcessId.</td>
+              </tr>
+
+              <tr>
+                <td>%D</td>
+                <td>Domain:Port. Such as`www.cloudwise.com:80`; When Cli, Such as `cli`.</td>
+              </tr>
+
+              <tr>
+                <td>%R</td>
+                <td>Request URI. Such as`/app/user/signin`; 
+                When Cli it&#039;s the index script, Such as `CliIndex.php`.</td>
+              </tr>
+
+              <tr>
+                <td>%m</td>
+                <td>Request Method. Such as`Get`; When Cli it&#039;s the command script, Such as `/bin/bash`.</td>
+              </tr>
+
+              <tr>
+                <td>%I</td>
+                <td>Client IP; When Cli it&#039;s `local`. 
+                Priority value: HTTP_X_REAL_IP &gt; HTTP_X_FORWARDED_FOR &gt; REMOTE_ADDR</td>
+              </tr>
+
+              <tr>
+                <td>%F</td>
+                <td>FileName:LineNo. Such as `UserService.php:118`.</td>
+              </tr>
+
+              <tr>
+                <td>%U</td>
+                <td>MemoryUsage. byte. Call `zend_memory_usage`.</td>
+              </tr>
+
+              <tr>
+                <td>%u</td>
+                <td>PeakMemoryUsage. byte. Call `zend_memory_peak_usage`.</td>
+              </tr>
+
+              <tr>
+                <td>%C</td>
+                <td>`TODO` Class::Action. Such as `UserService::getUserInfo`</td>
+              </tr>
+
+            </tbody>
+            
+        </table>
+
+      </p></blockquote>
+     </dd>
+
+    
+  </dl>
+
+ </p>
+</div></div></div></body></html>

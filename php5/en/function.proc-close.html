@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Close a process opened by proc_open and return the exit code of that process</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.passthru.html">« passthru</a></li>
+      <li style="float: right;"><a href="function.proc-get-status.html">proc_get_status »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.exec.html">Program execution Functions</a></li>
+    <li>Close a process opened by proc_open and return the exit code of that process</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.proc-close" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">proc_close</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">proc_close</span> &mdash; <span class="dc-title">Close a process opened by <span class="function"><a href="function.proc-open.html" class="function">proc_open()</a></span> and return the exit code of that process</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.proc-close-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>proc_close</strong></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$process</code></span>
+   ) : <span class="type">int</span></div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>proc_close()</strong></span> is similar to <span class="function"><a href="function.pclose.html" class="function">pclose()</a></span>
+   except that it only works on processes opened by
+   <span class="function"><a href="function.proc-open.html" class="function">proc_open()</a></span>.
+   <span class="function"><strong>proc_close()</strong></span> waits for the process to terminate, and
+   returns its exit code.  Open pipes to that process are closed
+   when this function is called, in
+   order to avoid a deadlock - the child process may not be able to exit
+   while the pipes are open.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.proc-close-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">process</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The <span class="function"><a href="function.proc-open.html" class="function">proc_open()</a></span> <span class="type"><a href="language.types.resource.html" class="type resource">resource</a></span> that will
+       be closed.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.proc-close-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns the termination status of the process that was run. In case of 
+   an error then <code class="literal">-1</code> is returned.
+  </p>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+ <p class="para">
+  If PHP has been compiled with --enable-sigchild, the return value of this function is undefined.
+ </p>
+</p></blockquote>
+
+ </div>
+
+
+</div></div></div></body></html>

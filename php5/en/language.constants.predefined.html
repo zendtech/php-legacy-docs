@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Magic constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="language.constants.syntax.html">« Syntax</a></li>
+      <li style="float: right;"><a href="language.expressions.html">Expressions »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="language.constants.html">Constants</a></li>
+    <li>Magic constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="language.constants.predefined" class="sect1">
+   <h2 class="title">Magic constants</h2>
+
+   <p class="simpara">
+    PHP provides a large number of <a href="reserved.constants.html" class="link">predefined constants</a> to any script
+    which it runs. Many of these constants, however, are created by
+    various extensions, and will only be present when those extensions
+    are available, either via dynamic loading or because they have
+    been compiled in.
+   </p>
+   
+   <p class="para">
+    There are nine magical constants that change depending on
+    where they are used.  For example, the value of
+    <strong><code>__LINE__</code></strong> depends on the line that it&#039;s
+    used on in your script. All these &quot;magical&quot; constants are resolved 
+    at compile time, unlike regular constants, which are resolved at runtime. 
+    These special constants are case-insensitive and are as follows:
+   </p>
+   <p class="para">
+    <table class="doctable table">
+     <caption><strong>A few &quot;magical&quot; PHP constants</strong></caption>
+     
+      <thead>
+       <tr>
+        <th>Name</th>
+        <th>Description</th>
+       </tr>
+
+      </thead>
+
+      <tbody class="tbody">
+       <tr id="constant.line">
+        <td><strong><code>__LINE__</code></strong></td>
+        <td>
+         The current line number of the file.
+        </td>
+       </tr>
+
+       <tr id="constant.file">
+        <td><strong><code>__FILE__</code></strong></td>
+        <td>
+         The full path and filename of the file with symlinks resolved. If used inside an include,
+         the name of the included file is returned.
+        </td>
+       </tr>
+
+       <tr id="constant.dir">
+        <td><strong><code>__DIR__</code></strong></td>
+        <td>
+         The directory of the file.  If used inside an include,
+         the directory of the included file is returned. This is equivalent
+         to <code class="literal">dirname(__FILE__)</code>. This directory name
+         does not have a trailing slash unless it is the root directory.
+        </td>
+       </tr>
+
+       <tr id="constant.function">
+        <td><strong><code>__FUNCTION__</code></strong></td>
+        <td>
+         The function name, or <code class="literal">{closure}</code> for anonymous functions.
+        </td>
+       </tr>
+
+       <tr id="constant.class">
+        <td><strong><code>__CLASS__</code></strong></td>
+        <td>
+         The class name. The class name includes the namespace
+         it was declared in (e.g. <code class="literal">Foo\Bar</code>).
+         Note that as of PHP 5.4 __CLASS__ works also in traits. When used
+         in a trait method, __CLASS__ is the name of the class the trait
+         is used in.
+        </td>
+       </tr>
+
+       <tr id="constant.trait">
+        <td><strong><code>__TRAIT__</code></strong></td>
+        <td>
+         The trait name. The trait name includes the namespace
+         it was declared in (e.g. <code class="literal">Foo\Bar</code>).
+        </td>
+       </tr>
+
+       <tr id="constant.method">
+        <td><strong><code>__METHOD__</code></strong></td>
+        <td>
+         The class method name.
+        </td>
+       </tr>
+
+       <tr id="constant.namespace">
+        <td><strong><code>__NAMESPACE__</code></strong></td>
+        <td>
+         The name of the current namespace.
+        </td>
+       </tr>
+
+       <tr id="constant.coloncolonclass">
+        <td><strong><code>ClassName::class</code></strong></td>
+        <td>
+         The fully qualified class name. See also 
+         <a href="language.oop5.basic.html#language.oop5.basic.class.class" class="link">::class</a>.
+        </td>
+       </tr>
+
+      </tbody>
+     
+    </table>
+
+   </p>
+
+   <p class="para">
+    See also 
+    <span class="function"><a href="function.get-class.html" class="function">get_class()</a></span>,
+    <span class="function"><a href="function.get-object-vars.html" class="function">get_object_vars()</a></span>,
+    <span class="function"><a href="function.file-exists.html" class="function">file_exists()</a></span> and
+    <span class="function"><a href="function.function-exists.html" class="function">function_exists()</a></span>.
+   </p>
+   
+   <div class="sect2" id="language.constants.predefined.changelog">
+    <h3 class="title">Changelog</h3>
+
+    <p class="para">
+     <table class="doctable informaltable">
+      
+       <thead>
+        <tr>
+         <th>Version</th>
+         <th>Description</th>
+        </tr>
+
+       </thead>
+
+       <tbody class="tbody">
+        <tr>
+         <td>5.5.0</td>
+         <td>
+          Added <strong><code>::class</code></strong> magic constant
+         </td>
+        </tr>
+
+        <tr>
+         <td>5.4.0</td>
+         <td>
+          Added <strong><code>__TRAIT__</code></strong> constant
+         </td>
+        </tr>
+
+        <tr>
+         <td>5.3.0</td>
+         <td>
+          Added <strong><code>__DIR__</code></strong> and <strong><code>__NAMESPACE__</code></strong> constants
+         </td>
+        </tr>
+
+       </tbody>
+      
+     </table>
+
+    </p>
+   </div>
+  </div></div></div></body></html>

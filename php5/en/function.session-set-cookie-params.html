@@ -1,0 +1,243 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Set the session cookie parameters</title>
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="../../styles/theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.session-save-path.html">« session_save_path</a></li>
+      <li style="float: right;"><a href="function.session-set-save-handler.html">session_set_save_handler »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.session.html">Session Functions</a></li>
+    <li>Set the session cookie parameters</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.session-set-cookie-params" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">session_set_cookie_params</h1>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">session_set_cookie_params</span> &mdash; <span class="dc-title">Set the session cookie parameters</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.session-set-cookie-params-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>session_set_cookie_params</strong></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$lifetime</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$domain</code></span>
+   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$secure</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
+   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$httponly</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
+  ]]]] ) : <span class="type">bool</span></div>
+
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>session_set_cookie_params</strong></span>
+    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>
+   ) : <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   Set cookie parameters defined in the <var class="filename">php.ini</var> file. The effect of this
+   function only lasts for the duration of the script. Thus, you need to
+   call <span class="function"><strong>session_set_cookie_params()</strong></span> for every request and
+   before <span class="function"><a href="function.session-start.html" class="function">session_start()</a></span> is called.
+  </p>
+  <p class="para">
+   This function updates the runtime ini values of the corresponding PHP ini configuration
+   keys which can be retrieved with the <span class="function"><a href="function.ini-get.html" class="function">ini_get()</a></span>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.session-set-cookie-params-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">lifetime</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <a href="session.configuration.html#ini.session.cookie-lifetime" class="link">Lifetime</a> of the
+       session cookie, defined in seconds.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">path</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <a href="session.configuration.html#ini.session.cookie-path" class="link">Path</a> on the domain where
+       the cookie will work. Use a single slash (&#039;/&#039;) for all paths on the
+       domain.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">domain</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Cookie <a href="session.configuration.html#ini.session.cookie-domain" class="link">domain</a>, for
+       example &#039;www.php.net&#039;. To make cookies visible on all subdomains then
+       the domain must be prefixed with a dot like &#039;.php.net&#039;.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">secure</code></dt>
+
+     <dd>
+
+      <p class="para">
+       If <strong><code>TRUE</code></strong> cookie will only be sent over
+       <a href="session.configuration.html#ini.session.cookie-secure" class="link">secure</a> connections.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">httponly</code></dt>
+
+     <dd>
+
+      <p class="para">
+       If set to <strong><code>TRUE</code></strong> then PHP will attempt to send the
+       <a href="session.configuration.html#ini.session.cookie-httponly" class="link">httponly</a>
+       flag when setting the session cookie.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">options</code></dt>
+
+     <dd>
+
+      <p class="para">
+       An associative <span class="type"><a href="language.types.array.html" class="type array">array</a></span> which may have any of the keys
+       <code class="literal">lifetime</code>, <code class="literal">path</code>, <code class="literal">domain</code>,
+       <code class="literal">secure</code>, <code class="literal">httponly</code> and <code class="literal">samesite</code>.
+       The values have the same meaning as described for the parameters with the
+       same name. The value of the <code class="literal">samesite</code> element should be
+       either <code class="literal">Lax</code> or <code class="literal">Strict</code>.
+       If any of the allowed options are not given, their default values are the
+       same as the default values of the explicit parameters. If the
+       <code class="literal">samesite</code> element is omitted, no SameSite cookie
+       attribute is set.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.session-set-cookie-params-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.session-set-cookie-params-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.3.0</td>
+       <td>
+        An alternative signature supporting an <code class="parameter">options</code>
+        array has been added. This signature supports also setting of the
+        SameSite cookie attribute.
+       </td>
+      </tr>
+
+      <tr>
+       <td>7.2.0</td>
+       <td>
+        Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure. Formerly the function returned <span class="type"><span class="type void">void</span></span>.
+       </td>
+      </tr>
+
+      <tr>
+       <td>5.2.0</td>
+       <td>
+        The <code class="parameter">httponly</code> parameter was added.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.session-set-cookie-params-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member">
+     <a href="session.configuration.html#ini.session.cookie-lifetime" class="link">session.cookie_lifetime</a>
+    </li>
+    <li class="member">
+     <a href="session.configuration.html#ini.session.cookie-path" class="link">session.cookie_path</a>
+    </li>
+    <li class="member">
+     <a href="session.configuration.html#ini.session.cookie-domain" class="link">session.cookie_domain</a>
+    </li>
+    <li class="member">
+     <a href="session.configuration.html#ini.session.cookie-secure" class="link">session.cookie_secure</a>
+    </li>
+    <li class="member">
+     <a href="session.configuration.html#ini.session.cookie-httponly" class="link">session.cookie_httponly</a>
+    </li>
+    <li class="member">
+     <a href="session.configuration.html#ini.session.cookie-samesite" class="link">session.cookie_samesite</a>
+    </li>
+    <li class="member"><span class="function"><a href="function.session-get-cookie-params.html" class="function" rel="rdfs-seeAlso">session_get_cookie_params()</a> - Get the session cookie parameters</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>
