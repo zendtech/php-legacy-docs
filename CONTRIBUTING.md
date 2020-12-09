@@ -23,3 +23,5 @@ The `/styles` folder contains the CSS that will enable you to preview an HTML pa
 Because of the large number of files, it's not practical to navigate this repository through the browser.
 
 ## We have a Code of Conduct
+
+Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project, you agree to abide by its terms.
