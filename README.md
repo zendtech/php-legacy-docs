@@ -8,6 +8,13 @@ The legacy documentation is maintained by Zend and the community.
 
 Ideally, we'd love to see everyone running the latest version of PHP! But to achieve this, someone has to read the old documentation to ensure the application's compatibility with the new PHP version.
 
+## Indexing
+
+This project comes with a script to create an index of which manual page exists for which PHP version. The resulting file will be supplied to php.net in order to speed up lookup.
+
+- Generate the autoload file: `composer install`
+- Execute using `php bin/indexpages.php`
+
 ## FAQ
 
 __Q: Where are the translations?__
