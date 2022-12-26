@@ -14,7 +14,7 @@
 
 html {
   background: #333 url('/images/bg-texture-00.svg');
-  color: #CCC;
+  color: #333;
 }
 #layout-content {
   background:#F2F2F2;
@@ -451,6 +451,9 @@ aside.tips a:focus {
 
 
 /* {{{ Layout menu Left-hand sidebar */
+.layout-menu {
+  color: #ccc;
+}
 .layout-menu ul.child-menu-list li:first-child a {
   border-top-color:#666;
 }
